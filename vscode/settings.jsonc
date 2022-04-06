@@ -1,0 +1,36 @@
+{
+    "files.eol": "\n",
+    "files.trimTrailingWhitespace": true,
+    "window.dialogStyle": "custom",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "editor.insertSpaces": true,
+    "[python]": {
+        "editor.insertSpaces": true
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 3
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
+    "jupyter.alwaysTrustNotebooks": true,
+    "settingsSync.ignoredSettings": ["-jupyter.alwaysTrustNotebooks"],
+    "debug.terminal.clearBeforeReusing": true
+}
