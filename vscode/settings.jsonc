@@ -3,7 +3,6 @@
     "files.trimTrailingWhitespace": true,
     "window.dialogStyle": "custom",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
     "terminal.integrated.tabs.enabled": false,
     "editor.insertSpaces": true,
     "debug.terminal.clearBeforeReusing": true,
@@ -23,14 +22,9 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter.notebook.ipynb",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
     "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
-    "jupyter.alwaysTrustNotebooks": true,
-    "settingsSync.ignoredSettings": ["-jupyter.alwaysTrustNotebooks"]
+    "diffEditor.renderSideBySide": false
 }
