@@ -4,13 +4,15 @@
     "window.dialogStyle": "custom",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "terminal.integrated.tabs.enabled": false,
     "editor.insertSpaces": true,
-    "[python]": {
-        "editor.insertSpaces": true
-    },
+    "debug.terminal.clearBeforeReusing": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "redhat.telemetry.enabled": false,
+    "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
     "[markdown]": {
         "files.trimTrailingWhitespace": false,
-        "editor.insertSpaces": true,
         "editor.tabSize": 3
     },
     "editor.suggestSelection": "first",
@@ -29,8 +31,6 @@
     ],
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": false,
-    "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
     "jupyter.alwaysTrustNotebooks": true,
-    "settingsSync.ignoredSettings": ["-jupyter.alwaysTrustNotebooks"],
-    "debug.terminal.clearBeforeReusing": true
+    "settingsSync.ignoredSettings": ["-jupyter.alwaysTrustNotebooks"]
 }
