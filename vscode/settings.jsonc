@@ -1,30 +1,51 @@
 {
+    // generic
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "window.dialogStyle": "custom",
     "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "terminal.integrated.tabs.enabled": false,
     "editor.insertSpaces": true,
     "debug.terminal.clearBeforeReusing": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "terminal.integrated.tabs.enabled": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "security.workspace.trust.untrustedFiles": "open",
+    //
+    // java
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.project.importOnFirstTimeStartup": "automatic",
     "redhat.telemetry.enabled": false,
-    "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
-    "[markdown]": {
-        "files.trimTrailingWhitespace": false,
-        "editor.tabSize": 3
-    },
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "files.exclude": {
         "**/.classpath": true,
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+    //
+    // markdown
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.tabSize": 3
     },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false
+    //
+    // jupyter
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+    },
+    "notebook.compactView": false,
+    "notebook.dragAndDropEnabled": false,
+    "notebook.showFoldingControls": "always",
+    //
+    // python
+    "python.defaultInterpreterPath": "C:\\Program Files\\Python\\python.exe"
+    // "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
+    // "python.venvFolders": [
+    //     "C:\\Users\\zbhavyai\\.venv"
+    // ]
 }
