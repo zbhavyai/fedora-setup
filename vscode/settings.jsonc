@@ -11,7 +11,8 @@
     "terminal.integrated.tabs.enabled": false,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.enabled": false,
+    "terminal.integrated.persistentSessionReviveProcess": "never",
     //
     // java
     "java.configuration.updateBuildConfiguration": "automatic",
@@ -43,7 +44,8 @@
     "notebook.showFoldingControls": "always",
     //
     // python
-    "python.defaultInterpreterPath": "C:\\Program Files\\Python\\python.exe"
+    "python.defaultInterpreterPath": "C:\\Program Files\\Python\\python.exe",
+    "editor.renderControlCharacters": false
     // "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
     // "python.venvFolders": [
     //     "C:\\Users\\zbhavyai\\.venv"
