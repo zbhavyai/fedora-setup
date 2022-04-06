@@ -1,53 +1,76 @@
 {
-    // generic
-    "files.eol": "\n",
-    "files.trimTrailingWhitespace": true,
-    "window.dialogStyle": "custom",
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
-    "editor.insertSpaces": true,
-    "debug.terminal.clearBeforeReusing": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
-    "terminal.integrated.tabs.enabled": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "security.workspace.trust.enabled": false,
-    "terminal.integrated.persistentSessionReviveProcess": "never",
-    //
-    // java
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "java.project.importOnFirstTimeStartup": "automatic",
-    "redhat.telemetry.enabled": false,
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    //
-    // markdown
-    "[markdown]": {
-        "files.trimTrailingWhitespace": false,
-        "editor.tabSize": 3
-    },
-    //
-    // jupyter
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "right"
-    },
-    "notebook.compactView": false,
-    "notebook.dragAndDropEnabled": false,
-    "notebook.showFoldingControls": "always",
-    //
-    // python
-    "python.defaultInterpreterPath": "C:\\Program Files\\Python\\python.exe",
-    "editor.renderControlCharacters": false
-    // "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
-    // "python.venvFolders": [
-    //     "C:\\Users\\zbhavyai\\.venv"
-    // ]
+  // ----------------------------------- GENERIC ------------------------------------
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "window.dialogStyle": "custom",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "editor.insertSpaces": true,
+  "debug.terminal.clearBeforeReusing": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  "terminal.integrated.tabs.enabled": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "security.workspace.trust.enabled": false,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "editor.formatOnSave": true,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 200,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "telemetry.telemetryLevel": "crash",
+  // ------------------------------------- JAVA -------------------------------------
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.project.importOnFirstTimeStartup": "automatic",
+  "redhat.telemetry.enabled": false,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"c:\\Users\\zbhavyai\\.vscode\\extensions\\gabrielbb.vscode-lombok-1.0.1\\server\\lombok.jar\"",
+  // ---------------------------------- JAVASCRIPT ----------------------------------
+  "[javascript]": {
+    // "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ------------------------------------- HTML -------------------------------------
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  // ------------------------------------- JSON -------------------------------------
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ------------------------------ JSON WITH COMMENTS ------------------------------
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ----------------------------------- MARKDOWN -----------------------------------
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    // "editor.tabSize": 3,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ----------------------------------- JUPYTER ------------------------------------
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "right"
+  },
+  "notebook.compactView": false,
+  "notebook.dragAndDropEnabled": false,
+  "notebook.showFoldingControls": "always",
+  "editor.renderControlCharacters": false
+  // ------------------------------------ PYTHON ------------------------------------
+  //   "python.pythonPath": "C:\\Program Files\\Python\\python.exe"
+  // "python.venvFolders": [
+  //     "C:\\Users\\zbhavyai\\.venv"
+  // ]
 }
