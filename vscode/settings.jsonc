@@ -1,28 +1,40 @@
 {
-  // ----------------------------------- GENERIC ------------------------------------
+  // --------------------------------- EDITOR ---------------------------------
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
-  "window.dialogStyle": "custom",
-  "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "editor.insertSpaces": true,
-  "debug.terminal.clearBeforeReusing": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": false,
-  "terminal.integrated.tabs.enabled": false,
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "security.workspace.trust.enabled": false,
-  "terminal.integrated.persistentSessionReviveProcess": "never",
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
   "editor.formatOnSave": true,
+  "editor.renderControlCharacters": false,
+  "editor.wordWrap": "on",
   "prettier.tabWidth": 2,
   "prettier.printWidth": 200,
   "prettier.jsxSingleQuote": true,
   "prettier.singleQuote": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": false,
+  // -------------------------------- TERMINAL --------------------------------
+  "window.dialogStyle": "custom",
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "debug.terminal.clearBeforeReusing": true,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  // ------------------------------ INTELLISENSE ------------------------------
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // ---------------------------------- OTHER ---------------------------------
   "telemetry.telemetryLevel": "crash",
-  // ------------------------------------- JAVA -------------------------------------
+  "security.workspace.trust.enabled": false,
+  // ---------------------------------- JAVA ----------------------------------
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
   "redhat.telemetry.enabled": false,
@@ -33,30 +45,31 @@
     "**/.factorypath": true
   },
   "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"c:\\Users\\zbhavyai\\.vscode\\extensions\\gabrielbb.vscode-lombok-1.0.1\\server\\lombok.jar\"",
-  // ---------------------------------- JAVASCRIPT ----------------------------------
+  // ------------------------------- JAVASCRIPT -------------------------------
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
     // "editor.defaultFormatter": "vscode.typescript-language-features"
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // ------------------------------------- HTML -------------------------------------
+  // ---------------------------------- HTML ----------------------------------
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  // ------------------------------------- JSON -------------------------------------
+  // ---------------------------------- JSON ----------------------------------
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // ------------------------------ JSON WITH COMMENTS ------------------------------
+  // --------------------------- JSON WITH COMMENTS ---------------------------
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // ----------------------------------- MARKDOWN -----------------------------------
+  // -------------------------------- MARKDOWN --------------------------------
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
     // "editor.tabSize": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // ----------------------------------- JUPYTER ------------------------------------
+  // -------------------------------- JUPYTER ---------------------------------
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
@@ -66,10 +79,9 @@
   },
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
-  "notebook.showFoldingControls": "always",
-  "editor.renderControlCharacters": false
-  // ------------------------------------ PYTHON ------------------------------------
-  //   "python.pythonPath": "C:\\Program Files\\Python\\python.exe"
+  "notebook.showFoldingControls": "always"
+  // --------------------------------- PYTHON ---------------------------------
+  // "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
   // "python.venvFolders": [
   //     "C:\\Users\\zbhavyai\\.venv"
   // ]
