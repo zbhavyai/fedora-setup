@@ -113,8 +113,28 @@ The above means -
 > \du+
 ```
 
-## List tables
+## List tables only
 
 ```
 > \dt+
 ```
+
+## List relations (eg tables, sequences, etc)
+
+```
+> \d
+```
+
+
+## Check table information
+
+```
+> \d <table name>
+```
+
+## Taking table dump
+
+```
+$ pg_dump -st <tablename> <dbname>
+```
+
