@@ -65,7 +65,7 @@
          > ALTER USER postgres WITH PASSWORD '<new password>';
          ```
 
-      3. Open the `pg_hba.conf` configuration file. In the table wherever the TYPE is `host`, change the METHOD to `md5`. Finally the `pg_hba.conf` file would look like this -
+      3. Open the `pg_hba.conf` configuration file. In the table wherever the TYPE is `host`, change the METHOD to `md5`. Finally the `/var/lib/pgsql/data/pg_hba.conf` file would look like this -
 
          ```
          # TYPE  DATABASE        USER            ADDRESS                 METHOD
@@ -106,6 +106,41 @@
    ```
    > \du+
    > \l+
+   ```
+
+## Setting up remote connection
+
+1. Check if PostgreSQL is listening on public port. Result including `127.0.0.1:5432` shows that PostgreSQL is listening only for connects originating from the local computer. Result including `0 0.0.0.0:5432` shows that PostgreSQL is listening for all connections.
+
+   ```
+   $ netstat -nlp | grep 5432
+   ```
+
+2. To open up remote access, edit the file `/var/lib/pgsql/data/postgresql.conf`. Edit the parameters `listen_addresses` and `port` so that they look like this:
+
+   ```
+   listen_addresses = '0.0.0.0'
+   port = 5432
+   ```
+
+3. Setup authentication for remote connections to the database. Edit the file `/var/lib/pgsql/data/pg_hba.conf`. Add the following lines:
+
+   ```
+   host    all             all             0.0.0.0/0               md5
+   host    all             all             ::/0                    md5
+   ```
+
+4. Restart the service
+
+   ```
+   $ sudo systemctl restart postgresql.service
+   ```
+
+5. Open the port in the firewall
+
+   ```
+   $ firewall-cmd --permanent --add-port=5432/tcp
+   $ firewall-cmd --reload
    ```
 
 ## Setting password
