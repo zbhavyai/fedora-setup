@@ -1,6 +1,8 @@
-# PostgreSQL
+# Setting up PostgreSQL Server
 
-## Installing PostgreSQL
+Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
+
+## Installing the server
 
 1. Run the command to install PostgreSQL. This will install both the client and server.
 
@@ -14,16 +16,16 @@
    $ postgresql-setup --initdb
    ```
 
-3. This installation created a new user called `postgres` without any password, as seen from `/etc/shadow`. You may have to switch to connect to the db for the first time
+3. This installation created a new user called `postgres` without any password, as seen from `/etc/shadow`. You would have to switch unix user to connect to the db for the first time
 
    ```
-   $ sudo su - postgres
+   # su - postgres
    ```
 
 4. To connect to the database, start the server and connect from the `postgres` user
 
-   ```sh
-   $ sudo systemctl start postgresql.service
+   ```
+   # systemctl start postgresql.service
    $ psql
    ```
 
@@ -33,35 +35,20 @@
    > select * from pg_settings where name='config_file';
    ```
 
-6. To access postgresql database from your account (rather than from newly created `postgres` user), you either need to create user and database in postgresql with the same name or you have to change some settings.
+6. To access postgresql database from your account rather than from newly created `postgres` unix user, you either need to create user and database in postgresql with the same name or you have to change some settings.
 
-   1. Connect by creating another username and database
-
-      1. Create a new user and database of the same name
-
-         ```
-         $ sudo su - postgres
-         $ createuser --interactive
-         $ createdb <same dbname as unix username>
-         ```
-
-      2. Now connect with that unix username
-         ```
-         $ psql
-         ```
-
-   2. Connect by changing some settings
+   1. **Connect by changing some settings**
 
       1. First connect to the database using `postgres` unix user
 
          ```
-         $ sudo su - postgres
+         # su - postgres
          $ psql
          ```
 
       2. Create a password for `postgres` database user
 
-         ```
+         ```sql
          > ALTER USER postgres WITH PASSWORD '<new password>';
          ```
 
@@ -86,7 +73,7 @@
       4. Restart the service
 
          ```
-         $ sudo systemctl restart postgresql.service
+         # systemctl restart postgresql.service
          ```
 
       5. Now connect to the postgresql from any account
@@ -95,17 +82,25 @@
          $ psql -h localhost -U postgres
          ```
 
+   2. **Connect by creating another username and database**
+
+      1. Create a new user and database of the same name
+
+         ```
+         # su - postgres
+         $ createuser --interactive
+         $ createdb <same dbname as unix username>
+         ```
+
+      2. Now connect with that unix username
+         ```
+         $ psql
+         ```
+
 7. Now you can check your connection information
 
-   ```
+   ```sql
    > \conninfo
-   ```
-
-8. And check all the users and the databases
-
-   ```
-   > \du+
-   > \l+
    ```
 
 ## Setting up remote connection
@@ -133,65 +128,48 @@
 4. Restart the service
 
    ```
-   $ sudo systemctl restart postgresql.service
+   # systemctl restart postgresql.service
    ```
 
 5. Open the port in the firewall
 
    ```
-   $ firewall-cmd --permanent --add-port=5432/tcp
-   $ firewall-cmd --reload
+   # firewall-cmd --permanent --add-port=5432/tcp
+   # firewall-cmd --reload
    ```
 
-## Setting password
+6. Now connect to the ip and port 5432 on which PostgreSQL server is running. An example for windows
+
+   ```
+   $ "C:\Program Files\PostgreSQL\bin\psql.exe" -h <ip addr> -U postgres
+   ```
+
+## Setting password for new user
 
 By default, there is no password for new postgres users added using `createuser` command. So, we need to set password if we want to use `md5` authentication.
 
 1. First make the peer connection and connect
 
    ```
-   $ su - <postgres username>
+   # su - <postgres username>
    $ psql
    ```
 
 2. Change the password
 
+   ```sql
+   > ALTER USER <postgres username> WITH PASSWORD '<new password>';
    ```
-   $ ALTER USER <postgres username> WITH PASSWORD '<new password>';
-   ```
 
-## Change database
+## Same basic commands
 
-```
-> \c <database name>
-```
-
-## List users
-
-```
-> \du+
-```
-
-## List tables only
-
-```
-> \dt+
-```
-
-## List relations (eg tables, sequences, etc)
-
-```
-> \d
-```
-
-## Check table information
-
-```
-> \d <table name>
-```
-
-## Taking table dump
-
-```
-$ pg_dump -st <tablename> <dbname>
-```
+| Command                            | Description                               |
+| ---------------------------------- | ----------------------------------------- |
+| `\l+`                              | List all databases                        |
+| `\c <database name>`               | Change database                           |
+| `\du+`                             | List all users                            |
+| `\d`                               | List all relations (eg tables, sequences) |
+| `\dt+`                             | List tables only                          |
+| `\d <table name>`                  | List table details                        |
+| `pg_dump -st <tablename> <dbname>` | Taking table dump                         |
+| `\q`                               | Exit                                      |
