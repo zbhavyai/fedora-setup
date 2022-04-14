@@ -13,6 +13,7 @@
   "prettier.singleQuote": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
+  "editor.inlayHints.enabled": false,
   // -------------------------------- TERMINAL --------------------------------
   "window.dialogStyle": "custom",
   "terminal.integrated.tabs.enabled": false,
