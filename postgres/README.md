@@ -161,6 +161,22 @@ By default, there is no password for new postgres users added using `createuser`
    > ALTER USER <postgres username> WITH PASSWORD '<new password>';
    ```
 
+## Setting up automatic password
+
+If you don't want to supply password on prompt each time when using `psql` command, below two are good options. These are useful when connecting to postgresql database using a script.
+
+1. Using `PGPASSWORD` environment variable. Either set this variable globally, or just in the script, or use it in the command. To use it in the command
+
+   ```
+   $ PGPASSWORD='<password>' psql -h <host name> -U <username> -d <database name>
+   ```
+
+2. Using `.pgpass` file. By default, this file should be in the home directory, with permissions `600` only. It contains the password for each connection. Format is `hostname:port:database:username:password`. File contents would like this:
+
+   ```
+   *:*:*:<username>:<password>
+   ```
+
 ## Same basic commands
 
 | Command                            | Description                               |
