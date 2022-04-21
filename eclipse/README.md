@@ -10,6 +10,14 @@
 1.  Open Window -> Preferences -> General -> Workspace
 2.  Select `Other: Unix` under "New text file line delimiter"
 
+### Tab switching
+
+1. Open Window -> Preferences -> General -> Keys
+2. Filter for "tab"
+3. Use `Copy command` to copy the commands `Next Tab` and `Previous Tab`
+4. Add `Ctrl+Tab` binding for `Next Tab`
+5. Add `Ctrl+Shift+Tab` binding for `Previous Tab`
+
 ### Autoformat code on save
 
 1.  Open Window -> Preferences -> Java -> Editor -> Save Actions
