@@ -37,3 +37,19 @@
     Remove trailing white spaces on all lines
     Correct indentation
     ```
+
+### Some useful eclipse shortcuts
+
+| Key combo          | Function                                             |
+| ------------------ | ---------------------------------------------------- |
+| `F3`               | Jump to the implementation of the method             |
+| `Ctrl + Alt + H`   | View call hierarchy of the method                    |
+| `F4`               | View class hierarchy of the highlighted class        |
+| `Ctrl + O`         | Class outline to navigate between methods and fields |
+| `Ctrl + Shift + R` | Find and open any file in the workspace by name      |
+| `Ctrl + Alt + Z`   | Surrond code with try-catch, or loops                |
+| `Ctrl + Shift + O` | Add missing imports, organize existing imports       |
+| `Alt + Shift + R`  | Refactor variable                                    |
+| `Ctrl + Shift + F` | Auto format file or highlighted code                 |
+| `Ctrl + F11`       | Run the program                                      |
+| `Ctrl + Shift + L` | List all shortcuts                                   |
