@@ -42,6 +42,7 @@
 
 | Key combo          | Function                                             |
 | ------------------ | ---------------------------------------------------- |
+| `Ctrl + 1`         | Show quickfix menu                                   |
 | `F3`               | Jump to the implementation of the method             |
 | `Ctrl + Alt + H`   | View call hierarchy of the method                    |
 | `F4`               | View class hierarchy of the highlighted class        |
