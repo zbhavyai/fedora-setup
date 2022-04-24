@@ -2,7 +2,7 @@
 
 ### Indentation using spaces
 
-1.  Open Window -> Preferences -> General -> Text Editors
+1.  Open Window -> Preferences -> General -> Editors -> Text Editors
 2.  Select `Insert spaces for tabs`
 
 ### LF line endings
@@ -18,6 +18,14 @@
 4. Add `Ctrl+Tab` binding for `Next Tab`
 5. Add `Ctrl+Shift+Tab` binding for `Previous Tab`
 
+### Highlight code changes wrt Git
+
+1. Open Window -> Preferences -> General -> Editors -> Text Editors -> Quick Diff
+2. Select `Enable quick diff`
+3. Choose `A Git Revision` in `Use this reference source`
+4. Then go to Window -> Preferences -> General -> Editors -> Text Editors -> Accessibility
+5. Select `Use characters to show changes in vertical ruler`
+
 ### Autoformat code on save
 
 1.  Open Window -> Preferences -> Java -> Editor -> Save Actions
@@ -27,8 +35,8 @@
 5.  Make sure below is displayed
 
     ```
-    Remove 'this' qualifier for non static field accesses
-    Remove 'this' qualifier for non static method accesses
+    Add 'this' qualifier to unqualified field accesses
+    Add 'this' qualifier to unqualified method accesses
     Convert control statement bodies to block
     Add missing '@Override' annotations
     Add missing '@Override' annotations to implementations of interface methods
