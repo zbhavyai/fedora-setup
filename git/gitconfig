@@ -1,12 +1,16 @@
 [user]
     name = <your name>
     email = <your email>
+[includeIf "gitdir:<work project directory>"]
+    path = .gitconfig-work
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [init]
     defaultBranch = main
+[pull]
+    rebase = true
 [filter "lfs"]
     process = git-lfs filter-process
     required = true
