@@ -1,8 +1,8 @@
 [user]
     name = <your name>
     email = <your email>
-[includeIf "gitdir:<work project directory>"]
-    path = .gitconfig-work
+# [includeIf "gitdir:<work project directory>"]
+#     path = .gitconfig-work
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
@@ -11,8 +11,8 @@
     defaultBranch = main
 [pull]
     rebase = true
-[filter "lfs"]
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
+# [filter "lfs"]
+#     process = git-lfs filter-process
+#     required = true
+#     clean = git-lfs clean -- %f
+#     smudge = git-lfs smudge -- %f
