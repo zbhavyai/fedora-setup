@@ -59,6 +59,7 @@
 | `Ctrl + Alt + Z`   | Surrond code with try-catch, or loops                |
 | `Ctrl + Shift + O` | Add missing imports, organize existing imports       |
 | `Alt + Shift + R`  | Refactor variable                                    |
+| `Alt + Left Arrow` | Re-open closed tab                                   |
 | `Ctrl + Shift + F` | Auto format file or highlighted code                 |
 | `Ctrl + F11`       | Run the program                                      |
 | `Ctrl + Shift + L` | List all shortcuts                                   |
