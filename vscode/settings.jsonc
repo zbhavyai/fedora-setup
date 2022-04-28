@@ -5,6 +5,9 @@
   "editor.insertSpaces": true,
   "editor.suggestSelection": "first",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
   "editor.renderControlCharacters": false,
   "editor.wordWrap": "on",
   "prettier.tabWidth": 2,
@@ -13,11 +16,13 @@
   "prettier.singleQuote": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
+  // "editor.fontSize": 16,
+  // "terminal.integrated.fontSize": 16,
   "editor.inlayHints.enabled": false,
   // -------------------------------- TERMINAL --------------------------------
   "window.dialogStyle": "custom",
   "terminal.integrated.tabs.enabled": false,
-  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  // "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "debug.terminal.clearBeforeReusing": true,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   // ------------------------------ INTELLISENSE ------------------------------
@@ -45,7 +50,9 @@
     "**/.settings": true,
     "**/.factorypath": true
   },
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"c:\\Users\\zbhavyai\\.vscode\\extensions\\gabrielbb.vscode-lombok-1.0.1\\server\\lombok.jar\"",
+  "quarkus.tools.alwaysShowWelcomePage": false,
+  "microprofile.alwaysShowOverview": false,
+  // "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"c:\\Users\\zbhavyai\\.vscode\\extensions\\gabrielbb.vscode-lombok-1.0.1\\server\\lombok.jar\"",
   // ------------------------------- JAVASCRIPT -------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
