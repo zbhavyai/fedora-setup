@@ -18,7 +18,8 @@
   "diffEditor.renderSideBySide": false,
   // "editor.fontSize": 16,
   // "terminal.integrated.fontSize": 16,
-  "editor.inlayHints.enabled": false,
+  "editor.inlayHints.enabled": "off",
+  "explorer.fileNesting.enabled": false,
   // -------------------------------- TERMINAL --------------------------------
   "window.dialogStyle": "custom",
   "terminal.integrated.tabs.enabled": false,
