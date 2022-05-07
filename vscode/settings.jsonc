@@ -8,6 +8,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
+  "java.saveActions.organizeImports": true,
   "editor.renderControlCharacters": false,
   "editor.wordWrap": "on",
   "prettier.tabWidth": 2,
@@ -53,7 +54,8 @@
   },
   "quarkus.tools.alwaysShowWelcomePage": false,
   "microprofile.alwaysShowOverview": false,
-  // "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"c:\\Users\\zbhavyai\\.vscode\\extensions\\gabrielbb.vscode-lombok-1.0.1\\server\\lombok.jar\"",
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx5G -Xms100m",
+  // "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/zbhavyai/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
   // ------------------------------- JAVASCRIPT -------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
