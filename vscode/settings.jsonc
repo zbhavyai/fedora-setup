@@ -8,7 +8,6 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
-  "java.saveActions.organizeImports": true,
   "editor.renderControlCharacters": false,
   "editor.wordWrap": "on",
   "prettier.tabWidth": 2,
@@ -21,6 +20,7 @@
   // "terminal.integrated.fontSize": 16,
   "editor.inlayHints.enabled": "off",
   "explorer.fileNesting.enabled": false,
+  "editor.bracketPairColorization.enabled": false,
   // -------------------------------- TERMINAL --------------------------------
   "window.dialogStyle": "custom",
   "terminal.integrated.tabs.enabled": false,
@@ -77,7 +77,7 @@
   // -------------------------------- MARKDOWN --------------------------------
   "[markdown]": {
     "files.trimTrailingWhitespace": false,
-    // "editor.tabSize": 3,
+    "editor.tabSize": 3,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // -------------------------------- JUPYTER ---------------------------------
