@@ -37,31 +37,57 @@ Docker share OS kernel.
 ## Commands
 
 - Run the container. If corresponding image is not found on the system, it will be downloaded from the docker hub
-  `docker run <image name>`
+
+  ```
+  $ docker run <image name>
+  ```
 
 - List all running containers
-  `docker ps`
+
+  ```
+  $ docker ps
+  ```
 
 - Stop the running container
-  `docker stop <container name or id>`
+
+  ```
+  $ docker stop <container name or id>
+  ```
 
 - Start the stopped container
-  `docker start <container name or id>`
+
+  ```
+  $ docker start <container name or id>
+  ```
 
 - Pause execution of a container
-  `docker pause <container name or id>`
+
+  ```
+  $ docker pause <container name or id>
+  ```
 
 - Remove the stopped container to free up space
-  `docker rm <container name or id>`
+
+  ```
+  $ docker rm <container name or id>
+  ```
 
 - See list of downloaded images
-  `docker images`
+
+  ```
+  $ docker images
+  ```
 
 - Delete the image to free up space
-  `docker rmi <image name or id>`
+
+  ```
+  $ docker rmi <image name or id>
+  ```
 
 - Download image without running it
-  `docker pull <image name>`
+  ```
+  $ docker pull <image name>
+  ```
 
 <!-- - Remove all stopped containers
   `docker rm $(docker ps -a -q)` -->
