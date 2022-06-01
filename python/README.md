@@ -18,13 +18,25 @@
    $ pyenv virtualenv 3.8.0 <ENV NAME>
    ```
 
-4. To activate the environment
+4. To activate the environment:
 
-   ```bash
-   $ pyenv shell <ENV NAME>     # select just for current shell session
-   $ pyenv local <ENV NAME>     # fautomatically select whenever you are in the current directory (or its subdirectories)
-   $ pyenv global <ENV NAME>    # select globally for your user account
-   ```
+   - Just for current shell session. `pyenv shell` updates the environment variable in the current shell session.
+
+     ```bash
+     $ pyenv shell <ENV NAME>
+     ```
+
+   - Automatically select whenever you are in the current directory (or its subdirectories). This creates a `.python-version` file in the current directory.
+
+     ```bash
+     $ pyenv local <ENV NAME>
+     ```
+
+   - Select globally for your user account. This is stored in `$(pyenv root)/version` file.
+
+     ```bash
+     $ pyenv global <ENV NAME>
+     ```
 
 5. To deactivate
 
