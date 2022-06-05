@@ -94,20 +94,45 @@ $ npm install
 $ npm install --save-dev react-devtools
 ``` -->
 
-## Setting environment variables
+## Environment variables
 
-1. If using **create-react-app**, set the environment variables in the `.env` file at the project root directory
+Full documentation can be found here: [https://github.com/motdotla/dotenv](https://github.com/motdotla/dotenv).
 
-   ```
-   BROWSER=none
-   PORT=3005
-   REACT_APP_API_KEY=<API KEY>
-   ```
+**Notes**:
 
-2. Restart the application after making changes to the `.env` file
+1. Application must be restarted after making changes to the `.env` files
 
-3. If application is not initialized using **create-react-app**, then do these couple of steps as well
+2. If application is not initialized using **create-react-app**, then do these steps beforehand
 
    - Install the package dotenv: `npm install dotenv`
 
-   - Add this line to the app: `require('dotenv').config()`
+   - Add this line to the application: `require('dotenv').config()`
+
+#### Setting up environment variables
+
+Set the environment variables in the `.env` file at the project root directory
+
+```
+BROWSER=none
+PORT=3005
+```
+
+#### Using environment variables
+
+To use environment variables in the application (for example, API keys stored in `.env` file), they must be prefixed with `REACT_APP_` when being declared and used. They can be accessed like this:
+
+To declare:
+
+```
+REACT_APP_API_KEY=<API KEY>
+```
+
+To use:
+
+```js
+let apiKey = process.env.REACT_APP_API_KEY;
+```
+
+#### Splitting environment variables
+
+Environment variables can be split into different files based on current environment, for example, `.env.development` and `.env.production`. In this way, store API key in `.env.development` and add this file to `.gitignore`.
