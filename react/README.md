@@ -93,3 +93,21 @@ $ npm install
 ````
 $ npm install --save-dev react-devtools
 ``` -->
+
+## Setting environment variables
+
+1. If using **create-react-app**, set the environment variables in the `.env` file at the project root directory
+
+   ```
+   BROWSER=none
+   PORT=3005
+   REACT_APP_API_KEY=<API KEY>
+   ```
+
+2. Restart the application after making changes to the `.env` file
+
+3. If application is not initialized using **create-react-app**, then do these couple of steps as well
+
+   - Install the package dotenv: `npm install dotenv`
+
+   - Add this line to the app: `require('dotenv').config()`
