@@ -8,6 +8,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": true
   },
+  "java.saveActions.organizeImports": true,
   "editor.renderControlCharacters": false,
   "editor.wordWrap": "on",
   "prettier.tabWidth": 2,
@@ -60,7 +61,12 @@
   // ------------------------------- JAVASCRIPT -------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[javascript]": {
-    // "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // ---------------------------------- HTML ----------------------------------
@@ -91,8 +97,9 @@
   },
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
-  "notebook.showFoldingControls": "always"
+  "notebook.showFoldingControls": "always",
   // --------------------------------- PYTHON ---------------------------------
+  "python.terminal.activateEnvironment": false
   // "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
   // "python.venvFolders": [
   //     "C:\\Users\\zbhavyai\\.venv"
