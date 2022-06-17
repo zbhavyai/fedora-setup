@@ -73,6 +73,9 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // ---------------------------------- JSON ----------------------------------
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
