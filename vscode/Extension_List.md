@@ -9,6 +9,7 @@ $ code --list-extensions
 Current extension list
 
 ```
+dbaeumer.vscode-eslint
 esbenp.prettier-vscode
 GabrielBB.vscode-lombok
 GitHub.copilot
