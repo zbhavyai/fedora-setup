@@ -17,7 +17,7 @@ Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
    # systemctl start postgresql.service
    ```
 
-3. This installation created a new user called `postgres` without any password, as seen from `/etc/shadow`, and a database schema `postgres`. You would have to switch unix user to connect to the db for the first time:
+3. This installation created a new user called `postgres` without any password, as seen from `/etc/shadow`, and a database `postgres`. You would have to switch unix user to connect to the db for the first time:
 
    ```
    # su - postgres
@@ -46,7 +46,7 @@ Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
 
 3. To access postgresql database from your account rather than from newly created `postgres` unix user, you need to
 
-   1. Either create new user and database schema in postgresql with the same names as unix username. It may not be a good idea, as it will lead to as many users as the database schemas.
+   1. Either create new user and database in postgresql with the same names as unix username. It may not be a good idea, as it will lead to as many users as the databases.
 
    2. Or change some settings. To do so,
 
@@ -92,10 +92,10 @@ Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
    $ psql -h localhost -U postgres
    ```
 
-8. If you have multiple database schemas, connect to them using
+8. If you have multiple databases, connect to them using
 
    ```
-   $ psql -h localhost -U postgres -d <schema_name>
+   $ psql -h localhost -U postgres -d <dbname>
    ```
 
 9. Now you can check your connection information
@@ -142,7 +142,7 @@ Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
 6. Now connect to the ip and port 5432 on which PostgreSQL server is running. Example,
 
    ```
-   $ psql -h <ip addr> -U postgres -d <schema-name>
+   $ psql -h <ip addr> -U postgres -d <dbname>
    ```
 
 ## Creating new user (role)
@@ -160,11 +160,11 @@ OR
 $ sudo -u postgres createuser --interactive --password <username>
 ```
 
-## Creating new database schema
+## Creating new database
 
 ```
 $ psql -h localhost -U postgres
-> CREATE DATABASE <database-name> WITH OWNER <username>;
+> CREATE DATABASE <dbname> WITH OWNER <username>;
 ```
 
 OR
@@ -198,6 +198,7 @@ If you don't want to supply password on prompt each time when using `psql` comma
 | `\du+`                                                    | List all users                            |
 | `\d`                                                      | List all relations (eg tables, sequences) |
 | `\dt+`                                                    | List tables only                          |
+| `\dn+ <dbname>`                                           | List all schemas in a database            |
 | `\d <table name>`                                         | List table details                        |
 | `pg_dump -st <tablename> <dbname>`                        | Taking table dump                         |
 | `pg_dump -s dbname`                                       | Taking database dump                      |
