@@ -10,94 +10,95 @@ Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
    # dnf install postgresql-server
    ```
 
-2. Run the initial setup
+2. Run the initial setup, and then start the server.
 
    ```
    $ postgresql-setup --initdb
+   # systemctl start postgresql.service
    ```
 
-3. This installation created a new user called `postgres` without any password, as seen from `/etc/shadow`. You would have to switch unix user to connect to the db for the first time
+3. This installation created a new user called `postgres` without any password, as seen from `/etc/shadow`, and a database schema `postgres`. You would have to switch unix user to connect to the db for the first time:
 
    ```
    # su - postgres
-   ```
-
-4. To connect to the database, start the server and connect from the `postgres` user
-
-   ```
-   # systemctl start postgresql.service
    $ psql
    ```
 
-5. Check the directory for the configuration files. Depending upon the OS, the configuration file may be located at `/var/lib/pgsql/data/*.conf` or `/etc/postgresql/<version>/main/*conf`.
+   OR, equivalently:
+
+   ```
+   $ sudo -u postgres psql
+   ```
+
+## Basic configuration of the server
+
+1. Connect using the `postgres` user.
+
+   ```
+   $ sudo -u postgres psql
+   ```
+
+2. Check the directory for the configuration files. Depending upon the OS, the configuration file may be located at `/var/lib/pgsql/data/*.conf` or `/etc/postgresql/<version>/main/*conf`.
 
    ```sql
    > select * from pg_settings where name='config_file';
    ```
 
-6. To access postgresql database from your account rather than from newly created `postgres` unix user, you either need to create user and database in postgresql with the same name or you have to change some settings.
+3. To access postgresql database from your account rather than from newly created `postgres` unix user, you need to
 
-   1. **Connect by changing some settings**
+   1. Either create new user and database schema in postgresql with the same names as unix username. It may not be a good idea, as it will lead to as many users as the database schemas.
 
-      1. First connect to the database using `postgres` unix user
+   2. Or change some settings. To do so,
 
-         ```
-         # su - postgres
-         $ psql
-         ```
+4. Create a password for `postgres` database user
 
-      2. Create a password for `postgres` database user
+   ```sql
+   > ALTER USER postgres WITH PASSWORD '<new password>';
+   ```
 
-         ```sql
-         > ALTER USER postgres WITH PASSWORD '<new password>';
-         ```
+   OR
 
-      3. Open the `pg_hba.conf` configuration file. In the table wherever the TYPE is `host`, change the METHOD to `md5`. Finally the `/var/lib/pgsql/data/pg_hba.conf` file would look like this -
+   ```
+   > \password postgres
+   ```
 
-         ```
-         # TYPE  DATABASE        USER            ADDRESS                 METHOD
+5. Open the `/var/lib/pgsql/data/pg_hba.conf` configuration file. In the table wherever the TYPE is `host`, change the METHOD to `md5`. Finally the `pg_hba.conf` file would look like this:
 
-         # "local" is for Unix domain socket connections only
-         local   all             all                                     peer
-         # IPv4 local connections:
-         host    all             all             127.0.0.1/32            md5
-         # IPv6 local connections:
-         host    all             all             ::1/128                 md5
-         # Allow replication connections from localhost, by a user with the
-         # replication privilege.
-         local   replication     all                                     peer
-         host    replication     all             127.0.0.1/32            md5
-         host    replication     all             ::1/128                 md5
-         ```
+   ```
+   # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
-      4. Restart the service
+   # "local" is for Unix domain socket connections only
+   local   all             all                                     peer
+   # IPv4 local connections:
+   host    all             all             127.0.0.1/32            md5
+   # IPv6 local connections:
+   host    all             all             ::1/128                 md5
+   # Allow replication connections from localhost, by a user with the
+   # replication privilege.
+   local   replication     all                                     peer
+   host    replication     all             127.0.0.1/32            md5
+   host    replication     all             ::1/128                 md5
+   ```
 
-         ```
-         # systemctl restart postgresql.service
-         ```
+6. Restart the service
 
-      5. Now connect to the postgresql from any account
+   ```
+   # systemctl restart postgresql.service
+   ```
 
-         ```
-         $ psql -h localhost -U postgres
-         ```
+7. Now connect to the postgresql from any account.
 
-   2. **Connect by creating another username and database**
+   ```
+   $ psql -h localhost -U postgres
+   ```
 
-      1. Create a new user and database of the same name
+8. If you have multiple database schemas, connect to them using
 
-         ```
-         # su - postgres
-         $ createuser --interactive
-         $ createdb <same dbname as unix username>
-         ```
+   ```
+   $ psql -h localhost -U postgres -d <schema_name>
+   ```
 
-      2. Now connect with that unix username
-         ```
-         $ psql
-         ```
-
-7. Now you can check your connection information
+9. Now you can check your connection information
 
    ```sql
    > \conninfo
@@ -138,28 +139,39 @@ Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
    # firewall-cmd --reload
    ```
 
-6. Now connect to the ip and port 5432 on which PostgreSQL server is running. An example for windows
+6. Now connect to the ip and port 5432 on which PostgreSQL server is running. Example,
 
    ```
-   $ "C:\Program Files\PostgreSQL\bin\psql.exe" -h <ip addr> -U postgres
+   $ psql -h <ip addr> -U postgres -d <schema-name>
    ```
 
-## Setting password for new user
+## Creating new user (role)
 
-By default, there is no password for new postgres users added using `createuser` command. So, we need to set password if we want to use `md5` authentication.
+User (or role) can be created using:
 
-1. First make the peer connection and connect
+```
+$ psql -h localhost -U postgres
+> CREATE ROLE <username> WITH LOGIN CREATEDB PASSWORD '<password>';
+```
 
-   ```
-   # su - <postgres username>
-   $ psql
-   ```
+OR
 
-2. Change the password
+```
+$ sudo -u postgres createuser --interactive --password <username>
+```
 
-   ```sql
-   > ALTER USER <postgres username> WITH PASSWORD '<new password>';
-   ```
+## Creating new database schema
+
+```
+$ psql -h localhost -U postgres
+> CREATE DATABASE <database-name> WITH OWNER <username>;
+```
+
+OR
+
+```
+$ sudo -u postgres createdb <database-name>
+```
 
 ## Setting up automatic password
 
@@ -179,13 +191,15 @@ If you don't want to supply password on prompt each time when using `psql` comma
 
 ## Same basic commands
 
-| Command                            | Description                               |
-| ---------------------------------- | ----------------------------------------- |
-| `\l+`                              | List all databases                        |
-| `\c <database name>`               | Change database                           |
-| `\du+`                             | List all users                            |
-| `\d`                               | List all relations (eg tables, sequences) |
-| `\dt+`                             | List tables only                          |
-| `\d <table name>`                  | List table details                        |
-| `pg_dump -st <tablename> <dbname>` | Taking table dump                         |
-| `\q`                               | Exit                                      |
+| Command                                                   | Description                               |
+| --------------------------------------------------------- | ----------------------------------------- |
+| `\l+`                                                     | List all databases                        |
+| `\c <database name>`                                      | Change database                           |
+| `\du+`                                                    | List all users                            |
+| `\d`                                                      | List all relations (eg tables, sequences) |
+| `\dt+`                                                    | List tables only                          |
+| `\d <table name>`                                         | List table details                        |
+| `pg_dump -st <tablename> <dbname>`                        | Taking table dump                         |
+| `pg_dump -s dbname`                                       | Taking database dump                      |
+| `psql -h localhost -U <username> -d <dbname> -f filepath` | Load SQL script                           |
+| `\q`                                                      | Exit                                      |
