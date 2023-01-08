@@ -17,3 +17,9 @@ Host bitbucket.org
 Host talc.ucalgary.ca
  HostName talc.ucalgary.ca
  IdentityFile ~/.ssh/talcLogin
+
+Host testMachine
+  User root
+  HostName testnet2
+  Port 2299
+  IdentityFile ~/.ssh/userfulMachineAccess
