@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse
+Exec=env GDK_BACKEND=x11 /opt/eclipse/eclipse %f
+Icon=/opt/eclipse/icon.xpm
+Comment=The essential tools for any Java developer, including a Java IDE, a Git client, XML Editor, Maven and Gradle integration
+Terminal=false
+Type=Application
+Categories=Development;IDE;Java
+StartupWMClass=Eclipse
+MimeType=text/x-java;text/x-maven+xml;text/x-gradle;text/x-patch;text/x-diff;
+

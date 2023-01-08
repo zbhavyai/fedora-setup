@@ -1,5 +1,7 @@
 # Settings for Eclipse IDE
 
+Place [eclipse.desktop](eclipse.desktop) at location `~/.local/share/applications/eclipse.desktop`.
+
 ### Indentation using spaces
 
 1.  Open Window -> Preferences -> General -> Editors -> Text Editors
