@@ -1,110 +1,63 @@
 {
   // --------------------------------- EDITOR ---------------------------------
-  "files.eol": "\n",
-  "files.trimTrailingWhitespace": true,
-  "editor.insertSpaces": true,
-  "editor.suggestSelection": "first",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "java.saveActions.organizeImports": true,
-  "editor.renderControlCharacters": false,
-  "editor.wordWrap": "on",
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 200,
-  "prettier.jsxSingleQuote": true,
-  "prettier.singleQuote": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
-  // "editor.fontSize": 16,
-  // "terminal.integrated.fontSize": 16,
-  "editor.inlayHints.enabled": "off",
-  "explorer.fileNesting.enabled": false,
   "editor.bracketPairColorization.enabled": false,
+  "editor.codeActionsOnSave": { "source.organizeImports": true },
+  "editor.fontFamily": "Fira Mono",
+  "editor.fontSize": 17,
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.renderControlCharacters": false,
+  "editor.suggestSelection": "first",
+  "editor.wordWrap": "on",
+  "explorer.fileNesting.enabled": false,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
   "update.mode": "none",
-  // -------------------------------- TERMINAL --------------------------------
   "window.dialogStyle": "custom",
-  "terminal.integrated.tabs.enabled": false,
-  // "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  // -------------------------------- TERMINAL --------------------------------
   "debug.terminal.clearBeforeReusing": true,
+  "terminal.integrated.enablePersistentSessions": false,
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.persistentSessionReviveProcess": "never",
+  "terminal.integrated.tabs.enabled": false,
   // ------------------------------ INTELLISENSE ------------------------------
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.inlayHints.enabled": "off",
   "editor.inlineSuggest.enabled": true,
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": false,
-    "plaintext": false,
-    "markdown": true
-  },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "github.copilot.enable": { "*": true, "yaml": false, "plaintext": false, "markdown": true },
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   // ---------------------------------- OTHER ---------------------------------
-  "telemetry.telemetryLevel": "crash",
   "security.workspace.trust.enabled": false,
+  "telemetry.telemetryLevel": "crash",
   // ---------------------------------- JAVA ----------------------------------
+  "files.exclude": { "**/.classpath": true, "**/.project": true, "**/.settings": true, "**/.factorypath": true },
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
-  "redhat.telemetry.enabled": false,
-  "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "quarkus.tools.alwaysShowWelcomePage": false,
+  "java.saveActions.organizeImports": true,
   "microprofile.alwaysShowOverview": false,
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx5G -Xms100m",
-  // "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/zbhavyai/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
-  // ------------------------------- JAVASCRIPT -------------------------------
+  "quarkus.tools.alwaysShowWelcomePage": false,
+  // -------------------------------- PRETTIER --------------------------------
+  "prettier.jsxSingleQuote": true,
+  "prettier.printWidth": 200,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 2,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // ---------------------------------- HTML ----------------------------------
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // ---------------------------------- JSON ----------------------------------
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // --------------------------- JSON WITH COMMENTS ---------------------------
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // -------------------------------- MARKDOWN --------------------------------
-  "[markdown]": {
-    "files.trimTrailingWhitespace": false,
-    "editor.tabSize": 3,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // -------------------------------- JUPYTER ---------------------------------
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "right"
-  },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "files.trimTrailingWhitespace": false, "editor.tabSize": 3 },
+  // --------------------------------- PYTHON ---------------------------------
+  "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
-  // --------------------------------- PYTHON ---------------------------------
-  "python.terminal.activateEnvironment": false
-  // "python.pythonPath": "C:\\Program Files\\Python\\python.exe",
-  // "python.venvFolders": [
-  //     "C:\\Users\\zbhavyai\\.venv"
-  // ]
+  "python.terminal.activateEnvironment": false,
+  "python.venvFolders": ["/home/zbhavyai/.venv"],
+  "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" }
 }
