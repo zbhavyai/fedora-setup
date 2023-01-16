@@ -38,6 +38,7 @@
   "java.saveActions.organizeImports": true,
   "microprofile.alwaysShowOverview": false,
   "quarkus.tools.alwaysShowWelcomePage": false,
+  "redhat.telemetry.enabled": false,
   // -------------------------------- PRETTIER --------------------------------
   "prettier.jsxSingleQuote": true,
   "prettier.printWidth": 200,
@@ -57,7 +58,8 @@
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
-  "python.terminal.activateEnvironment": false,
+  "python.defaultInterpreterPath": "/home/zbhavyai/.venv/PY-ENV/bin/python",
+  "python.terminal.activateEnvironment": true,
   "python.venvFolders": ["/home/zbhavyai/.venv"],
   "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" }
 }

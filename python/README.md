@@ -1,4 +1,25 @@
-# Setting up virtual environment with a different version of Python
+# Setting up venv
+
+1. Create a virtual environment called `PY-ENV`
+
+   ```bash
+   $ python -m venv ~/.venv/PY-ENV
+   ```
+
+2. To activate the environment
+
+   ```bash
+   $ chmod +x ~/.venv/PY-ENV/bin/activate
+   $ . ~/.venv/PY-ENV/bin/activate
+   ```
+
+3. To deactivate, simply
+
+   ```bash
+   $ deactivate
+   ```
+
+# Setting up venv with a different version of Python
 
 1. Install `pyenv`. It will download [`pyenv`](https://github.com/pyenv/pyenv.git) github repository in `~/.pyenv` directory.
 

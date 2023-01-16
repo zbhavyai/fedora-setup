@@ -61,6 +61,9 @@ export PATH="${PATH}:/opt/node-v18.11.0-linux-x64/bin"
 export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
 export TESTCONTAINERS_RYUK_DISABLED=true
 
+# python
+alias activate='source /home/zbhavyai/.venv/PY-ENV/bin/activate'
+
 
 # #############################################################################
 # git branch function
