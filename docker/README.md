@@ -4,6 +4,9 @@ Docker utilizes Aleksey containers.
 
 Docker share OS kernel.
 
+
+ADD PODMAN STEPS AS WELL IN THIS OR SEPARATE GUIDE
+
 ## Manual Installation
 
 1. All supported OS are listed [here](https://docs.docker.com/engine/install/). Download the package for fedora from [here](https://download.docker.com/linux/fedora/).

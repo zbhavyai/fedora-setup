@@ -1,6 +1,6 @@
 # Setting up PostgreSQL Server
 
-Instructions are for setting up PostgreSQL Server on a Red Hat based distro.
+Instructions are for setting up PostgreSQL Server.
 
 ## Installing the server
 
