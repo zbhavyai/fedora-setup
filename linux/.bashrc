@@ -70,7 +70,9 @@ alias activate='source /home/zbhavyai/.venv/PY-ENV/bin/activate'
 # #############################################################################
 
 parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+    # dont use porcelain command git branch
+    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+    git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/(&)/'
 }
 
 export -f parse_git_branch
