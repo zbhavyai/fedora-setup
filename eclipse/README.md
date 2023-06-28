@@ -4,13 +4,13 @@ Place [eclipse.desktop](eclipse.desktop) at location `~/.local/share/application
 
 ### Indentation using spaces
 
-1.  Open Window -> Preferences -> General -> Editors -> Text Editors
-2.  Select `Insert spaces for tabs`
+1. Open Window -> Preferences -> General -> Editors -> Text Editors
+2. Select `Insert spaces for tabs`
 
 ### LF line endings
 
-1.  Open Window -> Preferences -> General -> Workspace
-2.  Select `Other: Unix` under "New text file line delimiter"
+1. Open Window -> Preferences -> General -> Workspace
+2. Select `Other: Unix` under "New text file line delimiter"
 
 ### Tab switching
 
@@ -30,23 +30,37 @@ Place [eclipse.desktop](eclipse.desktop) at location `~/.local/share/application
 
 ### Autoformat code on save
 
-1.  Open Window -> Preferences -> Java -> Editor -> Save Actions
-2.  Select `Perform the selected actions on save`
-3.  Select `Format source code` and `Format all lines`
-4.  Select `Additional actions` and configure...
-5.  Make sure below is displayed
+1. Open Window -> Preferences -> Java -> Editor -> Save Actions
+2. Select `Perform the selected actions on save`
+3. Select `Format source code` and `Format all lines`
+4. Select `Additional actions` and configure...
+5. Make sure below is displayed
 
-    ```
-    Add 'this' qualifier to unqualified field accesses
-    Add 'this' qualifier to unqualified method accesses
-    Convert control statement bodies to block
-    Add missing '@Override' annotations
-    Add missing '@Override' annotations to implementations of interface methods
-    Add missing '@Deprecated' annotations
-    Remove unnecessary casts
-    Remove trailing white spaces on all lines
-    Correct indentation
-    ```
+   ```
+   Add 'this' qualifier to unqualified field accesses
+   Add 'this' qualifier to unqualified method accesses
+   Convert control statement bodies to block
+   Add missing '@Override' annotations
+   Add missing '@Override' annotations to implementations of interface methods
+   Add missing '@Deprecated' annotations
+   Remove unnecessary casts
+   Remove trailing white spaces on all lines
+   Correct indentation
+   ```
+
+### Change the font
+
+1. Open Window -> Preferences -> General -> Appearance -> Colors and Fonts
+2. Expand `Basic`.
+3. Edit the font of `Text Font` and `Text Editor Block Selection Font` to `Monospace 11`
+
+### Update the JDK
+
+Eclipse comes with a bundled JDK. To update it to the system-wide JDK installation:
+
+1. Open Window -> Preferences -> Java -> Installed JREs
+2. Click `Add` -> Standard VM
+3. Fill in the details and make it the default by selecting the checkbox
 
 ### Some useful eclipse shortcuts
 
