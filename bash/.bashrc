@@ -118,44 +118,6 @@ export -f removeOnly
 
 
 # #############################################################################
-# path and alias
-# #############################################################################
-
-# alias
-alias vi='vim'
-alias cls='clear'
-alias ll='ls -lF'
-alias python='python3'
-alias prettyjson='json_pp -json_opt pretty,canonical'
-alias prettyjson='python3 -mjson.tool'
-alias prettyjson='jq'
-alias findjava='find . -type f -name "*java"'
-
-# either use this, or use "ssh testMachine". Check ssh_config file
-alias sshtestMachine='ssh root@testnet2 -p 2299'
-
-
-# java
-export JAVA_HOME="/etc/alternatives/java_sdk"
-# for manual installation
-# export JAVA_HOME="/opt/jdk-17.0.5+8"
-# export PATH="${JAVA_HOME}/bin:${PATH}"
-
-# maven
-export PATH="${PATH}:/opt/apache-maven-3.8.6/bin"
-
-# node
-export PATH="${PATH}:/opt/node-v18.11.0-linux-x64/bin"
-
-# podman (from https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/)
-export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
-export TESTCONTAINERS_RYUK_DISABLED=true
-
-# python
-alias activate='source /home/zbhavyai/.venv/PY-ENV/bin/activate'
-
-
-# #############################################################################
 # tab renaming - doesn't work with gnome-terminal on Fedora
 # #############################################################################
 renameTab() {
@@ -164,6 +126,39 @@ renameTab() {
 	PS1="${CUSTOM_PS1}"
 }
 export -f renameTab
+
+
+# #############################################################################
+# env variables
+# #############################################################################
+# podman (from https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/)
+export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+export TESTCONTAINERS_RYUK_DISABLED=true
+
+
+# #############################################################################
+# path
+# #############################################################################
+export PATH="${PATH}:/opt/apache-maven-3.6.3/bin"
+export PATH="${PATH}:/opt/node-v18.16.1/bin"
+
+
+# #############################################################################
+# alias
+# #############################################################################
+alias vi='vim'
+alias ll='ls -lF'
+alias activate='source ${HOME}/.venv/PY-ENV/bin/activate'
+alias python='python3'
+alias prettyjson='python3 -mjson.tool'
+alias findjava='find . -type f -name "*java"'
+alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
+
+if [ "${isRhel}" -eq 0 ]; then
+    :
+else
+    alias alternatives='sudo update-alternatives'
+fi
 
 
 # #############################################################################
