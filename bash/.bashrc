@@ -81,6 +81,43 @@ CUSTOM_PS1="${PS1}"
 
 
 # #############################################################################
+# clear function when terminal doesn't support it
+# #############################################################################
+cls() {
+    printf "%.0s\n" {1..50}
+    clear
+}
+export -f cls
+
+
+# #############################################################################
+# print separator till the end
+# #############################################################################
+function printSeparator() {
+    terminal_width=$(tput cols)
+    # for ((i = 1; i <= terminal_width; i++)); do
+    #     printf "$1"
+    # done
+	printf "%.0s-" $(seq 1 ${terminal_width})
+    printf "\n"
+}
+export -f printSeparator
+
+
+# #############################################################################
+# remove package without dependencies
+# #############################################################################
+removeOnly() {
+    if [ "${isRhel}" -eq 0 ]; then
+        sudo rpm --erase --nodeps ${@}
+    else
+        sudo dpkg --remove --force-depends ${@}
+    fi
+}
+export -f removeOnly
+
+
+# #############################################################################
 # path and alias
 # #############################################################################
 
