@@ -1,0 +1,31 @@
+Host github.com
+  HostName github.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/githubLogin
+  User git
+
+Host bitbucket.org
+  HostName bitbucket.org
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/bitbucketLogin
+  User git
+
+Host localhost
+ HostName localhost
+ IdentitiesOnly yes
+ Port 22
+ IdentityFile ~/.ssh/githubLogin
+
+Host testnet2
+  HostName testnet2
+  IdentitiesOnly yes
+  User root
+  Port 2299
+  IdentityFile ~/.ssh/userfulMachineAccess
+  ForwardAgent yes
+
+Host test*
+  IdentitiesOnly yes
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+
