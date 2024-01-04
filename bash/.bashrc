@@ -109,34 +109,14 @@ export PS1_BKP="${PS1}"
 
 
 # #############################################################################
-# rename tab function
+# tab renaming - doesn't work with all terminals
 # #############################################################################
-
-# does not work with all types of terminals
-
-# renameTab() {
-#     # printf "\e]2;${1}\a"
-#     echo -en "\033]0;$@\007"
-#
-#     # if rename is called, disable title change on PS1
-#     PS1="${PS1_BKP}"
-# }
-
-# export -f renameTab
-
-
-# #############################################################################
-# default tab title
-# #############################################################################
-
-# # If this is an xterm set the title to dir
-# case "$TERM" in
-# xterm*|rxvt*)
-#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\w\a\]$PS1"
-#     ;;
-# *)
-#     ;;
-# esac
+renameTab() {
+    # printf "\e]2;${1}\a"
+    echo -en "\033]0;$@\007"
+	PS1="${PS1_BKP}"
+}
+export -f renameTab
 
 
 # #############################################################################
