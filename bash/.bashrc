@@ -48,14 +48,13 @@ fi
 # #############################################################################
 parse_git_branch() {
     # dont use porcelain command git branch
-    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+    # /usr/bin/git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1) /'
 
     # seen somewhere on stack overflow
-    # git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/(&)/'
+    # /usr/bin/git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/ (&)/'
 
-    # use the one suggested by Fedora
-    ref=$(/usr/bin/git rev-parse --abbrev-ref HEAD 2> /dev/null)
-    git_branch=${ref:+:$ref}
+    # use the one suggested by Fedora in their bash-color-prompt doc
+    /usr/bin/git rev-parse --abbrev-ref HEAD 2> /dev/null | sed 's/.*/ (&)/'
 }
 export -f parse_git_branch
 
@@ -74,12 +73,12 @@ colorMagenta="\[\e[00;35m\]"
 
 if [ $EUID -eq 0 ]; then
     # PS1 for root users
-    export PS1="${colorMagenta}\u@\h${colorReset} ${colorYellow}\W${colorReset} ${colorCyan}"
+    export PS1="${colorMagenta}\u@\h${colorReset}:${colorYellow}\W${colorReset}${colorCyan}"
     export PS1="${PS1}"'$( parse_git_branch )'
     export PS1="${PS1}${colorReset}# "
 else
     # PS1 for non-root users
-    export PS1="${colorCyan}\u@\h${colorReset} ${colorYellow}\W${colorReset} ${colorMagenta}"
+    export PS1="${colorCyan}\u@\h${colorReset}:${colorYellow}\W${colorReset}${colorMagenta}"
     export PS1="${PS1}"'$( parse_git_branch )'
     export PS1="${PS1}${colorReset}$ "
 fi
