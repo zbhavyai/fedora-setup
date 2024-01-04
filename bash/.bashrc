@@ -27,9 +27,9 @@ fi
 unset rc
 
 
-# #################################################
+# #############################################################################
 # determine type of distro
-# #################################################
+# #############################################################################
 export isRhel=1
 if [ -f /etc/os-release ]; then
     ID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
@@ -41,6 +41,43 @@ if [ -f /etc/os-release ]; then
         export isRhel=1
     fi
 fi
+
+
+# #############################################################################
+# git branch function
+# #############################################################################
+parse_git_branch() {
+    # dont use porcelain command git branch
+    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+    git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/(&)/'
+}
+export -f parse_git_branch
+
+
+# #############################################################################
+# colorful prompt
+# #############################################################################
+    colorRed="\[\e[00;31m\]"
+  colorGreen="\[\e[00;32m\]"
+ colorYellow="\[\e[00;33m\]"
+   colorBlue="\[\e[00;34m\]"
+colorMagenta="\[\e[00;35m\]"
+   colorCyan="\[\e[00;36m\]"
+  colorWhite="\[\e[00;37m\]"
+  colorReset="\[\e[00m\]"
+
+if [ $EUID -eq 0 ]; then
+    # PS1 for root users
+    export PS1="${colorMagenta}\u@\h${colorReset} ${colorYellow}\W${colorReset} ${colorCyan}"
+    export PS1="${PS1}"'$( parse_git_branch )'
+    export PS1="${PS1}${colorReset}# "
+else
+    # PS1 for non-root users
+    export PS1="${colorCyan}\u@\h${colorReset} ${colorYellow}\W${colorReset} ${colorMagenta}"
+    export PS1="${PS1}"'$( parse_git_branch )'
+    export PS1="${PS1}${colorReset}$ "
+fi
+CUSTOM_PS1="${PS1}"
 
 
 # #############################################################################
@@ -82,39 +119,12 @@ alias activate='source /home/zbhavyai/.venv/PY-ENV/bin/activate'
 
 
 # #############################################################################
-# git branch function
-# #############################################################################
-
-parse_git_branch() {
-    # dont use porcelain command git branch
-    # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
-    git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/(&)/'
-}
-
-export -f parse_git_branch
-
-    colorRed="\[\e[00;31m\]"
-  colorGreen="\[\e[00;32m\]"
- colorYellow="\[\e[00;33m\]"
-   colorBlue="\[\e[00;34m\]"
-colorMagenta="\[\e[00;35m\]"
-   colorCyan="\[\e[00;36m\]"
-  colorWhite="\[\e[00;37m\]"
-  colorReset="\[\e[00m\]"
-
-export PS1="${debian_chroot:+($debian_chroot)}${colorCyan}\u@\h${colorReset} ${colorYellow}\W${colorReset} ${colorMagenta}"
-export PS1="${PS1}"'$( parse_git_branch )'
-export PS1="${PS1}${colorReset}$ "
-export PS1_BKP="${PS1}"
-
-
-# #############################################################################
-# tab renaming - doesn't work with all terminals
+# tab renaming - doesn't work with gnome-terminal on Fedora
 # #############################################################################
 renameTab() {
     # printf "\e]2;${1}\a"
     echo -en "\033]0;$@\007"
-	PS1="${PS1_BKP}"
+	PS1="${CUSTOM_PS1}"
 }
 export -f renameTab
 
