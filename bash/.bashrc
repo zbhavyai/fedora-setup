@@ -49,7 +49,13 @@ fi
 parse_git_branch() {
     # dont use porcelain command git branch
     # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
-    git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/(&)/'
+
+    # seen somewhere on stack overflow
+    # git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/(&)/'
+
+    # use the one suggested by Fedora
+    ref=$(/usr/bin/git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    git_branch=${ref:+:$ref}
 }
 export -f parse_git_branch
 
@@ -98,7 +104,7 @@ function printSeparator() {
     # for ((i = 1; i <= terminal_width; i++)); do
     #     printf "$1"
     # done
-	printf "%.0s-" $(seq 1 ${terminal_width})
+    printf "%.0s-" $(seq 1 ${terminal_width})
     printf "\n"
 }
 export -f printSeparator
@@ -123,7 +129,7 @@ export -f removeOnly
 renameTab() {
     # printf "\e]2;${1}\a"
     echo -en "\033]0;$@\007"
-	PS1="${CUSTOM_PS1}"
+    PS1="${CUSTOM_PS1}"
 }
 export -f renameTab
 
