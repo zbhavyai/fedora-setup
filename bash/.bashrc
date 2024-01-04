@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # User specific environment
@@ -17,14 +17,30 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
 fi
 
 unset rc
+
+
+# #################################################
+# determine type of distro
+# #################################################
+export isRhel=1
+if [ -f /etc/os-release ]; then
+    ID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
+    ID_LIKE=$(grep -oP '(?<=^ID_LIKE=).+' /etc/os-release | tr -d '"')
+
+    if [[ "$ID" == "rhel" || "$ID_LIKE" == *"rhel"* || "$ID" == "fedora" ]]; then
+        export isRhel=0
+    else
+        export isRhel=1
+    fi
+fi
 
 
 # #############################################################################
