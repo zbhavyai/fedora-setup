@@ -29,3 +29,7 @@ Host test*
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
 
+Host *
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/userfulMachineAccess
+
