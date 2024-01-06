@@ -134,11 +134,14 @@ export -f renameTab
 
 
 # #############################################################################
-# env variables
+# podman for quarkus dev https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/
 # #############################################################################
-# podman (from https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/)
-export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
-export TESTCONTAINERS_RYUK_DISABLED=true
+if command -v docker &> /dev/null && ! rpm -q podman-docker &> /dev/null; then
+    :
+else
+    export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+    export TESTCONTAINERS_RYUK_DISABLED=true
+fi
 
 
 # #############################################################################
