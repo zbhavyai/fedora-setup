@@ -73,12 +73,12 @@ colorMagenta="\[\e[00;35m\]"
 
 if [ $EUID -eq 0 ]; then
     # PS1 for root users
-    export PS1="${colorMagenta}\u@\h${colorReset}:${colorYellow}\W${colorReset}${colorCyan}"
+    export PS1="${colorMagenta}\u@\h${colorReset} ${colorYellow}\W${colorReset}${colorCyan}"
     export PS1="${PS1}"'$( parse_git_branch )'
     export PS1="${PS1}${colorReset}# "
 else
     # PS1 for non-root users
-    export PS1="${colorCyan}\u@\h${colorReset}:${colorYellow}\W${colorReset}${colorMagenta}"
+    export PS1="${colorCyan}\u@\h${colorReset} ${colorYellow}\W${colorReset}${colorMagenta}"
     export PS1="${PS1}"'$( parse_git_branch )'
     export PS1="${PS1}${colorReset}$ "
 fi
