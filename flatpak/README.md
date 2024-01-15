@@ -10,7 +10,7 @@ flatpak list --app --columns=application
 
 ## adw-gtk3 Theme
 
-This theme is an unofficial GTK3 port of libadwaita. Since I use this theme for the Legacy GTK3 apps (via gnome-tweaks), I installed it via the package manager. Without its equivalent in the flatpak installed, flatpak apps like Eclipse and Chromium render in light mode only.
+This theme is an unofficial GTK3 port of libadwaita. Since I use this theme for the Legacy GTK3 apps (via `gnome-tweaks`), I installed it via the package manager. Without its equivalent in the flatpak installed, flatpak apps like Eclipse and Chromium render in light mode only.
 
 ```shell
 flatpak install flathub org.gtk.Gtk3theme.adw-gtk3-dark
