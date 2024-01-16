@@ -1,0 +1,4 @@
+gnome-weather
+gnome-boxes
+highcontrast-icon-theme
+virtualbox-guest-additions

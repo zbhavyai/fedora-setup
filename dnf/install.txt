@@ -1,0 +1,37 @@
+# java dev
+java-17-openjdk-devel
+java-17-openjdk-javadoc
+java-17-openjdk-src
+java-17-openjdk-jmods
+maven
+
+# javascript dev
+nodejs
+
+# git gui
+gitg
+gitk
+
+# customization
+dconf-editor
+gnome-tweaks
+mozilla-fira-mono-fonts
+adw-gtk3-theme
+
+# tools
+openssl
+nmap
+ftp
+qt
+
+# archiving
+unrar
+file-roller
+
+# pdf organization
+pdftk
+
+# miscellaneous
+vim-enhanced
+transmission
+podman-compose
