@@ -5,8 +5,6 @@ com.jetbrains.IntelliJ-IDEA-Community
 com.jgraph.drawio.desktop
 no.mifi.losslesscut
 org.audacityteam.Audacity
-org.chromium.Chromium
-org.eclipse.Java
 org.gnome.SoundRecorder
 org.nickvision.tagger
 org.nickvision.tubeconverter
