@@ -1,7 +1,7 @@
 #!/bin/bash
-#
-# author        : bhavyai
-# description   : install and remove flatpak packages
+# Author        : github.com/zbhavyai
+# Purpose       : Install favourite flatpak apps
+
 
 SCRIPT_DIR="$(dirname "$0")"
 FILE_INSTALL="${SCRIPT_DIR}/install.txt"
@@ -22,6 +22,7 @@ install_packages() {
     flatpak install -y flathub "${packages[@]}"
     printf "\n\n"
 }
+
 
 main() {
     install_packages

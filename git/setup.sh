@@ -1,7 +1,7 @@
 #!/bin/bash
-#
-# author        : bhavyai
-# description   : setup gitconfig
+# Author        : github.com/zbhavyai
+# Purpose       : Setup gitconfig
+
 
 SCRIPT_DIR="$(dirname "$0")"
 CONFIG_FILE_HOME="${SCRIPT_DIR}/.gitconfig"

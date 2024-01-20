@@ -1,7 +1,7 @@
 #!/bin/bash
-#
-# author        : bhavyai
-# description   : install and remove packages
+# Author        : github.com/zbhavyai
+# Purpose       : Remove and install dnf packages
+
 
 SCRIPT_DIR="$(dirname "$0")"
 FILE_INSTALL="${SCRIPT_DIR}/install.txt"
