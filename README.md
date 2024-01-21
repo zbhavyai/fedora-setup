@@ -1,1 +1,1 @@
-## How to setup
+## Fedora Setup
