@@ -3,7 +3,7 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": false,
   "editor.bracketPairColorization.enabled": false,
-  "editor.codeActionsOnSave": { "source.organizeImports": true },
+  "editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
   "editor.fontFamily": "Fira Mono",
   "editor.fontSize": 17,
   "editor.formatOnSave": true,
@@ -16,6 +16,8 @@
   "files.trimTrailingWhitespace": true,
   "update.mode": "none",
   "window.dialogStyle": "custom",
+  "workbench.iconTheme": "material-icon-theme",
+  "git.openRepositoryInParentFolders": "always",
   // -------------------------------- TERMINAL --------------------------------
   "debug.terminal.clearBeforeReusing": true,
   "terminal.integrated.enablePersistentSessions": false,
@@ -54,6 +56,7 @@
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "files.trimTrailingWhitespace": false, "editor.tabSize": 3 },
   // --------------------------------- PYTHON ---------------------------------
+  "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
