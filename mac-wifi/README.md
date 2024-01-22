@@ -1,4 +1,8 @@
-# WiFi Connectivity
+# Mac Mini
+
+The Mac Mini is a compact desktop computer designed and manufactured by Apple Inc. It is known for its small form factor, making it a versatile and space-efficient choice for users who want the macOS experience without a built-in display.
+
+## Problem with WiFi
 
 After installing Fedora 39 on [Mac mini (Late 2014)](https://support.apple.com/kb/SP710?locale=en_GB), WiFi may not be detected. Follow the steps below to resolve the issue.
 
@@ -10,42 +14,42 @@ Credits to [source1](https://jaehoo.wordpress.com/2022/10/10/bye-bye-mac-os-hell
 
 2. Download RPM Fusion non-free repository.
 
-   ```bash
+   ```shell
    wget http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
    ```
 
 3. Install the downloaded RPM.
 
-   ```bash
+   ```shell
    sudo dnf install -y rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
    ```
 
 4. Install Broadcom WiFi driver.
 
-   ```bash
+   ```shell
    sudo dnf install -y broadcom-wl
    ```
 
 5. Compile drivers
 
-   ```bash
+   ```shell
    sudo akmods --force
    ```
 
 6. Generate module dependencies
 
-   ```bash
+   ```shell
    sudo depmod -a
    ```
 
 7. Load `wl` kernel module
 
-   ```bash
+   ```shell
    sudo modprobe wl
    ```
 
 8. Reboot
 
-   ```bash
+   ```shell
    shutdown -r now
    ```
