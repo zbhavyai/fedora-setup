@@ -99,7 +99,7 @@ export -f shorterPrompt
 # #############################################################################
 cls() {
     printf "%.0s\n" {1..50}
-    clear
+    printf '\033[3J' && clear
 }
 export -f cls
 
