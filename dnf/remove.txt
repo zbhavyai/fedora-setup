@@ -1,4 +1,7 @@
 gnome-weather
 gnome-boxes
-highcontrast-icon-theme
 virtualbox-guest-additions
+gnome-tour
+gnome-maps
+highcontrast-icon-theme
+totem
