@@ -1,6 +1,8 @@
-# Settings for Eclipse IDE
+# Eclipse
 
-Place [eclipse.desktop](eclipse.desktop) at location `~/.local/share/applications/eclipse.desktop`.
+Eclipse IDE, a flagship project by the Eclipse Foundation, stands as a versatile and extensible integrated development environment primarily tailored for Java. The Eclipse Foundation, a stalwart in open-source communities, hosts impactful projects like Jakarta EE, ensuring the evolution of enterprise Java standards. Adoptium provides reliable OpenJDK-based binaries, Eclipse MicroProfile tackles microservices challenges, and Eclipse GlassFish serves as a Jakarta EE-compatible application server, collectively exemplifying the foundation's commitment to advancing collaborative and innovative solutions in the software development landscape.
+
+## IDE Settings
 
 ### Indentation using spaces
 
@@ -62,7 +64,7 @@ Eclipse comes with a bundled JDK. To update it to the system-wide JDK installati
 2. Click `Add` -> Standard VM
 3. Fill in the details and make it the default by selecting the checkbox
 
-### Some useful eclipse shortcuts
+## Some IDE shortcuts
 
 | Key combo          | Function                                             |
 | ------------------ | ---------------------------------------------------- |
