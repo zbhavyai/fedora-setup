@@ -10,7 +10,6 @@ nodejs
 
 # git gui
 gitg
-gitk
 
 # customization
 dconf-editor
