@@ -1,8 +1,12 @@
-# Settings for Virtual Box
+# VirtualBox
 
-Update file `/usr/share/applications/virtualbox.desktop` with [virtualbox.desktop](virtualbox.desktop).
+VirtualBox is an open-source virtualization software developed by Oracle. It enables users to run multiple guest operating systems simultaneously on a single physical machine, facilitating easy experimentation, development, and testing of software across different environments. With support for a wide range of host and guest OS platforms, VirtualBox offers features such as snapshots, virtual networking, and seamless integration with the host system.
 
-## Setting up port forwarding
+## Updated launcher
+
+Find the updated launcher at [virtualbox.desktop](virtualbox.desktop). This sets the `env GDK_BACKEND=x11` to fix some issues with running VirtualBox on Wayland.
+
+## Port forwarding
 
 1. Go to `Settings` > `Network` > `Advanced` > `Port Forwarding`
 
@@ -24,16 +28,19 @@ Update file `/usr/share/applications/virtualbox.desktop` with [virtualbox.deskto
 
 Fedora Server would only use upto 15G of your harddisk size. Read more about it [here](https://lists.fedoraproject.org/archives/list/server@lists.fedoraproject.org/thread/D7ZK7SILYDYAATRFS6BFWZQWS6KSRGDG/).
 
-But, do remember that the whole disk is still utilized. Check the partitioning using
+But, remember that the whole disk is still utilized. Check the partitioning using
 
-```bash
-$ lsblk
+```shell
+lsblk
 ```
 
-To claim back all the remaning disk and extend the root partition,
+To claim back all the remaining disk and extend the root partition,
 
-```bash
-$ lvresize -L 100%FREE -r fedora/root
+```shell
+lvresize -L 100%FREE -r fedora/root
 ```
 
-Also checks links at [here](https://unix.stackexchange.com/questions/616780/fedora-server-32-install-does-not-claim-full-disk) and [here](https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236).
+Also refer to these links
+
+- [https://unix.stackexchange.com/questions/616780/fedora-server-32-install-does-not-claim-full-disk](https://unix.stackexchange.com/questions/616780/fedora-server-32-install-does-not-claim-full-disk)
+- [https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236](https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236).
