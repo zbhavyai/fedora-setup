@@ -1,9 +1,18 @@
 #!/bin/bash
-#
-# author        : bhavyai
-# description   : get list of installed flatpak apps
+# Author        : github.com/zbhavyai
+# Purpose       : Update installed flatpak apps dump
+
 
 SCRIPT_DIR="$(dirname "$0")"
-OUTPUT_FILE="${SCRIPT_DIR}/install.txt"
+APPS_FILE="${SCRIPT_DIR}/install.txt"
 
-flatpak list --app --columns=application | sort > "${OUTPUT_FILE}"
+dump_installed() {
+    flatpak list --app --columns=application | sort > "${APPS_FILE}"
+}
+
+
+main() {
+    dump_installed
+}
+
+main
