@@ -40,7 +40,7 @@ Podman comes pre-installed on Fedora. But some additional setup is required to u
 
 ### VS Code with Podman
 
-The Dev Containers extension `ms-vscode-remote.remote-containers` extension works with Podman once the docker path is updated in the settings.
+The Dev Containers extension `ms-vscode-remote.remote-containers` extension works with Podman once the docker path is updated in the settings. These settings make VS Code work with podman without having `podman-docker` installed.
 
 ```json
 {
