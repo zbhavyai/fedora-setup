@@ -35,6 +35,11 @@ setup_gnometerminal() {
     /bin/bash "${SCRIPT}"
 }
 
+setup_ssh() {
+    local SCRIPT="${SCRIPT_DIR}/ssh/setup.sh"
+    /bin/bash "${SCRIPT}"
+}
+
 
 main() {
     setup_dnf
@@ -43,6 +48,7 @@ main() {
     setup_git
     setup_vim
     setup_gnometerminal
+    setup_ssh
 }
 
 main

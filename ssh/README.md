@@ -17,3 +17,14 @@ If the above algorithm is not supported, then use the RSA algorithm.
 ```shell
 ssh-keygen -t rsa -b 4096 -C "zbhavyai@gmail.com"        # RSA algorithm
 ```
+
+## Permissions
+
+SSH is very strict about file permissions. They should be set as follows:
+
+| File / Directory | Permission |
+| ---------------- | ---------- |
+| `~/.ssh`         | `700`      |
+| `~/.ssh/config`  | `600`      |
+| `~/.ssh/*`       | `600`      |
+| `~/.ssh/*.pub`   | `644`      |
