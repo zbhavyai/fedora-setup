@@ -25,12 +25,24 @@ setup_git() {
     /bin/bash "${SCRIPT}"
 }
 
+setup_vim() {
+    local SCRIPT="${SCRIPT_DIR}/vim/setup.sh"
+    /bin/bash "${SCRIPT}"
+}
+
+setup_gnometerminal() {
+    local SCRIPT="${SCRIPT_DIR}/gnome-terminal/setup.sh"
+    /bin/bash "${SCRIPT}"
+}
+
 
 main() {
     setup_dnf
     setup_flatpak
     setup_bash
     setup_git
+    setup_vim
+    setup_gnometerminal
 }
 
 main
