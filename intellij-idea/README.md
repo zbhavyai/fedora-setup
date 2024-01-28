@@ -19,6 +19,8 @@ IntelliJ IDEA is a integrated development environment (IDE) developed by JetBrai
    popd
    ```
 
+2. Import the `settings.zip` file.
+
 ## Settings Export
 
 While exporting settings, only include the following:
@@ -37,8 +39,6 @@ While exporting settings, only include the following:
 - StatusBar, General, Registry
 - Terminal
 - UI Settings
-
-2. Import the `settings.zip` file.
 
 ## Downloaded Plugins
 
