@@ -1,0 +1,6 @@
+<application>
+  <component name="TerminalOptionsProvider">
+    <option name="myShellPath" value="/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash" />
+    <option name="myTabName" value="Local" />
+  </component>
+</application>

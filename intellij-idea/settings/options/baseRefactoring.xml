@@ -1,0 +1,5 @@
+<application>
+  <component name="RefactoringSettings">
+    <option name="RENAME_ACCESSORS" value="false" />
+  </component>
+</application>
