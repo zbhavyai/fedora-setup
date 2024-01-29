@@ -1,5 +1,5 @@
 {
-  // ------------------------------------ EDITOR ------------------------------------
+  // EDITOR -------------------------------------------------------------------
   "editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
   "editor.formatOnSave": true,
   "files.trimTrailingWhitespace": true,
@@ -19,21 +19,18 @@
   "window.dialogStyle": "custom",
   "window.menuBarVisibility": "classic",
   "workbench.iconTheme": "material-icon-theme",
-  // ----------------------------------- TERMINAL -----------------------------------
+  // TERMINAL -----------------------------------------------------------------
   "debug.terminal.clearBeforeReusing": true,
   "terminal.integrated.enablePersistentSessions": false,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.tabs.enabled": false,
-  // --------------------------------- INTELLISENSE ---------------------------------
+  // INTELLISENSE -------------------------------------------------------------
   "editor.inlayHints.enabled": "off",
   "editor.inlineSuggest.enabled": true,
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
-  // ------------------------------------ OTHER -------------------------------------
-  "security.workspace.trust.enabled": false,
-  "telemetry.telemetryLevel": "crash",
-  // ------------------------------------- JAVA -------------------------------------
+  // JAVA ---------------------------------------------------------------------
   "files.exclude": { "**/.classpath": true, "**/.project": true, "**/.settings": true, "**/.factorypath": true },
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
@@ -41,14 +38,28 @@
   "microprofile.alwaysShowOverview": false,
   "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
-  // ---------------------------------- JAVASCRIPT ----------------------------------
+  // JAVASCRIPT ---------------------------------------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
-  // ----------------------------------- PRETTIER -----------------------------------
+  // PYTHON -------------------------------------------------------------------
+  "python.defaultInterpreterPath": "/home/zbhavyai/.venv/PY-ENV/bin/python",
+  "python.terminal.activateEnvironment": true,
+  "python.venvFolders": ["/home/zbhavyai/.venv"],
+  "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
+  "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
+  "notebook.compactView": false,
+  "notebook.dragAndDropEnabled": false,
+  "notebook.showFoldingControls": "always",
+  // PODMAN -------------------------------------------------------------------
+  "dev.containers.dockerPath": "podman",
+  "docker.dockerPath": "podman",
+  // GITLENS ------------------------------------------------------------------
+  "gitlens.codeLens.enabled": false,
+  // PRETTIER -----------------------------------------------------------------
   "prettier.jsxSingleQuote": true,
   "prettier.printWidth": 200,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
-  // ---------------------------------- FORMATTING ----------------------------------
+  // FORMATTING ---------------------------------------------------------------
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
@@ -58,18 +69,7 @@
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 3 },
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
-  // ------------------------------------ PYTHON ------------------------------------
-  "python.defaultInterpreterPath": "/home/zbhavyai/.venv/PY-ENV/bin/python",
-  "python.terminal.activateEnvironment": true,
-  "python.venvFolders": ["/home/zbhavyai/.venv"],
-  "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
-  "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
-  "notebook.compactView": false,
-  "notebook.dragAndDropEnabled": false,
-  "notebook.showFoldingControls": "always",
-  // ------------------------------------ PODMAN ------------------------------------
-  "dev.containers.dockerPath": "podman",
-  "docker.dockerPath": "podman",
-  // ------------------------------------ GITLENS -----------------------------------
-  "gitlens.codeLens.enabled": false
+  // OTHER --------------------------------------------------------------------
+  "security.workspace.trust.enabled": false,
+  "telemetry.telemetryLevel": "crash"
 }
