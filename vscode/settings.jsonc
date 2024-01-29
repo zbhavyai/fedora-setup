@@ -55,9 +55,10 @@
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
-  // PODMAN -------------------------------------------------------------------
-  "dev.containers.dockerPath": "podman",
-  "docker.dockerPath": "podman",
+  // CONTAINER ----------------------------------------------------------------
+  "dev.containers.dockerPath": "/usr/bin/docker",
+  "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
+  "docker.dockerPath": "/usr/bin/docker",
   // GITLENS ------------------------------------------------------------------
   "gitlens.codeLens.enabled": false,
   // PRETTIER -----------------------------------------------------------------
