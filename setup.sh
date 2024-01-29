@@ -5,50 +5,26 @@
 
 SCRIPT_DIR="$(dirname "$0")"
 
-setup_dnf() {
-    local SCRIPT="${SCRIPT_DIR}/dnf/setup.sh"
-    /bin/bash "${SCRIPT}"
-}
+setup_modules() {
+    MOD=$1
+    echo "[INFO] Setting up ${MOD}"
 
-setup_flatpak() {
-    local SCRIPT="${SCRIPT_DIR}/flatpak/setup.sh"
-    /bin/bash "${SCRIPT}"
+    if [ -f "${SCRIPT_DIR}/${MOD}/setup.sh" ]; then
+        /bin/bash "${SCRIPT_DIR}/${MOD}/setup.sh"
+    else
+        echo "[EROR] No setup script found for ${MOD}"
+    fi
 }
-
-setup_bash() {
-    local SCRIPT="${SCRIPT_DIR}/bash/setup.sh"
-    /bin/bash "${SCRIPT}"
-}
-
-setup_git() {
-    local SCRIPT="${SCRIPT_DIR}/git/setup.sh"
-    /bin/bash "${SCRIPT}"
-}
-
-setup_vim() {
-    local SCRIPT="${SCRIPT_DIR}/vim/setup.sh"
-    /bin/bash "${SCRIPT}"
-}
-
-setup_gnometerminal() {
-    local SCRIPT="${SCRIPT_DIR}/gnome-terminal/setup.sh"
-    /bin/bash "${SCRIPT}"
-}
-
-setup_ssh() {
-    local SCRIPT="${SCRIPT_DIR}/ssh/setup.sh"
-    /bin/bash "${SCRIPT}"
-}
-
 
 main() {
-    setup_dnf
-    setup_flatpak
-    setup_bash
-    setup_git
-    setup_vim
-    setup_gnometerminal
-    setup_ssh
+    setup_modules "dnf"
+    setup_modules "flatpak"
+    setup_modules "bash"
+    setup_modules "git"
+    setup_modules "vim"
+    setup_modules "gnome-terminal"
+    setup_modules "ssh"
+    setup_modules "vscode"
 }
 
 main
