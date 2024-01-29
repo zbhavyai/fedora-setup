@@ -30,6 +30,12 @@
   "editor.inlineSuggest.enabled": true,
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
+  // SONARLINT ----------------------------------------------------------------
+  "sonarlint.rules": {
+    "javascript:S125": { "level": "off" },
+    "python:S117": { "level": "off" },
+    "python:S1542": { "level": "off" }
+  },
   // JAVA ---------------------------------------------------------------------
   "files.exclude": { "**/.classpath": true, "**/.project": true, "**/.settings": true, "**/.factorypath": true },
   "java.configuration.updateBuildConfiguration": "automatic",
