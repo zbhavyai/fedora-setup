@@ -4,7 +4,7 @@
   "editor.formatOnSave": true,
   "files.trimTrailingWhitespace": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.renderSideBySide": false,
+  "diffEditor.renderSideBySide": true,
   "editor.bracketPairColorization.enabled": false,
   "editor.fontFamily": "Fira Mono",
   "editor.fontSize": 17,
@@ -14,11 +14,11 @@
   "editor.wordWrap": "on",
   "explorer.fileNesting.enabled": false,
   "files.eol": "\n",
+  "git.openRepositoryInParentFolders": "always",
   "update.mode": "none",
   "window.dialogStyle": "custom",
   "window.menuBarVisibility": "classic",
   "workbench.iconTheme": "material-icon-theme",
-  "git.openRepositoryInParentFolders": "always",
   // ----------------------------------- TERMINAL -----------------------------------
   "debug.terminal.clearBeforeReusing": true,
   "terminal.integrated.enablePersistentSessions": false,
@@ -29,7 +29,7 @@
   "editor.inlayHints.enabled": "off",
   "editor.inlineSuggest.enabled": true,
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
-  "github.copilot.enable": { "*": true, "yaml": false, "plaintext": false, "markdown": true },
+  "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
   // ------------------------------------ OTHER -------------------------------------
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "crash",
@@ -41,12 +41,14 @@
   "microprofile.alwaysShowOverview": false,
   "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
+  // ---------------------------------- JAVASCRIPT ----------------------------------
+  "javascript.updateImportsOnFileMove.enabled": "always",
   // ----------------------------------- PRETTIER -----------------------------------
   "prettier.jsxSingleQuote": true,
   "prettier.printWidth": 200,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  // ---------------------------------- FORMATTING ----------------------------------
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
@@ -54,9 +56,9 @@
   "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "files.trimTrailingWhitespace": false, "editor.tabSize": 3 },
-  // ------------------------------------ PYTHON ------------------------------------
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 3 },
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+  // ------------------------------------ PYTHON ------------------------------------
   "python.defaultInterpreterPath": "/home/zbhavyai/.venv/PY-ENV/bin/python",
   "python.terminal.activateEnvironment": true,
   "python.venvFolders": ["/home/zbhavyai/.venv"],
@@ -67,5 +69,7 @@
   "notebook.showFoldingControls": "always",
   // ------------------------------------ PODMAN ------------------------------------
   "dev.containers.dockerPath": "podman",
-  "docker.dockerPath": "podman"
+  "docker.dockerPath": "podman",
+  // ------------------------------------ GITLENS -----------------------------------
+  "gitlens.codeLens.enabled": false
 }
