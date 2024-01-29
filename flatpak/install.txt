@@ -1,6 +1,7 @@
 com.getpostman.Postman
 com.github.liferooter.textpieces
 com.github.PintaProject.Pinta
+com.github.tchx84.Flatseal
 com.jetbrains.IntelliJ-IDEA-Community
 com.jgraph.drawio.desktop
 no.mifi.losslesscut
