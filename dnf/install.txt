@@ -8,6 +8,9 @@ maven
 # javascript dev
 nodejs
 
+# ide
+code
+
 # git gui
 gitg
 
