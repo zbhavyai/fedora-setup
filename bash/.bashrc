@@ -176,10 +176,12 @@ alias prettyjson='python3 -mjson.tool'
 alias findjava='find . -type f -name "*java"'
 alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
 
-if [ "${isRhel}" -eq 0 ]; then
-    :
-else
+if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
+fi
+
+if [[ -n $(flatpak list --app --columns=application | grep com.visualstudio.cde) ]]; then
+    alias code='flatpak run com.visualstudio.code'
 fi
 
 

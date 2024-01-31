@@ -24,6 +24,10 @@ This is mainly for cycling tabs in the visible order
 
 flatpak-vscode needs some additional settings to work properly, especially when using integrated terminal, or container extensions.
 
+### Start vscode from anywhere
+
+The [`~/.bashrc`](../bash/.bashrc) file should automatically detect the flatpak installation of VS Code and set an alias, to keep using the `code .` command to open any directory/repository in VS Code from the command line.
+
 ### Installing extensions
 
 The [main setup script](../setup.sh) assumes the regular installation of VS Code to install extensions. For installing on flatpak-vscode, run the [vscode setup script](setup.sh) inside the flatpak container.
