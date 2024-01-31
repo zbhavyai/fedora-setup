@@ -17,7 +17,6 @@ gitg
 # customization
 dconf-editor
 gnome-tweaks
-mozilla-fira-mono-fonts
 adw-gtk3-theme
 
 # tools
