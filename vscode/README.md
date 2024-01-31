@@ -44,6 +44,7 @@ Update the settings to use `host-spawn bash` inside the sandbox.
 ```jsonc
 {
   // TERMINAL -----------------------------------------------------------------
+  "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.profiles.linux": {
     "bash": {
       "path": "host-spawn",
