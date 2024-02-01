@@ -25,6 +25,7 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "bash",
   // INTELLISENSE -------------------------------------------------------------
   "editor.inlayHints.enabled": "off",
   "editor.inlineSuggest.enabled": true,
