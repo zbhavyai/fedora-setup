@@ -18,6 +18,7 @@ setup_modules() {
 
 main() {
     setup_modules "dnf"
+    setup_modules "fonts"
     setup_modules "flatpak"
     setup_modules "bash"
     setup_modules "git"
