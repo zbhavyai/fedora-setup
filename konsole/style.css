@@ -1,0 +1,33 @@
+QTabBar,
+QTabBar::tab {
+  border-bottom: 4px solid palette(window);
+  height: 35px;
+}
+
+QTabBar::tab:selected {
+  height: 35px;
+  border-bottom: 4px solid #2e6fd1;
+}
+
+QScrollBar:vertical {
+  background-color: palette(window);
+  border-radius: 4px;
+  width: 8px;
+}
+
+QScrollBar::handle:vertical {
+  background-color: #4a4a4a;
+  border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+  background-color: #787878;
+  border-radius: 4px;
+}
+
+QScrollBar::up-arrow:vertical,
+QScrollBar::down-arrow:vertical {
+  background: transparent;
+  width: 0;
+  height: 0;
+}
