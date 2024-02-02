@@ -1,0 +1,30 @@
+1920x1080 screen: Window-Maximized=true
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAiAFEAdQBpAGMAawBDAG8AbQBtAGEAbgBkAHMARABvAGMAawAAAAAA/////wAAAT8A////+wAAABwAUwBTAEgATQBhAG4AYQBnAGUAcgBEAG8AYwBrAAAAAAD/////AAAA7wD///8AAAeAAAAD2gAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAAAAD/////AAAAAAAAAAA=
+
+[Desktop Entry]
+DefaultProfile=BG-PROFILE.profile
+
+[General]
+ConfigVersion=1
+
+[MainWindow]
+1920x1080 screen: Height=498
+1920x1080 screen: Width=1075
+1920x1080 screen: Window-Maximized=true
+2 screens: Height=739
+2 screens: Width=1075
+2 screens: Window-Maximized=true
+3 screens: Height=586
+3 screens: Width=1126
+3 screens: Window-Maximized=true
+RestorePositionForNextInstance=false
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAE8AAAD2vwCAAAAAvsAAAAiAFEAdQBpAGMAawBDAG8AbQBtAGEAbgBkAHMARABvAGMAawAAAAAYAAAB6gAAAT8A////+wAAABwAUwBTAEgATQBhAG4AYQBnAGUAcgBEAG8AYwBrAAAAABgAAAPaAAAA7wD///8AAAeAAAAD2gAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+
+[TabBar]
+ExpandTabWidth=true
+TabBarUseUserStyleSheet=true
+TabBarUserStyleSheetFile=file:///home/bhavyai/Github/fedora-setup/konsole/style.css
+
+[UiSettings]
+ColorScheme=Breeze Dark
