@@ -7,6 +7,7 @@ Welcome to the guide for setting up a development environment on a new [Fedora W
 - Package installation and removal using `dnf`
 - Font management, including installation and removal
 - Installation of Flatpak applications
+- Update key bindings for the Gnome Shell
 - Tweak to ignore lid switch behavior
 - Configuration of essential files:
   - `.bashrc`

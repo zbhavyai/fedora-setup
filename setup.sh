@@ -21,6 +21,7 @@ main() {
     setup_modules "fonts"
     setup_modules "flatpak"
     setup_modules "settings"
+    setup_modules "key-bindings"
     setup_modules "bash"
     setup_modules "git"
     setup_modules "vim"
