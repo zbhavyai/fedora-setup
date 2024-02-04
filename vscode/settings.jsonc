@@ -63,21 +63,22 @@
   "docker.dockerPath": "/usr/bin/docker",
   // GITLENS ------------------------------------------------------------------
   "gitlens.codeLens.enabled": false,
-  // PRETTIER -----------------------------------------------------------------
-  "prettier.jsxSingleQuote": true,
-  "prettier.printWidth": 200,
-  "prettier.singleQuote": true,
-  "prettier.tabWidth": 2,
   // FORMATTING ---------------------------------------------------------------
   "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 3 },
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+  "prettier.jsxSingleQuote": false,
+  "prettier.singleQuote": false,
+  "prettier.printWidth": 200,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "all",
+  "prettier.useTabs": false,
   // OTHER --------------------------------------------------------------------
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "crash"
