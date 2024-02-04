@@ -45,10 +45,7 @@ Update the settings to use `host-spawn bash` inside the sandbox.
 {
   // TERMINAL -----------------------------------------------------------------
   "terminal.integrated.profiles.linux": {
-    "bash": {
-      "path": "host-spawn",
-      "args": ["bash"]
-    }
+    "bash": { "path": "host-spawn", "args": ["bash"] }
   }
 }
 ```
