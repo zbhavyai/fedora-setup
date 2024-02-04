@@ -33,7 +33,7 @@ The [`~/.bashrc`](../bash/.bashrc) file should automatically detect the flatpak 
 The [main setup script](../setup.sh) assumes the regular installation of VS Code to install extensions. For installing on flatpak-vscode, run the [vscode setup script](setup.sh) inside the flatpak container.
 
 ```shell
-flatpak run --command=bash com.visualstudio.code
+flatpak run --command=sh com.visualstudio.code
 ./vscode/setup.sh
 ```
 
