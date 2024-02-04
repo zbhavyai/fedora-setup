@@ -131,17 +131,6 @@ export -f removeOnly
 
 
 # #############################################################################
-# podman for quarkus dev https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/
-# #############################################################################
-if command -v docker &> /dev/null && ! rpm -q podman-docker &> /dev/null; then
-    :
-else
-    export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
-    export TESTCONTAINERS_RYUK_DISABLED=true
-fi
-
-
-# #############################################################################
 # path
 # #############################################################################
 addToPath() {
@@ -156,7 +145,15 @@ addToPath "/opt/node-v18.19.0-linux-x64/bin"
 # #############################################################################
 # env variables
 # #############################################################################
-export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")
+if command -v java &> /dev/null; then
+    # set java home
+    export JAVA_HOME=$(readlink -f $(command -v java) | sed "s:/bin/java::")
+fi
+if rpm -q podman-docker &> /dev/null; then
+    # podman for quarkus: https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/
+    export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+    export TESTCONTAINERS_RYUK_DISABLED=true
+fi
 
 
 # #############################################################################

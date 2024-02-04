@@ -44,7 +44,8 @@ The Dev Containers extension `ms-vscode-remote.remote-containers` extension work
 
 ```json
 {
-  "dev.containers.dockerPath": "podman"
+  "dev.containers.dockerPath": "/usr/bin/podman",
+  "dev.containers.dockerComposePath": "/usr/bin/podman-compose"
 }
 ```
 
@@ -52,6 +53,6 @@ But the docker extension `ms-azuretools.vscode-docker` has got some issues parsi
 
 ```json
 {
-  "docker.dockerPath": "podman"
+  "docker.dockerPath": "/usr/bin/podman"
 }
 ```
