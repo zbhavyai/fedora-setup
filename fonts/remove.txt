@@ -1,10 +1,8 @@
 aajohan-comfortaa-fonts
 adobe-source-code-pro-fonts
-gdouros-symbola-fonts
-google-noto-color-emoji-fonts
 google-noto-naskh-arabic-vf-fonts
 google-noto-sans-armenian-vf-fonts
-google-noto-sans-cherokee-vf-f
+google-noto-sans-cherokee-vf-fonts
 google-noto-sans-cjk-vf-fonts
 google-noto-sans-ethiopic-vf-fonts
 google-noto-sans-georgian-vf-fonts
