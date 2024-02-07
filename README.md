@@ -15,11 +15,11 @@ Welcome to the guide for setting up a development environment on a new [Fedora W
   - `.vimrc`
 - Customization options for the Gnome Terminal
 - SSH configuration for seamless remote access
-- Installation of VS Code extensions
+- Installation of VS Code and some extensions
 
 ## What's not automated
 
-Certain software packages or configurations tailored to specific needs won't be automatically set up. This includes software that isn't universally required or configurations that demand manual intervention.
+Certain software packages or configurations tailored to specific needs won't be automatically set up - like [konsole](./konsole/) and [pdadmin](./postgres/) which I don't need on all the machines. This includes software that isn't universally required or configurations that demand manual intervention.
 
 ## How to use
 
