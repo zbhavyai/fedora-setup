@@ -19,6 +19,7 @@
   "files.eol": "\n",
   "files.simpleDialog.enable": true,
   "git.openRepositoryInParentFolders": "always",
+  "git.autofetch": true,
   "update.mode": "none",
   "window.dialogStyle": "custom",
   "window.menuBarVisibility": "classic",
