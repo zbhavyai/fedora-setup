@@ -15,6 +15,7 @@ gitg
 dconf-editor
 gnome-tweaks
 adw-gtk3-theme
+papirus-icon-theme
 
 # tools
 openssl
@@ -33,3 +34,6 @@ pdftk
 vim-enhanced
 transmission
 podman-compose
+rpmfusion-nonfree-appstream-data
+intel-gmmlib
+intel-media-driver
