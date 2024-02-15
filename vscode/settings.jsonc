@@ -35,13 +35,15 @@
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.tabs.enabled": false,
   // INTELLISENSE -------------------------------------------------------------
-  "editor.inlayHints.enabled": "off",
+  "editor.inlayHints.enabled": "on",
   "editor.inlineSuggest.enabled": true,
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
   // SONARLINT ----------------------------------------------------------------
   "sonarlint.rules": {
     "javascript:S125": { "level": "off" },
+    "python:S100": { "level": "off" },
+    "python:S116": { "level": "off" },
     "python:S117": { "level": "off" },
     "python:S1542": { "level": "off" }
   },
