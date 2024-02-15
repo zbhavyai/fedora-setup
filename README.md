@@ -19,7 +19,7 @@ Welcome to the guide for setting up a development environment on a new [Fedora W
 
 ## What's not automated
 
-Certain software packages or configurations tailored to specific needs won't be automatically set up - like [konsole](./konsole/) and [pdadmin](./postgres/) which I don't need on all the machines. This includes software that isn't universally required or configurations that demand manual intervention.
+Certain software packages or configurations tailored to specific needs won't be automatically set up - like [konsole](./konsole/) and [pgadmin](./postgres/) which I don't need on all the machines. This includes software that isn't universally required or configurations that demand manual intervention.
 
 ## How to use
 
