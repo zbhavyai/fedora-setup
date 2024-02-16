@@ -24,6 +24,19 @@ Host testnet2
   IdentityFile ~/.ssh/userfulMachineAccess
   ForwardAgent yes
 
+Host server
+  HostName testnet2
+  IdentitiesOnly yes
+  User bhavyai
+  Port 2299
+  IdentityFile ~/.ssh/userfulMachineAccess
+  ForwardAgent yes
+
+Host home
+  Hostname home
+  User bhavyai.gupta
+  ForwardAgent yes
+
 Host test*
   IdentitiesOnly yes
   StrictHostKeyChecking no
