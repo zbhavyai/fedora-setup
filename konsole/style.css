@@ -10,16 +10,22 @@ QTabBar::tab:selected {
 }
 
 /* tab close button -------------------------------------------------------- */
-/* QTabBar::close-button {
-  background-color: transparent;
+QTabBar::close-button {
+  background-color: palette(window);
+  color: #6e6e6e;
+  content: "\00d7";
   border-radius: 10px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 16px;
   width: 16px;
   height: 16px;
 }
 
 QTabBar::close-button:hover {
   background-color: #4b4b4b;
-} */
+  color: #ffffff;
+}
 
 /* vertical scroll bar ----------------------------------------------------- */
 QScrollBar:vertical {
