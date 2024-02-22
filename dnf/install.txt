@@ -16,6 +16,7 @@ dconf-editor
 gnome-tweaks
 adw-gtk3-theme
 papirus-icon-theme
+gnome-extensions-app
 
 # tools
 openssl
