@@ -1,6 +1,6 @@
 #!/bin/bash
 # Author        : github.com/zbhavyai
-# Purpose       : Install VS Code extensions
+# Purpose       : Install VS Code and its extensions
 
 
 SCRIPT_DIR="$(dirname "$0")"
