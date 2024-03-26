@@ -44,6 +44,7 @@
   // SONARLINT ----------------------------------------------------------------
   "sonarlint.rules": {
     "javascript:S125": { "level": "off" },
+    "java:S116": { "level": "off" },
     "python:S100": { "level": "off" },
     "python:S116": { "level": "off" },
     "python:S117": { "level": "off" },
@@ -75,7 +76,7 @@
   // GITLENS ------------------------------------------------------------------
   "gitlens.codeLens.enabled": false,
   // FORMATTING ---------------------------------------------------------------
-  "[html][css][javascript][typescript][typescriptreact][json][jsonc][markdown][yaml]": {
+  "[html][css][scss][javascript][typescript][typescriptreact][json][jsonc][markdown][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": { "editor.tabSize": 3 },
