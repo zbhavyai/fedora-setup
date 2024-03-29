@@ -21,7 +21,7 @@ Host testnet2
   IdentitiesOnly yes
   User root
   Port 2299
-  IdentityFile ~/.ssh/userfulMachineAccess
+  IdentityFile ~/.ssh/workMachineAccess
   ForwardAgent yes
 
 Host server
@@ -29,7 +29,7 @@ Host server
   IdentitiesOnly yes
   User bhavyai
   Port 2299
-  IdentityFile ~/.ssh/userfulMachineAccess
+  IdentityFile ~/.ssh/workMachineAccess
   ForwardAgent yes
 
 Host home
@@ -44,5 +44,4 @@ Host test*
 
 Host *
   IdentitiesOnly yes
-  IdentityFile ~/.ssh/userfulMachineAccess
-
+  IdentityFile ~/.ssh/workMachineAccess
