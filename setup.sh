@@ -18,8 +18,8 @@ setup_modules() {
 
 main() {
     setup_modules "dnf"
-    setup_modules "google-chrome"
     setup_modules "fonts"
+    setup_modules "google-chrome"
     setup_modules "flatpak"
     setup_modules "settings"
     setup_modules "key-bindings"
