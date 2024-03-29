@@ -1,6 +1,6 @@
 {
   // EDITOR -------------------------------------------------------------------
-  "editor.codeActionsOnSave": { "source.organizeImports": "explicit", "source.addMissingImports": "explicit" },
+  "editor.codeActionsOnSave": { "source.organizeImports": "always", "source.addMissingImports": "always" },
   "editor.formatOnSave": true,
   "files.trimTrailingWhitespace": true,
   "diffEditor.ignoreTrimWhitespace": false,
