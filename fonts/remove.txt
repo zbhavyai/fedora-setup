@@ -15,15 +15,6 @@ google-noto-sans-thaana-vf-fonts
 jomolhari-fonts
 julietaula-montserrat-fonts
 khmer-os-system-fonts
-lohit-assamese-fonts
-lohit-bengali-fonts
-lohit-devanagari-fonts
-lohit-gujarati-fonts
-lohit-kannada-fonts
-lohit-marathi-fonts
-lohit-odia-fonts
-lohit-tamil-fonts
-lohit-telugu-fonts
 paktype-naskh-basic-fonts
 rit-meera-new-fonts
 sil-mingzat-fonts
