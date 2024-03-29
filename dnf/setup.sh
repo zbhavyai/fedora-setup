@@ -8,8 +8,7 @@ FILE_INSTALL="${SCRIPT_DIR}/install.txt"
 FILE_REMOVE="${SCRIPT_DIR}/remove.txt"
 
 setup_repos() {
-    # nothing right now
-    return
+    sudo dnf -y update
 }
 
 install_packages() {
