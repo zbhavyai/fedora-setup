@@ -1,21 +1,22 @@
 # Fedora Workstation Setup
 
-Welcome to the guide for setting up a development environment on a new [Fedora Workstation](https://fedoraproject.org/workstation/). This guide aims to streamline the setup process, automating certain tasks for my own convenience.
+Welcome to the guide for setting up a development environment on a new [Fedora Workstation](https://fedoraproject.org/workstation/) with GNOME DE. This guide aims to streamline the setup process, automating certain tasks for my own convenience.
 
 ## What's automated
 
 - Package installation and removal using `dnf`
 - Font management, including installation and removal
-- Installation of Flatpak applications
-- Update key bindings for the Gnome Shell
-- Tweak to ignore lid switch behavior
-- Configuration of essential files:
+- Installation of Google Chrome
+- Installation of some Flatpak applications
+- Update key bindings for the GNOME Shell
+- Configuration of essential configuration files:
   - `.bashrc`
   - `.gitconfig`
   - `.vimrc`
-- Customization options for the Gnome Terminal
 - SSH configuration for seamless remote access
 - Installation of VS Code and some extensions
+- Tweak to ignore lid switch behavior
+- Customizing preferences for GNOME apps like GNOME Text Editor, Nautilus, and Terminal
 
 ## What's not automated
 

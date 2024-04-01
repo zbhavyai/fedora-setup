@@ -21,14 +21,16 @@ main() {
     setup_modules "fonts"
     setup_modules "google-chrome"
     setup_modules "flatpak"
-    setup_modules "settings"
     setup_modules "key-bindings"
     setup_modules "bash"
     setup_modules "git"
     setup_modules "vim"
-    setup_modules "gnome-terminal"
     setup_modules "ssh"
     setup_modules "vscode"
+    setup_modules "settings"
+    setup_modules "gnome-text-editor"
+    setup_modules "nautilus"
+    setup_modules "gnome-terminal"
 }
 
 main
