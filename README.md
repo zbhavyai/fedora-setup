@@ -15,7 +15,10 @@ Welcome to the guide for setting up a development environment on a new [Fedora W
   - `.vimrc`
 - SSH configuration for seamless remote access
 - Installation of VS Code and some extensions
-- Tweak to ignore lid switch behavior
+- Some miscellaneous settings like
+  - Tweak to ignore lid switch behavior
+  - App folders in the GNOME shell
+  - Interface settings like icon theme, fonts, color theme, etc.
 - Customizing preferences for GNOME apps like GNOME Text Editor, Nautilus, and Terminal
 
 ## What's not automated
