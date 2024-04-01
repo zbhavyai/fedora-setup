@@ -4,7 +4,6 @@
 
 
 SCRIPT_DIR="$(dirname "$0")"
-CONFIG_KEYBINDINGS="${SCRIPT_DIR}/keybindings.conf"
 CONFIG_PROFILES="${SCRIPT_DIR}/profiles.conf"
 
 setup_config() {
