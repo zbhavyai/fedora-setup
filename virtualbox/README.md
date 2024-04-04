@@ -2,9 +2,21 @@
 
 VirtualBox is an open-source virtualization software developed by Oracle. It enables users to run multiple guest operating systems simultaneously on a single physical machine, facilitating easy experimentation, development, and testing of software across different environments. With support for a wide range of host and guest OS platforms, VirtualBox offers features such as snapshots, virtual networking, and seamless integration with the host system.
 
+## Setup
+
+Before using the VirtualBox, one could turn the secure boot off in the BIOS settings. This can avoid some issues like the one mentioned below.
+
+```shell
+There were problems setting up VirtualBox.  To re-start the set-up process, run
+  /sbin/vboxconfig
+as root.  If your system is using EFI Secure Boot you may need to sign the
+kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) before you can load
+them. Please see your Linux system's documentation for more information.
+```
+
 ## Updated launcher
 
-Find the updated launcher at [virtualbox.desktop](virtualbox.desktop). This sets the `env GDK_BACKEND=x11` to fix some issues with running VirtualBox on Wayland.
+Find the updated launcher at [virtualbox.desktop](virtualbox.desktop). This sets the `env GDK_BACKEND=x11` to fix some issues with running VirtualBox on Wayland. These might eventually be fixed in the future versions of VirtualBox.
 
 ## Port forwarding
 
