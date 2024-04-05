@@ -4,7 +4,6 @@ com.github.PintaProject.Pinta
 com.github.tchx84.Flatseal
 com.jetbrains.IntelliJ-IDEA-Community
 com.jgraph.drawio.desktop
-no.mifi.losslesscut
 org.audacityteam.Audacity
 org.gnome.SoundRecorder
 org.nickvision.tagger
