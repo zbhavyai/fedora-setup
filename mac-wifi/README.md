@@ -30,25 +30,31 @@ Credits to [source1](https://jaehoo.wordpress.com/2022/10/10/bye-bye-mac-os-hell
    sudo dnf install -y broadcom-wl
    ```
 
-5. Compile drivers
+5. Install the development headers for current kernel
+
+   ```shell
+   sudo dnf install kernel-devel
+   ```
+
+6. Compile drivers
 
    ```shell
    sudo akmods --force
    ```
 
-6. Generate module dependencies
+7. Generate module dependencies
 
    ```shell
    sudo depmod -a
    ```
 
-7. Load `wl` kernel module
+8. Load `wl` kernel module
 
    ```shell
    sudo modprobe wl
    ```
 
-8. Reboot
+9. Reboot
 
    ```shell
    shutdown -r now
