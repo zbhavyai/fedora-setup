@@ -35,6 +35,4 @@ pdftk
 vim-enhanced
 transmission
 podman-compose
-rpmfusion-nonfree-appstream-data
 intel-gmmlib
-intel-media-driver
