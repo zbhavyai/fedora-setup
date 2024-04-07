@@ -79,6 +79,7 @@
   "[html][css][scss][javascript][typescript][typescriptreact][json][jsonc][markdown][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[markdown]": { "editor.tabSize": 3 },
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   "[java]": { "editor.defaultFormatter": "redhat.java" },
