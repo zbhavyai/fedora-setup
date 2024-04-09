@@ -139,7 +139,7 @@ addToPath() {
     fi
 }
 addToPath "/opt/apache-maven-3.6.3/bin"
-addToPath "/opt/node-v18.19.0-linux-x64/bin"
+addToPath "/opt/node-v16.20.2-linux-x64/bin"
 
 
 # #############################################################################
