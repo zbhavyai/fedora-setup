@@ -21,6 +21,7 @@ gnome-extensions-app
 # tools
 openssl
 nmap
+remmina
 ftp
 qt
 
