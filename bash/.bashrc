@@ -135,7 +135,7 @@ export -f removeOnly
 # #############################################################################
 addToPath() {
     if [ -d "${1}" ] && [[ ":${PATH}:" != *":${1}:"* ]]; then
-        export PATH="${PATH}:${1}"
+        export PATH="${1}:${PATH}"
     fi
 }
 addToPath "/opt/apache-maven-3.6.3/bin"
