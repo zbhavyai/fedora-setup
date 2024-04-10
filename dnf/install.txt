@@ -22,6 +22,7 @@ gnome-extensions-app
 openssl
 nmap
 remmina
+sysprof
 ftp
 qt
 
