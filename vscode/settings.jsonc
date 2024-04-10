@@ -55,8 +55,6 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.saveActions.organizeImports": true,
-  "microprofile.alwaysShowOverview": false,
-  "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
   // JAVASCRIPT ---------------------------------------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
