@@ -59,9 +59,9 @@
   // JAVASCRIPT ---------------------------------------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
   // PYTHON -------------------------------------------------------------------
-  "python.defaultInterpreterPath": "${HOME}/.venv/PY-ENV/bin/python",
+  "python.defaultInterpreterPath": "~/.venv/PY-ENV/bin/python",
   "python.terminal.activateEnvironment": true,
-  "python.venvFolders": ["${HOME}/.venv"],
+  "python.venvFolders": ["~/.venv"],
   "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
   "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
   "notebook.compactView": false,
