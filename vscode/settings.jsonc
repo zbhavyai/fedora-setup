@@ -12,6 +12,8 @@
   "editor.find.addExtraSpaceOnTop": false,
   "editor.fontFamily": "Fira Mono",
   "editor.fontSize": 17,
+  "editor.pasteAs.enabled": false,
+  "editor.pasteAs.showPasteSelector": "never",
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "selection",
   "editor.stickyScroll.enabled": false,
