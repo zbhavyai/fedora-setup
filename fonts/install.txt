@@ -1,2 +1,4 @@
 mozilla-fira-mono-fonts
 liberation-fonts
+rit-meera-new-fonts
+rit-rachana-fonts
