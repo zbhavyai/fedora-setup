@@ -5,8 +5,10 @@ com.github.tchx84.Flatseal
 com.jetbrains.IntelliJ-IDEA-Community
 com.jgraph.drawio.desktop
 io.github.mrvladus.List
+md.obsidian.Obsidian
 org.audacityteam.Audacity
 org.gnome.dspy
+org.gnome.Music
 org.gnome.SoundRecorder
 org.nickvision.tagger
 org.nickvision.tubeconverter
