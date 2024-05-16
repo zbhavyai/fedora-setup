@@ -25,31 +25,16 @@ IntelliJ IDEA is a integrated development environment (IDE) developed by JetBrai
 
 While exporting settings, only include the following:
 
-- Code Style
+- Code Style (schemes)
+- DeclarativeInlayHintsSettings, InlayHintsSettings, CodeVisionSettings
 - Default Font
 - Editor Colors
 - Editor Colors (schemes)
 - External Diff
-- InlayHintsSettings, DeclarativeInlayHintsSettings, CodeVisionSettings
-- KeymapFlagsStorage
+- General, StatusBar, Registry
 - Keymaps
 - Keymaps (schemes)
 - ParameterNameHintsSettings
-- RefactoringSettings
-- StatusBar, General, Registry
+- Refactoring, RefactoringSettings
 - Terminal
 - UI Settings
-
-## Downloaded Plugins
-
-1. Open the IDE. Don't open any project, close if already open.
-2. Go to Plugins -> Installed.
-3. Filter plugins by `Downloaded`.
-4. Copy all downloaded ones using `Ctrl+A` and `Ctrl+C`.
-5. Maintain the list
-
-   ```
-   GitHub Copilot
-   JPA Buddy
-   SonarLint
-   ```

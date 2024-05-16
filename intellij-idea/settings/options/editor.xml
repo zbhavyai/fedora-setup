@@ -8,6 +8,7 @@
         <entry key="vcs.code.vision" value="Default" />
       </map>
     </option>
+    <option name="defaultPosition" value="Right" />
     <option name="disabledCodeVisionProviderIds">
       <set>
         <option value="references" />
@@ -25,6 +26,6 @@
     </option>
   </component>
   <component name="InlayHintsSettings">
-    <option name="lastViewedProviderKeyId" value=".references" />
+    <option name="lastViewedProviderKeyId" value="" />
   </component>
 </application>

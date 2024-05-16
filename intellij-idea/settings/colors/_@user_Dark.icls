@@ -4,10 +4,25 @@
     <property name="created">2023-11-14T18:38:00</property>
     <property name="ide">Idea</property>
     <property name="ideVersion">2023.2.5.0.0</property>
-    <property name="modified">2023-12-05T22:38:45</property>
+    <property name="modified">2024-01-10T11:24:45</property>
     <property name="originalScheme">Dark</property>
     <property name="partialSave">true</property>
   </metaInfo>
   <option name="CONSOLE_FONT_NAME" value="Fira Code" />
   <option name="CONSOLE_LINE_SPACING" value="1.1" />
+  <colors>
+    <option name="FILESTATUS_ADDED" value="c3e887" />
+    <option name="FILESTATUS_DELETED" value="f77669" />
+    <option name="FILESTATUS_HIJACKED" value="ffcb6b" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_EXTERNAL" value="72a038" />
+    <option name="FILESTATUS_IDEA_SVN_FILESTATUS_OBSTRUCTED" value="727238" />
+    <option name="FILESTATUS_IDEA_SVN_REPLACED" value="73bd79" />
+    <option name="FILESTATUS_MODIFIED" value="80cbc4" />
+    <option name="FILESTATUS_NOT_CHANGED_IMMEDIATE" value="80cbc4" />
+    <option name="FILESTATUS_NOT_CHANGED_RECURSIVE" value="80cbc4" />
+    <option name="FILESTATUS_OBSOLETE" value="ffcb6b" />
+    <option name="FILESTATUS_SUPPRESSED" value="546e7a" />
+    <option name="FILESTATUS_SWITCHED" value="f77669" />
+    <option name="FILESTATUS_UNKNOWN" value="f77669" />
+  </colors>
 </scheme>

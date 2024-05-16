@@ -43,6 +43,10 @@
   <action id="Switcher" />
   <action id="Table-startEditing" />
   <action id="Terminal.CloseTab" />
+  <action id="ToggleBookmark" />
+  <action id="ToggleFullScreen">
+    <keyboard-shortcut first-keystroke="f11" />
+  </action>
   <action id="Tree-startEditing" />
   <action id="UsageFiltering.WriteAccess" />
 </keymap>
