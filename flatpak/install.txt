@@ -1,11 +1,10 @@
 com.getpostman.Postman
-com.github.liferooter.textpieces
 com.github.PintaProject.Pinta
 com.github.tchx84.Flatseal
 com.jetbrains.IntelliJ-IDEA-Community
 com.jgraph.drawio.desktop
 io.github.mrvladus.List
-md.obsidian.Obsidian
+io.gitlab.liferooter.TextPieces
 org.audacityteam.Audacity
 org.gnome.dspy
 org.gnome.Music
