@@ -1,6 +1,6 @@
 # Fedora Workstation Setup
 
-Welcome to the guide for setting up a development environment on a new [Fedora Workstation](https://fedoraproject.org/workstation/) with GNOME DE. This guide aims to streamline the setup process, automating certain tasks for my own convenience.
+Welcome to the guide for setting up a development environment on a new [Fedora Workstation](https://fedoraproject.org/workstation/) with GNOME DE. This guide aims to streamline the setup process, automating certain tasks for my own convenience. This also serve as my dotfiles repository.
 
 ## What's automated
 
