@@ -43,7 +43,7 @@
   "editor.inlineSuggest.enabled": true,
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
-  "cloudcode.duetAI.enable": false,
+  "github.copilot.editor.enableAutoCompletions": true,
   // SONARLINT ----------------------------------------------------------------
   "sonarlint.rules": {
     "javascript:S125": { "level": "off" },
