@@ -4,6 +4,7 @@
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "files.eol": "\n",
+  "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": true,
