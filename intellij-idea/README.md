@@ -8,6 +8,12 @@ IntelliJ IDEA is a integrated development environment (IDE) developed by JetBrai
 
 2. Use the terminal `/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash`. It's also included in the settings.
 
+3. To use the system's JDK, first install the openjdk flatpak extension, and then set environment variable `FLATPAK_ENABLE_SDK_EXT=openjdk17` using Flatseal. This step is not included in settings yet.
+
+   ```shell
+   flatpak install flathub org.freedesktop.Sdk.Extension.openjdk17
+   ```
+
 ## Settings Import
 
 1. Recreate the zip file from extracted settings.
