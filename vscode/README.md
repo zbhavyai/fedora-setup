@@ -18,7 +18,7 @@ This is mainly for cycling tabs in the visible order
 
 1. Press `Ctrl`+`Shift`+`P`
 2. Type `Preferences: Open Keyboard Shortcuts (JSON)`
-3. Copy content from [this file](keyboardShortcuts.jsonc)
+3. Copy content from [this file](keybindings.jsonc)
 
 ## Using Flatpak VS Code
 
