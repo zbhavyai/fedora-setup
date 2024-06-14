@@ -172,8 +172,8 @@ if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
 fi
 
-if [[ -n $(flatpak list --app --columns=application | grep com.visualstudio.code) ]]; then
-    alias code='flatpak run com.visualstudio.code'
+if command -v flatpak &> /dev/null && [ -n $(flatpak list --app --columns=application | grep com.visualstudio.code) ]; then
+    alias code='flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code'
 fi
 
 
