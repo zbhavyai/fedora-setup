@@ -27,6 +27,7 @@ main() {
     setup_modules "vim"
     setup_modules "ssh"
     setup_modules "vscode"
+    setup_modules "cursors"
     setup_modules "settings"
     setup_modules "gnome-text-editor"
     setup_modules "nautilus"
