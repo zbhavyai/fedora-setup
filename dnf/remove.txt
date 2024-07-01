@@ -5,3 +5,5 @@ gnome-tour
 gnome-maps
 highcontrast-icon-theme
 totem
+PackageKit
+PackageKit-command-not-found
