@@ -162,6 +162,7 @@ fi
 # #############################################################################
 alias vi='vim'
 alias ll='ls -lF'
+alias cp='cp --preserve'
 alias activate='source ${HOME}/.venv/PY-ENV/bin/activate'
 alias python='python3'
 alias prettyjson='python3 -mjson.tool'
