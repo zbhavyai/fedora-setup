@@ -10,7 +10,7 @@ CONFIG_MUTTER="${SCRIPT_DIR}/mutter.conf"
 CONFIG_INTERFACE="${SCRIPT_DIR}/tweaks.conf"
 
 setup_lidignore() {
-    local PROPERTY="HandleLidSwitch=ignore"
+    local PROPERTY="$1"
 
     if grep -q "^#*${PROPERTY}" "${CONF_LOGIND}"; then
         # remove any leading #
@@ -37,7 +37,8 @@ setup_config() {
 
 
 main() {
-    setup_lidignore
+    setup_lidignore "HandleLidSwitch=ignore"
+    setup_lidignore "LidSwitchIgnoreInhibited=yes"
     setup_config
 }
 
