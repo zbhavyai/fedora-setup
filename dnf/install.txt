@@ -38,3 +38,4 @@ vim-enhanced
 transmission
 podman-compose
 intel-gmmlib
+tldr
