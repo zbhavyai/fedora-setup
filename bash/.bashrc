@@ -108,9 +108,6 @@ export -f cls
 # #############################################################################
 function printSeparator() {
     terminal_width=$(tput cols)
-    # for ((i = 1; i <= terminal_width; i++)); do
-    #     printf "$1"
-    # done
     printf "%.0s-" $(seq 1 ${terminal_width})
     printf "\n"
 }
@@ -140,6 +137,7 @@ addToPath() {
 }
 # addToPath "/opt/apache-maven-3.6.3/bin"
 # addToPath "/opt/node-v16.20.2-linux-x64/bin"
+# addToPath "/opt/go/bin"
 
 
 # #############################################################################
