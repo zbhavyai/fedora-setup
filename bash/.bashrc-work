@@ -85,9 +85,9 @@ gcmlogs() {
     fi
 
     if kubectl --namespace ${K8NS} get deployment "${1}" >/dev/null 2>&1; then
-        kubectl --namespace ${K8NS} logs deploy/${1} -f
+        kubectl --namespace ${K8NS} logs --follow --tail=0 deploy/${1}
     else
-        kubectl --namespace ${K8NS} logs ${1} -f
+        kubectl --namespace ${K8NS} logs --follow --tail=0 ${1}
     fi
 }
 export -f gcmlogs
