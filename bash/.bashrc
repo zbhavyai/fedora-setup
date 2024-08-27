@@ -166,6 +166,8 @@ alias python='python3'
 alias prettyjson='python3 -mjson.tool'
 alias findjava='find . -type f -name "*java"'
 alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
+# refer https://github.com/zbhavyai/containers/tree/main/texlive
+alias latex='podman container run --privileged --rm --volume "${PWD}:/data" --name latex latex'
 
 if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
