@@ -25,6 +25,7 @@ remmina
 sysprof
 ftp
 qt
+jq
 
 # archiving
 unrar
