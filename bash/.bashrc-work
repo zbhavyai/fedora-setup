@@ -41,6 +41,7 @@ export BACK_APPS="userful-chronos-aether userful-chronos-ve userful-chronos-webc
 # #############################################################################
 alias cdlog='cd /var/log/userful'
 alias reboot='rm -rf /var/log/userful/*; shutdown -r 0'
+alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
 
 create_log_aliases() {
     local LOGVAR="$1"
