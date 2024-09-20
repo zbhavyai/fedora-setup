@@ -29,7 +29,10 @@
   "window.autoDetectColorScheme": true,
   "window.dialogStyle": "custom",
   "window.menuBarVisibility": "classic",
+  "window.newWindowProfile": "Default",
+  "window.titleBarStyle": "native",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredLightColorTheme": "Default Dark Modern",
   "workbench.tree.indent": 15,
   // TERMINAL -----------------------------------------------------------------
   "debug.terminal.clearBeforeReusing": true,
