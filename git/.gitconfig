@@ -9,6 +9,8 @@
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [init]
     defaultBranch = main
+[core]
+    editor = vim
 # [pull]
 #     rebase = true
 # [filter "lfs"]
