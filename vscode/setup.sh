@@ -18,16 +18,41 @@ install_packages() {
     sudo dnf install -y code
 }
 
+create_profile() {
+    local PROFILE_NAME="$1"
+    printf "[INFO] Creating profile: %s\n" "$PROFILE_NAME"
+    code --profile "$PROFILE_NAME" --disable-extensions &
+    sleep 5
+    pkill -9 -f "code --profile"
+}
+
 install_extensions() {
+    local PROFILE=""
+
     while IFS= read -r line || [[ -n "$line" ]]; do
         # Skip empty lines and lines starting with #
         if [[ -z "$line" || "$line" =~ ^#.* ]]; then
             continue
         fi
 
-        # Install extensions one by one
-        printf '[INFO] Install: %s\n' "${line}"
-        code --install-extension "${line}" 1> /dev/null
+        if [[ "$line" =~ ^\[([a-zA-Z0-9_-]+)\]$ ]]; then
+            PROFILE="${BASH_REMATCH[1]}"
+
+            # if [[ -z "$PROFILE" || "${PROFILE,,}" == "default" ]]; then
+            #     :
+            # else
+            #     create_profile "${PROFILE}"
+            # fi
+        else
+            if [[ -z "$PROFILE" || "${PROFILE,,}" == "default" ]]; then
+                printf '[INFO] Install: %s\n' "${line}"
+                printf '[INFO] Install: %s in profile: default\n' "${line}"
+                code --install-extension "${line}" 1> /dev/null
+            else
+                printf '[INFO] Install: %s in profile: %s\n' "${line}" "${PROFILE}"
+                code --install-extension "${line}" --profile "${PROFILE}" 1> /dev/null
+            fi
+        fi
     done < "${EXTS_INSTALL}"
 
     printf "\n"
@@ -51,6 +76,8 @@ setup_keybindings() {
 main() {
     setup_repos
     install_packages
+    create_profile "JAVA"
+    create_profile "PYTHON"
     install_extensions
     setup_config
     setup_keybindings
