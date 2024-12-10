@@ -45,7 +45,6 @@ install_extensions() {
             # fi
         else
             if [[ -z "$PROFILE" || "${PROFILE,,}" == "default" ]]; then
-                printf '[INFO] Install: %s\n' "${line}"
                 printf '[INFO] Install: %s in profile: default\n' "${line}"
                 code --install-extension "${line}" 1> /dev/null
             else
