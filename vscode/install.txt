@@ -20,16 +20,17 @@ eamodio.gitlens
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
+josevseb.google-java-format-for-vs-code
 pkief.material-icon-theme
 redhat.java
 redhat.vscode-xml
+sonarsource.sonarlint-vscode
 visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
 vscjava.vscode-java-test
 vscjava.vscode-maven
-sonarsource.sonarlint-vscode
 
 [PYTHON]
 dbaeumer.vscode-eslint
