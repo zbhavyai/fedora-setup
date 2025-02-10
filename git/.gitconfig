@@ -11,6 +11,8 @@
     defaultBranch = main
 [core]
     editor = vim
+[remote "origin"]
+    prune = true
 # [pull]
 #     rebase = true
 # [filter "lfs"]
