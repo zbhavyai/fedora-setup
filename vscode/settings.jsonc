@@ -27,6 +27,7 @@
   "git.openRepositoryInParentFolders": "always",
   "update.mode": "none",
   "window.autoDetectColorScheme": true,
+  "window.customTitleBarVisibility": "never",
   "window.dialogStyle": "custom",
   "window.menuBarVisibility": "classic",
   "window.newWindowDimensions": "inherit",
