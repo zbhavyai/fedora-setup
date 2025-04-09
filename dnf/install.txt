@@ -36,7 +36,7 @@ pdftk-java
 
 # miscellaneous
 vim-enhanced
-transmission
+qbittorrent
 podman-compose
 intel-gmmlib
 tldr
