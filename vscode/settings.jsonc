@@ -53,7 +53,8 @@
   "editor.wordBasedSuggestions": "off",
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
-  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "chat.agent.enabled": true,
   // SONARLINT ----------------------------------------------------------------
   "sonarlint.rules": {
     "javascript:S125": { "level": "off" },
@@ -95,9 +96,12 @@
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   // "[java]": { "editor.defaultFormatter": "redhat.java" },
   "[java]": { "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code" },
+  "prettier.useEditorConfig": true,
+  "prettier.requireConfig": true,
   "prettier.jsxSingleQuote": false,
-  "prettier.singleQuote": false,
   "prettier.printWidth": 200,
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
