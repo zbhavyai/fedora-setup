@@ -1,4 +1,5 @@
 [DEFAULT]
+bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
@@ -15,6 +16,7 @@ visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
 
 [JAVA]
+bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
@@ -33,6 +35,7 @@ vscjava.vscode-java-test
 vscjava.vscode-maven
 
 [PYTHON]
+bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 eamodio.gitlens
 esbenp.prettier-vscode
