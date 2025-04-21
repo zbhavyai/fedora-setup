@@ -55,6 +55,7 @@
   "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
   "github.copilot.chat.codesearch.enabled": true,
   "chat.agent.enabled": true,
+  "chat.mcp.enabled": true,
   // SONARLINT ----------------------------------------------------------------
   "sonarlint.rules": {
     "javascript:S125": { "level": "off" },
@@ -96,8 +97,11 @@
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   // "[java]": { "editor.defaultFormatter": "redhat.java" },
   "[java]": { "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code" },
+  "prettier.requireConfig": false,
   "prettier.useEditorConfig": true,
-  "prettier.requireConfig": true,
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.bracketSameLine": false,
+  "prettier.endOfLine": "lf",
   "prettier.jsxSingleQuote": false,
   "prettier.printWidth": 200,
   "prettier.semi": true,
