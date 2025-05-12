@@ -1,13 +1,10 @@
 [DEFAULT]
-bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
 ms-azuretools.vscode-containers
-ms-vscode-remote.remote-ssh
-ms-vscode-remote.remote-ssh-edit
-ms-vscode.remote-explorer
+mtxr.sqltools
 pkief.material-icon-theme
 redhat.vscode-xml
 sonarsource.sonarlint-vscode
@@ -15,13 +12,13 @@ visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
 
 [JAVA]
-bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
 josevseb.google-java-format-for-vs-code
 ms-azuretools.vscode-containers
+mtxr.sqltools
 pkief.material-icon-theme
 redhat.java
 redhat.vscode-xml
@@ -34,7 +31,6 @@ vscjava.vscode-java-test
 vscjava.vscode-maven
 
 [PYTHON]
-bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 esbenp.prettier-vscode
 github.copilot
