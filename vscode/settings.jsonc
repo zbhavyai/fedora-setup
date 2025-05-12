@@ -81,9 +81,10 @@
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
   // CONTAINER ----------------------------------------------------------------
-  "dev.containers.dockerPath": "/usr/bin/docker",
+  "containers.composeCommand": "/usr/bin/docker-compose",
+  "containers.containerCommand": "/usr/bin/docker",
   "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
-  "docker.dockerPath": "/usr/bin/docker",
+  "dev.containers.dockerPath": "/usr/bin/docker",
   // GIT ----------------------------------------------------------------------
   "git.autofetch": true,
   "git.blame.editorDecoration.enabled": true,
