@@ -1,7 +1,6 @@
 [DEFAULT]
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
-eamodio.gitlens
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
@@ -18,7 +17,6 @@ visualstudioexptteam.vscodeintellicode
 [JAVA]
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
-eamodio.gitlens
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat
@@ -37,7 +35,6 @@ vscjava.vscode-maven
 [PYTHON]
 bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
-eamodio.gitlens
 esbenp.prettier-vscode
 github.copilot
 github.copilot-chat

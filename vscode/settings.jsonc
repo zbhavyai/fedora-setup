@@ -23,8 +23,6 @@
   "explorer.fileNesting.enabled": false,
   "extensions.ignoreRecommendations": true,
   "files.simpleDialog.enable": true,
-  "git.autofetch": true,
-  "git.openRepositoryInParentFolders": "always",
   "update.mode": "none",
   "window.autoDetectColorScheme": true,
   "window.customTitleBarVisibility": "never",
@@ -86,8 +84,14 @@
   "dev.containers.dockerPath": "/usr/bin/docker",
   "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
   "docker.dockerPath": "/usr/bin/docker",
-  // GITLENS ------------------------------------------------------------------
-  "gitlens.codeLens.enabled": false,
+  // GIT ----------------------------------------------------------------------
+  "git.autofetch": true,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.editorDecoration.template": "${subject}, (${authorDateAgo})",
+  "git.decorations.enabled": true,
+  "git.openRepositoryInParentFolders": "always",
+  "scm.diffDecorationsGutterPattern": { "added": false, "modified": false },
+  "scm.diffDecorationsGutterVisibility": "always",
   // FORMATTING ---------------------------------------------------------------
   "[html][css][scss][javascript][typescript][typescriptreact][json][jsonc][markdown][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
