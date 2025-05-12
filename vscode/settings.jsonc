@@ -81,8 +81,7 @@
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
   // CONTAINER ----------------------------------------------------------------
-  "containers.composeCommand": "/usr/bin/docker-compose",
-  "containers.containerCommand": "/usr/bin/docker",
+  "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
   "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
   "dev.containers.dockerPath": "/usr/bin/docker",
   // GIT ----------------------------------------------------------------------
