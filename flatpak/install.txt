@@ -7,7 +7,6 @@ io.github.mrvladus.List
 io.gitlab.liferooter.TextPieces
 org.audacityteam.Audacity
 org.gnome.dspy
-org.gnome.Music
 org.gnome.SoundRecorder
 org.nickvision.tagger
 org.nickvision.tubeconverter
