@@ -101,6 +101,7 @@
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   // "[java]": { "editor.defaultFormatter": "redhat.java" },
   "[java]": { "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code" },
+  "[sql]": { "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc" },
   "prettier.requireConfig": false,
   "prettier.useEditorConfig": true,
   "prettier.embeddedLanguageFormatting": "auto",
@@ -113,6 +114,10 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
+  "SQL-Formatter-VSCode.dialect": "postgresql",
+  "SQL-Formatter-VSCode.dataTypeCase": "upper",
+  "SQL-Formatter-VSCode.keywordCase": "upper",
+  "SQL-Formatter-VSCode.functionCase": "upper",
   // OTHER --------------------------------------------------------------------
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "crash"
