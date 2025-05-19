@@ -1,0 +1,19 @@
+all:
+  children:
+    laptops:
+      hosts:
+        my_laptop:
+          ansible_host: localhost
+          ansible_connection: local
+
+    servers:
+      hosts:
+        server_yankee:
+          ansible_host: yankee.local
+          ansible_user: root
+          ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"
+
+        server_canuck:
+          ansible_host: canuck.local
+          ansible_user: root
+          ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"
