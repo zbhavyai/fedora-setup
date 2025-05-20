@@ -1,0 +1,23 @@
+---
+- name: Log remove fonts
+  ansible.builtin.debug:
+    msg: "{{ fonts_to_remove }}"
+
+- name: Remove fonts
+  ansible.builtin.dnf5:
+    name: "{{ fonts_to_remove }}"
+    state: absent
+    allowerasing: true
+  become: true
+  when: (fonts_to_remove | default([])) | length > 0
+
+- name: Log install fonts
+  ansible.builtin.debug:
+    msg: "{{ fonts_to_install }}"
+
+- name: Install fonts
+  ansible.builtin.dnf5:
+    name: "{{ fonts_to_install }}"
+    state: present
+  become: true
+  when: (fonts_to_install | default([])) | length > 0

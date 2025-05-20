@@ -2,5 +2,7 @@
   hosts: laptop
   vars_files:
     - ../group_vars/laptop/dnf.yaml
+    - ../group_vars/laptop/fonts.yaml
   roles:
     - dnf
+    - fonts
