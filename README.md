@@ -27,8 +27,22 @@ Certain software packages or configurations tailored to specific needs won't be 
 
 ## How to use
 
-To begin the setup process, simply execute the [setup.sh](setup.sh) script. You may be prompted to enter your password, as some commands require `sudo` privileges.
+1. Ensure you have `python-libdnf5` installed.
 
-```shell
-./setup.sh
-```
+   ```shell
+   sudo dnf install --assumeyes python3-libdnf5
+   ```
+
+1. Create a python virtual environment, activate it, and install the dependencies
+
+   ```shell
+   python -m venv .venv/PY-TEMP
+   source .venv/PY-TEMP/bin/activate
+   pip install -r requirements.txt
+   ```
+
+1. Run the playbook
+
+   ```shell
+   ansible-playbook -i inventory/hosts.yaml playbooks/laptop.yaml --ask-become-pass
+   ```
