@@ -1,0 +1,5 @@
+---
+cursors_archive_url: "https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz"
+cursors_archive_name: "macOS.tar.xz"
+cursors_archive_path: "{{ ansible_env.HOME }}/Downloads/{{ cursors_archive_name }}"
+cursors_extract_path: "{{ ansible_env.HOME }}/.local/share/icons"

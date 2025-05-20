@@ -1,0 +1,35 @@
+---
+- name: Download macOS cursors archive
+  ansible.builtin.get_url:
+    url: "{{ cursors_archive_url }}"
+    dest: "{{ cursors_archive_path }}"
+    mode: "0644"
+  register: download_result
+  changed_when: download_result.changed
+
+- name: Create icon directory if not exists
+  ansible.builtin.file:
+    path: "{{ cursors_extract_path }}"
+    state: directory
+    mode: "0755"
+
+- name: Extract cursor archive
+  ansible.builtin.unarchive:
+    src: "{{ cursors_archive_path }}"
+    dest: "{{ cursors_extract_path }}"
+    remote_src: true
+
+- name: Remove macOS white cursors
+  ansible.builtin.file:
+    path: "{{ cursors_extract_path }}/macOS-White"
+    state: absent
+
+- name: Remove cursors lincese file
+  ansible.builtin.file:
+    path: "{{ cursors_extract_path }}/LICENSE"
+    state: absent
+
+- name: Remove downloaded cursors archive
+  ansible.builtin.file:
+    path: "{{ cursors_archive_path }}"
+    state: absent
