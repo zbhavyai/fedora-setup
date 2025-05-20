@@ -23,5 +23,5 @@
   "prettier.useTabs": false,
   "python.defaultInterpreterPath": "./.venv/PY-TEMP/bin/python",
   "python.terminal.activateEnvironment": true,
-  "ansible.python.interpreterPath": "./.venv/PY-TEMP/bin/python"
+  "ansible.python.interpreterPath": "/home/bhavyai/Github/fedora-setup/.venv/PY-TEMP/bin/python"
 }
