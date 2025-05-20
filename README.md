@@ -44,5 +44,5 @@ Certain software packages or configurations tailored to specific needs won't be 
 1. Run the playbook
 
    ```shell
-   ansible-playbook -i inventory/hosts.yaml playbooks/laptop.yaml --ask-become-pass
+   ansible-playbook playbooks/laptop.yaml
    ```
