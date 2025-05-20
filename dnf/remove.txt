@@ -1,8 +1,0 @@
-gnome-weather
-gnome-boxes
-virtualbox-guest-additions
-gnome-tour
-gnome-maps
-highcontrast-icon-theme
-totem
-PackageKit-command-not-found

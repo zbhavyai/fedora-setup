@@ -1,12 +1,12 @@
 all:
   children:
-    laptops:
+    laptop:
       hosts:
-        my_laptop:
+        home_laptop:
           ansible_host: localhost
           ansible_connection: local
 
-    servers:
+    server:
       hosts:
         server_yankee:
           ansible_host: yankee.local

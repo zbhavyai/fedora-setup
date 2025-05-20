@@ -1,0 +1,53 @@
+dnf_install_packages:
+  # java dev
+  - java-21-openjdk-devel
+  - java-21-openjdk-javadoc
+  - java-21-openjdk-src
+  - java-21-openjdk-jmods
+  - maven
+
+  # javascript dev
+  - nodejs
+
+  # git gui
+  - gitg
+
+  # customization
+  - dconf-editor
+  - gnome-tweaks
+  - adw-gtk3-theme
+  - papirus-icon-theme
+  - gnome-extensions-app
+
+  # tools
+  - openssl
+  - nmap
+  - remmina
+  - sysprof
+  - ftp
+  - qt
+  - jq
+
+  # archiving
+  - unrar
+  - file-roller
+
+  # pdf organization
+  - pdftk-java
+
+  # misc
+  - vim-enhanced
+  - qbittorrent
+  - podman-compose
+  - intel-gmmlib
+  - tldr
+
+dnf_remove_packages:
+  - gnome-weather
+  - gnome-boxes
+  - virtualbox-guest-additions
+  - gnome-tour
+  - gnome-maps
+  - highcontrast-icon-theme
+  - totem
+  - PackageKit-command-not-found
