@@ -21,5 +21,7 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
+  "python.defaultInterpreterPath": "./.venv/PY-TEMP/bin/python",
+  "python.terminal.activateEnvironment": true,
   "ansible.python.interpreterPath": "./.venv/PY-TEMP/bin/python"
 }
