@@ -1,0 +1,25 @@
+{
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "[markdown][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": { "editor.tabSize": 3 },
+  "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+  "prettier.requireConfig": false,
+  "prettier.useEditorConfig": true,
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.bracketSameLine": false,
+  "prettier.endOfLine": "lf",
+  "prettier.jsxSingleQuote": false,
+  "prettier.printWidth": 200,
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "all",
+  "prettier.useTabs": false,
+  "ansible.python.interpreterPath": "./.venv/PY-TEMP/bin/python"
+}

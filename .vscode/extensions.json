@@ -1,0 +1,3 @@
+{
+  "recommendations": ["redhat.ansible", "esbenp.prettier-vscode", "redhat.vscode-xml", "redhat.vscode-yaml", "foxundermoon.shell-format"]
+}
