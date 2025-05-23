@@ -1,0 +1,29 @@
+flatpak_apps:
+  # configuration
+  - com.github.tchx84.Flatseal
+
+  # development
+  - com.getpostman.Postman
+  - com.jetbrains.IntelliJ-IDEA-Community
+  - org.pgadmin.pgadmin4
+
+  # tools
+  - com.jgraph.drawio.desktop
+  - io.gitlab.liferooter.TextPieces
+  - org.gnome.dspy
+  - org.nickvision.tagger
+  - org.nickvision.tubeconverter
+  - org.remmina.Remmina
+
+  # media
+  - com.github.PintaProject.Pinta
+  - com.obsproject.Studio
+  - org.atheme.audacious
+  - org.audacityteam.Audacity
+  - org.gnome.SoundRecorder
+  - org.kde.gwenview
+  - org.shotcut.Shotcut
+  - org.videolan.VLC
+
+  # misc
+  - org.telegram.desktop
