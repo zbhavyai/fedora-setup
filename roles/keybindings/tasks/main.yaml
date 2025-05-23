@@ -16,9 +16,3 @@
     key: "/org/gnome/desktop/wm/keybindings/"
     value: "{{ lookup('file', 'files/switchWindows.conf') }}"
     state: present
-
-- name: Load terminal keybindings
-  community.general.dconf:
-    key: "/org/gnome/terminal/legacy/keybindings/"
-    value: "{{ lookup('file', 'files/terminal.conf') }}"
-    state: present

@@ -1,0 +1,12 @@
+---
+- name: Load gnome-terminal settings
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/profiles:/"
+    value: "{{ lookup('file', 'files/profiles.conf') }}"
+    state: present
+
+- name: Load terminal keybindings
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/keybindings/"
+    value: "{{ lookup('file', 'files/terminal.conf') }}"
+    state: present
