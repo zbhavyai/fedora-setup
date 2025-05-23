@@ -1,0 +1,36 @@
+---
+- name: Copy .bashrc
+  ansible.builtin.copy:
+    src: .bashrc
+    dest: "{{ ansible_env.HOME }}/.bashrc"
+    mode: "0644"
+
+- name: Copy .gitconfig
+  ansible.builtin.copy:
+    src: .gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    mode: "0644"
+
+- name: Copy .gitconfig-work
+  ansible.builtin.copy:
+    src: .gitconfig-work
+    dest: "{{ ansible_env.HOME }}/.gitconfig-work"
+    mode: "0644"
+
+- name: Ensure .ssh directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: "0700"
+
+- name: Copy SSH config
+  ansible.builtin.copy:
+    src: ssh_config
+    dest: "{{ ansible_env.HOME }}/.ssh/config"
+    mode: "0600"
+
+- name: Copy .vimrc
+  ansible.builtin.copy:
+    src: .vimrc
+    dest: "{{ ansible_env.HOME }}/.vimrc"
+    mode: "0644"
