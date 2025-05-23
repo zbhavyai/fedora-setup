@@ -1,0 +1,6 @@
+---
+- name: Load Nautilus settings
+  community.general.dconf:
+    key: "/org/gnome/nautilus/preferences/"
+    value: "{{ lookup('file', 'files/preferences.conf') }}"
+    state: present
