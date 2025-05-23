@@ -1,0 +1,16 @@
+---
+- name: Add VirtualBox repository
+  ansible.builtin.get_url:
+    url: https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+    dest: /etc/yum.repos.d/virtualbox.repo
+    force: true
+    mode: "0644"
+  become: true
+
+- name: Install VirtualBox and Guest Additions
+  ansible.builtin.dnf5:
+    name:
+      - VirtualBox-7.0
+      - virtualbox-guest-additions
+    state: present
+  become: true
