@@ -1,0 +1,6 @@
+---
+- name: Load gnome-text-editor settings
+  community.general.dconf:
+    key: "/org/gnome/TextEditor/"
+    value: "{{ lookup('file', 'files/preferences.conf') }}"
+    state: present
