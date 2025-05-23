@@ -1,0 +1,24 @@
+---
+- name: Load screenshot keybindings
+  community.general.dconf:
+    key: "/org/gnome/shell/keybindings/"
+    value: "{{ lookup('file', 'files/screenshot.conf') }}"
+    state: present
+
+- name: Load media keys keybindings
+  community.general.dconf:
+    key: "/org/gnome/settings-daemon/plugins/media-keys/"
+    value: "{{ lookup('file', 'files/mediakeys.conf') }}"
+    state: present
+
+- name: Load switch windows keybindings
+  community.general.dconf:
+    key: "/org/gnome/desktop/wm/keybindings/"
+    value: "{{ lookup('file', 'files/switchWindows.conf') }}"
+    state: present
+
+- name: Load terminal keybindings
+  community.general.dconf:
+    key: "/org/gnome/terminal/legacy/keybindings/"
+    value: "{{ lookup('file', 'files/terminal.conf') }}"
+    state: present

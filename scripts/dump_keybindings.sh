@@ -4,10 +4,10 @@
 
 
 SCRIPT_DIR="$(dirname "$0")"
-KB_SCREENSHOT="${SCRIPT_DIR}/screenshot.conf"
-KB_MEDIA_KEYS="${SCRIPT_DIR}/mediakeys.conf"
-KB_SWITCH_WINDOWS="${SCRIPT_DIR}/switchWindows.conf"
-KB_TERMINAL="${SCRIPT_DIR}/terminal.conf"
+KB_SCREENSHOT="${SCRIPT_DIR}/../roles/keybindings/files/screenshot.conf"
+KB_MEDIA_KEYS="${SCRIPT_DIR}/../roles/keybindings/files/mediakeys.conf"
+KB_SWITCH_WINDOWS="${SCRIPT_DIR}/../roles/keybindings/files/switchWindows.conf"
+KB_TERMINAL="${SCRIPT_DIR}/../roles/keybindings/files/terminal.conf"
 
 dump_config() {
     dconf dump /org/gnome/shell/keybindings/ > "${KB_SCREENSHOT}"
