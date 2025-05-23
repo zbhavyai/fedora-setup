@@ -1,0 +1,13 @@
+---
+- name: Install extensions for profile "{{ profile }}"
+  ansible.builtin.shell: |
+    code --install-extension {{ item }}{% if profile != 'DEFAULT' %} --profile {{ profile }}{% endif %}
+  args:
+    executable: /bin/bash
+  loop: "{{ vscode_extensions[profile] }}"
+  loop_control:
+    label: "{{ item }}"
+  register: install_output
+  changed_when: "'already installed' not in install_output.stdout"
+  failed_when: install_output.rc != 0 and 'already installed' not in install_output.stdout
+  delegate_to: localhost

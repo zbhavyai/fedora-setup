@@ -4,6 +4,7 @@
     - ../group_vars/laptop/dnf.yaml
     - ../group_vars/laptop/fonts.yaml
     - ../group_vars/laptop/flatpak.yaml
+    - ../group_vars/laptop/vscode_extensions.yaml
   roles:
     - dnf
     - fonts
@@ -15,3 +16,4 @@
     - gnome-text-editor
     - nautilus
     - virtualbox
+    - vscode

@@ -1,0 +1,46 @@
+---
+- name: Add VS Code repo GPG key
+  ansible.builtin.rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+  become: true
+
+- name: Add Visual Studio Code repository
+  ansible.builtin.yum_repository:
+    name: vscode2
+    description: "Visual Studio Code"
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    enabled: true
+    gpgcheck: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  become: true
+
+- name: Install Visual Studio Code
+  ansible.builtin.dnf:
+    name: code
+    state: present
+  become: true
+
+- name: Ensure VS Code config directory exists
+  ansible.builtin.file:
+    path: ~/.config/Code/User
+    state: directory
+    mode: "0755"
+
+- name: Copy VS Code settings
+  ansible.builtin.copy:
+    src: settings.jsonc
+    dest: ~/.config/Code/User/settings.json
+    mode: "0644"
+
+- name: Copy VS Code keybindings
+  ansible.builtin.copy:
+    src: keybindings.jsonc
+    dest: ~/.config/Code/User/keybindings.json
+    mode: "0644"
+
+- name: Install extensions for each profile
+  ansible.builtin.include_tasks: install_extensions.yaml
+  loop: "{{ vscode_extensions.keys() | list }}"
+  loop_control:
+    loop_var: profile
