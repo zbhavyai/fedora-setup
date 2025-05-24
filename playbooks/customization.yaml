@@ -10,5 +10,5 @@
     - cursors
     - keybindings
     - settings
-    - gnome-text-editor
+    - gnome_text_editor
     - nautilus

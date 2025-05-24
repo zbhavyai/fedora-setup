@@ -1,6 +1,5 @@
 ---
 - name: Load Nautilus settings
-  community.general.dconf:
-    key: "/org/gnome/nautilus/preferences/"
-    value: "{{ lookup('file', 'files/preferences.conf') }}"
-    state: present
+  ansible.builtin.shell: |
+    dconf load /org/gnome/nautilus/preferences/ < {{ role_path }}/files/preferences.conf
+  changed_when: true

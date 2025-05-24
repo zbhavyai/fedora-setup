@@ -1,19 +1,18 @@
 #!/bin/bash
-# Author        : github.com/zbhavyai
 
 SCRIPT_DIR="$(dirname "$0")"
 CONFIG_APP_FOLDERS="${SCRIPT_DIR}/../roles/settings/files/appFolders.conf"
 CONFIG_MUTTER="${SCRIPT_DIR}/../roles/settings/files/mutter.conf"
 CONFIG_INTERFACE="${SCRIPT_DIR}/../roles/settings/files/tweaks.conf"
 
-dump_config() {
+get_config() {
     dconf dump /org/gnome/desktop/app-folders/ >"${CONFIG_APP_FOLDERS}"
     dconf dump /org/gnome/mutter/ >"${CONFIG_MUTTER}"
     dconf dump /org/gnome/desktop/interface/ >"${CONFIG_INTERFACE}"
 }
 
 main() {
-    dump_config
+    get_config
 }
 
 main

@@ -1,0 +1,5 @@
+---
+- name: Load gnome-text-editor settings
+  ansible.builtin.shell: |
+    dconf load /org/gnome/TextEditor/ < {{ role_path }}/files/preferences.conf
+  changed_when: true

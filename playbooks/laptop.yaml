@@ -2,19 +2,14 @@
   hosts: laptop
   vars_files:
     - ../group_vars/laptop/dnf.yaml
-    - ../group_vars/laptop/fonts.yaml
     - ../group_vars/laptop/flatpak.yaml
   roles:
     - dnf
-    - fonts
     - cursors
     - flatpak
     - dotfiles
     - keybindings
     - gnome-terminal
-    - gnome-text-editor
-    - nautilus
     - virtualbox
     - konsole
-    - settings
     - google-chrome

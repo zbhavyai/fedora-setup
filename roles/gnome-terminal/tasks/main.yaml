@@ -1,12 +1,10 @@
 ---
 - name: Load gnome-terminal settings
-  community.general.dconf:
-    key: "/org/gnome/terminal/legacy/profiles:/"
-    value: "{{ lookup('file', 'files/profiles.conf') }}"
-    state: present
+  ansible.builtin.shell: |
+    dconf load /org/gnome/terminal/legacy/profiles:/ < {{ role_path }}/files/profiles.conf
+  changed_when: true
 
 - name: Load terminal keybindings
-  community.general.dconf:
-    key: "/org/gnome/terminal/legacy/keybindings/"
-    value: "{{ lookup('file', 'files/terminal.conf') }}"
-    state: present
+  ansible.builtin.shell: |
+    dconf load /org/gnome/terminal/legacy/keybindings/ < {{ role_path }}/files/terminal.conf
+  changed_when: true
