@@ -1,27 +1,46 @@
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: init clean java vscode lint help
+.PHONY: init clean java vscode lint help check-deps
 
-init: $(REQUIREMENTS_FILE)
-	python3 -m venv .venv/PY-TEMP
-	. .venv/PY-TEMP/bin/activate && pip install --upgrade pip && pip install -r $<
+deps-ok:
+	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
+		echo "python3-libdnf5 is not installed. Please run:"; \
+		echo "  sudo dnf install --assumeyes python3-libdnf5"; \
+		exit 1; \
+	fi
 
-clean:
+check-deps:
+	@if rpm -q python3-libdnf5 > /dev/null 2>&1; then \
+		echo "All required system dependencies are installed."; \
+	else \
+		echo "python3-libdnf5 is not installed. Please run:"; \
+		echo "  sudo dnf install --assumeyes python3-libdnf5"; \
+		exit 1; \
+	fi
+
+init: deps-ok $(REQUIREMENTS_FILE)
+	@if [ ! -d "$(VENV_DIR)" ]; then \
+		python3 -m venv $(VENV_DIR); \
+	fi
+	. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
+
+clean: deps-ok
 	ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-java:
+java: deps-ok
 	ansible-playbook playbooks/java.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-vscode:
+vscode: deps-ok
 	ansible-playbook playbooks/vscode.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-lint:
+lint: deps-ok
 	ansible-lint
 
 help:
 	@echo "Available targets:"
-	@echo "  init    - Set up py venv and install requirements"
-	@echo "  clean   - Run cleanup playbook"
-	@echo "  java    - Run Java setup playbook"
-	@echo "  vscode  - Run VSCode setup playbook"
-	@echo "  lint    - Run ansible-lint"
+	@echo "  init        - Set up py venv and install requirements"
+	@echo "  clean       - Run cleanup playbook"
+	@echo "  java        - Run Java setup playbook"
+	@echo "  vscode      - Run VSCode setup playbook"
+	@echo "  lint        - Run ansible-lint"
+	@echo "  check-deps  - Check for required system dependencies"

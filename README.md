@@ -29,13 +29,11 @@ The goal is to automate as much as possible to a reasonable extent. This means t
 1. Create a python virtual environment, activate it, and install the dependencies
 
    ```shell
-   python -m venv .venv/PY-TEMP
-   source .venv/PY-TEMP/bin/activate
-   pip install -r requirements.txt
+   make init
    ```
 
-1. Run the playbook
+1. Run one of the playbooks
 
    ```shell
-   ansible-playbook playbooks/laptop.yaml
+   make java
    ```
