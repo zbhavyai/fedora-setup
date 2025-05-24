@@ -4,10 +4,10 @@ flatpak_packages:
   - com.jgraph.drawio.desktop
   - com.obsproject.Studio
   - org.atheme.audacious
-  - org.audacityteam.Audacity
+  # - org.audacityteam.Audacity
   - org.gnome.SoundRecorder
-  - org.kde.gwenview
+  # - org.kde.gwenview
   - org.nickvision.tagger
-  - org.nickvision.tubeconverter
+  # - org.nickvision.tubeconverter
   - org.shotcut.Shotcut
   - org.videolan.VLC
