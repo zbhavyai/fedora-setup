@@ -1,0 +1,36 @@
+---
+- name: Ensure HandleLidSwitch is set to ignore
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/logind.conf
+    regexp: "^#?HandleLidSwitch="
+    line: "HandleLidSwitch=ignore"
+    state: present
+    backrefs: true
+  become: true
+
+- name: Ensure LidSwitchIgnoreInhibited is set to yes
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/logind.conf
+    regexp: "^#?LidSwitchIgnoreInhibited="
+    line: "LidSwitchIgnoreInhibited=yes"
+    state: present
+    backrefs: true
+  become: true
+
+- name: Setup app folders
+  community.general.dconf:
+    key: "/org/gnome/desktop/app-folders/"
+    value: "{{ lookup('file', 'files/appFolders.conf') }}"
+    state: present
+
+- name: Setup mutter
+  community.general.dconf:
+    key: "/org/gnome/mutter/"
+    value: "{{ lookup('file', 'files/mutter.conf') }}"
+    state: present
+
+- name: Load Gnome Tweaks settings
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/"
+    value: "{{ lookup('file', 'files/tweaks.conf') }}"
+    state: present
