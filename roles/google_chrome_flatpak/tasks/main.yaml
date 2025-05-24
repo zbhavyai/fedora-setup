@@ -1,0 +1,19 @@
+---
+- name: Install Google Chrome Flatpak
+  community.general.flatpak:
+    name: "com.google.Chrome"
+    remote: flathub
+    executable: /usr/bin/flatpak
+    method: system
+    state: present
+  become: false
+
+# - name: Grant access to session dbus
+#   ansible.builtin.command: >
+#     flatpak override --user --talk-name=org.freedesktop.DBus com.google.Chrome
+#   changed_when: true
+
+# - name: Grant access to system dbus
+#   ansible.builtin.command: >
+#     flatpak override --user --system-talk-name=org.freedesktop.DBus com.google.Chrome
+#   changed_when: true

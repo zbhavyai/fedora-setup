@@ -1,3 +1,4 @@
+---
 - name: Fedora Workstation Setup
   hosts: laptop
   vars_files:
