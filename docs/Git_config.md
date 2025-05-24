@@ -18,7 +18,7 @@ GitHub has three configuration levels, and each of these three levels overwrites
    git --version
    ```
 
-2. If you plan not to configure the `git`, then use HTTPS to clone the repos and it shouldn't require for any authentication for read-only access. Closing using SSH would throw `Permission denied` error.
+2. If you plan not to configure the `git`, then use HTTPS to clone the repos and it shouldn't require for any authentication for read-only access. Cloning using SSH would throw `Permission denied` error.
 
    ```shell
    git clone <HTTPS url>
