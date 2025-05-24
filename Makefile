@@ -1,3 +1,4 @@
+VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
 .PHONY: init clean java vscode media customization tools alternate lint help check-deps
