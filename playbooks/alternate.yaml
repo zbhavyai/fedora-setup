@@ -1,0 +1,8 @@
+---
+- name: Alternative softwares
+  hosts: laptop
+  roles:
+    - google_chrome
+    # - gnome_terminal
+    # - konsole
+    # - virtualbox
