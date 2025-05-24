@@ -1,4 +1,3 @@
----
 vscode_extensions:
   DEFAULT:
     - dbaeumer.vscode-eslint

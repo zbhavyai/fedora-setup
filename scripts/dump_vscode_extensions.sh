@@ -4,6 +4,7 @@
 SCRIPT_DIR="$(dirname "$0")"
 EXTNS_YAML="${SCRIPT_DIR}/../group_vars/laptop/vscode_extensions.yaml"
 
+echo "---" >"$EXTNS_YAML"
 echo "vscode_extensions:" >"$EXTNS_YAML"
 
 dump_extensions() {

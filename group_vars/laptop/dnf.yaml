@@ -1,7 +1,4 @@
 dnf_install_packages:
-  # javascript dev
-  - nodejs
-
   # git gui
   - gitg
 
