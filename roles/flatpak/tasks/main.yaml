@@ -1,14 +1,14 @@
 ---
 - name: Log install apps
   ansible.builtin.debug:
-    msg: "{{ flatpak_apps }}"
+    msg: "{{ flatpak_packages }}"
 
 - name: Install apps
   community.general.flatpak:
-    name: "{{ flatpak_apps }}"
+    name: "{{ flatpak_packages }}"
     remote: flathub
     executable: /usr/bin/flatpak
     method: system
     state: present
   become: true
-  when: (flatpak_apps | default([])) | length > 0
+  when: (flatpak_packages | default([])) | length > 0

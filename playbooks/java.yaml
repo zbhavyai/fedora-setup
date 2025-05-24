@@ -4,4 +4,5 @@
   vars_files:
     - ../group_vars/java.yaml
   roles:
-    - java
+    - dnf
+    - flatpak

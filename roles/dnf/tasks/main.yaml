@@ -1,11 +1,11 @@
 ---
 - name: Log installing packages
   ansible.builtin.debug:
-    msg: "{{ dnf_install_packages }}"
+    msg: "{{ dnf_packages }}"
 
 - name: Install DNF packages
   ansible.builtin.dnf5:
-    name: "{{ dnf_install_packages }}"
+    name: "{{ dnf_packages }}"
     state: present
   become: true
-  when: (dnf_install_packages | default([])) | length > 0
+  when: (dnf_packages | default([])) | length > 0

@@ -1,12 +1,13 @@
 ---
-jdk_dnf_packages:
+dnf_packages:
+  # jdk
   - java-21-openjdk-devel
   - java-21-openjdk-javadoc
   - java-21-openjdk-src
   - java-21-openjdk-jmods
 
-maven_dnf_packages:
+  # mvn
   - maven
 
-ide_flatpak_packages:
+flatpak_packages:
   - com.jetbrains.IntelliJ-IDEA-Community
