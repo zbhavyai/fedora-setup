@@ -1,0 +1,24 @@
+---
+- name: Install konsole
+  ansible.builtin.dnf5:
+    name: "konsole"
+    state: present
+  become: true
+
+- name: Ensure konsole profile directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/share/konsole"
+    state: directory
+    mode: "0755"
+
+- name: Copy konsole profile
+  ansible.builtin.copy:
+    src: BG-PROFILE.profile
+    dest: "{{ ansible_env.HOME }}/.local/share/konsole/BG-PROFILE.profile"
+    mode: "0644"
+
+- name: Copy konsolerc settings
+  ansible.builtin.copy:
+    src: konsolerc
+    dest: "{{ ansible_env.HOME }}/.config/konsolerc"
+    mode: "0644"

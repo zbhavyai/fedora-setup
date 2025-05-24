@@ -24,7 +24,7 @@ ToolBarsMovable=Disabled
 [TabBar]
 ExpandTabWidth=true
 TabBarUseUserStyleSheet=true
-TabBarUserStyleSheetFile=file:///home/zbhavyai/Github/fedora-setup/konsole/style.css
+TabBarUserStyleSheetFile=file:///home/zbhavyai/Github/fedora-setup/roles/konsole/files/style.css
 
 [UiSettings]
 ColorScheme=Breeze Dark
