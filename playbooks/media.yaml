@@ -4,4 +4,4 @@
   vars_files:
     - ../group_vars/media.yaml
   roles:
-    - media
+    - flatpak

@@ -1,5 +1,5 @@
 ---
-flatpak_apps:
+flatpak_packages:
   - com.github.PintaProject.Pinta
   - com.jgraph.drawio.desktop
   - com.obsproject.Studio
