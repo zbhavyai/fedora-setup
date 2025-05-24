@@ -1,0 +1,7 @@
+---
+- name: VS Code installation and configuration
+  hosts: laptop
+  vars_files:
+    - ../group_vars/vscode_extensions.yaml
+  roles:
+    - vscode

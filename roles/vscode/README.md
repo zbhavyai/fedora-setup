@@ -1,16 +1,12 @@
 # Visual Studio Code
 
-VS Code is a highly customizable source code editor developed by Microsoft. It is designed to be versatile and supports various programming languages through extensions. Some key features of VS Code include an integrated terminal, version control integration (Git), smart code completion, syntax highlighting, and debugging support.
-
-## Settings
-
-Settings are synced when logged in to a Microsoft account, but are here for reference.
+Below settings are handled by Ansible, but its here for reference.
 
 ### User Settings
 
 1. Press `Ctrl`+`Shift`+`P`
 2. Type `Preferences: Open User Settings (JSON)`
-3. Copy content from [this file](settings.jsonc)
+3. Copy content from [this file](files/settings.jsonc)
 
 ### Keyboard Shortcuts
 
@@ -18,24 +14,18 @@ This is mainly for cycling tabs in the visible order
 
 1. Press `Ctrl`+`Shift`+`P`
 2. Type `Preferences: Open Keyboard Shortcuts (JSON)`
-3. Copy content from [this file](keybindings.jsonc)
+3. Copy content from [this file](files/keybindings.jsonc)
 
 ## Using Flatpak VS Code
+
+> [!NOTE]
+> Avoid using flatpak-vscode.
 
 flatpak-vscode needs some additional settings to work properly, especially when using integrated terminal, or container extensions.
 
 ### Start vscode from anywhere
 
-The [`~/.bashrc`](../bash/.bashrc) file should automatically detect the flatpak installation of VS Code and set an alias, to keep using the `code .` command to open any directory/repository in VS Code from the command line.
-
-### Installing extensions
-
-The [main setup script](../setup.sh) assumes the regular installation of VS Code to install extensions. For installing on flatpak-vscode, run the [vscode setup script](setup.sh) inside the flatpak container.
-
-```shell
-flatpak run --command=sh com.visualstudio.code
-./vscode/setup.sh
-```
+The [`~/.bashrc`](../dotfiles/files/.bashrc) file should automatically detect the flatpak installation of VS Code and set an alias, to keep using the `code .` command to open any directory/repository in VS Code from the command line.
 
 ### Integrated Terminal
 

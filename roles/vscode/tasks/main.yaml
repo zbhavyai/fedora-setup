@@ -1,5 +1,5 @@
 ---
-- name: Add VS Code repo GPG key
+- name: Add Microsoft GPG key
   ansible.builtin.rpm_key:
     key: https://packages.microsoft.com/keys/microsoft.asc
     state: present
@@ -7,7 +7,7 @@
 
 - name: Add Visual Studio Code repository
   ansible.builtin.yum_repository:
-    name: vscode2
+    name: vscode
     description: "Visual Studio Code"
     baseurl: https://packages.microsoft.com/yumrepos/vscode
     enabled: true
