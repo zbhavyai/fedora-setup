@@ -2,7 +2,9 @@
     name = Bhavyai Gupta
     email = zbhavyai@gmail.com
 [includeIf "gitdir:~/Github/WORK/"]
-    path = .gitconfig-work
+    path = ~/.gitconfig-work
+[includeIf "gitdir:~/Bitbucket/"]
+    path = ~/.gitconfig-work
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
@@ -13,10 +15,14 @@
     editor = vim
 [remote "origin"]
     prune = true
-# [pull]
-#     rebase = true
-# [filter "lfs"]
-#     process = git-lfs filter-process
-#     required = true
-#     clean = git-lfs clean -- %f
-#     smudge = git-lfs smudge -- %f
+[pull]
+    rebase = false
+[push]
+    default = simple
+[merge]
+    ff = only
+[diff]
+    tool = vimdiff
+# [status]
+#     short = true
+#     branch = true

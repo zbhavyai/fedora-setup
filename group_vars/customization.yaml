@@ -1,4 +1,10 @@
-fonts_to_install:
+---
+dnf_packages:
+  # themes
+  - adw-gtk3-theme
+  - papirus-icon-theme
+
+  # fonts
   - liberation-fonts
   - lohit-assamese-fonts
   - lohit-bengali-fonts
@@ -13,3 +19,8 @@ fonts_to_install:
   - mozilla-fira-mono-fonts
   - rit-meera-new-fonts
   - rit-rachana-fonts
+
+flatpak_packages:
+  # themes
+  - org.gtk.Gtk3theme.adw-gtk3
+  - org.gtk.Gtk3theme.adw-gtk3-dark

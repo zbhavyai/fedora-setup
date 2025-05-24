@@ -1,0 +1,14 @@
+---
+- name: UI Customization
+  hosts: laptop
+  vars_files:
+    - ../group_vars/customization.yaml
+  roles:
+    - dnf
+    - flatpak
+    - dotfiles
+    - cursors
+    - keybindings
+    - settings
+    - gnome-text-editor
+    - nautilus

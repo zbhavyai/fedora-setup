@@ -1,6 +1,6 @@
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: init clean java vscode media lint help check-deps
+.PHONY: init clean java vscode media customization lint help check-deps
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -36,15 +36,19 @@ vscode: deps-ok
 media: deps-ok
 	ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
+customization: deps-ok
+	ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
+
 lint: deps-ok
 	ansible-lint
 
 help:
 	@echo "Available targets:"
-	@echo "  init        - Set up py venv and install requirements"
-	@echo "  clean       - Run cleanup playbook"
-	@echo "  java        - Run Java setup playbook"
-	@echo "  vscode      - Run VSCode setup playbook"
-	@echo "  media       - Run media setup playbook"
-	@echo "  lint        - Run ansible-lint"
-	@echo "  check-deps  - Check for required system dependencies"
+	@echo "  init          - Set up py venv and install requirements"
+	@echo "  clean         - Run cleanup playbook"
+	@echo "  java          - Run Java setup playbook"
+	@echo "  vscode        - Run VSCode setup playbook"
+	@echo "  media         - Run media setup playbook"
+	@echo "  customization - Run customization playbook"
+	@echo "  lint          - Run ansible-lint"
+	@echo "  check-deps    - Check for required system dependencies"

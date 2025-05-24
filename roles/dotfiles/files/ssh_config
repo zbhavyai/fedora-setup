@@ -20,20 +20,19 @@ Host testnet2
   HostName testnet2
   IdentitiesOnly yes
   User root
-  Port 2299
+  Port 22
   IdentityFile ~/.ssh/workMachineAccess
   ForwardAgent yes
 
-Host server
-  HostName testnet2
+Host jenkins
+  HostName 192.168.123.32
   IdentitiesOnly yes
-  User bhavyai
-  Port 2299
+  User root
   IdentityFile ~/.ssh/workMachineAccess
-  ForwardAgent yes
+  ForwardAgent no
 
 Host home
-  Hostname home
+  HostName home
   User bhavyai.gupta
   ForwardAgent yes
 
@@ -44,4 +43,6 @@ Host test*
 
 Host *
   IdentitiesOnly yes
+  StrictHostKeyChecking no
+  ForwardAgent yes
   IdentityFile ~/.ssh/workMachineAccess
