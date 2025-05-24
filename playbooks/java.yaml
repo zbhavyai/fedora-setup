@@ -1,0 +1,7 @@
+---
+- name: Java Development Environment Setup
+  hosts: laptop
+  vars_files:
+    - ../group_vars/java.yaml
+  roles:
+    - java

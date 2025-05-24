@@ -4,7 +4,6 @@ flatpak_apps:
 
   # development
   - com.getpostman.Postman
-  - com.jetbrains.IntelliJ-IDEA-Community
   - org.pgadmin.pgadmin4
 
   # tools
