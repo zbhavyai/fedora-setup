@@ -1,3 +1,4 @@
+---
 flatpak_apps:
   - com.github.PintaProject.Pinta
   - com.jgraph.drawio.desktop

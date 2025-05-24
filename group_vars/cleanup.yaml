@@ -1,15 +1,18 @@
 ---
-unwanted_packages:
+dnf_packages:
+  # tools
   - gnome-boxes
   - gnome-maps
   - gnome-tour
   - gnome-weather
+  - totem
+
+  # utilities
   - highcontrast-icon-theme
   - PackageKit-command-not-found
-  - totem
   - virtualbox-guest-additions
 
-fonts_to_remove:
+  # fonts
   - aajohan-comfortaa-fonts
   - adobe-source-code-pro-fonts
   - google-noto-naskh-arabic-vf-fonts
