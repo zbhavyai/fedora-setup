@@ -1,21 +1,4 @@
 ---
-- name: Log removing packages
-  ansible.builtin.debug:
-    msg: "{{ dnf_remove_packages }}"
-
-- name: Remove DNF packages
-  ansible.builtin.dnf5:
-    name: "{{ dnf_remove_packages }}"
-    state: absent
-    allowerasing: true
-  become: true
-  when: (dnf_remove_packages | default([])) | length > 0
-
-- name: Update DNF metadata cache
-  ansible.builtin.dnf5:
-    update_cache: true
-  become: true
-
 - name: Log installing packages
   ansible.builtin.debug:
     msg: "{{ dnf_install_packages }}"

@@ -1,0 +1,12 @@
+---
+- name: Log removing packages
+  ansible.builtin.debug:
+    msg: "{{ unwanted_packages }}"
+
+- name: Remove DNF packages
+  ansible.builtin.dnf5:
+    name: "{{ unwanted_packages }}"
+    state: absent
+    allowerasing: true
+  become: true
+  when: (unwanted_packages | default([])) | length > 0

@@ -1,0 +1,6 @@
+- name: Fedora Workstation New Install Cleanup
+  hosts: laptop
+  vars_files:
+    - ../group_vars/cleanup.yaml
+  roles:
+    - cleanup

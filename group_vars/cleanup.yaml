@@ -1,0 +1,10 @@
+---
+unwanted_packages:
+  - gnome-boxes
+  - gnome-maps
+  - gnome-tour
+  - gnome-weather
+  - highcontrast-icon-theme
+  - PackageKit-command-not-found
+  - totem
+  - virtualbox-guest-additions
