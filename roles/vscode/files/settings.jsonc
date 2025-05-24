@@ -54,6 +54,8 @@
   "github.copilot.chat.codesearch.enabled": true,
   "chat.agent.enabled": true,
   "chat.mcp.enabled": true,
+  "ansible.lightspeed.enabled": false,
+  "ansible.lightspeed.suggestions.enabled": false,
   // SONARLINT ----------------------------------------------------------------
   "sonarlint.rules": {
     "javascript:S125": { "level": "off" },
