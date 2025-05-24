@@ -10,5 +10,5 @@
     executable: /usr/bin/flatpak
     method: system
     state: present
-  become: true
+  become: false
   when: (flatpak_packages | default([])) | length > 0
