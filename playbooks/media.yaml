@@ -1,0 +1,7 @@
+---
+- name: Media tools installation
+  hosts: laptop
+  vars_files:
+    - ../group_vars/media.yaml
+  roles:
+    - media

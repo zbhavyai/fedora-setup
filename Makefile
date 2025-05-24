@@ -1,6 +1,6 @@
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: init clean java vscode lint help check-deps
+.PHONY: init clean java vscode media lint help check-deps
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -32,6 +32,9 @@ java: deps-ok
 
 vscode: deps-ok
 	ansible-playbook playbooks/vscode.yaml --inventory inventory/hosts.yaml --ask-become-pass
+
+media: deps-ok
+	ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
 lint: deps-ok
 	ansible-lint

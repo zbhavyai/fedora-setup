@@ -1,0 +1,10 @@
+---
+- name: Install Media tools
+  community.general.flatpak:
+    name: "{{ flatpak_apps }}"
+    remote: flathub
+    executable: /usr/bin/flatpak
+    method: system
+    state: present
+  become: false
+  when: (flatpak_apps | default([])) | length > 0

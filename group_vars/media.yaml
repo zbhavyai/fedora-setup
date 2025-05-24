@@ -1,0 +1,12 @@
+flatpak_apps:
+  - com.github.PintaProject.Pinta
+  - com.jgraph.drawio.desktop
+  - com.obsproject.Studio
+  - org.atheme.audacious
+  - org.audacityteam.Audacity
+  - org.gnome.SoundRecorder
+  - org.kde.gwenview
+  - org.nickvision.tagger
+  - org.nickvision.tubeconverter
+  - org.shotcut.Shotcut
+  - org.videolan.VLC
