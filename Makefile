@@ -45,5 +45,6 @@ help:
 	@echo "  clean       - Run cleanup playbook"
 	@echo "  java        - Run Java setup playbook"
 	@echo "  vscode      - Run VSCode setup playbook"
+	@echo "  media       - Run media setup playbook"
 	@echo "  lint        - Run ansible-lint"
 	@echo "  check-deps  - Check for required system dependencies"
