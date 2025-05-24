@@ -1,0 +1,11 @@
+---
+- name: Download Google Chrome RPM to /tmp
+  ansible.builtin.get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+    dest: /tmp/google-chrome-stable_current_x86_64.rpm
+    mode: "0644"
+
+- name: Install Google Chrome RPM from /tmp
+  ansible.builtin.dnf5:
+    name: /tmp/google-chrome-stable_current_x86_64.rpm
+    state: present
