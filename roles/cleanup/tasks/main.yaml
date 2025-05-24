@@ -10,3 +10,15 @@
     allowerasing: true
   become: true
   when: (unwanted_packages | default([])) | length > 0
+
+- name: Log removing fonts
+  ansible.builtin.debug:
+    msg: "{{ fonts_to_remove }}"
+
+- name: Remove fonts
+  ansible.builtin.dnf5:
+    name: "{{ fonts_to_remove }}"
+    state: absent
+    allowerasing: true
+  become: true
+  when: (fonts_to_remove | default([])) | length > 0

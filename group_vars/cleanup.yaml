@@ -8,3 +8,27 @@ unwanted_packages:
   - PackageKit-command-not-found
   - totem
   - virtualbox-guest-additions
+
+fonts_to_remove:
+  - aajohan-comfortaa-fonts
+  - adobe-source-code-pro-fonts
+  - google-noto-naskh-arabic-vf-fonts
+  - google-noto-sans-armenian-vf-fonts
+  - google-noto-sans-cherokee-vf-fonts
+  - google-noto-sans-cjk-vf-fonts
+  - google-noto-sans-ethiopic-vf-fonts
+  - google-noto-sans-georgian-vf-fonts
+  - google-noto-sans-gurmukhi-vf-fonts
+  - google-noto-sans-hebrew-vf-fonts
+  - google-noto-sans-lao-vf-fonts
+  - google-noto-sans-math-fonts
+  - google-noto-sans-sinhala-vf-fonts
+  - google-noto-sans-thaana-vf-fonts
+  - jomolhari-fonts
+  - julietaula-montserrat-fonts
+  - khmer-os-system-fonts
+  - paktype-naskh-basic-fonts
+  - sil-mingzat-fonts
+  - sil-nuosu-fonts
+  - sil-padauk-fonts
+  - vazirmatn-vf-fonts
