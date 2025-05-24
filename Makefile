@@ -1,6 +1,6 @@
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: init clean java vscode media customization lint help check-deps
+.PHONY: init clean java vscode media customization tools lint help check-deps
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -39,6 +39,9 @@ media: deps-ok
 customization: deps-ok
 	ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
+tools: deps-ok
+	ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
+
 lint: deps-ok
 	ansible-lint
 
@@ -50,5 +53,6 @@ help:
 	@echo "  vscode        - Run VSCode setup playbook"
 	@echo "  media         - Run media setup playbook"
 	@echo "  customization - Run customization playbook"
+	@echo "  tools         - Run tools setup playbook"
 	@echo "  lint          - Run ansible-lint"
 	@echo "  check-deps    - Check for required system dependencies"

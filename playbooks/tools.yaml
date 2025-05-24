@@ -1,0 +1,7 @@
+- name: Fedora Workstation Setup
+  hosts: laptop
+  vars_files:
+    - ../group_vars/tools.yaml
+  roles:
+    - dnf
+    - flatpak

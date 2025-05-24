@@ -1,0 +1,39 @@
+---
+dnf_packages:
+  # customization
+  - dconf-editor
+  - gnome-extensions-app
+  - gnome-tweaks
+
+  # utilities
+  - file-roller
+  - ftp
+  - intel-gmmlib
+  - jq
+  - nmap
+  - openssl
+  - podman-compose
+  - qt
+  - sysprof
+  - unrar
+  - vim-enhanced
+
+  # pdf organization
+  - pdftk-java
+
+  # misc
+  - qbittorrent
+
+flatpak_packages:
+  # customization
+  - com.github.tchx84.Flatseal
+
+  # utilities
+  - io.gitlab.liferooter.TextPieces
+  - io.podman_desktop.PodmanDesktop
+  - org.gnome.Boxes
+  - org.gnome.dspy
+  - org.remmina.Remmina
+
+  # misc
+  - org.telegram.desktop

@@ -11,3 +11,5 @@ dnf_packages:
 
 flatpak_packages:
   - com.jetbrains.IntelliJ-IDEA-Community
+  - com.getpostman.Postman
+  - org.pgadmin.pgadmin4
