@@ -1,0 +1,18 @@
+---
+- name: Install Chromium Flatpak
+  community.general.flatpak:
+    name: "org.chromium.Chromium"
+    remote: flathub
+    executable: /usr/bin/flatpak
+    method: system
+    state: present
+  become: false
+
+- name: Enable Google APIs for Chromium Flatpak
+  # source - https://stackoverflow.com/a/78191462
+  ansible.builtin.shell: |
+    flatpak override --user \
+      --env=GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com \
+      --env=GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT \
+      org.chromium.Chromium
+  changed_when: true
