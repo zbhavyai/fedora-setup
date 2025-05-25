@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
 CONFIG_APP_FOLDERS="${SCRIPT_DIR}/../roles/settings/files/appFolders.conf"

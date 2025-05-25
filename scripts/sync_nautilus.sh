@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
 CONFIG_PREF="${SCRIPT_DIR}/../roles/nautilus/files/preferences.conf"

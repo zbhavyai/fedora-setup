@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
 EXTENSIONS_FILE="${SCRIPT_DIR}/../group_vars/vscode_extensions.yaml"

@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
 KB_SCREENSHOT="${SCRIPT_DIR}/../roles/keybindings/files/screenshot.conf"
