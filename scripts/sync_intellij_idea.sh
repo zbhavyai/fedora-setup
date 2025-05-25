@@ -27,7 +27,6 @@ get_settings() {
         --include 'options/editor.xml' \
         --include 'options/github-copilot.xml' \
         --include 'options/ide.general.xml' \
-        --include 'options/inline.factors.completion.xml' \
         --include 'options/keymapFlags.xml' \
         --include 'options/parameter.hints.xml' \
         --include 'options/project.default.xml' \

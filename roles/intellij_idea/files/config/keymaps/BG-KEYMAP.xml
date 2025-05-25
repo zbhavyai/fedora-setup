@@ -1,6 +1,5 @@
 <keymap version="1" name="BG-KEYMAP" parent="Default for GNOME">
   <action id="ActivateTerminalToolWindow">
-    <keyboard-shortcut first-keystroke="alt f12" />
     <keyboard-shortcut first-keystroke="ctrl back_quote" />
   </action>
   <action id="Arrangement.Rule.Edit" />
@@ -12,11 +11,15 @@
   <action id="EditorMoveToPageBottom" />
   <action id="EditorMoveToPageTop" />
   <action id="EditorSelectWord" />
+  <action id="FileChooser.TogglePathBar" />
   <action id="Git.Rename.Local.Branch">
     <keyboard-shortcut first-keystroke="shift f6" />
   </action>
   <action id="Git.Reword.Commit">
     <keyboard-shortcut first-keystroke="shift f6" />
+  </action>
+  <action id="GotoFile">
+    <keyboard-shortcut first-keystroke="ctrl p" />
   </action>
   <action id="GotoNextError" />
   <action id="GuiDesigner.EditComponent" />
@@ -26,6 +29,7 @@
     <keyboard-shortcut first-keystroke="ctrl page_down" />
     <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
+  <action id="ParameterInfo" />
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="alt left" />
     <keyboard-shortcut first-keystroke="ctrl page_up" />
@@ -39,9 +43,6 @@
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="shift f6" />
     <keyboard-shortcut first-keystroke="f2" />
-  </action>
-  <action id="SearchEverywhere">
-    <keyboard-shortcut first-keystroke="ctrl p" />
   </action>
   <action id="SmartSelect" />
   <action id="Switcher" />
