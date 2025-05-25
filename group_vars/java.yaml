@@ -10,6 +10,6 @@ dnf_packages_java:
   - maven
 
 flatpak_packages_java:
-  - com.jetbrains.IntelliJ-IDEA-Community
   - com.getpostman.Postman
+  # - com.jetbrains.IntelliJ-IDEA-Community
   # - org.pgadmin.pgadmin4

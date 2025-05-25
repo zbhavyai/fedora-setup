@@ -1,0 +1,67 @@
+---
+- name: Download IntelliJ IDEA
+  ansible.builtin.get_url:
+    url: https://download-cdn.jetbrains.com/idea/ideaIC-2025.1.1.1.tar.gz
+    dest: /tmp/intellij-idea.tar.gz
+    mode: "0644"
+
+- name: Extract IntelliJ IDEA
+  ansible.builtin.unarchive:
+    src: /tmp/intellij-idea.tar.gz
+    dest: /tmp/
+    remote_src: true
+  become: false
+
+- name: Rename extracted IntelliJ IDEA directory
+  ansible.builtin.shell: mv /tmp/idea-IC-* /opt/intellij-idea
+  args:
+    removes: /tmp/idea-IC-*
+    creates: /opt/intellij-idea
+  become: true
+
+- name: Modify IntelliJ config path
+  ansible.builtin.lineinfile:
+    path: /opt/intellij-idea/bin/idea.properties
+    regexp: "^# idea.config.path="
+    line: "idea.config.path=${user.home}/.config/intellij-idea/config"
+    state: present
+    backrefs: true
+  become: false
+  register: result
+
+- name: Modify IntelliJ cache path
+  ansible.builtin.lineinfile:
+    path: /opt/intellij-idea/bin/idea.properties
+    regexp: "^# idea.system.path="
+    line: "idea.system.path=${user.home}/.config/intellij-idea/system"
+    state: present
+    backrefs: true
+  become: false
+  register: result
+
+- name: Modify IntelliJ plugins path
+  ansible.builtin.lineinfile:
+    path: /opt/intellij-idea/bin/idea.properties
+    regexp: "^# idea.plugins.path="
+    line: "idea.plugins.path=${idea.config.path}/plugins"
+    state: present
+    backrefs: true
+  become: false
+  register: result
+
+- name: Modify IntelliJ log path
+  ansible.builtin.lineinfile:
+    path: /opt/intellij-idea/bin/idea.properties
+    regexp: "^# idea.log.path="
+    line: "idea.log.path=${idea.config.path}/log"
+    state: present
+    backrefs: true
+  become: false
+  register: result
+
+- name: Create IntelliJ IDEA desktop entry
+  ansible.builtin.copy:
+    src: intellij-idea.desktop
+    dest: /usr/share/applications/intellij-idea.desktop
+    mode: "0644"
+  become: true

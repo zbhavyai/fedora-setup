@@ -1,3 +1,0 @@
-com.haulmont.jpab
-com.github.copilot
-org.sonarlint.idea

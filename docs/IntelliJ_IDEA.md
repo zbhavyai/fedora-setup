@@ -4,11 +4,11 @@ IntelliJ IDEA is a IDE for JVM-based languages.
 
 ## Installation
 
-1. The installation is done via flatpak.
+1. The installation is done via flatpak or tar archive.
 
-2. Use the terminal `/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash`.
+2. Use the terminal `/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash` for flatpak installation.
 
-3. To use the system's JDK, first install the openjdk flatpak extension, and then set environment variable `FLATPAK_ENABLE_SDK_EXT=openjdk`.
+3. To use the system's JDK in flatpak installation, first install the openjdk flatpak extension, and then set environment variable `FLATPAK_ENABLE_SDK_EXT=openjdk`.
 
    ```shell
    flatpak install flathub org.freedesktop.Sdk.Extension.openjdk
@@ -20,7 +20,7 @@ IntelliJ IDEA is a IDE for JVM-based languages.
 1. Recreate the zip file from extracted settings.
 
    ```shell
-   pushd roles/intellij-idea/files/settings
+   pushd roles/intellij_idea/files/settings
    zip -r settings.zip *
    mv settings.zip ../../../../
    popd

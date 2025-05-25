@@ -8,3 +8,4 @@
       dnf_packages: "{{ dnf_packages_java }}"
     - role: flatpak
       flatpak_packages: "{{ flatpak_packages_java }}"
+    - role: intellij_idea

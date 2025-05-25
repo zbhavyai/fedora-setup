@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec=/opt/intellij-idea/bin/idea
+GenericName=Capable and Ergonomic Java IDE
+Icon=/opt/intellij-idea/bin/idea.png
+Keywords=development;idea;ide;intellij;java;
+Name=IntelliJ IDEA Community
+StartupNotify=true
+StartupWMClass=jetbrains-idea-ce
+Terminal=false
+Type=Application
