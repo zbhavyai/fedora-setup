@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: check-deps init cleanup customization tools container java vscode media alternate all lint help
+.PHONY: check-deps init cleanup customization tools container java vscode media alternate all lint sync help
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -58,6 +58,16 @@ lint: deps-ok
 all: deps-ok
 	ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
+sync:
+	@for script in ./scripts/*; do \
+		if [ -x "$$script" ]; then \
+			echo "Running $$script"; \
+			"$$script"; \
+		else \
+			echo "Skipping $$script (not executable)"; \
+		fi; \
+	done
+
 help:
 	@echo "Available targets:"
 	@echo "  check-deps    - Check for required system dependencies"
@@ -72,3 +82,4 @@ help:
 	@echo "  alternate     - Run alternate setup playbook"
 	@echo "  all           - Run all playbooks"
 	@echo "  lint          - Run ansible-lint"
+	@echo "  sync          - Sync current settings"
