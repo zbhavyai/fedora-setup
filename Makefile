@@ -60,11 +60,15 @@ all: deps-ok
 
 sync:
 	@for script in ./scripts/*; do \
+		if [ "$$script" = "./scripts/sync_gnome_terminal.sh" ]; then \
+			echo "SKIP: $$script"; \
+			continue; \
+		fi; \
 		if [ -x "$$script" ]; then \
-			echo "Running $$script"; \
+			echo "EXEC: $$script"; \
 			"$$script"; \
 		else \
-			echo "Skipping $$script (not executable)"; \
+			echo "SKIP: $$script"; \
 		fi; \
 	done
 
