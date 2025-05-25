@@ -1,17 +1,18 @@
 # IntelliJ IDEA
 
-IntelliJ IDEA is a integrated development environment (IDE) developed by JetBrains for Java, Kotlin, and other JVM-based languages. Renowned for its robust features, intelligent code assistance, and seamless integration with popular frameworks and technologies, IntelliJ IDEA empowers developers to streamline their workflow and boost productivity.
+IntelliJ IDEA is a IDE for JVM-based languages.
 
 ## Installation
 
 1. The installation is done via Flatpak and is included in the [install](../flatpak/install.txt) file.
 
-2. Use the terminal `/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash`. It's also included in the settings.
+2. Use the terminal `/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash`.
 
-3. To use the system's JDK, first install the openjdk flatpak extension, and then set environment variable `FLATPAK_ENABLE_SDK_EXT=openjdk17` using Flatseal. This step is not included in settings yet.
+3. To use the system's JDK, first install the openjdk flatpak extension, and then set environment variable `FLATPAK_ENABLE_SDK_EXT=openjdk`.
 
    ```shell
-   flatpak install flathub org.freedesktop.Sdk.Extension.openjdk17
+   flatpak install flathub org.freedesktop.Sdk.Extension.openjdk
+   flatpak override --user --env=FLATPAK_ENABLE_SDK_EXT=* com.jetbrains.IntelliJ-IDEA-Community
    ```
 
 ## Settings Import
