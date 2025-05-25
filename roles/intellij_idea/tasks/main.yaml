@@ -72,3 +72,10 @@
     dest: /usr/share/applications/intellij-idea.desktop
     mode: "0644"
   become: true
+
+- name: Copy all settings
+  ansible.builtin.copy:
+    src: config
+    dest: "{{ ansible_env.HOME }}/.config/intellij-idea/"
+    mode: "0644"
+  become: false
