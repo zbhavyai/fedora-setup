@@ -1,4 +1,14 @@
 ---
+- name: Create VS Code profile "{{ profile }}"
+  ansible.builtin.shell: |
+    code --profile "{{ profile }}" --new-window &
+    sleep 5
+    pkill -f "code --profile"
+  args:
+    executable: /bin/bash
+  when: profile != 'DEFAULT'
+  delegate_to: localhost
+
 - name: Install extensions for profile "{{ profile }}"
   ansible.builtin.shell: |
     code --install-extension {{ item }}{% if profile != 'DEFAULT' %} --profile {{ profile }}{% endif %}
