@@ -1,0 +1,24 @@
+---
+- name: Cleanup
+  import_playbook: cleanup.yaml
+
+- name: Customization
+  import_playbook: customization.yaml
+
+- name: Tools
+  import_playbook: tools.yaml
+
+- name: Container
+  import_playbook: container.yaml
+
+- name: Java
+  import_playbook: java.yaml
+
+- name: VSCode
+  import_playbook: vscode.yaml
+
+- name: Media
+  import_playbook: media.yaml
+
+- name: Alternate
+  import_playbook: alternate.yaml

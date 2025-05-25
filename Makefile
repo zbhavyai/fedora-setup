@@ -52,7 +52,11 @@ alternate: deps-ok
 lint: deps-ok
 	ansible-lint
 
-all: cleanup customization tools container java vscode media alternate
+# asks for password everytime
+# all: cleanup customization tools container java vscode media alternate
+
+all: deps-ok
+	ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 help:
 	@echo "Available targets:"
