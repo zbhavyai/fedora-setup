@@ -5,6 +5,12 @@
     dest: /tmp/google-chrome-stable_current_x86_64.rpm
     mode: "0644"
 
+- name: Import Google Linux Package Signing Key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://dl.google.com/linux/linux_signing_key.pub
+  become: true
+
 - name: Install Google Chrome
   ansible.builtin.dnf5:
     name: /tmp/google-chrome-stable_current_x86_64.rpm
