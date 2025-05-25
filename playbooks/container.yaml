@@ -1,0 +1,8 @@
+---
+- name: Container Engine Setup
+  hosts: laptop
+  become: true
+  vars_files:
+    - ../group_vars/container.yaml
+  roles:
+    - container

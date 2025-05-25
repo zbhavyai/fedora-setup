@@ -1,0 +1,57 @@
+---
+# docker tasks
+- name: Install dnf-plugins-core
+  ansible.builtin.dnf5:
+    name: dnf-plugins-core
+    state: present
+  when: container_engine == "docker"
+
+- name: Add Docker CE repository
+  ansible.builtin.get_url:
+    url: https://download.docker.com/linux/fedora/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+    force: true
+    mode: "0644"
+  become: true
+  when: container_engine == "docker"
+
+- name: Install docker
+  ansible.builtin.dnf5:
+    name: "{{ docker_packages }}"
+    state: present
+  become: true
+  when: container_engine == "docker" and (docker_packages | default([])) | length > 0
+
+- name: Enable and start Docker service
+  ansible.builtin.systemd_service:
+    name: docker
+    state: started
+    enabled: true
+  when: container_engine == "docker"
+
+- name: Add current user to docker group
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: true
+  become: true
+  when: container_engine == "docker"
+
+# podman tasks
+- name: Install podman
+  ansible.builtin.dnf5:
+    name: "{{ podman_packages }}"
+    state: present
+  become: true
+  when: container_engine == "podman" and (podman_packages | default([])) | length > 0
+
+- name: Enable and start Podman service
+  # source - https://quarkus.io/guides/podman
+  # systemctl enable --now --user podman.socket
+  ansible.builtin.systemd_service:
+    name: podman.socket
+    state: started
+    enabled: true
+    scope: user
+  become: false
+  when: container_engine == "podman"

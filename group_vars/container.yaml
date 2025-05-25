@@ -1,0 +1,13 @@
+---
+container_engine: podman
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+podman_packages:
+  - podman
+  - podman-compose

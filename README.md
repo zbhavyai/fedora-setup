@@ -13,6 +13,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 | [cleanup](playbooks/cleanup.yaml)             | Removes unused packages and fonts                                  | `make cleanup`       |
 | [customization](playbooks/customization.yaml) | Customizes GNOME Shell, installs dotfiles, and some other settings | `make customization` |
 | [tools](playbooks/tools.yaml)                 | Installs essential utilities                                       | `make tools`         |
+| [container](playbooks/container.yaml)         | Installs Podman or Docker                                          | `make container`     |
 | [java](playbooks/java.yaml)                   | Installs JDK, IntelliJ IDEA, and Postman                           | `make java`          |
 | [vscode](playbooks/vscode.yaml)               | Installs VS Code, its settings, and extensions                     | `make vscode`        |
 | [media](playbooks/media.yaml)                 | Installs media-related applications                                | `make media`         |
@@ -30,6 +31,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 
    ```shell
    make init
+   source .venv/PY-ANSIBLE/bin/activate
    ```
 
 1. Run one of the playbooks, check available targets using `make help`.
