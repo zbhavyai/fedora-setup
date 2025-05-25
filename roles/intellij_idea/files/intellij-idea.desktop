@@ -1,6 +1,6 @@
 [Desktop Entry]
 Categories=Development;IDE;
-Exec=/opt/intellij-idea/bin/idea
+Exec="/opt/intellij-idea/bin/idea" %f
 GenericName=Capable and Ergonomic Java IDE
 # Icon=/opt/intellij-idea/bin/idea.svg
 Icon=com.jetbrains.IntelliJ-IDEA-Community
