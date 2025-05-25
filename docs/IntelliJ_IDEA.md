@@ -4,7 +4,7 @@ IntelliJ IDEA is a IDE for JVM-based languages.
 
 ## Installation
 
-1. The installation is done via Flatpak and is included in the [install](../flatpak/install.txt) file.
+1. The installation is done via flatpak.
 
 2. Use the terminal `/usr/bin/env -- flatpak-spawn --host --env=TERM=xterm-256color bash`.
 
@@ -20,9 +20,9 @@ IntelliJ IDEA is a IDE for JVM-based languages.
 1. Recreate the zip file from extracted settings.
 
    ```shell
-   pushd intellij-idea/settings
+   pushd roles/intellij-idea/files/settings
    zip -r settings.zip *
-   mv settings.zip ..
+   mv settings.zip ../../../../
    popd
    ```
 
