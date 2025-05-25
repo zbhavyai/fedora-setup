@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: check-deps init cleanup customization tools container java vscode media alternate lint help
+.PHONY: check-deps init cleanup customization tools container java vscode media alternate all lint help
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -52,6 +52,8 @@ alternate: deps-ok
 lint: deps-ok
 	ansible-lint
 
+all: cleanup customization tools container java vscode media alternate
+
 help:
 	@echo "Available targets:"
 	@echo "  check-deps    - Check for required system dependencies"
@@ -65,3 +67,4 @@ help:
 	@echo "  media         - Run media setup playbook"
 	@echo "  alternate     - Run alternate setup playbook"
 	@echo "  lint          - Run ansible-lint"
+	@echo "  all           - Run all playbook-related targets in order"
