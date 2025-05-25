@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: check-deps init clean customization tools java vscode media alternate lint help
+.PHONY: check-deps init cleanup customization tools java vscode media alternate lint help
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -25,7 +25,7 @@ init: deps-ok $(REQUIREMENTS_FILE)
 	fi
 	. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
 
-clean: deps-ok
+cleanup: deps-ok
 	ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 customization: deps-ok
@@ -53,7 +53,7 @@ help:
 	@echo "Available targets:"
 	@echo "  check-deps    - Check for required system dependencies"
 	@echo "  init          - Set up py venv and install requirements"
-	@echo "  clean         - Run cleanup playbook"
+	@echo "  cleanup       - Run cleanup playbook"
 	@echo "  customization - Run customization playbook"
 	@echo "  tools         - Run tools setup playbook"
 	@echo "  java          - Run Java setup playbook"
