@@ -59,6 +59,13 @@
   become: false
   register: result
 
+- name: Copy IntelliJ VM options
+  ansible.builtin.copy:
+    src: idea64.vmoptions
+    dest: /opt/intellij-idea/bin/idea64.vmoptions
+    mode: "0644"
+  become: true
+
 - name: Create IntelliJ IDEA desktop entry
   ansible.builtin.copy:
     src: intellij-idea.desktop
