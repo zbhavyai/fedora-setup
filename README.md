@@ -34,8 +34,8 @@ The automation is done using multiple Ansible playbooks, which are named accordi
    source .venv/PY-ANSIBLE/bin/activate
    ```
 
-1. Run one of the playbooks, check available targets using `make help`.
+1. Run one of the playbooks, check available targets using `make help`, or conveniently just run everything:
 
    ```shell
-   make java
+   make all
    ```

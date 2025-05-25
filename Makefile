@@ -70,5 +70,5 @@ help:
 	@echo "  vscode        - Run VSCode setup playbook"
 	@echo "  media         - Run media setup playbook"
 	@echo "  alternate     - Run alternate setup playbook"
+	@echo "  all           - Run all playbooks"
 	@echo "  lint          - Run ansible-lint"
-	@echo "  all           - Run all playbook-related targets in order"
