@@ -1,0 +1,10 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <option id="java.enums" value="false" />
+    <option id="java.new.expr" value="false" />
+    <disabledLanguages>
+      <language id="JAVA" />
+      <language id="Groovy" />
+    </disabledLanguages>
+  </component>
+</application>

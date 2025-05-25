@@ -4,5 +4,6 @@
     <option name="FONT_SIZE" value="15" />
     <option name="FONT_SIZE_2D" value="15.0" />
     <option name="FONT_FAMILY" value="Fira Code" />
+    <option name="LINE_SPACING" value="1.0" />
   </component>
 </application>

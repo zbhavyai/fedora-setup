@@ -1,4 +1,4 @@
-<keymap version="1" name="BG_KEYMAP" parent="Default for GNOME">
+<keymap version="1" name="BG-KEYMAP" parent="Default for GNOME">
   <action id="ActivateTerminalToolWindow">
     <keyboard-shortcut first-keystroke="alt f12" />
     <keyboard-shortcut first-keystroke="ctrl back_quote" />
@@ -32,6 +32,10 @@
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
   <action id="QuickChangeScheme" />
+  <action id="QuickJavaDoc">
+    <mouse-shortcut keystroke="alt button2" />
+    <keyboard-shortcut first-keystroke="shift space" />
+  </action>
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="shift f6" />
     <keyboard-shortcut first-keystroke="f2" />

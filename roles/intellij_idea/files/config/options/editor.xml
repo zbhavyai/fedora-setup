@@ -1,0 +1,64 @@
+<application>
+  <component name="CodeVisionSettings">
+    <option name="codeVisionGroupToPosition">
+      <map>
+        <entry key="LSPCodeLens" value="Default" />
+        <entry key="change.signature" value="Default" />
+        <entry key="inheritors" value="Default" />
+        <entry key="problems" value="Default" />
+        <entry key="references" value="Default" />
+        <entry key="rename" value="Default" />
+        <entry key="vcs.code.vision" value="Default" />
+      </map>
+    </option>
+    <option name="defaultPosition" value="Right" />
+    <option name="disabledCodeVisionProviderIds">
+      <set>
+        <option value="references" />
+        <option value="vcs.code.vision" />
+      </set>
+    </option>
+  </component>
+  <component name="DeclarativeInlayHintsSettings">
+    <option name="enabledOptions">
+      <map>
+        <entry key="java.annotation.hints#showExternal" value="true" />
+        <entry key="java.annotation.hints#showInferred" value="false" />
+        <entry key="kotlin.lambdas.hints#hints.lambda.receivers.parameters" value="false" />
+        <entry key="kotlin.lambdas.hints#hints.lambda.return" value="false" />
+        <entry key="kotlin.references.types.hints#hints.type.function.parameter" value="false" />
+        <entry key="kotlin.references.types.hints#hints.type.function.return" value="false" />
+        <entry key="kotlin.references.types.hints#hints.type.property" value="false" />
+        <entry key="kotlin.references.types.hints#hints.type.variable" value="false" />
+      </map>
+    </option>
+    <option name="providerIdToEnabled">
+      <map>
+        <entry key="groovy.implicit.null.argument" value="true" />
+        <entry key="groovy.lambda.parameter.inlay.provider" value="false" />
+        <entry key="groovy.local.variable.implicit.types" value="true" />
+        <entry key="java.annotation.hints" value="true" />
+        <entry key="java.implicit.lambdaParameter" value="false" />
+        <entry key="java.implicit.types" value="false" />
+        <entry key="java.method.chains" value="false" />
+        <entry key="kotlin.compiler.plugins.modality" value="true" />
+        <entry key="kotlin.compiler.plugins.supertypes" value="true" />
+        <entry key="kotlin.lambdas.hints" value="false" />
+        <entry key="kotlin.method.chains" value="false" />
+        <entry key="kotlin.parameters.hints" value="false" />
+        <entry key="kotlin.references.types.hints" value="false" />
+        <entry key="kotlin.values.hints" value="true" />
+        <entry key="qodana.yaml.inspection.descriptions" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="EditorSettings">
+    <option name="IS_ANIMATED_SCROLLING" value="false" />
+  </component>
+  <component name="InlayHintsSettings">
+    <option name="lastViewedProviderKeyId" value="" />
+  </component>
+  <component name="InlineCompletionOnboarding">
+    <option name="onboardingFinished" value="true" />
+  </component>
+</application>
