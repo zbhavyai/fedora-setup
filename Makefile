@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: init clean java vscode media customization tools alternate lint help check-deps
+.PHONY: check-deps init clean customization tools java vscode media alternate lint help
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -28,6 +28,12 @@ init: deps-ok $(REQUIREMENTS_FILE)
 clean: deps-ok
 	ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
+customization: deps-ok
+	ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
+
+tools: deps-ok
+	ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
+
 java: deps-ok
 	ansible-playbook playbooks/java.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
@@ -37,12 +43,6 @@ vscode: deps-ok
 media: deps-ok
 	ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
-customization: deps-ok
-	ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
-
-tools: deps-ok
-	ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
-
 alternate: deps-ok
 	ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
@@ -51,13 +51,13 @@ lint: deps-ok
 
 help:
 	@echo "Available targets:"
+	@echo "  check-deps    - Check for required system dependencies"
 	@echo "  init          - Set up py venv and install requirements"
 	@echo "  clean         - Run cleanup playbook"
+	@echo "  customization - Run customization playbook"
+	@echo "  tools         - Run tools setup playbook"
 	@echo "  java          - Run Java setup playbook"
 	@echo "  vscode        - Run VSCode setup playbook"
 	@echo "  media         - Run media setup playbook"
-	@echo "  customization - Run customization playbook"
-	@echo "  tools         - Run tools setup playbook"
 	@echo "  alternate     - Run alternate setup playbook"
 	@echo "  lint          - Run ansible-lint"
-	@echo "  check-deps    - Check for required system dependencies"
