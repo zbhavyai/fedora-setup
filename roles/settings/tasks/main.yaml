@@ -7,6 +7,8 @@
     state: present
     backrefs: true
   become: true
+  ignore_errors: true
+  register: result
 
 - name: Ensure LidSwitchIgnoreInhibited is set to yes
   ansible.builtin.lineinfile:
@@ -16,6 +18,8 @@
     state: present
     backrefs: true
   become: true
+  ignore_errors: true
+  register: result
 
 - name: Setup app folders
   ansible.builtin.shell: |
