@@ -6,7 +6,7 @@ Below settings are handled by Ansible, but its here for reference.
 
 1. Press `Ctrl`+`Shift`+`P`
 2. Type `Preferences: Open User Settings (JSON)`
-3. Copy content from [this file](files/settings.jsonc)
+3. Copy content from [this file](../roles/vscode/files/settings.jsonc)
 
 ### Keyboard Shortcuts
 
@@ -14,7 +14,7 @@ This is mainly for cycling tabs in the visible order
 
 1. Press `Ctrl`+`Shift`+`P`
 2. Type `Preferences: Open Keyboard Shortcuts (JSON)`
-3. Copy content from [this file](files/keybindings.jsonc)
+3. Copy content from [this file](../roles/vscode/files/keybindings.jsonc)
 
 ## Using Flatpak VS Code
 
@@ -25,7 +25,7 @@ flatpak-vscode needs some additional settings to work properly, especially when 
 
 ### Start vscode from anywhere
 
-The [`~/.bashrc`](../dotfiles/files/.bashrc) file should automatically detect the flatpak installation of VS Code and set an alias, to keep using the `code .` command to open any directory/repository in VS Code from the command line.
+The [`~/.bashrc`](../roles/dotfiles/files/.bashrc) file should automatically detect the flatpak installation of VS Code and set an alias, to keep using the `code .` command to open any directory/repository in VS Code from the command line.
 
 ### Integrated Terminal
 

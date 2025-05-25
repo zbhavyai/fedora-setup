@@ -16,7 +16,7 @@ them. Please see your Linux system's documentation for more information.
 
 ## Updated launcher
 
-Find the updated launcher at [virtualbox.desktop](files/virtualbox.desktop). This sets the `env GDK_BACKEND=x11` to fix some issues with running VirtualBox on Wayland. These might eventually be fixed in the future versions of VirtualBox.
+Find the updated launcher at [virtualbox.desktop](../roles/virtualbox/files/virtualbox.desktop). This sets the `env GDK_BACKEND=x11` to fix some issues with running VirtualBox on Wayland. These might eventually be fixed in the future versions of VirtualBox.
 
 ## Port forwarding
 
