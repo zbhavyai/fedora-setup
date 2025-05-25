@@ -4,5 +4,7 @@
   vars_files:
     - ../group_vars/java.yaml
   roles:
-    - dnf
-    - flatpak
+    - role: dnf
+      dnf_packages: "{{ dnf_packages_java }}"
+    - role: flatpak
+      flatpak_packages: "{{ flatpak_packages_java }}"

@@ -4,11 +4,13 @@
   vars_files:
     - ../group_vars/customization.yaml
   roles:
-    - dnf
-    - flatpak
-    - dotfiles
-    - cursors
-    - keybindings
-    - settings
-    - gnome_text_editor
-    - nautilus
+    - role: dnf
+      dnf_packages: "{{ dnf_packages_customization }}"
+    - role: flatpak
+      flatpak_packages: "{{ flatpak_packages_customization }}"
+    - role: dotfiles
+    # - role: cursors
+    # - role: keybindings
+    # - role: settings
+    - role: gnome_text_editor
+    - role: nautilus

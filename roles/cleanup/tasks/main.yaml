@@ -1,12 +1,12 @@
 ---
 - name: Log removing packages
   ansible.builtin.debug:
-    msg: "{{ dnf_packages }}"
+    msg: "{{ dnf_packages_cleanup }}"
 
 - name: Remove DNF packages
   ansible.builtin.dnf5:
-    name: "{{ dnf_packages }}"
+    name: "{{ dnf_packages_cleanup }}"
     state: absent
     allowerasing: true
   become: true
-  when: (dnf_packages | default([])) | length > 0
+  when: (dnf_packages_cleanup | default([])) | length > 0

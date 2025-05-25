@@ -1,5 +1,5 @@
 ---
-dnf_packages:
+dnf_packages_java:
   # jdk
   - java-21-openjdk-devel
   - java-21-openjdk-javadoc
@@ -9,7 +9,7 @@ dnf_packages:
   # mvn
   - maven
 
-flatpak_packages:
+flatpak_packages_java:
   - com.jetbrains.IntelliJ-IDEA-Community
   - com.getpostman.Postman
   # - org.pgadmin.pgadmin4

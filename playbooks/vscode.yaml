@@ -5,4 +5,5 @@
     - ../group_vars/vscode_extensions.yaml
     - ../group_vars/vscode_packages.yaml
   roles:
-    - vscode
+    - role: vscode
+      dnf_packages: "{{ vscode_dnf_packages }}"

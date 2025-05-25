@@ -1,5 +1,5 @@
 ---
-dnf_packages:
+dnf_packages_customization:
   # themes
   - adw-gtk3-theme
   - papirus-icon-theme
@@ -20,7 +20,7 @@ dnf_packages:
   - rit-meera-new-fonts
   - rit-rachana-fonts
 
-flatpak_packages:
+flatpak_packages_customization:
   # themes
   - org.gtk.Gtk3theme.adw-gtk3
   - org.gtk.Gtk3theme.adw-gtk3-dark

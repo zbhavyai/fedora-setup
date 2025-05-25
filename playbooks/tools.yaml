@@ -4,5 +4,7 @@
   vars_files:
     - ../group_vars/tools.yaml
   roles:
-    - dnf
-    - flatpak
+    - role: dnf
+      dnf_packages: "{{ dnf_packages_tools }}"
+    - role: flatpak
+      flatpak_packages: "{{ flatpak_packages_tools }}"

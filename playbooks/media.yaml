@@ -4,4 +4,5 @@
   vars_files:
     - ../group_vars/media.yaml
   roles:
-    - flatpak
+    - role: flatpak
+      flatpak_packages: "{{ flatpak_packages_media }}"
