@@ -1,5 +1,5 @@
 ---
-name: lint checks
+name: CI
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
   pull_request:
 
 jobs:
-  lint:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,3 +32,9 @@ jobs:
 
       - name: Run ansible-lint
         run: ansible-lint
+
+      - name: Playbook Syntax Check
+        run: |
+          for file in $(find playbooks -name "*.yaml"); do
+            ansible-playbook --syntax-check "$file" || exit 1
+          done
