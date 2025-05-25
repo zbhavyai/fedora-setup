@@ -2,10 +2,12 @@
 Categories=Development;IDE;
 Exec=/opt/intellij-idea/bin/idea
 GenericName=Capable and Ergonomic Java IDE
-Icon=/opt/intellij-idea/bin/idea.png
+# Icon=/opt/intellij-idea/bin/idea.svg
+Icon=com.jetbrains.IntelliJ-IDEA-Community
 Keywords=development;idea;ide;intellij;java;
 Name=IntelliJ IDEA Community
 StartupNotify=true
 StartupWMClass=jetbrains-idea-ce
 Terminal=false
 Type=Application
+# X-Flatpak=com.jetbrains.IntelliJ-IDEA-Community
