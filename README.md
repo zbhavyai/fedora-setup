@@ -18,6 +18,8 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 | [vscode](playbooks/vscode.yaml)               | Installs VS Code, its settings, and extensions                     | `make vscode`        |
 | [media](playbooks/media.yaml)                 | Installs media-related applications                                | `make media`         |
 | [alternate](playbooks/alternate.yaml)         | Installs Google Chrome, and optionally some other applications     | `make alternate`     |
+| [all](playbooks/all.yaml)                     | Runs all above playbooks                                           | `make all`           |
+| [server](playbooks/server.yaml)               | Some setup required only for servers                               | `make server`        |
 
 ## How to use
 
