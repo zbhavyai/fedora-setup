@@ -10,11 +10,11 @@ all:
     server:
       hosts:
         server_yankee:
-          ansible_host: yankee.local
+          ansible_host: yankee.userful.ca
           ansible_user: root
           ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"
 
         server_canuck:
-          ansible_host: canuck.local
+          ansible_host: zulu.userful.ca
           ansible_user: root
           ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"

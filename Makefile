@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: check-deps init cleanup customization tools container java vscode media alternate all lint sync help
+.PHONY: check-deps init cleanup customization tools container java vscode media alternate server all lint sync help
 
 deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -52,6 +52,9 @@ alternate: deps-ok
 lint: deps-ok
 	ansible-lint
 
+server: deps-ok
+	ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
+
 # asks for password everytime
 # all: cleanup customization tools container java vscode media alternate
 
@@ -84,6 +87,7 @@ help:
 	@echo "  vscode        - Run VSCode setup playbook"
 	@echo "  media         - Run media setup playbook"
 	@echo "  alternate     - Run alternate setup playbook"
-	@echo "  all           - Run all playbooks"
+	@echo "  server        - Run server playbook"
+	@echo "  all           - Run all playbooks (except server)"
 	@echo "  lint          - Run ansible-lint"
 	@echo "  sync          - Sync current settings"
