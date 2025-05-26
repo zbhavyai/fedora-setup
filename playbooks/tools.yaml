@@ -1,5 +1,5 @@
 ---
-- name: Fedora Workstation Setup
+- name: Additional tools installation
   hosts: laptop
   vars_files:
     - ../group_vars/tools.yaml

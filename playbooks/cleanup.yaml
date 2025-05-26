@@ -1,5 +1,5 @@
 ---
-- name: New Install Cleanup
+- name: New install cleanup
   hosts: laptop
   vars_files:
     - ../group_vars/cleanup.yaml

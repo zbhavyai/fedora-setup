@@ -1,5 +1,5 @@
 ---
-- name: Java Development Environment Setup
+- name: Java development environment
   hosts: laptop
   vars_files:
     - ../group_vars/java.yaml

@@ -1,5 +1,5 @@
 ---
-- name: UI Customization
+- name: GNOME shell customization
   hosts: laptop
   vars_files:
     - ../group_vars/customization.yaml
