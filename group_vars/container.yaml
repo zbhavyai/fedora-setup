@@ -7,7 +7,42 @@ docker_packages:
   - containerd.io
   - docker-buildx-plugin
   - docker-compose-plugin
+  - docker-ce-rootless-extras
 
 podman_packages:
   - podman
   - podman-compose
+
+container_images:
+  - name: docker.io/library/eclipse-temurin
+    tag: 21-jdk
+  - name: docker.io/library/eclipse-temurin
+    tag: 21-jre
+  - name: docker.io/library/postgres
+    tag: 17.0
+  - name: docker.io/library/mysql
+    tag: 9.1
+  - name: docker.io/library/nginx
+    tag: 1.28.0
+  - name: docker.io/library/node
+    tag: 22.16.0
+  - name: docker.io/texlive/texlive
+    tag: latest
+  - name: docker.io/keycloak/keycloak
+    tag: 25.0
+  - name: docker.io/prom/prometheus
+    tag: v2.55.0
+  - name: docker.io/grafana/grafana
+    tag: 11.3.0
+  - name: docker.io/ollama/ollama
+    tag: 0.7.1
+  - name: ghcr.io/open-webui/open-webui
+    tag: main
+  - name: docker.io/stirlingtools/stirling-pdf
+    tag: latest
+  - name: docker.io/linuxserver/bookstack
+    tag: 24.10.3
+  - name: docker.io/library/wordpress
+    tag: 6.6.2
+  - name: docker.io/dockurr/windows
+    tag: 4.35
