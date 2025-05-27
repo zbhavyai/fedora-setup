@@ -1,6 +1,6 @@
 ---
 - name: Install gnome-terminal
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: "gnome-terminal"
     state: present
   become: true

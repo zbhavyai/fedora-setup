@@ -4,7 +4,7 @@
     msg: "{{ dnf_packages }}"
 
 - name: Install DNF packages
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: "{{ dnf_packages }}"
     state: present
   become: true

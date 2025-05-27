@@ -1,7 +1,7 @@
 ---
 # docker tasks
 - name: Install dnf-plugins-core
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: dnf-plugins-core
     state: present
   when: container_engine == "docker"
@@ -16,7 +16,7 @@
   when: container_engine == "docker"
 
 - name: Install docker
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: "{{ docker_packages }}"
     state: present
   become: true
@@ -39,7 +39,7 @@
 
 # podman tasks
 - name: Install podman
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: "{{ podman_packages }}"
     state: present
   become: true

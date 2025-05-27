@@ -1,6 +1,6 @@
 ---
 - name: Install konsole
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: "konsole"
     state: present
   become: true

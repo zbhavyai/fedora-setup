@@ -12,7 +12,7 @@
   become: true
 
 - name: Install Google Chrome
-  ansible.builtin.dnf5:
+  ansible.builtin.dnf:
     name: /tmp/google-chrome-stable_current_x86_64.rpm
     state: present
   become: true

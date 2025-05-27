@@ -23,12 +23,6 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 
 ## How to use
 
-1. Ensure you have `python-libdnf5` installed.
-
-   ```shell
-   sudo dnf install --assumeyes python3-libdnf5
-   ```
-
 1. Create a python virtual environment, activate it, and install the dependencies.
 
    ```shell
