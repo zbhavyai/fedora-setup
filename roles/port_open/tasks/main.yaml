@@ -1,0 +1,14 @@
+---
+- name: Log opening ports
+  ansible.builtin.debug:
+    msg: "Opening ports: {{ port_open_list }}"
+
+- name: Open and persist firewall ports
+  ansible.posix.firewalld:
+    port: "{{ item }}/tcp"
+    state: enabled
+    permanent: true
+    immediate: true
+  loop: "{{ port_open_list | default([]) }}"
+  become: true
+  when: port_open_list | length > 0
