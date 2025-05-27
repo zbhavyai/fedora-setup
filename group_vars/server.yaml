@@ -1,0 +1,16 @@
+---
+dnf_packages_server:
+  - git
+  - java-21-openjdk-devel
+  - less
+  - less
+  - passwd
+  - pylint
+  - qt
+  - vim-enhanced
+
+port_open_list_server:
+  - 5432
+  - 3000
+  - 9090
+  - 11434

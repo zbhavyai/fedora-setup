@@ -1,5 +1,11 @@
 ---
 - name: Setup servers
   hosts: server
+  vars_files:
+    - ../group_vars/server.yaml
   roles:
-    - server
+    - role: dnf
+      dnf_packages: "{{ dnf_packages_server }}"
+    - role: port_open
+      port_open_list: "{{ port_open_list_server }}"
+    - role: server
