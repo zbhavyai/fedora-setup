@@ -22,3 +22,9 @@
     src: .vimrc
     dest: "{{ ansible_env.HOME }}/.vimrc"
     mode: "0644"
+
+- name: Copy all bash scripts
+  ansible.builtin.copy:
+    src: scripts/
+    dest: "{{ ansible_env.HOME }}/"
+    mode: "0755"
