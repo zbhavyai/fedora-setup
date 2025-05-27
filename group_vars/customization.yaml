@@ -19,6 +19,7 @@ dnf_packages_customization:
   - mozilla-fira-mono-fonts
   - rit-meera-new-fonts
   - rit-rachana-fonts
+  - rsms-inter-fonts
 
 flatpak_packages_customization:
   # themes
