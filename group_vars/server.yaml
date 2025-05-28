@@ -1,5 +1,6 @@
 ---
 dnf_packages_server:
+  - cockpit
   - git
   - java-21-openjdk-devel
   - less
@@ -14,3 +15,4 @@ port_open_list_server:
   - 3000
   - 9090
   - 11434
+  - 3030

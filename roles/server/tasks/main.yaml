@@ -28,3 +28,23 @@
     src: scripts/
     dest: "{{ ansible_env.HOME }}/"
     mode: "0755"
+
+- name: Ensure cockpit socket config directory exists
+  ansible.builtin.file:
+    path: /etc/systemd/system/cockpit.socket.d/
+    state: directory
+    mode: "0755"
+
+- name: Change cockpit port
+  ansible.builtin.copy:
+    src: cockpit_port.conf
+    dest: /etc/systemd/system/cockpit.socket.d/listen.conf
+    mode: "0644"
+
+- name: Restart cockpit service
+  ansible.builtin.systemd:
+    daemon_reload: true
+    name: cockpit.socket
+    state: restarted
+    enabled: true
+  become: true
