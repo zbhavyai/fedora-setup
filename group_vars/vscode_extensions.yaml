@@ -30,6 +30,8 @@ vscode_extensions:
     - oracle.oracle-java
     - pkief.material-icon-theme
     - redhat.java
+    - redhat.vscode-microprofile
+    - redhat.vscode-quarkus
     - redhat.vscode-xml
     - renesaarsoo.sql-formatter-vsc
     - sonarsource.sonarlint-vscode
@@ -40,7 +42,6 @@ vscode_extensions:
     - vscjava.vscode-java-test
     - vscjava.vscode-maven
   PYTHON:
-    - bierner.markdown-preview-github-styles
     - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - github.copilot
