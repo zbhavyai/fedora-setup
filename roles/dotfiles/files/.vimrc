@@ -9,4 +9,3 @@ set nowrap
 
 " case insenstive search
 set ignorecase
-

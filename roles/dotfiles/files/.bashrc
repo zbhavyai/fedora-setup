@@ -6,8 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
@@ -26,7 +25,6 @@ fi
 
 unset rc
 
-
 # #############################################################################
 # determine type of distro
 # #############################################################################
@@ -42,7 +40,6 @@ if [ -f /etc/os-release ]; then
     fi
 fi
 
-
 # #############################################################################
 # determine type of shell
 # #############################################################################
@@ -52,7 +49,6 @@ if shopt -q login_shell; then
 else
     export isLoginShell=1
 fi
-
 
 # #############################################################################
 # git branch function
@@ -65,22 +61,21 @@ parse_git_branch() {
     # /usr/bin/git symbolic-ref --short -q HEAD 2> /dev/null | sed 's/.*/ (&)/'
 
     # use the one suggested by Fedora in their bash-color-prompt doc
-    /usr/bin/git rev-parse --abbrev-ref HEAD 2> /dev/null | sed 's/.*/ (&)/'
+    /usr/bin/git rev-parse --abbrev-ref HEAD 2>/dev/null | sed 's/.*/ (&)/'
 }
 export -f parse_git_branch
-
 
 # #############################################################################
 # colorful prompt
 # #############################################################################
-    colorRed="\[\e[00;31m\]"
-  colorGreen="\[\e[00;32m\]"
- colorYellow="\[\e[00;33m\]"
-   colorBlue="\[\e[00;34m\]"
+colorRed="\[\e[00;31m\]"
+colorGreen="\[\e[00;32m\]"
+colorYellow="\[\e[00;33m\]"
+colorBlue="\[\e[00;34m\]"
 colorMagenta="\[\e[00;35m\]"
-   colorCyan="\[\e[00;36m\]"
-  colorWhite="\[\e[00;37m\]"
-  colorReset="\[\e[00m\]"
+colorCyan="\[\e[00;36m\]"
+colorWhite="\[\e[00;37m\]"
+colorReset="\[\e[00m\]"
 
 if [ $EUID -eq 0 ]; then
     # PS1 for root users
@@ -94,7 +89,6 @@ else
     export PS1="${PS1}${colorReset}$ "
 fi
 
-
 # #############################################################################
 # shorter prompt - useful for split terminals
 # #############################################################################
@@ -102,7 +96,6 @@ shorterPrompt() {
     export PS1="${colorYellow}\W${colorReset}> "
 }
 export -f shorterPrompt
-
 
 # #############################################################################
 # clear function when terminal doesn't support it
@@ -113,7 +106,6 @@ cls() {
 }
 export -f cls
 
-
 # #############################################################################
 # print separator till the end
 # #############################################################################
@@ -123,7 +115,6 @@ function printSeparator() {
     printf "\n"
 }
 export -f printSeparator
-
 
 # #############################################################################
 # remove package without dependencies
@@ -137,7 +128,6 @@ removeOnly() {
 }
 export -f removeOnly
 
-
 # #############################################################################
 # path
 # #############################################################################
@@ -150,21 +140,19 @@ addToPath() {
 # addToPath "/opt/node-v16.20.2-linux-x64/bin"
 # addToPath "/opt/go/bin"
 
-
 # #############################################################################
 # env variables
 # #############################################################################
-if command -v java &> /dev/null; then
+if command -v java &>/dev/null; then
     # set java home
     export JAVA_HOME=$(readlink -f $(command -v java) | sed "s:/bin/java::")
 fi
-if ! rpm -q docker-ce &>/dev/null && command -v docker &> /dev/null; then
+if ! rpm -q docker-ce &>/dev/null && command -v docker &>/dev/null; then
     # set these when docker is not installed and docker is emulated by podman
     # podman for quarkus: https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/
     export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
     export TESTCONTAINERS_RYUK_DISABLED=true
 fi
-
 
 # #############################################################################
 # alias
@@ -183,10 +171,9 @@ if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
 fi
 
-if command -v flatpak &> /dev/null && [ -n "$(flatpak list --app --columns=application | grep com.visualstudio.code)" ]; then
+if command -v flatpak &>/dev/null && [ -n "$(flatpak list --app --columns=application | grep com.visualstudio.code)" ]; then
     alias code='flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code'
 fi
-
 
 # #############################################################################
 # ollama bash completion https://github.com/ollama/ollama/issues/1653#issuecomment-2184527185
@@ -211,21 +198,9 @@ if command -v ollama &> /dev/null; then
     complete -F _complete_ollama ollama
 fi
 
-
 # #############################################################################
 # source work specific bashrc
 # #############################################################################
 if [ -f "${HOME}/.bashrc-work" ]; then
     . "${HOME}/.bashrc-work"
 fi
-
-
-# #############################################################################
-# using pyenv
-# #############################################################################
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-# alias pyactivate='pyenv shell PY-ENV'
-# alias pydeactivate='pyenv shell system'

@@ -1,20 +1,20 @@
 # #############################################################################
 # hashicorp vault secret listing
 # #############################################################################
-if rpm -q vault &> /dev/null; then
+if rpm -q vault &>/dev/null; then
     export VAULT_ADDR="http://127.0.0.1:8200"
     export VAULT_TOKEN=$(cat "/usr/share/userful-vault/vault_root_token.txt")
 fi
 
 listVaultSecrets() {
-    if rpm -q vault &> /dev/null; then
+    if rpm -q vault &>/dev/null; then
         local atleastOneSecret=0
         for key in $(vault kv list --format=json secret | jq -r '.[]'); do
             printSeparator "-"
             atleastOneSecret=1
 
-            printf "Secret: $key\n";
-            printf "Value : $(vault kv get --format=json "secret/$key" | jq -c .data.data)\n";
+            printf "Secret: $key\n"
+            printf "Value : $(vault kv get --format=json "secret/$key" | jq -c .data.data)\n"
         done
 
         if [ $atleastOneSecret -eq 0 ]; then
@@ -27,14 +27,6 @@ listVaultSecrets() {
     fi
 }
 export -f listVaultSecrets
-
-
-# #############################################################################
-# variables for selective update or distro-sync
-# #############################################################################
-export FRONT_APPS="userful-chronos-emerald userful-chronos-react-app-amethyst userful-chronos-react-app-config userful-chronos-react-app-decisions-alt userful-chronos-react-app-decisions userful-chronos-react-app-launcher userful-chronos-react-app-monitoring userful-chronos-react-app-notifications userful-chronos-react-app-ruby userful-chronos-react-app-sapphire-portal userful-chronos-react-app-sapphire-present userful-chronos-react-app-sapphire userful-chronos-react-app-topaz userful-chronos-react-calibration userful-chronos-react-initial-setup userful-chronos-react-preset-switcher userful-chronos-react-user-management userful-chronos-source-destination-management userful-chronos-uconduct userful-domo-client-app userful-epic-client-app userful-grafana-client-app userful-powerbi-client-app userful-powerpoint-client-app userful-react-app-interactive-viewer userful-sdk-doc userful-servicenow-client-app userful-tableau-client-app userful-sapphire-portal-app"
-export BACK_APPS="userful-chronos-aether userful-chronos-monitoring userful-chronos-ve userful-chronos-webclients userful-chronos-keycloak"
-
 
 # #############################################################################
 # alias for logging
@@ -67,7 +59,6 @@ create_log_aliases prom '/var/log/userful/prometheus.log'
 create_log_aliases kc '/var/log/userful/userful-chronos-keycloak.log'
 create_log_aliases kcapp '/var/log/userful/userful-chronos-keycloak-app.log'
 create_log_aliases postgres "$(ls -1t /var/lib/pgsql/data/log/*log 2>/dev/null | head -1)"
-
 
 # #############################################################################
 # aws configuration
