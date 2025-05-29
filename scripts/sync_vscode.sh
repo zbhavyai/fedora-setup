@@ -2,10 +2,22 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
+SRC_SETTINGS_FILE="${HOME}/.config/Code/User/settings.json"
+DST_SETTINGS_FILE="${SCRIPT_DIR}/../roles/vscode/files/settings.jsonc"
+SRC_KEYBINDINGS_FILE="${HOME}/.config/Code/User/keybindings.json"
+DST_KEYBINDINGS_FILE="${SCRIPT_DIR}/../roles/vscode/files/keybindings.jsonc"
 EXTENSIONS_FILE="${SCRIPT_DIR}/../group_vars/vscode_extensions.yaml"
 PROFILES=("DEFAULT" "JAVA" "PYTHON")
 
-create_header() {
+sync_settings() {
+    cp "${SRC_SETTINGS_FILE}" "${DST_SETTINGS_FILE}"
+}
+
+sync_keybindings() {
+    cp "${SRC_KEYBINDINGS_FILE}" "${DST_KEYBINDINGS_FILE}"
+}
+
+create_extension_yaml_header() {
     echo "---" >"${EXTENSIONS_FILE}"
     echo "vscode_extensions:" >>"${EXTENSIONS_FILE}"
 }
@@ -28,7 +40,9 @@ list_installed_extensions() {
 }
 
 main() {
-    create_header
+    sync_settings
+    sync_keybindings
+    create_extension_yaml_header
     list_installed_extensions
 }
 
