@@ -50,7 +50,7 @@
   "editor.tabCompletion": "onlySnippets",
   "editor.wordBasedSuggestions": "off",
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
-  "github.copilot.enable": { "*": true, "yaml": true, "plaintext": true, "markdown": true },
+  "github.copilot.enable": { "*": true, "markdown": true, "plaintext": false, "yaml": true },
   "github.copilot.chat.codesearch.enabled": true,
   "chat.agent.enabled": true,
   "chat.mcp.enabled": true,
@@ -83,7 +83,7 @@
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
   // CONTAINER ----------------------------------------------------------------
-  "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
   "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
   "dev.containers.dockerPath": "/usr/bin/docker",
   // GIT ----------------------------------------------------------------------
