@@ -36,9 +36,13 @@
     <keyboard-shortcut first-keystroke="shift ctrl tab" />
   </action>
   <action id="QuickChangeScheme" />
+  <action id="QuickImplementations" />
   <action id="QuickJavaDoc">
     <mouse-shortcut keystroke="alt button2" />
     <keyboard-shortcut first-keystroke="shift space" />
+  </action>
+  <action id="ReformatCode">
+    <keyboard-shortcut first-keystroke="shift ctrl i" />
   </action>
   <action id="RenameElement">
     <keyboard-shortcut first-keystroke="shift f6" />
