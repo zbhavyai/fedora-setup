@@ -1,0 +1,14 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec="/opt/webstorm/bin/webstorm" %f
+GenericName=The smartest JavaScript IDE
+# Icon=/opt/webstorm/bin/webstorm.svg
+Icon=com.jetbrains.WebStorm
+Keywords=development;javascript;webstorm;
+Name=WebStorm
+StartupNotify=true
+# StartupWMClass=jetbrains-webstorm
+StartupWMClass=webstorm
+Terminal=false
+Type=Application
+X-Flatpak=com.jetbrains.WebStorm
