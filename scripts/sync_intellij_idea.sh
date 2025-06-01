@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SRC_VM_OPTIONS="/opt/intellij-idea/bin/idea64.vmoptions"
-SRC_CONFIG_DIR="${HOME}/.config/intellij-idea/config"
+SRC_CONFIG_DIR="${HOME}/.config/jetbrains/intellij-idea/config"
 
 SCRIPT_DIR="$(dirname "$0")"
 DST_VM_OPTIONS="${SCRIPT_DIR}/../roles/intellij_idea/files/idea64.vmoptions"

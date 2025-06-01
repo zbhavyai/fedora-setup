@@ -23,7 +23,7 @@
   ansible.builtin.lineinfile:
     path: /opt/intellij-idea/bin/idea.properties
     regexp: "^# idea.config.path="
-    line: "idea.config.path=${user.home}/.config/intellij-idea/config"
+    line: "idea.config.path=${user.home}/.config/jetbrains/intellij-idea/config"
     state: present
     backrefs: true
   become: false
@@ -33,7 +33,7 @@
   ansible.builtin.lineinfile:
     path: /opt/intellij-idea/bin/idea.properties
     regexp: "^# idea.system.path="
-    line: "idea.system.path=${user.home}/.config/intellij-idea/system"
+    line: "idea.system.path=${user.home}/.config/jetbrains/intellij-idea/system"
     state: present
     backrefs: true
   become: false
@@ -68,14 +68,14 @@
 
 - name: Create IntelliJ IDEA desktop entry
   ansible.builtin.copy:
-    src: intellij-idea.desktop
-    dest: /usr/share/applications/intellij-idea.desktop
+    src: jetbrains-intellij-idea.desktop
+    dest: /usr/share/applications/jetbrains-intellij-idea.desktop
     mode: "0644"
   become: true
 
 - name: Copy all settings
   ansible.builtin.copy:
     src: config
-    dest: "{{ ansible_env.HOME }}/.config/intellij-idea/"
+    dest: "{{ ansible_env.HOME }}/.config/jetbrains/intellij-idea/"
     mode: "0644"
   become: false
