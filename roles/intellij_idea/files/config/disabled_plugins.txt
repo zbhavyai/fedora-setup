@@ -12,3 +12,4 @@ org.intellij.qodana
 org.jetbrains.completion.full.line
 org.jetbrains.plugins.gitlab
 org.jetbrains.plugins.javaFX
+training
