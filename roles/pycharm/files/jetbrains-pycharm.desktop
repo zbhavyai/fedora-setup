@@ -1,0 +1,13 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec="/opt/pycharm/bin/pycharm" %f
+GenericName=The Only Python IDE you need
+# Icon=/opt/pycharm/bin/pycharm.svg
+Icon=com.jetbrains.PyCharm-Community
+Keywords=development;pycharm;ide;python;
+Name=PyCharm
+StartupNotify=true
+StartupWMClass=jetbrains-pycharm-ce
+Terminal=false
+Type=Application
+# X-Flatpak=com.jetbrains.PyCharm-Community
