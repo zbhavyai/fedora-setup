@@ -199,6 +199,15 @@ if command -v ollama &> /dev/null; then
 fi
 
 # #############################################################################
+# clean journalctl logs
+# #############################################################################
+cleanJournalLogs() {
+    sudo journalctl --rotate
+    sudo journalctl --vacuum-time=1s
+}
+export -f cleanJournalLogs
+
+# #############################################################################
 # source work specific bashrc
 # #############################################################################
 if [ -f "${HOME}/.bashrc-work" ]; then
