@@ -10,13 +10,19 @@ all:
     server:
       hosts:
         server_yankee:
-          ansible_host: yankee.userful.ca
+          ansible_host: yankee
           ansible_user: root
           ansible_port: 22
           ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"
 
-        server_canuck:
-          ansible_host: zulu.userful.ca
+        server_zulu_98:
+          ansible_host: zulu
           ansible_user: root
           ansible_port: 2298
+          ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"
+
+        server_zulu_99:
+          ansible_host: zulu
+          ansible_user: root
+          ansible_port: 2299
           ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/workMachineAccess"
