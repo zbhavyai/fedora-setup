@@ -4,7 +4,6 @@ dnf_packages_server:
   - git
   - java-21-openjdk-devel
   - less
-  - less
   - man-db
   - passwd
   - pylint
