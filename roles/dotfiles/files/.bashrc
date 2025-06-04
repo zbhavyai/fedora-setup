@@ -129,6 +129,27 @@ function removeOnly() {
 export -f removeOnly
 
 # #############################################################################
+# whatProvides
+# #############################################################################
+function whatProvides() {
+    local binpath
+    binpath=$(command -v "$1")
+
+    if [[ -z "$binpath" ]]; then
+        echo "'$1' not found in PATH."
+        return 1
+    fi
+
+    echo -n "rpm -q --file        : "
+    rpm --query --file "$binpath"
+
+    echo -n "rpm -q --whatprovides: "
+    rpm --query --whatprovides "$binpath"
+}
+export -f whatProvides
+
+
+# #############################################################################
 # path
 # #############################################################################
 function addToPath() {
