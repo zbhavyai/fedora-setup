@@ -45,7 +45,7 @@
   become: true
   when: container_engine == "podman" and (podman_packages | default([])) | length > 0
 
-- name: Enable and start Podman service
+- name: Enable and start Podman socket
   # source - https://quarkus.io/guides/podman
   # systemctl enable --now --user podman.socket
   ansible.builtin.systemd_service:

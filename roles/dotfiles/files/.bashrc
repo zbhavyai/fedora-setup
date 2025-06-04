@@ -168,10 +168,10 @@ if command -v java &>/dev/null; then
     # set java home
     export JAVA_HOME=$(readlink -f $(command -v java) | sed "s:/bin/java::")
 fi
-if ! rpm -q docker-ce &>/dev/null && command -v docker &>/dev/null; then
-    # set these when docker is not installed and docker is emulated by podman
-    # podman for quarkus: https://quarkus.io/blog/quarkus-devservices-testcontainers-podman/
-    export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+if ! rpm -q docker-ce &>/dev/null; then
+    # source - https://quarkus.io/guides/podman
+    # export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+    export DOCKER_HOST=unix://$(podman info --format '{{.Host.RemoteSocket.Path}}')
     export TESTCONTAINERS_RYUK_DISABLED=true
 fi
 
