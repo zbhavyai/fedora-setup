@@ -1,6 +1,6 @@
-# Fedora Workstation Setup
+# Fedora Setup
 
-_Automated set up of Fedora Workstation using Ansible_
+_Automated set up of Fedora Workstation and Fedora Server using Ansible_
 
 The goal is to automate as much as possible to a reasonable extent. This means that there will be manual intervention involved, such as some application configuration after installation.
 
