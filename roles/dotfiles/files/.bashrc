@@ -53,7 +53,7 @@ fi
 # #############################################################################
 # git branch function
 # #############################################################################
-parse_git_branch() {
+function parse_git_branch() {
     # dont use porcelain command git branch
     # /usr/bin/git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1) /'
 
@@ -92,7 +92,7 @@ fi
 # #############################################################################
 # shorter prompt - useful for split terminals
 # #############################################################################
-shorterPrompt() {
+function shorterPrompt() {
     export PS1="${colorYellow}\W${colorReset}> "
 }
 export -f shorterPrompt
@@ -100,7 +100,7 @@ export -f shorterPrompt
 # #############################################################################
 # clear function when terminal doesn't support it
 # #############################################################################
-cls() {
+function cls() {
     printf "%.0s\n" {1..50}
     printf '\033[3J' && clear
 }
@@ -119,7 +119,7 @@ export -f printSeparator
 # #############################################################################
 # remove package without dependencies
 # #############################################################################
-removeOnly() {
+function removeOnly() {
     if [ "${isRhel}" -eq 0 ]; then
         sudo rpm --erase --nodeps ${@}
     else
@@ -131,7 +131,7 @@ export -f removeOnly
 # #############################################################################
 # path
 # #############################################################################
-addToPath() {
+function addToPath() {
     if [ -d "${1}" ] && [[ ":${PATH}:" != *":${1}:"* ]]; then
         export PATH="${1}:${PATH}"
     fi
@@ -179,7 +179,7 @@ fi
 # ollama bash completion https://github.com/ollama/ollama/issues/1653#issuecomment-2184527185
 # #############################################################################
 if command -v ollama &> /dev/null; then
-    _complete_ollama() {
+    function _complete_ollama() {
         local cur prev words cword
         _init_completion -n : || return
 
@@ -201,7 +201,7 @@ fi
 # #############################################################################
 # clean journalctl logs
 # #############################################################################
-cleanJournalLogs() {
+function cleanJournalLogs() {
     sudo journalctl --rotate
     sudo journalctl --vacuum-time=1s
 }

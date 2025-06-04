@@ -6,7 +6,7 @@ if rpm -q vault &>/dev/null; then
     export VAULT_TOKEN=$(cat "/usr/share/userful-vault/vault_root_token.txt")
 fi
 
-listVaultSecrets() {
+function listVaultSecrets() {
     if rpm -q vault &>/dev/null; then
         local atleastOneSecret=0
         for key in $(vault kv list --format=json secret | jq -r '.[]'); do
@@ -35,7 +35,7 @@ alias cdlog='cd /var/log/userful'
 alias reboot='rm -rf /var/log/userful/*; shutdown -r 0'
 alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
 
-create_log_aliases() {
+function create_log_aliases() {
     local LOGVAR="$1"
     local LOGFILEPATH="$2"
 
@@ -69,7 +69,7 @@ alias awslogin='aws sso login --profile "${AWS_PROFILE}"'
 alias gcmdeployments='kubectl --namespace "${K8NS}" get deployments'
 alias gcmpods='kubectl --namespace "${K8NS}" get pods'
 
-gcmlogs() {
+function gcmlogs() {
     if [ -z "${1}" ]; then
         echo "Usage: gcmlogs <deployment-name> or <pod-name>"
         echo "Eg   : gcmlogs bhavyai"
