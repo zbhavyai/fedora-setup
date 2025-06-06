@@ -6,6 +6,7 @@ dnf_packages_tools:
   - gnome-tweaks
 
   # utilities
+  - fastfetch
   - file-roller
   - ftp
   - glances
