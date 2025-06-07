@@ -8,10 +8,12 @@ docker_packages:
   - docker-buildx-plugin
   - docker-compose-plugin
   - docker-ce-rootless-extras
+  - docker-model-plugin
 
 podman_packages:
   - podman
   - podman-compose
+  - podman-remote
 
 container_images:
   - name: docker.io/library/eclipse-temurin
