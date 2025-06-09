@@ -13,7 +13,7 @@
     flatpak override --user \
       --filesystem=~/.local/share/applications \
       --filesystem=~/.local/share/icons
-      com.google.Chrome
+      org.chromium.Chromium
   changed_when: true
 
 - name: Enable Google APIs for Chromium Flatpak
