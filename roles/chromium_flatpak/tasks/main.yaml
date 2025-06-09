@@ -8,11 +8,18 @@
     state: present
   become: false
 
-- name: Grant access to some directories for creating app shortcuts
+- name: Grant access for creating app shortcuts
   ansible.builtin.command: >
     flatpak override --user \
       --filesystem=~/.local/share/applications \
       --filesystem=~/.local/share/icons
+      org.chromium.Chromium
+  changed_when: true
+
+- name: Grant access to home directory
+  ansible.builtin.command: >
+    flatpak override --user \
+      --filesystem=home \
       org.chromium.Chromium
   changed_when: true
 
