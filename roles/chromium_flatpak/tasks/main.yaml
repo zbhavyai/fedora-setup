@@ -8,6 +8,14 @@
     state: present
   become: false
 
+- name: Grant access to some directories for creating app shortcuts
+  ansible.builtin.command: >
+    flatpak override --user \
+      --filesystem=~/.local/share/applications \
+      --filesystem=~/.local/share/icons
+      com.google.Chrome
+  changed_when: true
+
 - name: Enable Google APIs for Chromium Flatpak
   # source - https://stackoverflow.com/a/78191462
   ansible.builtin.shell: |
