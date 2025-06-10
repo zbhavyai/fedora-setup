@@ -11,7 +11,7 @@
   become: true
   when: (dnf_packages_cleanup | default([])) | length > 0
 
-- name: Autoremove DNF
+- name: DNF Autoremove
   ansible.builtin.dnf:
     autoremove: true
   become: true

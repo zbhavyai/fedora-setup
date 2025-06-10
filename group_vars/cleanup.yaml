@@ -5,6 +5,7 @@ dnf_packages_cleanup:
   - gnome-maps
   - gnome-tour
   - gnome-weather
+  - snapshot
   - totem
   - transmission
 
