@@ -84,3 +84,13 @@
     dest: "{{ ansible_env.HOME }}/.config/jetbrains/intellij-idea/"
     mode: "0644"
   become: false
+
+- name: Install plugins
+  ansible.builtin.shell: |
+    /opt/intellij-idea/bin/idea installPlugins {{ item }}
+  args:
+    executable: /bin/bash
+  loop: "{{ intellij_idea_plugins }}"
+  register: plugin_install_result
+  changed_when: "'already installed' not in plugin_install_result.stdout"
+  become: false

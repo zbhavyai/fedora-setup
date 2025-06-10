@@ -13,3 +13,12 @@ flatpak_packages_java:
   - com.getpostman.Postman
   # - com.jetbrains.IntelliJ-IDEA-Community
   # - org.pgadmin.pgadmin4
+
+intellij_idea_plugins:
+  - com.github.copilot
+  - com.redhat.devtools.intellij.quarkus
+  - com.redhat.devtools.intellij.telemetry
+  - com.redhat.devtools.lsp4ij
+  - Docker
+  - google-java-format
+  - org.jetbrains.plugins.github
