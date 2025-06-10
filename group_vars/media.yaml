@@ -5,6 +5,7 @@ flatpak_packages_media:
   - com.obsproject.Studio
   - org.atheme.audacious
   # - org.audacityteam.Audacity
+  - org.gnome.Cheese
   - org.gnome.SoundRecorder
   # - org.kde.gwenview
   - org.nickvision.tagger
