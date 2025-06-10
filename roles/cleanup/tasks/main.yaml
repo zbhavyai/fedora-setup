@@ -10,3 +10,9 @@
     allowerasing: true
   become: true
   when: (dnf_packages_cleanup | default([])) | length > 0
+
+- name: Autoremove DNF
+  ansible.builtin.dnf:
+    autoremove: true
+  become: true
+  when: (dnf_packages_cleanup | default([])) | length > 0

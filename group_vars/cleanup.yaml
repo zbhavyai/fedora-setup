@@ -6,6 +6,7 @@ dnf_packages_cleanup:
   - gnome-tour
   - gnome-weather
   - totem
+  - transmission
 
   # utilities
   - highcontrast-icon-theme
