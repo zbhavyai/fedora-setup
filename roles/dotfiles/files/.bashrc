@@ -163,15 +163,13 @@ function addToPath() {
 # #############################################################################
 # env variables
 # #############################################################################
-if command -v java &>/dev/null; then
-    # set java home
-    export JAVA_HOME=$(readlink -f $(command -v java) | sed "s:/bin/java::")
-fi
-if ! rpm -q docker-ce &>/dev/null; then
+export JAVA_HOME=$(readlink -f $(command -v java) 2>/dev/null | sed "s:/bin/java::")
+
+if command -v podman &>/dev/null; then
     # source - https://quarkus.io/guides/podman
-    # export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
+    export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
     # export DOCKER_HOST=unix://${XDG_RUNTIME_DIR}/podman/podman.sock
-    export DOCKER_HOST=unix://$(podman info --format '{{.Host.RemoteSocket.Path}}')
+    # export DOCKER_HOST=unix://$(podman info --format '{{.Host.RemoteSocket.Path}}')
     export TESTCONTAINERS_RYUK_DISABLED=true
 fi
 
