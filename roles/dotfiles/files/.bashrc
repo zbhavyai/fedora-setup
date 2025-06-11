@@ -148,7 +148,6 @@ function whatProvides() {
 }
 export -f whatProvides
 
-
 # #############################################################################
 # path
 # #############################################################################
@@ -196,29 +195,6 @@ fi
 
 if command -v flatpak &>/dev/null && [ -n "$(flatpak list --app --columns=application | grep com.visualstudio.code)" ]; then
     alias code='flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code'
-fi
-
-# #############################################################################
-# ollama bash completion https://github.com/ollama/ollama/issues/1653#issuecomment-2184527185
-# #############################################################################
-if command -v ollama &> /dev/null; then
-    function _complete_ollama() {
-        local cur prev words cword
-        _init_completion -n : || return
-
-        if [[ ${cword} -eq 1 ]]; then
-            COMPREPLY=($(compgen -W "serve create show run push pull list ps cp rm help" -- "${cur}"))
-        elif [[ ${cword} -eq 2 ]]; then
-            case "${prev}" in
-                (run|show|cp|rm|push|list)
-                    WORDLIST=$((ollama list 2>/dev/null || echo "") | tail -n +2 | cut -d "	" -f 1)
-                    COMPREPLY=($(compgen -W "${WORDLIST}" -- "${cur}"))
-                    __ltrim_colon_completions "$cur"
-                    ;;
-            esac
-        fi
-    }
-    complete -F _complete_ollama ollama
 fi
 
 # #############################################################################
