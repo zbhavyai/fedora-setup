@@ -207,8 +207,8 @@ function cleanJournalLogs() {
 export -f cleanJournalLogs
 
 # #############################################################################
-# source work specific bashrc
+# source server specific bashrc
 # #############################################################################
-if [ -f "${HOME}/.bashrc-work" ]; then
-    . "${HOME}/.bashrc-work"
+if [ -f "${HOME}/.bashrc-server" ]; then
+    . "${HOME}/.bashrc-server"
 fi

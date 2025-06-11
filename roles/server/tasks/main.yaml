@@ -5,10 +5,10 @@
     dest: "{{ ansible_env.HOME }}/.bashrc"
     mode: "0644"
 
-- name: Copy .bashrc-work
+- name: Copy .bashrc-server
   ansible.builtin.copy:
-    src: .bashrc-work
-    dest: "{{ ansible_env.HOME }}/.bashrc-work"
+    src: .bashrc-server
+    dest: "{{ ansible_env.HOME }}/.bashrc-server"
     mode: "0644"
 
 - name: Copy .gitconfig
