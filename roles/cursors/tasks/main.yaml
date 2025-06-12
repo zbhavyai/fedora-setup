@@ -24,7 +24,7 @@
     path: "{{ cursors_extract_path }}/macOS-White"
     state: absent
 
-- name: Remove cursors lincese file
+- name: Remove cursors license file
   ansible.builtin.file:
     path: "{{ cursors_extract_path }}/LICENSE"
     state: absent
