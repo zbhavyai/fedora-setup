@@ -205,6 +205,17 @@ function cleanJournalLogs() {
 export -f cleanJournalLogs
 
 # #############################################################################
+# miscellaneous
+# #############################################################################
+function fixJetbrainsMarkdownPreview() {
+    # source - https://stackoverflow.com/a/79662857/16018083
+    rm -f ${HOME}/.config/jetbrains/intellij-idea/system/jcef_cache/Singleton*
+    rm -f ${HOME}/.config/jetbrains/pycharm/system/jcef_cache/Singleton*
+    rm -f ${HOME}/.config/jetbrains/webstorm/system/jcef_cache/Singleton*
+}
+export -f fixJetbrainsMarkdownPreview
+
+# #############################################################################
 # source server specific bashrc
 # #############################################################################
 if [ -f "${HOME}/.bashrc-server" ]; then
