@@ -1,18 +1,11 @@
 ---
 vscode_extensions:
   DEFAULT:
-    - dbaeumer.vscode-eslint
     - esbenp.prettier-vscode
     - foxundermoon.shell-format
-    - github.copilot
-    - github.copilot-chat
-    - ms-azuretools.vscode-containers
     - pkief.material-icon-theme
     - redhat.vscode-xml
     - redhat.vscode-yaml
-    - sonarsource.sonarlint-vscode
-    - visualstudioexptteam.intellicode-api-usage-examples
-    - visualstudioexptteam.vscodeintellicode
   JAVA:
     - esbenp.prettier-vscode
     - foxundermoon.shell-format
@@ -34,6 +27,19 @@ vscode_extensions:
     - vscjava.vscode-java-dependency
     - vscjava.vscode-java-test
     - vscjava.vscode-maven
+  JAVASCRIPT:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - foxundermoon.shell-format
+    - github.copilot
+    - github.copilot-chat
+    - ms-azuretools.vscode-containers
+    - pkief.material-icon-theme
+    - redhat.vscode-xml
+    - redhat.vscode-yaml
+    - sonarsource.sonarlint-vscode
+    - visualstudioexptteam.intellicode-api-usage-examples
+    - visualstudioexptteam.vscodeintellicode
   PYTHON:
     - esbenp.prettier-vscode
     - foxundermoon.shell-format

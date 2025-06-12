@@ -70,6 +70,7 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.saveActions.organizeImports": true,
+  "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
   // JAVASCRIPT ---------------------------------------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",

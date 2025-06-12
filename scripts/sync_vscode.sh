@@ -7,7 +7,7 @@ DST_SETTINGS_FILE="${SCRIPT_DIR}/../roles/vscode/files/settings.jsonc"
 SRC_KEYBINDINGS_FILE="${HOME}/.config/Code/User/keybindings.json"
 DST_KEYBINDINGS_FILE="${SCRIPT_DIR}/../roles/vscode/files/keybindings.jsonc"
 EXTENSIONS_FILE="${SCRIPT_DIR}/../group_vars/vscode_extensions.yaml"
-PROFILES=("DEFAULT" "JAVA" "PYTHON")
+PROFILES=("DEFAULT" "JAVA" "JAVASCRIPT" "PYTHON")
 
 sync_settings() {
     cp "${SRC_SETTINGS_FILE}" "${DST_SETTINGS_FILE}"
