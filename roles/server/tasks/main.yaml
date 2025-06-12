@@ -35,6 +35,18 @@
     dest: "{{ ansible_env.HOME }}/"
     mode: "0755"
 
+- name: Ensure bash completion directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/share/bash-completion/completions"
+    state: directory
+    mode: "0755"
+
+- name: Copy bash completion files
+  ansible.builtin.copy:
+    src: bash_completion/
+    dest: "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/"
+    mode: "0644"
+
 - name: Ensure cockpit socket config directory exists
   ansible.builtin.file:
     path: /etc/systemd/system/cockpit.socket.d/
