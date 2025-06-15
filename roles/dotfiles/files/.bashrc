@@ -149,6 +149,17 @@ function whatProvides() {
 export -f whatProvides
 
 # #############################################################################
+# extractRPM
+# #############################################################################
+function extractRPM() {
+    local rpmFile="$1"
+    rpm2archive "$rpmFile"
+    local base=$(basename "$rpmFile" .rpm)
+    mv "$rpmFile.tgz" "$base.tar.gz"
+}
+export -f extractRPM
+
+# #############################################################################
 # path
 # #############################################################################
 function addToPath() {
