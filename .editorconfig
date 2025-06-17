@@ -15,4 +15,5 @@ max_line_length = 80
 max_line_length = 200
 
 [Makefile]
+indent_size = 4
 indent_style = tab
