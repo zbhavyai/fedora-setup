@@ -1,4 +1,5 @@
 ---
+# use either podman, docker-official, or docker-fedora
 container_engine: podman
 
 docker_packages:
@@ -9,6 +10,14 @@ docker_packages:
   - docker-compose-plugin
   - docker-ce-rootless-extras
   - docker-model-plugin
+
+# source - https://docs.fedoraproject.org/en-US/quick-docs/installing-docker/
+docker_fedora_packages:
+  - moby-engine
+  - docker-cli
+  - containerd
+  - docker-buildx
+  - docker-compose
 
 podman_packages:
   - podman
