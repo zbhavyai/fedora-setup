@@ -66,8 +66,8 @@
 
 - name: Copy WebStorm VM options
   ansible.builtin.copy:
-    src: idea64.vmoptions
-    dest: /opt/webstorm/bin/idea64.vmoptions
+    src: webstorm64.vmoptions
+    dest: /opt/webstorm/bin/webstorm64.vmoptions
     mode: "0644"
   become: true
 
