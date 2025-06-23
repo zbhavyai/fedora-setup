@@ -1,0 +1,16 @@
+---
+dnf_packages_dev:
+  # java
+  - java-21-openjdk-devel
+  - java-21-openjdk-javadoc
+  - java-21-openjdk-src
+  - java-21-openjdk-jmods
+  - maven
+
+  # javascript
+  - nodejs
+  - nodejs-npm
+
+flatpak_packages_dev:
+  - com.getpostman.Postman
+  # - org.pgadmin.pgadmin4

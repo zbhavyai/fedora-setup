@@ -1,4 +1,0 @@
----
-dnf_packages_vscode:
-  - code
-  - nodejs

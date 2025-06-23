@@ -16,8 +16,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 | [customization](playbooks/customization.yaml) | Customizes GNOME Shell, installs dotfiles, and some other settings | `make customization` |
 | [tools](playbooks/tools.yaml)                 | Installs essential utilities                                       | `make tools`         |
 | [container](playbooks/container.yaml)         | Installs Podman or Docker                                          | `make container`     |
-| [java](playbooks/java.yaml)                   | Installs JDK, IntelliJ IDEA, and Postman                           | `make java`          |
-| [vscode](playbooks/vscode.yaml)               | Installs VS Code, its settings, and extensions                     | `make vscode`        |
+| [dev](playbooks/dev.yaml)                     | Installs JDK, Node.js, Postman, and few IDEs and their settings    | `make dev`           |
 | [media](playbooks/media.yaml)                 | Installs media-related applications                                | `make media`         |
 | [alternate](playbooks/alternate.yaml)         | Installs Google Chrome, and optionally some other applications     | `make alternate`     |
 | [all](playbooks/all.yaml)                     | Runs all above playbooks                                           | `make all`           |

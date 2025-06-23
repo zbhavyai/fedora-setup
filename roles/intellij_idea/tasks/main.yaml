@@ -85,6 +85,10 @@
     mode: "0644"
   become: false
 
+- name: Load intellij_idea_plugins var
+  ansible.builtin.include_vars:
+    file: ../vars/plugins.yaml
+
 - name: Install plugins
   ansible.builtin.shell: |
     /opt/intellij-idea/bin/idea installPlugins {{ item }}

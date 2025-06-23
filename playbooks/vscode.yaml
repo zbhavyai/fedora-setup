@@ -1,9 +1,0 @@
----
-- name: VS Code installation and configuration
-  hosts: laptop
-  vars_files:
-    - ../group_vars/vscode_extensions.yaml
-    - ../group_vars/vscode_packages.yaml
-  roles:
-    - role: vscode
-      vscode_dnf_packages: "{{ dnf_packages_vscode }}"

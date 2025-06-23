@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: check-deps init cleanup customization tools container java vscode media alternate server all lint sync help
+.PHONY: check-deps init cleanup customization tools container dev media alternate server all lint sync help
 
 .deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -37,11 +37,8 @@ tools: .deps-ok
 container: .deps-ok
 	ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-java: .deps-ok
-	ansible-playbook playbooks/java.yaml --inventory inventory/hosts.yaml --ask-become-pass
-
-vscode: .deps-ok
-	ansible-playbook playbooks/vscode.yaml --inventory inventory/hosts.yaml --ask-become-pass
+dev: .deps-ok
+	ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 media: .deps-ok
 	ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
@@ -83,8 +80,7 @@ help:
 	@echo "  customization - Run customization playbook"
 	@echo "  tools         - Run tools setup playbook"
 	@echo "  container     - Run container setup playbook"
-	@echo "  java          - Run Java setup playbook"
-	@echo "  vscode        - Run VSCode setup playbook"
+	@echo "  dev           - Run development environment setup playbook"
 	@echo "  media         - Run media setup playbook"
 	@echo "  alternate     - Run alternate setup playbook"
 	@echo "  server        - Run server playbook"

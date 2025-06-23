@@ -11,11 +11,8 @@
 - name: Container
   import_playbook: container.yaml
 
-- name: Java
-  import_playbook: java.yaml
-
-- name: VSCode
-  import_playbook: vscode.yaml
+- name: Development environment
+  import_playbook: dev.yaml
 
 - name: Media
   import_playbook: media.yaml
