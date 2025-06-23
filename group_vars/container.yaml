@@ -39,6 +39,10 @@ container_images:
     tag: 22.16.0
   - name: docker.io/texlive/texlive
     tag: latest
+  - name: docker.io/sharelatex/sharelatex
+    tag: 5
+  - name: docker.io/pandoc/extra
+    tag: 3
   - name: docker.io/keycloak/keycloak
     tag: 25.0
   - name: docker.io/prom/prometheus
@@ -57,3 +61,5 @@ container_images:
     tag: 6.6.2
   - name: docker.io/dockurr/windows
     tag: 4.35
+  - name: docker.io/jrottenberg/ffmpeg
+    tag: 7.1-ubuntu
