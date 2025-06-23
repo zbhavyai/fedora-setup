@@ -12,7 +12,7 @@
     remote_src: true
   become: false
 
-- name: Removed downloaded IntelliJ IDEA archive
+- name: Remove downloaded IntelliJ IDEA archive
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/intellij-idea.tar.gz"
     state: absent

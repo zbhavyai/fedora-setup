@@ -10,3 +10,4 @@
       flatpak_packages: "{{ flatpak_packages_dev }}"
     - role: vscode
     - role: intellij_idea
+    - role: webstorm

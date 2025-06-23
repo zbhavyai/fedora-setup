@@ -1,0 +1,7 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <option id="js.only.show.names.for.tagged" value="false" />
+    <option id="js.only.show.names.for.literal.args" value="false" />
+    <option id="ts.param.hints.show.names.for.literal.args" value="false" />
+  </component>
+</application>

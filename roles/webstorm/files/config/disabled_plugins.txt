@@ -1,0 +1,11 @@
+com.intellij.ja
+com.intellij.ko
+com.intellij.plugins.eclipsekeymap
+com.intellij.plugins.netbeanskeymap
+com.intellij.plugins.visualstudiokeymap
+com.intellij.settingsSync
+com.intellij.zh
+com.jetbrains.codeWithMe
+org.intellij.qodana
+org.jetbrains.plugins.gitlab
+training
