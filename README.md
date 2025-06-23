@@ -36,3 +36,9 @@ The automation is done using multiple Ansible playbooks, which are named accordi
    ```shell
    make all
    ```
+
+1. To synchronize your current system settings with the configurations in this repository, run:
+
+   ```shell
+   make sync
+   ```
