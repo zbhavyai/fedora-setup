@@ -14,3 +14,4 @@
     - role: settings
     - role: gnome_text_editor
     - role: nautilus
+    - role: ptyxis
