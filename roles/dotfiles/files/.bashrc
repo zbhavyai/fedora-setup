@@ -194,7 +194,7 @@ alias activate='source ${HOME}/.venv/PY-ENV/bin/activate'
 alias python='python3'
 alias findjava='find . -type f -name "*java"'
 # refer https://github.com/zbhavyai/containers/tree/main/texlive
-alias latex='podman container run --privileged --rm --volume "${PWD}:/data" --name latex latex'
+alias latex='podman container run --privileged --rm --volume "${PWD}:/data" localhost/latex'
 alias commitCount='git rev-list --count HEAD'
 alias neofetch='fastfetch'
 
