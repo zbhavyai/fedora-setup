@@ -2,8 +2,8 @@
 - name: Alternative softwares
   hosts: laptop
   roles:
-    - google_chrome
-    # - google_chrome_flatpak
+    # - google_chrome
+    - google_chrome_flatpak
     # - chromium_flatpak
     # - gnome_terminal
     # - konsole
