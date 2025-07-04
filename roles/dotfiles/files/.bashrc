@@ -133,7 +133,7 @@ export -f removeOnly
 # #############################################################################
 function whatProvides() {
     local binpath
-    binpath=$(command -v "$1")
+    binpath=$(command -v -- "$1")
 
     if [[ -z "$binpath" ]]; then
         echo "'$1' not found in PATH."
@@ -174,9 +174,9 @@ function addToPath() {
 # #############################################################################
 # env variables
 # #############################################################################
-export JAVA_HOME=$(readlink -f $(command -v java) 2>/dev/null | sed "s:/bin/java::")
+export JAVA_HOME=$(readlink -f $(command -v -- java) 2>/dev/null | sed "s:/bin/java::")
 
-if command -v podman &>/dev/null; then
+if command -v -- podman &>/dev/null; then
     # source - https://quarkus.io/guides/podman
     export DOCKER_HOST=unix:///run/user/${UID}/podman/podman.sock
     # export DOCKER_HOST=unix://${XDG_RUNTIME_DIR}/podman/podman.sock
@@ -202,7 +202,7 @@ if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
 fi
 
-if command -v flatpak &>/dev/null && [ -n "$(flatpak list --app --columns=application | grep com.visualstudio.code)" ]; then
+if command -v -- flatpak &>/dev/null && [ -n "$(flatpak list --app --columns=application | grep com.visualstudio.code)" ]; then
     alias code='flatpak run --branch=stable --arch=x86_64 --command=code --file-forwarding com.visualstudio.code'
 fi
 
