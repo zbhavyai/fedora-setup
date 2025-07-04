@@ -216,6 +216,17 @@ function cleanJournalLogs() {
 export -f cleanJournalLogs
 
 # #############################################################################
+# control monitor brightness
+# #############################################################################
+function brightness() {
+    sudo ddcutil setvcp 10 "$1" 2>/dev/null || {
+        echo "Failed to set brightness."
+        return 1
+    }
+}
+export -f brightness
+
+# #############################################################################
 # miscellaneous
 # #############################################################################
 function fixJetbrainsMarkdownPreview() {
