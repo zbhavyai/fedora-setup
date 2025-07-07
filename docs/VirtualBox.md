@@ -4,15 +4,39 @@ VirtualBox is an open-source virtualization software developed by Oracle. Its a 
 
 ## Setup
 
-Before using the VirtualBox, one could turn the secure boot off in the BIOS settings. This can avoid some issues like the one mentioned below.
+1. Install the updated VirtualBox package. For example, on Fedora 42, using `VirtualBox-7.0` causes missing header files, like below. So, try the latest one available, which is `VirtualBox-7.1` at the time of writing this.
 
-```shell
-There were problems setting up VirtualBox.  To re-start the set-up process, run
-  /sbin/vboxconfig
-as root.  If your system is using EFI Secure Boot you may need to sign the
-kernel modules (vboxdrv, vboxnetflt, vboxnetadp, vboxpci) before you can load
-them. Please see your Linux system's documentation for more information.
-```
+   ```shell
+   grep 'No such file or directory' /var/log/vbox-setup.log
+   ```
+
+   ```shell
+   combined-agnostic1.c:38:10: fatal error: internal/iprt.h: No such file or directory
+   combined-agnostic2.c:38:10: fatal error: internal/iprt.h: No such file or directory
+   combined-os-specific.c:38:10: fatal error: the-linux-kernel.h: No such file or directory
+   common/string/strformatrt.c:42:10: fatal error: iprt/string.h: No such file or directory
+   linux/../SUPDrvInternal.h:47:10: fatal error: VBox/cdefs.h: No such file or directory
+   SUPDrvInternal.h:47:10: fatal error: VBox/cdefs.h: No such file or directory
+   SUPLibAll.c:41:10: fatal error: VBox/sup.h: No such file or directory
+   ```
+
+2. If you see errors like kernel driver is either not loaded or not set up correctly, then do this -
+
+   ```shell
+   sudo /sbin/vboxconfig
+   ```
+
+3. If you have another KVM installed, like Virt Manager, then you may see an error like below.
+
+   ```shell
+   VirtualBox can't enable the AMD-V extension. Please disable the KVM kernel extension, recompile your kernel and reboot (VERR_SVM_IN_USE).
+   ```
+
+   Temporarily disable the KVM by this, and launch VirtualBox again.
+
+   ```shell
+   sudo modprobe -r kvm_amd kvm
+   ```
 
 ## Updated launcher
 
