@@ -219,6 +219,12 @@ export -f cleanJournalLogs
 # control monitor brightness
 # #############################################################################
 function brightness() {
+    if ! [[ "$1" =~ ^[0-9]+$ ]] || [ "$1" -lt 0 ] || [ "$1" -gt 100 ]; then
+        echo "Brightness should be an integer between 0 and 100."
+        echo "Failed to set brightness."
+        return 1
+    fi
+
     sudo ddcutil setvcp 10 "$1" 2>/dev/null || {
         echo "Failed to set brightness."
         return 1
