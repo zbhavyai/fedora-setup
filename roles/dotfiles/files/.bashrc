@@ -195,6 +195,7 @@ alias python='python3'
 alias findjava='find . -type f -name "*java"'
 # refer https://github.com/zbhavyai/containers/tree/main/texlive
 alias latex='podman container run --privileged --rm --volume "${PWD}:/data" localhost/latex'
+alias azure-cli-launch='podman run --rm --interactive --tty --volume "${HOME}/.azure:/root/.azure:Z" mcr.microsoft.com/azure-cli:azurelinux3.0'
 alias commitCount='git rev-list --count HEAD'
 alias neofetch='fastfetch'
 
