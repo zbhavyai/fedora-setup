@@ -33,7 +33,7 @@ flatpak_packages_tools:
   # utilities
   - io.gitlab.liferooter.TextPieces
   - io.podman_desktop.PodmanDesktop
-  - org.gnome.Boxes
+  # - org.gnome.Boxes
   - org.gnome.dspy
   - org.remmina.Remmina
 

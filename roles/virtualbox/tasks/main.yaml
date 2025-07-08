@@ -10,7 +10,7 @@
 - name: Install VirtualBox and Guest Additions
   ansible.builtin.dnf:
     name:
-      - VirtualBox-7.0
+      - VirtualBox-7.1
       - virtualbox-guest-additions
     state: present
   become: true
