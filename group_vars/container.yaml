@@ -29,6 +29,10 @@ container_images:
     tag: 21-jdk
   - name: docker.io/library/eclipse-temurin
     tag: 21-jre
+  - name: quay.io/quarkus/ubi9-quarkus-mandrel-builder-image
+    tag: jdk-21
+  - name: quay.io/quarkus/ubi9-quarkus-micro-image
+    tag: 2.0
   - name: docker.io/library/postgres
     tag: 17.0
   - name: docker.io/library/mysql
