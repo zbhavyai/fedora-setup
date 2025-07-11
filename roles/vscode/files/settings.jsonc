@@ -96,10 +96,11 @@
   "scm.diffDecorationsGutterPattern": { "added": false, "modified": false },
   "scm.diffDecorationsGutterVisibility": "always",
   // FORMATTING ---------------------------------------------------------------
-  "[html][css][scss][javascript][typescript][typescriptreact][json][jsonc][markdown][yaml]": {
+  "[html][css][scss][javascript][typescript][typescriptreact][json][jsonc][markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+  "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
   "[markdown]": { "editor.tabSize": 3 },
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
   // "[java]": { "editor.defaultFormatter": "redhat.java" },
