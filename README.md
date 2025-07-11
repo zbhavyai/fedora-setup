@@ -2,7 +2,7 @@
 
 _Automated set up of Fedora Workstation and Fedora Server using Ansible_
 
-![CI workflow status](https://github.com/zbhavyai/fedora-setup/actions/workflows/ci.yaml/badge.svg)
+[![CI workflow status](https://github.com/zbhavyai/fedora-setup/actions/workflows/ci.yaml/badge.svg)](https://github.com/zbhavyai/fedora-setup/actions/workflows/ci.yaml)
 
 The goal is to automate as much as possible to a reasonable extent. This means that there will be manual intervention involved, such as some application configuration after installation.
 
