@@ -5,7 +5,7 @@
   ansible.builtin.dnf:
     name: dnf-plugins-core
     state: present
-  when: container_engine == "docker-official"
+  when: container_engine == "docker" and docker_repository == "official"
 
 - name: Add Docker CE repository
   ansible.builtin.get_url:
@@ -14,28 +14,28 @@
     force: true
     mode: "0644"
   become: true
-  when: container_engine == "docker-official"
+  when: container_engine == "docker" and docker_repository == "official"
 
 - name: Install docker from official repository
   ansible.builtin.dnf:
     name: "{{ docker_official_packages }}"
     state: present
   become: true
-  when: container_engine == "docker-official" and (docker_official_packages | default([])) | length > 0
+  when: container_engine == "docker" and docker_repository == "official" and (docker_official_packages | default([])) | length > 0
 
 - name: Install docker from Fedora repository
   ansible.builtin.dnf:
     name: "{{ docker_fedora_packages }}"
     state: present
   become: true
-  when: container_engine == "docker-fedora" and (docker_fedora_packages | default([])) | length > 0
+  when: container_engine == "docker" and docker_repository == "fedora" and (docker_fedora_packages | default([])) | length > 0
 
 - name: Enable and start Docker service
   ansible.builtin.systemd_service:
     name: docker
     state: started
     enabled: true
-  when: container_engine == "docker-official" or container_engine == "docker-fedora"
+  when: container_engine == "docker" and docker_repository == "official" or container_engine == "docker-fedora"
 
 - name: Add current user to docker group
   ansible.builtin.user:
@@ -43,7 +43,7 @@
     groups: docker
     append: true
   become: true
-  when: container_engine == "docker-official" or container_engine == "docker-fedora"
+  when: container_engine == "docker" and docker_repository == "official" or container_engine == "docker-fedora"
 
 # podman tasks
 # #############################################################################

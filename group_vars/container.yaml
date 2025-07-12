@@ -1,6 +1,9 @@
 ---
-# use either podman, docker-official, or docker-fedora
+# use either podman or docker
 container_engine: podman
+
+# use either official or fedora
+docker_repository: fedora
 
 docker_packages:
   - docker-ce
