@@ -35,15 +35,22 @@
     name: docker
     state: started
     enabled: true
-  when: container_engine == "docker" and docker_repository == "official" or container_engine == "docker-fedora"
+  when: container_engine == "docker"
+
+- name: Ensure docker group exists
+  ansible.builtin.group:
+    name: docker
+    state: present
+  become: true
+  when: container_engine == "docker"
 
 - name: Add current user to docker group
   ansible.builtin.user:
-    name: "{{ ansible_user_id }}"
+    name: "{{ ansible_env.SUDO_USER }}"
     groups: docker
     append: true
   become: true
-  when: container_engine == "docker" and docker_repository == "official" or container_engine == "docker-fedora"
+  when: container_engine == "docker"
 
 # podman tasks
 # #############################################################################
