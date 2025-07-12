@@ -33,6 +33,8 @@ container_images:
     tag: jdk-21
   - name: quay.io/quarkus/ubi9-quarkus-micro-image
     tag: 2.0
+  - name: registry.access.redhat.com/ubi9/ubi-minimal
+    tag: 9.6
   - name: registry.access.redhat.com/ubi9/ubi
     tag: 9.6
   - name: docker.io/library/postgres
