@@ -33,7 +33,7 @@ export -f listVaultSecrets
 # #############################################################################
 alias cdlog='cd /var/log/userful/'
 alias cdplugin='cd /usr/share/userful-multiseat/plugins/'
-alias reboot='rm -rf /var/log/userful/*; shutdown -r 0'
+alias reboot='rm -rf /var/log/userful/*; cleanJournalLogs; systemctl reboot'
 alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
 
 function create_log_aliases() {
