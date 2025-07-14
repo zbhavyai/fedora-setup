@@ -1,0 +1,24 @@
+---
+- name: Install Microsoft Edge Flatpak
+  community.general.flatpak:
+    name: "com.microsoft.Edge"
+    remote: flathub
+    executable: /usr/bin/flatpak
+    method: system
+    state: present
+  become: false
+
+- name: Grant access for creating app shortcuts
+  ansible.builtin.command: >
+    flatpak override --user \
+      --filesystem=~/.local/share/applications \
+      --filesystem=~/.local/share/icons
+      com.microsoft.Edge
+  changed_when: true
+
+- name: Grant access to home directory
+  ansible.builtin.command: >
+    flatpak override --user \
+      --filesystem=home \
+      com.microsoft.Edge
+  changed_when: true
