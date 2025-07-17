@@ -198,6 +198,8 @@ alias latex='podman container run --privileged --rm --volume "${PWD}:/data" loca
 alias azure-cli-launch='podman run --rm --interactive --tty --volume "${HOME}/.azure:/root/.azure:Z" mcr.microsoft.com/azure-cli:azurelinux3.0'
 alias commitCount='git rev-list --count HEAD'
 alias neofetch='fastfetch'
+alias listaccess='find "$PWD" -type f -printf "%AF %AH:%AM:%AS | %p\n" | sort'
+alias listmodify='find "$PWD" -type f -printf "%TF %TH:%TM:%TS | %p\n" | sort'
 
 if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
