@@ -57,8 +57,7 @@ create_log_aliases init '/var/log/userful/userful-chronos-initial-setup.log'
 create_log_aliases plugin '/var/log/userful/profile-data.log'
 create_log_aliases grafana '/var/log/grafana/grafana.log'
 create_log_aliases prom '/var/log/userful/prometheus.log'
-create_log_aliases kc '/var/log/userful/userful-chronos-keycloak.log'
-create_log_aliases kcapp '/var/log/userful/userful-chronos-keycloak-app.log'
+create_log_aliases kc '/var/log/userful/keycloak.log'
 create_log_aliases postgres "$(ls -1t /var/lib/pgsql/data/log/*log 2>/dev/null | head -1)"
 
 # #############################################################################

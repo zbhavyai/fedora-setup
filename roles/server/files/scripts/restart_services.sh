@@ -1,48 +1,64 @@
 #!/bin/bash
 #
-# author        : bhavyai
-# description   : trim the logs, cleans the database and restart the three main services
-# how to run    : ./restart_services.sh       : restarts the services
+# author        : github.com/zbhavyai
+# description   : Restart various services, while clean the data and trimming logs
+# help          : ./restart_services.sh -h
 
-SERVICE_LIST="userful-chronos-initial-setup.service userful-chronos-keycloak-main.service userful-chronos-aether.service userful-chronos-ve.service userful-veo.service userful-display-manager.service userful-grafana.service"
+CURR_SCRIPT=$(readlink -f "$0")
+CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
+CURR_SCRIPT_VERSION="1.0.0"
 
 # help function
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-p] [-c] [-s] [-t] [-h]"
+    echo "Usage: ${0} [-c] [-t] [-s] [-r] [-h]"
     echo
     echo "Options:"
-    echo "  -p  Preserve the database and the vault. This is the default behavior."
-    echo "  -c  Don't preserve the data. Clean the database and the vault."
-    echo "  -s  Don't start the services. Useful when some manual steps are required before starting the services."
-    echo "  -t  Just trim the logs, don't do anything else."
-    echo "  -h  Show this help message and exit."
+    echo "    -c    clean the database and the vault"
+    echo "    -t    trim all the log files"
+    echo "    -s    stop the services"
+    echo "    -r    restart the services"
+    echo "    -h    Show this help message and exit."
+    echo "    -v    Show the version of this script."
     echo
+    echo
+    echo "Examples:"
+    echo "-> Clean the database and vault, trim the logs, and restart the services"
+    echo "    ${0} -ctr"
+    echo
+    echo "-> Just trim the logs"
+    echo "    ${0} -t"
 }
+
+# prettyPrint
+# -------------------------------------------------------------------------------------
+function prettyPrint() {
+    echo -e "$1."
+}
+
+# service list that needs to be restarted
+# -------------------------------------------------------------------------------------
+declare -a SERVICE_LIST
+SERVICE_LIST+=("userful-chronos-initial-setup.service")
+SERVICE_LIST+=("userful-chronos-aether.service")
+SERVICE_LIST+=("userful-chronos-ve.service")
+SERVICE_LIST+=("userful-veo.service")
+SERVICE_LIST+=("userful-display-manager.service")
+SERVICE_LIST+=("userful-grafana.service")
 
 # Stop the services
 # -------------------------------------------------------------------------------------
 function stopServices() {
-    echo "[ INFO] Stopping services"
-    systemctl stop ${SERVICE_LIST}
-
-    if [ $? -ne 0 ]; then
-        echo "[FATAL] Unable to stop services"
-        exit 1
-    fi
+    prettyPrint "[ INFO] Stopping services"
+    systemctl stop "${SERVICE_LIST[@]}"
 }
 
 # Start the services
 # -------------------------------------------------------------------------------------
 function startServices() {
-    echo "[ INFO] Starting services"
-    systemctl start ${SERVICE_LIST}
-
-    if [ $? -ne 0 ]; then
-        echo "[FATAL] Unable to start services"
-        exit 1
-    fi
+    prettyPrint "[ INFO] Starting services"
+    systemctl start "${SERVICE_LIST[@]}"
 }
 
 # trim the logs
@@ -57,7 +73,7 @@ function removeXorgLogFiles() {
 }
 
 function trimLogs() {
-    echo "[ INFO] Trimming logs"
+    prettyPrint "[ INFO] Trimming logs"
 
     # chronos logs
     removeLogFiles /var/log/userful/userful-chronos-aether.log
@@ -108,12 +124,12 @@ function removeAllLogs() {
 # -------------------------------------------------------------------------------------
 function cleanDB() {
     if [[ "$1" = "false" ]]; then
-        echo "[ INFO] Cleaning the database"
+        prettyPrint "[ INFO] Cleaning the database"
         PGPASSWORD=userful psql -U userful -d userful -c "DROP SCHEMA chronos CASCADE" &>/dev/null
         PGPASSWORD=userful psql -h localhost -U userful -d userful -c "SELECT lo_unlink(oid) FROM pg_largeobject_metadata" &>/dev/null
 
     else
-        echo "[ WARN] Preserving the database"
+        prettyPrint "[ WARN] Preserving the database"
     fi
 }
 
@@ -121,71 +137,87 @@ function cleanDB() {
 # -------------------------------------------------------------------------------------
 function cleanVault() {
     if [[ "$1" = "false" ]]; then
-        echo "[ INFO] Cleaning the vault"
+        prettyPrint "[ INFO] Cleaning the vault"
 
         export VAULT_ADDR="http://127.0.0.1:8200"
         export VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
 
-        SECRET_LIST=$(curl --silent --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST ${VAULT_ADDR}/v1/secret/metadata | jq -r .data.keys[] 2>/dev/null)
+        SECRET_LIST=$(curl --silent --show-error --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST --location "${VAULT_ADDR}/v1/secret/metadata")
 
         if [[ $? -ne 0 ]]; then
+            prettyPrint "[ERROR] Failed to clean vault"
+            return
+        fi
+
+        PARSED_SECRET_LIST=$(echo $SECRET_LIST | jq -r .data.keys[] 2>/dev/null)
+
+        if [[ $? -ne 0 ]]; then
+            # no secrets to clean
             return
         fi
 
         for key in $(echo "${SECRET_LIST}"); do
-            curl --silent --header "X-Vault-Token: ${VAULT_TOKEN}" --request DELETE ${VAULT_ADDR}/v1/secret/metadata/${key}
+            curl --silent --show-error --fail --header "X-Vault-Token: ${VAULT_TOKEN}" --request DELETE --location "${VAULT_ADDR}/v1/secret/metadata/${key}"
         done
 
     else
-        echo "[ WARN] Preserving the vault"
+        prettyPrint "[ WARN] Preserving the vault"
     fi
 }
 
 # driver code
 # -------------------------------------------------------------------------------------
-preserveData=true
-stopOnly=false
-trimLogsOnly=false
+PRESERVE_DATA="true"
+TRIM_LOGS="false"
+SERVICES_STOP_ONLY="false"
+SERVICES_RESTART="false"
 
-# Parse command-line options
-while getopts "psthc" opt; do
+if [ "$#" -eq 0 ]; then
+    Help
+    exit 0
+fi
+
+while getopts "hvctsr" opt; do
     case "$opt" in
-    p) # don't clean the database and vault
-        preserveData=true
-        ;;
-    c) # clean the database and vault
-        preserveData=false
-        ;;
-    s) # stop services only, don't start
-        stopOnly=true
-        ;;
-    t) # trim logs only, don't do anything else
-        trimLogsOnly=true
-        ;;
-    h) # display usage
+    h)
         Help
         exit
         ;;
-    \?) # Invalid option
+    v)
+        echo "${CURR_SCRIPT_VERSION}"
+        exit
+        ;;
+    c)
+        PRESERVE_DATA="false"
+        ;;
+    t)
+        TRIM_LOGS="true"
+        ;;
+    s)
+        SERVICES_STOP_ONLY="true"
+        ;;
+    r)
+        SERVICES_RESTART="true"
+        ;;
+    \?)
+        prettyPrint "[ERROR] Invalid option"
         Help
         exit
         ;;
     esac
 done
 
-if [[ "$trimLogsOnly" = "true" ]]; then
-    trimLogs
-    exit
-else
+if [[ "${SERVICES_STOP_ONLY}" = "true" || "${SERVICES_RESTART}" = "true" ]]; then
     stopServices
+fi
+
+if [[ "${TRIM_LOGS}" = "true" ]]; then
     trimLogs
 fi
 
-if [[ "$preserveData" = "false" ]]; then
-    cleanDB $preserveData
-    cleanVault $preserveData
-fi
+cleanDB "${PRESERVE_DATA}"
+cleanVault "${PRESERVE_DATA}"
 
-if [[ "$stopOnly" = "false" ]]; then
+if [[ "${SERVICES_RESTART}" = "true" ]]; then
     startServices
 fi
