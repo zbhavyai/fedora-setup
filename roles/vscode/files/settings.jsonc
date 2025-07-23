@@ -107,6 +107,7 @@
   "[java]": { "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code" },
   "[sql]": { "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc" },
   "[dockerfile]": { "editor.defaultFormatter": "ms-azuretools.vscode-containers" },
+  "[shellscript]": { "editor.defaultFormatter": "mkhl.shfmt" },
   "prettier.requireConfig": false,
   "prettier.useEditorConfig": true,
   "prettier.embeddedLanguageFormatting": "auto",

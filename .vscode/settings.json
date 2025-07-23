@@ -9,6 +9,7 @@
   },
   "[markdown]": { "editor.tabSize": 3 },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+  "[shellscript]": { "editor.defaultFormatter": "mkhl.shfmt" },
   "prettier.requireConfig": false,
   "prettier.useEditorConfig": true,
   "prettier.embeddedLanguageFormatting": "auto",

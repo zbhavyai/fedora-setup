@@ -1,17 +1,19 @@
 ---
 vscode_extensions:
   DEFAULT:
+    - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - foxundermoon.shell-format
+    - mkhl.shfmt
     - pkief.material-icon-theme
     - redhat.vscode-xml
     - redhat.vscode-yaml
   JAVA:
+    - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - foxundermoon.shell-format
     - github.copilot
     - github.copilot-chat
     - josevseb.google-java-format-for-vs-code
+    - mkhl.shfmt
     - ms-azuretools.vscode-containers
     - pkief.material-icon-theme
     - redhat.java
@@ -29,10 +31,11 @@ vscode_extensions:
     - vscjava.vscode-maven
   JAVASCRIPT:
     - dbaeumer.vscode-eslint
+    - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - foxundermoon.shell-format
     - github.copilot
     - github.copilot-chat
+    - mkhl.shfmt
     - ms-azuretools.vscode-containers
     - pkief.material-icon-theme
     - redhat.vscode-xml
@@ -41,10 +44,11 @@ vscode_extensions:
     - visualstudioexptteam.intellicode-api-usage-examples
     - visualstudioexptteam.vscodeintellicode
   PYTHON:
+    - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - foxundermoon.shell-format
     - github.copilot
     - github.copilot-chat
+    - mkhl.shfmt
     - ms-azuretools.vscode-containers
     - ms-python.black-formatter
     - ms-python.debugpy
