@@ -19,6 +19,7 @@ dnf_packages_tools:
   - unrar
   - vim-enhanced
   - ddcutil
+  - shfmt
 
   # pdf organization
   - pdftk-java
