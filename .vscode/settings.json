@@ -4,11 +4,9 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "[markdown][yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": { "editor.tabSize": 3 },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode", "editor.tabSize": 3 },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+  "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
   "[shellscript]": { "editor.defaultFormatter": "mkhl.shfmt" },
   "prettier.requireConfig": false,
   "prettier.useEditorConfig": true,
