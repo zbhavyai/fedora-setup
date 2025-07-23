@@ -1,6 +1,7 @@
 ---
 dnf_packages_server:
   - cockpit
+  - fastfetch
   - git
   - java-21-openjdk-devel
   - less
@@ -8,6 +9,7 @@ dnf_packages_server:
   - passwd
   - pylint
   - qt
+  - tmux
   - vim-enhanced
 
 port_open_list_server:
