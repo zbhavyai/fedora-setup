@@ -160,7 +160,7 @@ function cleanVault() {
             return
         fi
 
-        for key in $(echo "${SECRET_LIST}"); do
+        for key in $(echo "${PARSED_SECRET_LIST}"); do
             curl --silent --show-error --fail --header "X-Vault-Token: ${VAULT_TOKEN}" --request DELETE --location "${VAULT_ADDR}/v1/secret/metadata/${key}"
         done
 
