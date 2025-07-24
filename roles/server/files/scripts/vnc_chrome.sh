@@ -16,6 +16,8 @@ function Help() {
     echo
     echo "Launch Google Chrome on a virtual X session with VNC session to remotely connect to it."
     echo
+    echo "Especially helpful to get UI access at the customer's machine. This script handles everything from launching virtual X session, launching Chrome, and when you are done, just press Ctrl+C and the script will handle the clean-up too."
+    echo
     echo "Usage:"
     echo "    ${0} [OPTION]"
     echo
@@ -30,6 +32,9 @@ function Help() {
     echo
     echo "Example:"
     echo "    ssh -L 6100:localhost:6100 root@172.26.0.XXX"
+    echo "    ${0} --start"
+    echo "    ... and then connect to Chrome session using VNC client from your laptop at the URL 127.0.0.1:6100"
+    echo "    ... once you are done, press Ctrl+C"
     echo
 }
 
