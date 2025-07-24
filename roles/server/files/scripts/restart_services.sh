@@ -8,6 +8,16 @@ CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 CURR_SCRIPT_VERSION="1.0.0"
 
+# service list that needs to be restarted
+# -------------------------------------------------------------------------------------
+declare -a SERVICE_LIST
+SERVICE_LIST+=("userful-chronos-initial-setup.service")
+SERVICE_LIST+=("userful-chronos-aether.service")
+SERVICE_LIST+=("userful-chronos-ve.service")
+SERVICE_LIST+=("userful-veo.service")
+SERVICE_LIST+=("userful-display-manager.service")
+SERVICE_LIST+=("userful-grafana.service")
+
 # help function
 # -------------------------------------------------------------------------------------
 function Help() {
@@ -22,6 +32,10 @@ function Help() {
     echo "    -h    Show this help message and exit."
     echo "    -v    Show the version of this script."
     echo
+    echo "List of services controlled by this script:"
+    for service in "${SERVICE_LIST[@]}"; do
+        echo "    $service"
+    done
     echo
     echo "Examples:"
     echo "-> Clean the database and vault, trim the logs, and restart the services"
@@ -36,16 +50,6 @@ function Help() {
 function prettyPrint() {
     echo -e "$1."
 }
-
-# service list that needs to be restarted
-# -------------------------------------------------------------------------------------
-declare -a SERVICE_LIST
-SERVICE_LIST+=("userful-chronos-initial-setup.service")
-SERVICE_LIST+=("userful-chronos-aether.service")
-SERVICE_LIST+=("userful-chronos-ve.service")
-SERVICE_LIST+=("userful-veo.service")
-SERVICE_LIST+=("userful-display-manager.service")
-SERVICE_LIST+=("userful-grafana.service")
 
 # Stop the services
 # -------------------------------------------------------------------------------------
