@@ -94,11 +94,6 @@ function secrets_delete() {
 LIST_SECRETS="false"
 DELETE_SECRETS="false"
 
-if [ "$#" -eq 0 ]; then
-    Help
-    exit 0
-fi
-
 while getopts "hvld" opt; do
     case "$opt" in
     h)
@@ -122,6 +117,11 @@ while getopts "hvld" opt; do
         ;;
     esac
 done
+
+if ((OPTIND == 1)); then
+    Help
+    exit
+fi
 
 if [[ "${LIST_SECRETS}" = "true" ]]; then
     secrets_list

@@ -176,11 +176,6 @@ TRIM_LOGS="false"
 SERVICES_STOP_ONLY="false"
 SERVICES_RESTART="false"
 
-if [ "$#" -eq 0 ]; then
-    Help
-    exit 0
-fi
-
 while getopts "hvctsr" opt; do
     case "$opt" in
     h)
@@ -210,6 +205,11 @@ while getopts "hvctsr" opt; do
         ;;
     esac
 done
+
+if ((OPTIND == 1)); then
+    Help
+    exit
+fi
 
 if [[ "${SERVICES_STOP_ONLY}" = "true" || "${SERVICES_RESTART}" = "true" ]]; then
     stopServices
