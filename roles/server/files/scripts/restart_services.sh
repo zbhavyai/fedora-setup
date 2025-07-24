@@ -6,7 +6,6 @@
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
-CURR_SCRIPT_VERSION="1.0.0"
 
 # service list that needs to be restarted
 # -------------------------------------------------------------------------------------
@@ -29,8 +28,8 @@ function Help() {
     echo "    -t    trim all the log files"
     echo "    -s    stop the services"
     echo "    -r    restart the services"
-    echo "    -h    Show this help message and exit."
-    echo "    -v    Show the version of this script."
+    echo "    -h    show this help message"
+    echo
     echo
     echo "List of services controlled by this script:"
     for service in "${SERVICE_LIST[@]}"; do
@@ -176,14 +175,10 @@ TRIM_LOGS="false"
 SERVICES_STOP_ONLY="false"
 SERVICES_RESTART="false"
 
-while getopts "hvctsr" opt; do
+while getopts "hctsr" opt; do
     case "$opt" in
     h)
         Help
-        exit
-        ;;
-    v)
-        echo "${CURR_SCRIPT_VERSION}"
         exit
         ;;
     c)

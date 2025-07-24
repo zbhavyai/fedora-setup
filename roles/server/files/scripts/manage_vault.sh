@@ -6,7 +6,6 @@
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
-CURR_SCRIPT_VERSION="1.0.0"
 
 # help function
 # -------------------------------------------------------------------------------------
@@ -15,14 +14,13 @@ function Help() {
     echo "Usage: ${0} [-l] [-d] [-h] [-v]"
     echo
     echo "Options:"
-    echo "    -l    List all secrets stored in the vault (don't try at customers, its a breach of trust)"
-    echo "    -d    Delete all secrets stored in the vault"
-    echo "    -h    Show this help message and exit."
-    echo "    -v    Show the version of this script."
+    echo "    -l    list all secrets stored in the vault"
+    echo "    -d    delete all secrets stored in the vault"
+    echo "    -h    show this help message"
     echo
     echo
     echo "Examples:"
-    echo "-> List all secrets (don't try at customers, its a breach of trust)"
+    echo "-> List all secrets"
     echo "    ${0} -l"
     echo
     echo "-> Delete all secrets"
@@ -45,7 +43,7 @@ function printSeparator() {
 
 # list vault secrets
 # -------------------------------------------------------------------------------------
-function secrets_list() {
+function listSecrets() {
     local atleastOneSecret=0
     for key in $(vault kv list --format=json secret | jq -r '.[]'); do
         printSeparator "-"
@@ -64,7 +62,7 @@ function secrets_list() {
 
 # delete vault secrets
 # -------------------------------------------------------------------------------------
-function secrets_delete() {
+function deleteSecrets() {
     export VAULT_ADDR="http://127.0.0.1:8200"
     export VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
 
@@ -94,14 +92,10 @@ function secrets_delete() {
 LIST_SECRETS="false"
 DELETE_SECRETS="false"
 
-while getopts "hvld" opt; do
+while getopts "hld" opt; do
     case "$opt" in
     h)
         Help
-        exit
-        ;;
-    v)
-        echo "${CURR_SCRIPT_VERSION}"
         exit
         ;;
     l)
@@ -124,9 +118,9 @@ if ((OPTIND == 1)); then
 fi
 
 if [[ "${LIST_SECRETS}" = "true" ]]; then
-    secrets_list
+    listSecrets
 fi
 
 if [[ "${DELETE_SECRETS}" = "true" ]]; then
-    secrets_delete
+    deleteSecrets
 fi

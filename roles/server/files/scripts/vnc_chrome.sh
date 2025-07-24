@@ -8,7 +8,6 @@ set -euo pipefail
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
-CURR_SCRIPT_VERSION="1.0.0"
 
 # help
 # -------------------------------------------------------------------------------------
@@ -23,7 +22,6 @@ function Help() {
     echo
     echo "Options:"
     echo "    -s|--start     start the virtual X session, VNC server, Openbox session, and Google Chrome."
-    echo "    -v|--version   print script version."
     echo "    -h|--help      print this Help."
     echo
     echo "Note:"
@@ -111,17 +109,9 @@ while [[ $# -gt 0 ]]; do
         start
         exit
         ;;
-    -v | --version)
-        echo "${CURR_SCRIPT_VERSION}"
-        exit
-        ;;
     *)
         prettyPrint "[FATAL] Invalid option \"$1\". Use --help for more information"
         exit 1
         ;;
     esac
 done
-
-# version history
-# -------------------------------------------------------------------------------------
-# 1.0.0 - initial version
