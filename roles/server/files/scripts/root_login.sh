@@ -11,12 +11,11 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-e] [-h] [-v]"
+    echo "Usage: ${0} [-e] [-h]"
     echo
     echo "Options:"
     echo "    -e    enable root password login to the server. Use passwd to set root password"
     echo "    -h    show this help message"
-
     echo
     echo
     echo "Examples:"

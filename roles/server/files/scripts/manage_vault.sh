@@ -11,7 +11,7 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-l] [-d] [-h] [-v]"
+    echo "Usage: ${0} [-l] [-d] [-h]"
     echo
     echo "Options:"
     echo "    -l    list all secrets stored in the vault"
