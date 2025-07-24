@@ -2,7 +2,6 @@
 #
 # author        : github.com/zbhavyai
 # description   : Enable root login to the server using password authentication.
-# help          : ./root_login.sh -h
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")

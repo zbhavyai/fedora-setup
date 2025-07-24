@@ -2,7 +2,6 @@
 #
 # author        : github.com/zbhavyai
 # description   : List all vault secrets, or clean them
-# help          : ./manage_vault.sh -h
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")

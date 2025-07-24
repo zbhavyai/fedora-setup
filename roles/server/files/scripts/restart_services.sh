@@ -2,7 +2,6 @@
 #
 # author        : github.com/zbhavyai
 # description   : Restart various services, while clean the data and trimming logs
-# help          : ./restart_services.sh -h
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")

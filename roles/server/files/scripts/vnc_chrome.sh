@@ -2,7 +2,6 @@
 #
 # author        : github.com/zbhavyai
 # description   : Launch Google Chrome on a virtual X session with VNC session to remotely connect to it
-# help          : ./vnc_server.sh --help
 
 set -euo pipefail
 

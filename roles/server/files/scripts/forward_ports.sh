@@ -2,7 +2,6 @@
 #
 # author        : github.com/zbhavyai
 # description   : Forward ports in firewall for direct access to various services
-# help          : ./forward_ports.sh -h
 
 # ports that need to be forwarded from firewall
 # -------------------------------------------------------------------------------------
