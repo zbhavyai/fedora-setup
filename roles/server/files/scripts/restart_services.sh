@@ -20,7 +20,10 @@ SERVICE_LIST+=("userful-grafana.service")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-c] [-t] [-s] [-r] [-h]"
+    echo "Restart various services, while clean the data and trimming logs"
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -c    clean the database and the vault"
@@ -29,11 +32,11 @@ function Help() {
     echo "    -r    restart the services"
     echo "    -h    show this help message"
     echo
-    echo
     echo "List of services controlled by this script:"
     for service in "${SERVICE_LIST[@]}"; do
         echo "    $service"
     done
+    echo
     echo
     echo "Examples:"
     echo "-> Clean the database and vault, trim the logs, and restart the services"
@@ -41,6 +44,7 @@ function Help() {
     echo
     echo "-> Just trim the logs"
     echo "    ${0} -t"
+    echo
 }
 
 # prettyPrint

@@ -27,6 +27,7 @@ function Help() {
     echo "    You would need to SSH with port 6100 forwarded to use this script."
     echo "    This avoids forwarding the port in the firewall."
     echo
+    echo
     echo "Example:"
     echo "    ssh -L 6100:localhost:6100 root@172.26.0.XXX"
     echo "    ${0} --start"

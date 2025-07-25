@@ -9,7 +9,11 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # help function
 # -------------------------------------------------------------------------------------
 function Help() {
-    echo "Usage: $0 [OPTIONS]"
+    echo
+    echo "Open remote PostgreSQL access, dump database schema/data, or load SQL into chronos schema."
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -o                open PostgreSQL for remote connections"
@@ -18,12 +22,14 @@ function Help() {
     echo "    -s <filename>     dump schema only to file"
     echo "    -h                show this help message"
     echo
+    echo
     echo "Examples:"
     echo "-> Open postgres for remote connections"
     echo "    ${0} -o"
     echo
     echo "    and then you can connect directly from your laptop using cmd or pgAdmin, like"
     echo "    PGPASSWORD=userful psql -h 192.168.123.98 -U userful -d userful"
+    echo
 }
 
 # prettyPrint

@@ -18,7 +18,10 @@ LOG_EGRESS="/var/log/userful/RTSP_monitor_out.log"
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-h] [-e]"
+    echo "Executes packet counter binaries for ingress and egress traffic."
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -e  execute the packet counter binaries"

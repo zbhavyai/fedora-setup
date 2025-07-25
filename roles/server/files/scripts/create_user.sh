@@ -10,7 +10,10 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-n USERNAME] [-h]"
+    echo "Creates a user with sudo privileges and prompts for password."
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -n USERNAME   new user to create"
@@ -20,6 +23,7 @@ function Help() {
     echo "Examples:"
     echo "-> Create a new user called clove"
     echo "    ${0} -n clove"
+    echo
 }
 
 # prettyPrint

@@ -10,7 +10,10 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-l] [-d] [-h]"
+    echo "List all vault secrets, or clean them"
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -l    list all secrets stored in the vault"
@@ -24,6 +27,7 @@ function Help() {
     echo
     echo "-> Delete all secrets"
     echo "    ${0} -d"
+    echo
 }
 
 # prettyPrint

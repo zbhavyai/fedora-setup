@@ -19,18 +19,22 @@ addPort 9090 # prometheus
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-f] [-h]"
+    echo "Forward ports in firewall for direct access to various services"
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -f    forward the ports"
     echo "    -h    show this help message"
     echo
-    echo
     echo "List of ports being temporarily forward in the firewall by this script: ${portsToForward[@]}"
+    echo
     echo
     echo "Examples:"
     echo "-> Forward all the above ports"
     echo "    ${0} -f"
+    echo
 }
 
 # prettyPrint

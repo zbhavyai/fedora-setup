@@ -23,9 +23,11 @@ function Help() {
     echo "    -r | --restore     Restore Userful Grafana from the internal repository."
     echo "    -h | --help        Show this help message."
     echo
+    echo
     echo "Examples:"
     echo "    ${0} --replace"
     echo "    ${0} --restore"
+    echo
 }
 
 # prettyPrint

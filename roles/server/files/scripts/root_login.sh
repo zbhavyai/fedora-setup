@@ -10,7 +10,10 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-e] [-h]"
+    echo "Enable root login to the server using password authentication."
+    echo
+    echo "Usage:"
+    echo "    ${0} [OPTION]"
     echo
     echo "Options:"
     echo "    -e    enable root password login to the server. Use passwd to set root password"
@@ -23,6 +26,7 @@ function Help() {
     echo
     echo "-> Try ssh now (assuming root password is set)"
     echo "    ssh -o PreferredAuthentications=password root@192.168.XXX.XXX -p PORT"
+    echo
 }
 
 # prettyPrint
