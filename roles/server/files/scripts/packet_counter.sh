@@ -1,106 +1,91 @@
 #!/bin/bash
 #
-# author        : bhavyai
-# description   : executes and kills packet counter binaries
-# how to run    : ./packet_counter.sh -s | -u
+# author        : github.com/zbhavyai
+# description   : Executes packet counter binaries
 
-# Binaries
-INGRESS_BINARY="/usr/share/userful-packet-counter/RTSP_monitor_in"
-EGRESS_BINARY="/usr/share/userful-packet-counter/RTSP_monitor_out"
+CURR_SCRIPT=$(readlink -f "$0")
+CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 
-# Log files
-INGRESS_LOG_FILE="/var/log/userful/RTSP_monitor_in.log"
-EGRESS_LOG_FILE="/var/log/userful/RTSP_monitor_out.log"
+# location of packet filter binaries
+BINARY_INGRESS="/usr/share/userful-packet-counter/RTSP_monitor_in"
+BINARY_EGRESS="/usr/share/userful-packet-counter/RTSP_monitor_out"
+
+# log files
+LOG_INGRESS="/var/log/userful/RTSP_monitor_in.log"
+LOG_EGRESS="/var/log/userful/RTSP_monitor_out.log"
 
 # help function
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Usage: ${0} [-h] [-s] [-k]"
+    echo "Usage: ${0} [-h] [-e]"
     echo
     echo "Options:"
-    echo "  -h  Show this help message and exit."
-    echo "  -s  Start the services."
-    echo "  -k  Kill the services."
+    echo "    -e  execute the packet counter binaries"
+    echo "    -h  show this help message"
     echo
 }
 
-# Start the services
+# prettyPrint
 # -------------------------------------------------------------------------------------
-function start_services() {
-    # Check if the binaries exist
-    if [[ ! -x "${INGRESS_BINARY}" || ! -x "${EGRESS_BINARY}" ]]; then
-        echo "[FATAL] Binary files not found or not executable."
-        exit 1
+function prettyPrint() {
+    echo -e "\n$1."
+}
+
+# execute the binaries
+# -------------------------------------------------------------------------------------
+function executePacketCounterBinaries() {
+    # check if the binaries exist
+    if [[ ! -x "${BINARY_INGRESS}" || ! -x "${BINARY_EGRESS}" ]]; then
+        prettyPrint "[FATAL] Binary files not found or not executable"
+        return 1
     fi
 
-    # kill if running before
-    stop_services
-    echo
-
-    # Start the services in the background and store their PIDs in files
-    "${INGRESS_BINARY}" &>${INGRESS_LOG_FILE} &
+    # start the ingress and egress binaries
+    "${BINARY_INGRESS}" &>${LOG_INGRESS} &
     INGRESS_PID=$!
 
-    "${EGRESS_BINARY}" &>${EGRESS_LOG_FILE} &
+    "${BINARY_EGRESS}" &>${LOG_EGRESS} &
     EGRESS_PID=$!
 
-    echo "[ INFO] PID="${INGRESS_PID}". Started ${INGRESS_BINARY}"
-    echo "[ INFO] PID="${EGRESS_PID}". Started ${EGRESS_BINARY}"
+    cleanup() {
+        prettyPrint "[INFO] Caught signal, cleaning up"
+        pkill -2 -f "RTSP_monitor"
+        prettyPrint "[INFO] Execution terminated"
+    }
 
-    echo "[ INFO] Logging at ${INGRESS_LOG_FILE}"
-    echo "[ INFO] Logging at ${EGRESS_LOG_FILE}"
-}
+    # trap ctrl+c and termination signals
+    trap cleanup SIGINT SIGTERM
 
-# Stop the services
-# -------------------------------------------------------------------------------------
-function stop_services() {
-    pkill -2 -f "RTSP_monitor"
-    echo "[ INFO] Services stopped"
+    prettyPrint "[ INFO] Started ${BINARY_INGRESS} with PID=${INGRESS_PID}"
+    prettyPrint "[ INFO] Logging at ${LOG_INGRESS}"
+    echo
+    prettyPrint "[ INFO] Started ${BINARY_EGRESS} with PID=${EGRESS_PID}"
+    prettyPrint "[ INFO] Logging at ${LOG_EGRESS}"
+
+    wait
 }
 
 # driver code
 # -------------------------------------------------------------------------------------
-start=false
-stop=false
-
-# Parse command-line options
-while getopts ":hsk" opt; do
+while getopts ":he" opt; do
     case "$opt" in
     h)
         Help
         exit
         ;;
-    s)
-        start=true
-        ;;
-    k)
-        stop=true
+    e)
+        executePacketCounterBinaries
         ;;
     \?)
-        echo "[ERROR] Invalid option"
+        prettyPrint "[ERROR] Invalid option"
         Help
         exit
         ;;
     esac
 done
 
-# Check if both start and stop options are given
-if [[ "$start" = true && "$stop" = true ]]; then
-    echo "[FATAL] Cannot specify both start and kill options"
-    echo
+if ((OPTIND == 1)); then
     Help
-fi
-
-# Check if any option is specified
-if [[ "$start" = false && "$stop" = false ]]; then
-    echo "[FATAL] No option specified"
-    echo
-    Help
-fi
-
-if [[ "$start" = true ]]; then
-    start_services
-elif [[ "$stop" = true ]]; then
-    stop_services
+    exit
 fi
