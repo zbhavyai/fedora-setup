@@ -16,7 +16,7 @@ function Help() {
     echo "    ${0} [OPTION]"
     echo
     echo "Options:"
-    echo "    -e    start the monitoring"
+    echo "    -s    start the monitoring"
     echo "    -h    show this help message"
     echo
     echo
