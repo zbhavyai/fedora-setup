@@ -1,41 +1,49 @@
 #!/bin/bash
 #
-# author        : bhavyai
-# description   : creates a user with sudo privileges and prompts for password
-# how to run    : ./create_user.sh
+# author        : github.com/zbhavyai
+# description   : Creates a user with sudo privileges and prompts for password
 
-PROGNAME="$(basename "$0")"
+CURR_SCRIPT=$(readlink -f "$0")
+CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 
 # help function
 # -------------------------------------------------------------------------------------
 function Help() {
-    # Help: function to display usage
-
     echo
-    echo "Usage:"
-    echo "./${PROGNAME} -n <USERNAME>"
+    echo "Usage: ${0} [-n USERNAME] [-h]"
     echo
     echo "Options:"
-    echo "n     New username"
-    echo "h     Print this Help"
+    echo "    -n USERNAME   new user to create"
+    echo "    -h            show this help message"
     echo
+    echo
+    echo "Examples:"
+    echo "-> Create a new user called clove"
+    echo "    ${0} -n clove"
+}
+
+# prettyPrint
+# -------------------------------------------------------------------------------------
+function prettyPrint() {
+    echo -e "$1."
 }
 
 # create user function
 # -------------------------------------------------------------------------------------
 function createUser() {
-    USERNAME=${1}
+    local USERNAME=${1}
 
-    # create user
+    if id -u "$USERNAME" &>/dev/null; then
+        prettyPrint "[ERROR] '$USERNAME' already exists"
+        return 1
+    fi
     useradd --create-home ${USERNAME} --groups wheel
 }
 
 # create password function
 # -------------------------------------------------------------------------------------
 function setPassword() {
-    USERNAME=${1}
-
-    # set password
+    local USERNAME=${1}
     passwd ${USERNAME}
 }
 
@@ -43,14 +51,15 @@ function setPassword() {
 # -------------------------------------------------------------------------------------
 while getopts ":n:h" option; do
     case "${option}" in
-    h) # display usage
+    h)
         Help
         exit
         ;;
-    n) # username
+    n)
         USERNAME=${OPTARG}
         ;;
-    \?) # invalid option
+    \?)
+        prettyPrint "[ERROR] Invalid option"
         Help
         exit
         ;;
@@ -63,13 +72,12 @@ if ((OPTIND == 1)); then
 fi
 
 if [[ -z "${USERNAME}" ]]; then
-    Help
+    prettyPrint "[ERROR] Username can't be empty"
     exit
 fi
 
-# create user, and if successful create password
 if ! createUser "${USERNAME}"; then
-    echo "Error: failed to create user ${USERNAME}" >&2
+    prettyPrint "[ERROR] Failed to create user ${USERNAME}"
     exit 1
 else
     setPassword "${USERNAME}"
