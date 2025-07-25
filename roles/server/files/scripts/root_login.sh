@@ -70,7 +70,7 @@ function enableRootPasswordLogin() {
 
 # driver code
 # -------------------------------------------------------------------------------------
-while getopts "he" opt; do
+while getopts ":he" opt; do
     case "$opt" in
     h)
         Help

@@ -59,7 +59,7 @@ function forwardPorts() {
 
 # driver code
 # -------------------------------------------------------------------------------------
-while getopts "hf" opt; do
+while getopts ":hf" opt; do
     case "$opt" in
     h)
         Help

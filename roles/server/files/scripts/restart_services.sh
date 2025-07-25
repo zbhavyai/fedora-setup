@@ -174,7 +174,7 @@ TRIM_LOGS="false"
 SERVICES_STOP_ONLY="false"
 SERVICES_RESTART="false"
 
-while getopts "hctsr" opt; do
+while getopts ":hctsr" opt; do
     case "$opt" in
     h)
         Help

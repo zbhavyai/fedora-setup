@@ -91,7 +91,7 @@ function deleteSecrets() {
 LIST_SECRETS="false"
 DELETE_SECRETS="false"
 
-while getopts "hld" opt; do
+while getopts ":hld" opt; do
     case "$opt" in
     h)
         Help

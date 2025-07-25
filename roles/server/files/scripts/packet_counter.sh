@@ -65,19 +65,20 @@ start=false
 stop=false
 
 # Parse command-line options
-while getopts "hsk" opt; do
+while getopts ":hsk" opt; do
     case "$opt" in
-    h) # display usage
+    h)
         Help
         exit
         ;;
-    s) # Start services
+    s)
         start=true
         ;;
-    k) # Stop services
+    k)
         stop=true
         ;;
-    \?) # Invalid option
+    \?)
+        echo "[ERROR] Invalid option"
         Help
         exit
         ;;
