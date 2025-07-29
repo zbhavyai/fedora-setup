@@ -1,4 +1,7 @@
 <keymap version="1" name="BG-KEYMAP" parent="Default for GNOME">
+  <action id="ActivateStudioBotToolWindow">
+    <keyboard-shortcut first-keystroke="ctrl alt i" />
+  </action>
   <action id="ActivateTerminalToolWindow">
     <keyboard-shortcut first-keystroke="ctrl back_quote" />
   </action>

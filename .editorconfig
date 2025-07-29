@@ -3,20 +3,38 @@ root = true
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 2
 indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*sh]
-indent_size = 4
-
-[*java]
+[*.java]
+indent_size = 2
 max_line_length = 80
 
-[*.{js,jsx,ts,tsx,json,jsonc}]
+[*.sql]
+indent_size = 4
+max_line_length = off
+
+[*.{js,jsx,ts,tsx}]
+indent_size = 2
 max_line_length = 200
+
+[*.{json,jsonc}]
+max_line_length = off
+
+[*.py]
+indent_size = 4
+max_line_length = 200
+
+[*.md]
+indent_size = 3
+max_line_length = off
+
+[*.sh]
+indent_size = 4
+max_line_length = off
 
 [Makefile]
 indent_size = 4
 indent_style = tab
+max_line_length = off
