@@ -72,7 +72,7 @@ function openPostgres() {
         firewall-cmd -q --reload
     fi
 
-    prettyPrint "[INFO] PostgreSQL is now open for remote connections."
+    prettyPrint "[INFO] PostgreSQL is now open for remote connections"
 }
 
 # load a SQL script to userful database in chronos schema
@@ -143,7 +143,7 @@ while getopts ":ol:d:s:h" opt; do
         exit 1
         ;;
     :)
-        prettyPrint "[ERROR] Option -$OPTARG requires an argument."
+        prettyPrint "[ERROR] Option -$OPTARG requires an argument"
         Help
         exit 1
         ;;
