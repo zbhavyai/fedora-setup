@@ -63,7 +63,7 @@ while getopts ":hs" opt; do
         exit
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "[ERROR] Invalid option"
         Help
         exit
         ;;

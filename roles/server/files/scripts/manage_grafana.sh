@@ -30,10 +30,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "\n$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # Grafana service restarter
@@ -67,55 +71,55 @@ function isUserfulGrafana() {
 # -------------------------------------------------------------------------------------
 replaceWithVanilla() {
     if ! isGrafanaInstalled; then
-        prettyPrint "[ INFO] No Grafana installed. Proceeding with vanilla Grafana installation"
+        prettyLog "INFO" "No Grafana installed. Proceeding with vanilla Grafana installation"
     elif ! isUserfulGrafana; then
-        prettyPrint "[ INFO] Grafana OSS already installed. No action taken"
+        prettyLog "INFO" "Grafana OSS already installed. No action taken"
         exit 0
     else
-        prettyPrint "[ INFO] Removing Userful Grafana"
+        prettyLog "INFO" "Removing Userful Grafana"
         rpm --erase --nodeps grafana
     fi
 
-    prettyPrint "[ INFO] Downloading Grafana OSS RPM"
+    prettyLog "INFO" "Downloading Grafana OSS RPM"
     curl -fsSL "$VANILLA_URL" -o "/tmp/$VANILLA_RPM"
 
     local PROBLEMATIC_DIRECTORY="/etc/init.d"
     if [ -d "$PROBLEMATIC_DIRECTORY" ] && [ ! -L "$PROBLEMATIC_DIRECTORY" ]; then
-        prettyPrint "[ INFO] Moving $PROBLEMATIC_DIRECTORY to ${PROBLEMATIC_DIRECTORY}.old"
+        prettyLog "INFO" "Moving $PROBLEMATIC_DIRECTORY to ${PROBLEMATIC_DIRECTORY}.old"
         mv "$PROBLEMATIC_DIRECTORY" "${PROBLEMATIC_DIRECTORY}.old"
     fi
 
     dnf install --assumeyes chkconfig initscripts-service
 
-    prettyPrint "[INFO] Installing Grafana OSS"
+    prettyLog "[INFO] Installing Grafana OSS"
     rpm -i "/tmp/$VANILLA_RPM"
 
     restartGrafana
 
-    prettyPrint "[ INFO] Replaced current Grafana with Grafana OSS"
+    prettyLog "INFO" "Replaced current Grafana with Grafana OSS"
 }
 
 # restore whitelabeled Grafana installation
 # -------------------------------------------------------------------------------------
 restoreUserfulGrafana() {
     if isUserfulGrafana; then
-        prettyPrint "[ INFO] Userful Grafana already installed. No action taken"
+        prettyLog "INFO" "Userful Grafana already installed. No action taken"
         exit 0
     fi
 
     if isGrafanaInstalled; then
-        prettyPrint "[ INFO] Removing vanilla Grafana"
+        prettyLog "INFO" "Removing vanilla Grafana"
         rpm --erase --nodeps grafana
     else
-        prettyPrint "[ INFO] No Grafana installed. Proceeding with Userful Grafana installation"
+        prettyLog "INFO" "No Grafana installed. Proceeding with Userful Grafana installation"
     fi
 
-    prettyPrint "[ INFO] Installing Userful Grafana from internal repositories"
+    prettyLog "INFO" "Installing Userful Grafana from internal repositories"
     dnf install --assumeyes grafana --allowerasing
 
     restartGrafana
 
-    prettyPrint "[ INFO] Restored Userful Grafana"
+    prettyLog "INFO" "Restored Userful Grafana"
 }
 
 # driver code
@@ -140,7 +144,7 @@ while [[ $# -gt 0 ]]; do
         exit
         ;;
     *)
-        prettyPrint "[FATAL] Invalid option \"$1\". Use --help for more information"
+        prettyLog "FATAL" "Invalid option \"$1\". Use --help for more information"
         exit 1
         ;;
     esac

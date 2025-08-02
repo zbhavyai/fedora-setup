@@ -32,10 +32,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # check if a line exists in a file
@@ -72,7 +76,7 @@ function openPostgres() {
         firewall-cmd -q --reload
     fi
 
-    prettyPrint "[INFO] PostgreSQL is now open for remote connections"
+    prettyLog "INFO" "PostgreSQL is now open for remote connections"
 }
 
 # load a SQL script to userful database in chronos schema
@@ -91,7 +95,7 @@ function loadSQL() {
 
     PGPASSWORD="$PASS" PGOPTIONS="--search_path=chronos" \
         psql -h "$HOST" -U "$USER" -d "$DB" -f "$sql_file"
-    prettyPrint "[INFO] SQL script loaded from $sql_file"
+    prettyLog "INFO" "SQL script loaded from $sql_file"
 }
 
 # dump postgres schema
@@ -111,9 +115,9 @@ function dumpPostgresSchema() {
     fi
 
     if [[ $? -eq 0 ]]; then
-        prettyPrint "[INFO] Dump successful: $filename"
+        prettyLog "INFO" "Dump successful: $filename"
     else
-        prettyPrint "[ERROR] Failed to dump database"
+        prettyLog "ERROR" "Failed to dump database"
         exit 1
     fi
 }
@@ -138,12 +142,12 @@ while getopts ":ol:d:s:h" opt; do
         Help
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option: -$OPTARG"
+        prettyLog "ERROR" "Invalid option: -$OPTARG"
         Help
         exit 1
         ;;
     :)
-        prettyPrint "[ERROR] Option -$OPTARG requires an argument"
+        prettyLog "ERROR" "Option -$OPTARG requires an argument"
         Help
         exit 1
         ;;

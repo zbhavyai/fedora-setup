@@ -30,10 +30,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # separator printer
@@ -57,7 +61,7 @@ function listSecrets() {
     done
 
     if [ $atleastOneSecret -eq 0 ]; then
-        prettyPrint "[ INFO] No secrets found"
+        prettyLog "INFO" "No secrets found"
     else
         printSeparator "-"
     fi
@@ -72,14 +76,14 @@ function deleteSecrets() {
     SECRET_LIST=$(curl --silent --show-error --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST --location "${VAULT_ADDR}/v1/secret/metadata")
 
     if [[ $? -ne 0 ]]; then
-        prettyPrint "[ERROR] Failed to delete secrets from vault"
+        prettyLog "ERROR" "Failed to delete secrets from vault"
         return
     fi
 
     PARSED_SECRET_LIST=$(echo $SECRET_LIST | jq -r .data.keys[] 2>/dev/null)
 
     if [[ $? -ne 0 ]]; then
-        prettyPrint "[ INFO] Didn't find any secrets to delete"
+        prettyLog "INFO" "Didn't find any secrets to delete"
         return
     fi
 
@@ -87,7 +91,7 @@ function deleteSecrets() {
         curl --silent --show-error --fail --header "X-Vault-Token: ${VAULT_TOKEN}" --request DELETE --location "${VAULT_ADDR}/v1/secret/metadata/${key}"
     done
 
-    prettyPrint "[ INFO] Secrets deleted"
+    prettyLog "INFO" "Secrets deleted"
 }
 
 # driver code
@@ -108,7 +112,7 @@ while getopts ":hld" opt; do
         DELETE_SECRETS="true"
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "ERROR" "Invalid option"
         Help
         exit
         ;;

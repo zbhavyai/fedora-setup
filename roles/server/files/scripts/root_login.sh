@@ -29,10 +29,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # enable logging in using password (use passwd to set root password)
@@ -43,33 +47,33 @@ function enableRootPasswordLogin() {
 
     # allow root login
     if grep -qE "^\s*PermitRootLogin\s+yes\s*$" "$SSH_CONFIG"; then
-        prettyPrint "[ INFO] PermitRootLogin is already set to yes in $SSH_CONFIG"
+        prettyLog "INFO" "PermitRootLogin is already set to yes in $SSH_CONFIG"
     else
         if grep -qE "^\s*PermitRootLogin\s+" "$SSH_CONFIG"; then
             sed -i 's/^\s*PermitRootLogin\s\+.*/PermitRootLogin yes/' "$SSH_CONFIG"
-            prettyPrint "[ INFO] Updated PermitRootLogin to yes in $SSH_CONFIG"
+            prettyLog "INFO" "Updated PermitRootLogin to yes in $SSH_CONFIG"
         else
             echo "PermitRootLogin yes" >>"$SSH_CONFIG"
-            prettyPrint "[ INFO] Appended PermitRootLogin yes to $SSH_CONFIG"
+            prettyLog "INFO" "Appended PermitRootLogin yes to $SSH_CONFIG"
         fi
     fi
 
     # allow password authentication
     if grep -qE "^\s*PasswordAuthentication\s+yes\s*$" "$USERFUL_CONF"; then
-        prettyPrint "[ INFO] PasswordAuthentication already set to yes in $USERFUL_CONF"
+        prettyLog "INFO" "PasswordAuthentication already set to yes in $USERFUL_CONF"
     else
         if grep -qE "^\s*PasswordAuthentication\s+" "$USERFUL_CONF"; then
             sed -i 's/^\s*PasswordAuthentication\s\+.*/PasswordAuthentication yes/' "$USERFUL_CONF"
-            prettyPrint "[ INFO] Updated PasswordAuthentication to yes in $USERFUL_CONF"
+            prettyLog "INFO" "Updated PasswordAuthentication to yes in $USERFUL_CONF"
         else
             echo "PasswordAuthentication yes" >>"$USERFUL_CONF"
-            prettyPrint "[ INFO] Appended PasswordAuthentication yes to $USERFUL_CONF"
+            prettyLog "INFO" "Appended PasswordAuthentication yes to $USERFUL_CONF"
         fi
     fi
 
     # restart services
     systemctl restart sshd
-    prettyPrint "[ INFO] sshd service restarted"
+    prettyLog "INFO" "sshd service restarted"
 }
 
 # driver code
@@ -84,7 +88,7 @@ while getopts ":he" opt; do
         enableRootPasswordLogin
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "ERROR" "Invalid option"
         Help
         exit
         ;;

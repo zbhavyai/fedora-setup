@@ -37,10 +37,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # forward ports
@@ -58,7 +62,7 @@ function forwardPorts() {
     # firewall-cmd --quiet --runtime-to-permanent
     # firewall-cmd --quiet --reload
 
-    prettyPrint "[ INFO] Success"
+    prettyLog "INFO" "Success"
 }
 
 # driver code
@@ -73,7 +77,7 @@ while getopts ":hf" opt; do
         forwardPorts
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "ERROR" "Invalid option"
         Help
         exit
         ;;

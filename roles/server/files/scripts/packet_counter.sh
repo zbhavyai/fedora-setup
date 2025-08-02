@@ -29,10 +29,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "\n$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # execute the binaries
@@ -40,7 +44,7 @@ function prettyPrint() {
 function executePacketCounterBinaries() {
     # check if the binaries exist
     if [[ ! -x "${BINARY_INGRESS}" || ! -x "${BINARY_EGRESS}" ]]; then
-        prettyPrint "[FATAL] Binary files not found or not executable"
+        prettyLog "FATAL" "Binary files not found or not executable"
         return 1
     fi
 
@@ -52,19 +56,19 @@ function executePacketCounterBinaries() {
     EGRESS_PID=$!
 
     cleanup() {
-        prettyPrint "[INFO] Caught signal, cleaning up"
+        prettyLog "INFO" "Caught signal, cleaning up"
         pkill -2 -f "RTSP_monitor"
-        prettyPrint "[INFO] Execution terminated"
+        prettyLog "INFO" "Execution terminated"
     }
 
     # trap ctrl+c and termination signals
     trap cleanup SIGINT SIGTERM
 
-    prettyPrint "[ INFO] Started ${BINARY_INGRESS} with PID=${INGRESS_PID}"
-    prettyPrint "[ INFO] Logging at ${LOG_INGRESS}"
+    prettyLog "INFO" "Started ${BINARY_INGRESS} with PID=${INGRESS_PID}"
+    prettyLog "INFO" "Logging at ${LOG_INGRESS}"
     echo
-    prettyPrint "[ INFO] Started ${BINARY_EGRESS} with PID=${EGRESS_PID}"
-    prettyPrint "[ INFO] Logging at ${LOG_EGRESS}"
+    prettyLog "INFO" "Started ${BINARY_EGRESS} with PID=${EGRESS_PID}"
+    prettyLog "INFO" "Logging at ${LOG_EGRESS}"
 
     wait
 }
@@ -81,7 +85,7 @@ while getopts ":he" opt; do
         executePacketCounterBinaries
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "ERROR" "Invalid option"
         Help
         exit
         ;;

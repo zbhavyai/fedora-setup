@@ -26,10 +26,14 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # create user function
@@ -38,7 +42,7 @@ function createUser() {
     local USERNAME=${1}
 
     if id -u "$USERNAME" &>/dev/null; then
-        prettyPrint "[ERROR] '$USERNAME' already exists"
+        prettyLog "ERROR" "'$USERNAME' already exists"
         return 1
     fi
     useradd --create-home ${USERNAME} --groups wheel
@@ -63,7 +67,7 @@ while getopts ":n:h" option; do
         USERNAME=${OPTARG}
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "ERROR" "Invalid option"
         Help
         exit
         ;;
@@ -76,12 +80,12 @@ if ((OPTIND == 1)); then
 fi
 
 if [[ -z "${USERNAME}" ]]; then
-    prettyPrint "[ERROR] Username can't be empty"
+    prettyLog "ERROR" "Username can't be empty"
     exit
 fi
 
 if ! createUser "${USERNAME}"; then
-    prettyPrint "[ERROR] Failed to create user ${USERNAME}"
+    prettyLog "ERROR" "Failed to create user '${USERNAME}'"
     exit 1
 else
     setPassword "${USERNAME}"

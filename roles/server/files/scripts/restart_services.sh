@@ -47,23 +47,27 @@ function Help() {
     echo
 }
 
-# prettyPrint
+# prettyLog
 # -------------------------------------------------------------------------------------
-function prettyPrint() {
-    echo -e "$1."
+function prettyLog() {
+    TIMESTAMP=$(date +"%F %T.%3N %z")
+    LEVEL=$1
+    MESSAGE=$2
+
+    printf "%s [%5s] %s.\n" "${TIMESTAMP}" "${LEVEL}" "${MESSAGE}"
 }
 
 # Stop the services
 # -------------------------------------------------------------------------------------
 function stopServices() {
-    prettyPrint "[ INFO] Stopping services"
+    prettyLog "INFO" "Stopping services"
     systemctl stop "${SERVICE_LIST[@]}"
 }
 
 # Start the services
 # -------------------------------------------------------------------------------------
 function startServices() {
-    prettyPrint "[ INFO] Starting services"
+    prettyLog "INFO" "Starting services"
     systemctl start "${SERVICE_LIST[@]}"
 }
 
@@ -79,7 +83,7 @@ function removeXorgLogFiles() {
 }
 
 function trimLogs() {
-    prettyPrint "[ INFO] Trimming logs"
+    prettyLog "INFO" "Trimming logs"
 
     # chronos logs
     removeLogFiles /var/log/userful/userful-chronos-aether.log
@@ -130,12 +134,12 @@ function removeAllLogs() {
 # -------------------------------------------------------------------------------------
 function cleanDB() {
     if [[ "$1" = "false" ]]; then
-        prettyPrint "[ INFO] Cleaning the database"
+        prettyLog "INFO" "Cleaning the database"
         PGPASSWORD=userful psql -U userful -d userful -c "DROP SCHEMA chronos CASCADE" &>/dev/null
         PGPASSWORD=userful psql -h localhost -U userful -d userful -c "SELECT lo_unlink(oid) FROM pg_largeobject_metadata" &>/dev/null
 
     else
-        prettyPrint "[ WARN] Preserving the database"
+        prettyLog "WARN" "Preserving the database"
     fi
 }
 
@@ -143,7 +147,7 @@ function cleanDB() {
 # -------------------------------------------------------------------------------------
 function cleanVault() {
     if [[ "$1" = "false" ]]; then
-        prettyPrint "[ INFO] Cleaning the vault"
+        prettyLog "INFO" "Cleaning the vault"
 
         export VAULT_ADDR="http://127.0.0.1:8200"
         export VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
@@ -151,7 +155,7 @@ function cleanVault() {
         SECRET_LIST=$(curl --silent --show-error --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST --location "${VAULT_ADDR}/v1/secret/metadata")
 
         if [[ $? -ne 0 ]]; then
-            prettyPrint "[ERROR] Failed to clean vault"
+            prettyLog "ERROR" "Failed to clean vault"
             return
         fi
 
@@ -167,7 +171,7 @@ function cleanVault() {
         done
 
     else
-        prettyPrint "[ WARN] Preserving the vault"
+        prettyLog "WARN" "Preserving the vault"
     fi
 }
 
@@ -197,7 +201,7 @@ while getopts ":hctsr" opt; do
         SERVICES_RESTART="true"
         ;;
     \?)
-        prettyPrint "[ERROR] Invalid option"
+        prettyLog "ERROR" "Invalid option"
         Help
         exit
         ;;
