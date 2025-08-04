@@ -54,7 +54,10 @@ alternate: .deps-ok
 
 .PHONY: lint
 lint: .deps-ok
-	ansible-lint
+	@ansible-lint
+	@for file in $(find playbooks -name "*.yaml"); do \
+		ansible-playbook --syntax-check "$$file" || exit 1; \
+	done
 
 .PHONY: server
 server: .deps-ok
