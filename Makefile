@@ -15,6 +15,15 @@ init: .deps-ok $(REQUIREMENTS_FILE)
 	fi
 	. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
 
+.PHONY: update
+update: .deps-ok
+	@rm -rf $(VENV_DIR)
+	@python3 -m venv $(VENV_DIR)
+	. $(VENV_DIR)/bin/activate && \
+	pip install --upgrade pip && \
+	pip install ansible ansible-lint && \
+	pip freeze > $(REQUIREMENTS_FILE)
+
 .PHONY: cleanup
 cleanup: .deps-ok
 	ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
