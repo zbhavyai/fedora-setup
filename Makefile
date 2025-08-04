@@ -10,16 +10,17 @@ REQUIREMENTS_FILE := requirements.txt
 
 .PHONY: init
 init: .deps-ok $(REQUIREMENTS_FILE)
+	@ln -sf $(CURDIR)/.hooks/pre-commit .git/hooks/pre-commit
 	@if [ ! -d "$(VENV_DIR)" ]; then \
 		python3 -m venv $(VENV_DIR); \
 	fi
-	. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
+	@. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
 
 .PHONY: update
 update: .deps-ok
 	@rm -rf $(VENV_DIR)
 	@python3 -m venv $(VENV_DIR)
-	. $(VENV_DIR)/bin/activate && \
+	@. $(VENV_DIR)/bin/activate && \
 	pip install --upgrade pip && \
 	pip install ansible ansible-lint && \
 	pip freeze > $(REQUIREMENTS_FILE)

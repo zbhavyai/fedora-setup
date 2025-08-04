@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+block() {
+    echo -e "\n\n"
+    echo "$@"
+    echo "[ERROR] Commit blocked."
+    exit 1
+}
+
+lint_checks() {
+    local staged
+    staged=$(git diff --name-only --cached --exit-code -- '*.yaml')
+    ret=$?
+    if [ $ret -eq 0 ]; then
+        return 0
+    fi
+
+    (ansible-lint) || block "[ERROR] Ansible lint failed"
+}
+
+(lint_checks) || exit $?
