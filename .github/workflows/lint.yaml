@@ -6,9 +6,7 @@ on:
     paths:
       - "**.yaml"
       - "**.yml"
-      - "**.md"
       - "**.sh"
-      - "**.py"
   pull_request:
 
 jobs:
@@ -27,8 +25,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install ansible ansible-lint
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Run ansible-lint
         run: ansible-lint
