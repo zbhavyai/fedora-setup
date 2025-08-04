@@ -4,8 +4,8 @@
     url: "{{ cursors_archive_url }}"
     dest: "{{ cursors_archive_path }}"
     mode: "0644"
-  register: download_result
-  changed_when: download_result.changed
+  register: cursors_download_result
+  changed_when: cursors_download_result.changed
 
 - name: Create icon directory if not exists
   ansible.builtin.file:

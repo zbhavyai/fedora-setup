@@ -8,7 +8,7 @@
     backrefs: true
   become: true
   ignore_errors: true
-  register: result
+  register: settings_handle_lid_switch_result
 
 - name: Ensure LidSwitchIgnoreInhibited is set to yes
   ansible.builtin.lineinfile:
@@ -19,7 +19,7 @@
     backrefs: true
   become: true
   ignore_errors: true
-  register: result
+  register: settings_lid_switch_ignore_inhibited_result
 
 - name: Remove existing app folders
   ansible.builtin.shell: |

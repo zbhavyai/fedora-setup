@@ -18,7 +18,7 @@
   loop: "{{ vscode_extensions[profile] }}"
   loop_control:
     label: "{{ item }}"
-  register: install_output
-  changed_when: "'already installed' not in install_output.stdout"
-  failed_when: install_output.rc != 0 and 'already installed' not in install_output.stdout
+  register: vscode_extensions_install_output
+  changed_when: "'already installed' not in vscode_extensions_install_output.stdout"
+  failed_when: vscode_extensions_install_output.rc != 0 and 'already installed' not in vscode_extensions_install_output.stdout
   delegate_to: localhost

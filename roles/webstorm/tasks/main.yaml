@@ -32,7 +32,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: webstorm_config_path_result
 
 - name: Modify WebStorm cache path
   ansible.builtin.lineinfile:
@@ -42,7 +42,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: webstorm_cache_path_result
 
 - name: Modify WebStorm plugins path
   ansible.builtin.lineinfile:
@@ -52,7 +52,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: webstorm_plugins_path_result
 
 - name: Modify WebStorm log path
   ansible.builtin.lineinfile:
@@ -62,7 +62,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: webstorm_log_path_result
 
 - name: Copy WebStorm VM options
   ansible.builtin.copy:
@@ -95,6 +95,6 @@
   args:
     executable: /bin/bash
   loop: "{{ webstorm_plugins }}"
-  register: plugin_install_result
-  changed_when: "'already installed' not in plugin_install_result.stdout"
+  register: webstorm_plugin_install_result
+  changed_when: "'already installed' not in webstorm_plugin_install_result.stdout"
   become: false

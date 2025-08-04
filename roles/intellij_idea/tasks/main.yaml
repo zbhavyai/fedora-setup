@@ -32,7 +32,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: intellij_idea_config_path_result
 
 - name: Modify IntelliJ cache path
   ansible.builtin.lineinfile:
@@ -42,7 +42,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: intellij_idea_cache_path_result
 
 - name: Modify IntelliJ plugins path
   ansible.builtin.lineinfile:
@@ -52,7 +52,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: intellij_idea_plugins_path_result
 
 - name: Modify IntelliJ log path
   ansible.builtin.lineinfile:
@@ -62,7 +62,7 @@
     state: present
     backrefs: true
   become: false
-  register: result
+  register: intellij_idea_log_path_result
 
 - name: Copy IntelliJ VM options
   ansible.builtin.copy:
@@ -95,6 +95,6 @@
   args:
     executable: /bin/bash
   loop: "{{ intellij_idea_plugins }}"
-  register: plugin_install_result
-  changed_when: "'already installed' not in plugin_install_result.stdout"
+  register: intellij_idea_plugin_install_result
+  changed_when: "'already installed' not in intellij_idea_plugin_install_result.stdout"
   become: false
