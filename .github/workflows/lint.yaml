@@ -1,5 +1,5 @@
 ---
-name: CI
+name: Lint
 
 on:
   push:
@@ -12,18 +12,18 @@ on:
   pull_request:
 
 jobs:
-  ci:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Set up python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.13"
 
       - name: Install dependencies
         run: |
@@ -33,7 +33,7 @@ jobs:
       - name: Run ansible-lint
         run: ansible-lint
 
-      - name: Playbook Syntax Check
+      - name: Playbook syntax check
         run: |
           for file in $(find playbooks -name "*.yaml"); do
             ansible-playbook --syntax-check "$file" || exit 1
