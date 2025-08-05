@@ -91,7 +91,7 @@ replaceWithVanilla() {
 
     dnf install --assumeyes chkconfig initscripts-service
 
-    prettyLog "[INFO] Installing Grafana OSS"
+    prettyLog "INFO" "Installing Grafana OSS"
     rpm -i "/tmp/$VANILLA_RPM"
 
     restartGrafana

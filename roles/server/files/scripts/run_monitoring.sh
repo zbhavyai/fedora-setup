@@ -63,7 +63,7 @@ while getopts ":hs" opt; do
         exit
         ;;
     \?)
-        prettyLog "[ERROR] Invalid option"
+        echo "Invalid option"
         Help
         exit
         ;;

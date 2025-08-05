@@ -5,6 +5,7 @@
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
+
 export VAULT_ADDR="http://127.0.0.1:8200"
 export VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
 
