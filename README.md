@@ -55,6 +55,17 @@ The automation is done using multiple Ansible playbooks, which are named accordi
    make all
    ```
 
+#### Checking what this repository offers without making any changes:
+
+-  The programmatic way to check changes being done to your system is to run the playbooks with `--check` flag. Example:
+
+   ```shell
+   source .venv/PY-ANSIBLE/bin/activate
+   ansible-playbook playbooks/cleanup.yaml --check
+   ```
+
+-  Another way to check the [playbooks](playbooks), [roles](roles), and [group vars](group_vars) manually, which I find more reliable :smile:
+
 #### Saving your current system settings to the configurations in this repository:
 
 1. Run the `sync` target.
