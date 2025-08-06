@@ -26,21 +26,47 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 
 ## How to use
 
-1. Create a python virtual environment, activate it, and install the dependencies.
+> [!NOTE]
+> Check all available targets using `make help`.
+
+#### Making changes to your system based on the configurations in this repository:
+
+1. Run the `init` target. This creates a python virtual environment `PY-ANSIBLE` with the required dependencies.
 
    ```shell
    make init
+   ```
+
+1. Activate the virtual environment `PY-ANSIBLE`.
+
+   ```shell
    source .venv/PY-ANSIBLE/bin/activate
    ```
 
-1. Run one of the playbooks, check available targets using `make help`, or conveniently just run everything:
+1. To setup, lets say, dev tools, run:
+
+   ```shell
+   make dev
+   ```
+
+   To setup everything what this repository offers, run:
 
    ```shell
    make all
    ```
 
-1. To synchronize your current system settings with the configurations in this repository, run:
+#### Saving your current system settings to the configurations in this repository:
+
+1. Run the `sync` target.
 
    ```shell
    make sync
+   ```
+
+1. And then commit the changes, eg:
+
+   ```shell
+   git add .
+   git commit -m "Sync"
+   git push
    ```
