@@ -19,10 +19,5 @@
     rebase = false
 [push]
     default = simple
-[merge]
-    ff = only
 [diff]
     tool = vimdiff
-# [status]
-#     short = true
-#     branch = true
