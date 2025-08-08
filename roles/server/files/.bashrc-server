@@ -1,34 +1,4 @@
 # #############################################################################
-# hashicorp vault secret listing
-# #############################################################################
-if rpm -q vault &>/dev/null; then
-    export VAULT_ADDR="http://127.0.0.1:8200"
-    export VAULT_TOKEN=$(cat "/usr/share/userful-vault/vault_root_token.txt")
-fi
-
-function listVaultSecrets() {
-    if rpm -q vault &>/dev/null; then
-        local atleastOneSecret=0
-        for key in $(vault kv list --format=json secret | jq -r '.[]'); do
-            printSeparator "-"
-            atleastOneSecret=1
-
-            printf "Secret: $key\n"
-            printf "Value : $(vault kv get --format=json "secret/$key" | jq -c .data.data)\n"
-        done
-
-        if [ $atleastOneSecret -eq 0 ]; then
-            printf "No secrets found\n"
-        else
-            printSeparator "-"
-        fi
-    else
-        printf "Vault is not installed\n"
-    fi
-}
-export -f listVaultSecrets
-
-# #############################################################################
 # alias for logging
 # #############################################################################
 alias cdlog='cd /var/log/userful/'
