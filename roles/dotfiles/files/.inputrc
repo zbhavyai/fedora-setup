@@ -1,0 +1,15 @@
+# autocompletion
+set completion-ignore-case on          # case-insensitive tab completion
+set show-all-if-ambiguous on           # show options immediately
+set mark-symlinked-directories on      # add trailing slash to symlinked dirs
+set match-hidden-files off             # don't match dotfiles unless typed
+set visible-stats on                   # show symbols (/, *, @) like ls -F
+set colored-stats on                   # add color to completions (if supported)
+set skip-completed-text on             # smarter mid-line autocompletion
+set page-completions off               # show all completions at once
+set completion-query-items 200         # ask before showing >200 completions
+
+# input behavior
+set input-meta on                      # allow utf-8 input
+set output-meta on                     # allow utf-8 output
+set convert-meta off                   # don't mangle high-bit chars
