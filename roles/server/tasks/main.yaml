@@ -23,6 +23,12 @@
     dest: "{{ ansible_env.HOME }}/.gitconfig-work"
     mode: "0644"
 
+- name: Copy .inputrc
+  ansible.builtin.copy:
+    src: .inputrc
+    dest: "{{ ansible_env.HOME }}/.inputrc"
+    mode: "0644"
+
 - name: Copy .vimrc
   ansible.builtin.copy:
     src: .vimrc
