@@ -248,6 +248,14 @@ function downloadBingWallpaper() {
 export -f downloadBingWallpaper
 
 # #############################################################################
+# better tree
+# #############################################################################
+function tre() {
+    tree -aC -I '.git|node_modules|__pycache__' --dirsfirst "$@"
+}
+export -f tre
+
+# #############################################################################
 # miscellaneous
 # #############################################################################
 function fixJetbrainsMarkdownPreview() {
