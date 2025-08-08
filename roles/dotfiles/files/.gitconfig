@@ -29,3 +29,7 @@
     added = green
     changed = yellow
     untracked = red
+[help]
+    autocorrect = 1
+[grep]
+    lineNumber = true
