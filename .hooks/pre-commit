@@ -17,7 +17,7 @@ lint_checks() {
         return 0
     fi
 
-    (ansible-lint) || block "[ERROR] Ansible lint failed"
+    (ansible-lint -q) || block "[ERROR] Ansible lint failed"
 }
 
 (lint_checks) || exit $?
