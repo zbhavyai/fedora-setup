@@ -45,14 +45,14 @@ function createUser() {
         prettyLog "ERROR" "'$USERNAME' already exists"
         return 1
     fi
-    useradd --create-home ${USERNAME} --groups wheel
+    useradd --create-home "${USERNAME}" --groups wheel
 }
 
 # create password function
 # -------------------------------------------------------------------------------------
 function setPassword() {
     local USERNAME=${1}
-    passwd ${USERNAME}
+    passwd "${USERNAME}"
 }
 
 # driver code
@@ -64,7 +64,7 @@ while getopts ":n:h" option; do
         exit
         ;;
     n)
-        USERNAME=${OPTARG}
+        USERNAME="${OPTARG}"
         ;;
     \?)
         prettyLog "ERROR" "Invalid option"

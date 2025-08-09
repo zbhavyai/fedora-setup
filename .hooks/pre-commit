@@ -11,13 +11,17 @@ block() {
 
 lint_checks() {
     local staged
-    staged=$(git diff --name-only --cached --exit-code -- '*.yaml')
+    staged=$(git diff --name-only --cached --exit-code -- '*.y*ml')
     ret=$?
     if [ $ret -eq 0 ]; then
         return 0
     fi
 
-    (ansible-lint -q) || block "[ERROR] Ansible lint failed"
+    (ansible-lint -q) || block "[ERROR] Ansible lint failed."
+
+    for file in $(find playbooks -name "*.yaml"); do
+        ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] Ansible lint failed."
+    done
 }
 
 (lint_checks) || exit $?
