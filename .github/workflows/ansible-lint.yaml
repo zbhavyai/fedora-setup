@@ -1,17 +1,21 @@
 ---
-name: Lint
+name: Ansible Lint
 
 on:
   push:
     paths:
       - "**.yaml"
       - "**.yml"
-      - "**.sh"
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  lint:
+  ansible-lint:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,7 +35,7 @@ jobs:
       - name: Run ansible-lint
         run: ansible-lint
 
-      - name: Playbook syntax check
+      - name: Run playbook syntax check
         run: |
           for file in $(find playbooks -name "*.yaml"); do
             ansible-playbook --syntax-check "$file" || exit 1

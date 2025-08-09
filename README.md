@@ -3,7 +3,7 @@
 _Automated set up of Fedora Workstation and Fedora Server using Ansible_
 
 ![Workstation](https://img.shields.io/badge/Supported_Workstation-42-blue)
-[![Lint](https://img.shields.io/github/actions/workflow/status/zbhavyai/fedora-setup/lint.yaml?label=Lint)](https://github.com/zbhavyai/fedora-setup/actions/workflows/lint.yaml)
+[![Ansible Lint](https://img.shields.io/github/actions/workflow/status/zbhavyai/fedora-setup/ansible-lint.yaml?label=Lint)](https://github.com/zbhavyai/fedora-setup/actions/workflows/ansible-lint.yaml)
 [![License](https://img.shields.io/github/license/zbhavyai/fedora-setup?label=License)](https://github.com/zbhavyai/fedora-setup/blob/main/LICENSE)
 
 The goal is to automate as much as possible to a reasonable extent. This means that there will be manual intervention involved, such as some application configuration after installation.
