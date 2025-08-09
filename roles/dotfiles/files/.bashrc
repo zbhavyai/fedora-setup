@@ -182,6 +182,7 @@ if command -v -- podman &>/dev/null; then
     # export DOCKER_HOST=unix://${XDG_RUNTIME_DIR}/podman/podman.sock
     # export DOCKER_HOST=unix://$(podman info --format '{{.Host.RemoteSocket.Path}}')
     export TESTCONTAINERS_RYUK_DISABLED=true
+    export PODMAN_COMPOSE_WARNING_LOGS=false
 fi
 
 # #############################################################################
