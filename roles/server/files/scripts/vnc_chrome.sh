@@ -54,30 +54,31 @@ function start() {
     sudo dnf install --quiet --assumeyes xorg-x11-server-Xvfb x11vnc openbox google-chrome
 
     # start virtual framebuffer
-    prettyLog "INFO" "Starting Xvfb on display $DISPLAY"
-    /usr/bin/Xvfb $DISPLAY -screen 0 $RESOLUTION &>/dev/null &
+    prettyLog "INFO" "Starting Xvfb on display ${DISPLAY}"
+    /usr/bin/Xvfb "${DISPLAY}" -screen 0 "${RESOLUTION}" &>/dev/null &
     PID_XVFB=$!
     sleep 2
 
     # start vnc server on the x session
-    prettyLog "INFO" "Starting x11vnc on port $RFBPORT"
-    /usr/bin/x11vnc -quiet -display $DISPLAY -rfbport $RFBPORT -nopw -forever -shared -ncache_cr -always_inject -xkb -repeat -skip_lockkeys &>/dev/null &
+    prettyLog "INFO" "Starting x11vnc on port ${RFBPORT}"
+    /usr/bin/x11vnc -quiet -display "${DISPLAY}" -rfbport "${RFBPORT}" -nopw -forever -shared -ncache_cr -always_inject -xkb -repeat -skip_lockkeys &>/dev/null &
     PID_X11VNC=$!
 
     # start openbox-session
     prettyLog "INFO" "Starting openbox session"
-    DISPLAY=$DISPLAY /usr/bin/openbox-session &
+    DISPLAY="${DISPLAY}" /usr/bin/openbox-session &
     PID_OPENBOX=$!
 
     # launch google chrome
     prettyLog "INFO" "Launching Google Chrome"
-    DISPLAY=$DISPLAY /usr/bin/google-chrome --no-sandbox --disable-accelerated-2d-canvas --disable-gpu --disable-smooth-scrolling --start-maximized &>/dev/null &
+    DISPLAY="${DISPLAY}" /usr/bin/google-chrome --no-sandbox --disable-accelerated-2d-canvas --disable-gpu --disable-smooth-scrolling --start-maximized &>/dev/null &
     PID_CHROME=$!
 
     # cleanup function
+    # shellcheck disable=SC2329
     cleanup() {
         prettyLog "INFO" "Caught signal, cleaning up"
-        kill -9 $PID_XVFB $PID_X11VNC $PID_OPENBOX $PID_CHROME 2>/dev/null || true
+        kill -9 "${PID_XVFB}" "${PID_X11VNC}" "${PID_OPENBOX}" "${PID_CHROME}" 2>/dev/null || true
         prettyLog "INFO" "All processes terminated"
         exit 0
     }
@@ -85,7 +86,7 @@ function start() {
     # trap ctrl+c and termination signals
     trap cleanup SIGINT SIGTERM
 
-    prettyLog "INFO" "Headless Chrome VNC session is running on port $RFBPORT"
+    prettyLog "INFO" "Headless Chrome VNC session is running on port ${RFBPORT}"
     prettyLog "INFO" "Press Ctrl+C to stop"
 
     # wait indefinitely
@@ -114,7 +115,7 @@ while [[ $# -gt 0 ]]; do
         exit
         ;;
     *)
-        prettyLog "FATAL" "Invalid option \"$1\". Use --help for more information"
+        prettyLog "FATAL" "Invalid option \"${1}\". Use --help for more information"
         exit 1
         ;;
     esac
