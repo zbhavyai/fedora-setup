@@ -37,7 +37,7 @@ jobs:
           globalStatus=0
 
           for f in $(find . -name "*.sh"); do
-            shellcheck -e SC2034 "$f"
+            shellcheck -e SC2034 -- "$f"
             currentStatus=$?
             echo "Status=${currentStatus} for file $f"
 
