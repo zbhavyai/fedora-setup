@@ -6,8 +6,11 @@
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 
-export VAULT_ADDR="http://127.0.0.1:8200"
-export VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
+VAULT_ADDR="http://127.0.0.1:8200"
+VAULT_TOKEN_FILE="/usr/share/userful-vault/vault_root_token.txt"
+VAULT_TOKEN="$(<"$VAULT_TOKEN_FILE")"
+export VAULT_ADDR
+export VAULT_TOKEN
 
 # help function
 # -------------------------------------------------------------------------------------
@@ -47,7 +50,7 @@ function prettyLog() {
 # -------------------------------------------------------------------------------------
 function printSeparator() {
     terminal_width=$(tput cols)
-    printf "%.0s-" $(seq 1 ${terminal_width})
+    printf "%.0s-" $(seq 1 "${terminal_width}")
     printf "\n"
 }
 
@@ -59,8 +62,9 @@ function listSecrets() {
         printSeparator "-"
         atleastOneSecret=1
 
-        printf "Secret: $key\n"
-        printf "Value : $(vault kv get --format=json "secret/$key" | jq -c .data.data)\n"
+        printf "Secret: %s\n" "${key}"
+        value="$(vault kv get --format=json "secret/${key}" | jq -c '.data.data')"
+        printf "Value : %s\n" "${value}"
     done
 
     if [ $atleastOneSecret -eq 0 ]; then
@@ -75,19 +79,19 @@ function listSecrets() {
 function deleteSecrets() {
     SECRET_LIST=$(curl --silent --show-error --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST --location "${VAULT_ADDR}/v1/secret/metadata")
 
-    if [[ $? -ne 0 ]]; then
-        prettyLog "ERROR" "Failed to delete secrets from vault"
-        return
+    if ! echo "${SECRET_LIST}" >/dev/null; then
+        prettyLog "ERROR" "Failed to fetch secrets from vault"
+        return 1
     fi
 
-    PARSED_SECRET_LIST=$(echo $SECRET_LIST | jq -r .data.keys[] 2>/dev/null)
+    PARSED_SECRET_LIST=$(echo "${SECRET_LIST}" | jq -r .data.keys[] 2>/dev/null)
 
-    if [[ $? -ne 0 ]]; then
+    if [ -z "${PARSED_SECRET_LIST}" ]; then
         prettyLog "INFO" "Didn't find any secrets to delete"
-        return
+        return 0
     fi
 
-    for key in $(echo "${PARSED_SECRET_LIST}"); do
+    for key in ${PARSED_SECRET_LIST}; do
         curl --silent --show-error --fail --header "X-Vault-Token: ${VAULT_TOKEN}" --request DELETE --location "${VAULT_ADDR}/v1/secret/metadata/${key}"
     done
 
