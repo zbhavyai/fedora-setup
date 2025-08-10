@@ -29,7 +29,7 @@ function Help() {
     echo "    -p PORT   forward a port supplied from the command line"
     echo "    -h        show this help message"
     echo
-    echo "List of ports being temporarily forward in the firewall by this script: ${portsToForward[@]}"
+    echo "List of ports being temporarily forward in the firewall by this script: ${portsToForward[*]}"
     echo
     echo
     echo "Examples:"
