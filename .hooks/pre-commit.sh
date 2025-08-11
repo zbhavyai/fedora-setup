@@ -19,9 +19,10 @@ lint_checks() {
 
     (ansible-lint -q) || block "[ERROR] Ansible lint failed."
 
-    for file in $(find playbooks -name "*.yaml"); do
-        ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] Ansible lint failed."
-    done
+    find playbooks -name "*.yaml" -print0 |
+        while IFS= read -r -d '' file; do
+            ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] Ansible lint failed."
+        done
 }
 
 shell_checks() {
