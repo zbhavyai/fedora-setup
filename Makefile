@@ -10,7 +10,7 @@ REQUIREMENTS_FILE := requirements.txt
 
 .PHONY: init
 init: .deps-ok $(REQUIREMENTS_FILE)
-	@ln -sf $(CURDIR)/.hooks/pre-commit .git/hooks/pre-commit
+	@ln -sf $(CURDIR)/.hooks/pre-commit.sh .git/hooks/pre-commit
 	@if [ ! -d "$(VENV_DIR)" ]; then \
 		python3 -m venv $(VENV_DIR); \
 	fi
