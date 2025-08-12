@@ -2,12 +2,16 @@
 
 _Automated set up of Fedora Workstation and Fedora Server using Ansible_
 
-![Workstation](https://img.shields.io/badge/Supported_Workstation-42-blue)
+![Workstation](https://img.shields.io/badge/Workstation-42-blue)
 [![Ansible Lint](https://img.shields.io/github/actions/workflow/status/zbhavyai/fedora-setup/ansible-lint.yaml?label=Ansible%20Lint)](https://github.com/zbhavyai/fedora-setup/actions/workflows/ansible-lint.yaml)
 [![Shellcheck Lint](https://img.shields.io/github/actions/workflow/status/zbhavyai/fedora-setup/shell-lint.yaml?label=Shellcheck%20Lint)](https://github.com/zbhavyai/fedora-setup/actions/workflows/shell-lint.yaml)
 [![License](https://img.shields.io/github/license/zbhavyai/fedora-setup?label=License)](https://github.com/zbhavyai/fedora-setup/blob/main/LICENSE)
 
-The goal is to automate as much as possible to a reasonable extent. This means that there will be manual intervention involved, such as some application configuration after installation.
+The goal of this repository is to:
+
+-  keep all dotfiles and configurations in version control
+-  ensure system settings are reproducible across machines
+-  automate setup to the highest reasonable extent with minimal manual intervention
 
 ## What does it cover
 
@@ -44,7 +48,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
    source .venv/PY-ANSIBLE/bin/activate
    ```
 
-1. To setup, lets say, dev tools, run:
+1. To setup, lets say, **dev tools**, run below. This would install JDK, Maven, Node.js, Postman, and IDEs - VS Code, IntelliJ IDEA, and WebStorm - with their extensions/plugins installed and settings configured.
 
    ```shell
    make dev
@@ -65,7 +69,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
    ansible-playbook playbooks/cleanup.yaml --check
    ```
 
--  Another way to check the [playbooks](playbooks), [roles](roles), and [group vars](group_vars) manually, which I find more reliable :smile:
+-  Another way is to check the [playbooks](playbooks), [roles](roles), and [group vars](group_vars) manually, which I find more reliable :smile:
 
 #### Saving your current system settings to the configurations in this repository:
 
