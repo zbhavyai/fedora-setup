@@ -1,8 +1,5 @@
 ---
 dnf_packages_cleanup:
-  # applications
-  - firefox
-
   # tools
   - gnome-boxes
   - gnome-maps

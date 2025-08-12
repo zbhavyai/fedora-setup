@@ -7,5 +7,5 @@
     # - google_chrome
     - google_chrome_flatpak
     # - konsole
-    - microsoft_edge_flatpak
+    # - microsoft_edge_flatpak
     - virtualbox
