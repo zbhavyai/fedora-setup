@@ -3,6 +3,8 @@ vscode_extensions:
   DEFAULT:
     - editorconfig.editorconfig
     - esbenp.prettier-vscode
+    - github.copilot
+    - github.copilot-chat
     - mkhl.shfmt
     - ms-vscode-remote.remote-ssh
     - ms-vscode-remote.remote-ssh-edit
@@ -25,7 +27,6 @@ vscode_extensions:
     - redhat.vscode-xml
     - redhat.vscode-yaml
     - renesaarsoo.sql-formatter-vsc
-    - sonarsource.sonarlint-vscode
     - visualstudioexptteam.intellicode-api-usage-examples
     - visualstudioexptteam.vscodeintellicode
     - vscjava.vscode-java-debug
@@ -43,7 +44,6 @@ vscode_extensions:
     - pkief.material-icon-theme
     - redhat.vscode-xml
     - redhat.vscode-yaml
-    - sonarsource.sonarlint-vscode
     - visualstudioexptteam.intellicode-api-usage-examples
     - visualstudioexptteam.vscodeintellicode
   PYTHON:
@@ -62,6 +62,5 @@ vscode_extensions:
     - redhat.ansible
     - redhat.vscode-xml
     - redhat.vscode-yaml
-    - sonarsource.sonarlint-vscode
     - visualstudioexptteam.intellicode-api-usage-examples
     - visualstudioexptteam.vscodeintellicode
