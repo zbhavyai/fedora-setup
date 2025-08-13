@@ -12,7 +12,7 @@
   ansible.builtin.command: >
     flatpak override --user \
       --filesystem=~/.local/share/applications \
-      --filesystem=~/.local/share/icons
+      --filesystem=~/.local/share/icons \
       org.chromium.Chromium
   changed_when: true
 
@@ -21,6 +21,17 @@
     flatpak override --user \
       --filesystem=home \
       org.chromium.Chromium
+  changed_when: true
+
+- name: Grant access to dbus
+  ansible.builtin.command: >
+    flatpak override --user --socket=session-bus org.chromium.Chromium
+    flatpak override --user --socket=system-bus org.chromium.Chromium
+  changed_when: true
+
+- name: Inherit Wayland socket
+  ansible.builtin.command: >
+    flatpak override --user --socket=inherit-wayland-socket com.google.Chrome
   changed_when: true
 
 - name: Enable Google APIs for Chromium Flatpak

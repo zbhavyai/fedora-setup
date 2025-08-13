@@ -22,3 +22,14 @@
       --filesystem=home \
       com.microsoft.Edge
   changed_when: true
+
+- name: Grant access to dbus
+  ansible.builtin.command: >
+    flatpak override --user --socket=session-bus com.microsoft.Edge
+    flatpak override --user --socket=system-bus com.microsoft.Edge
+  changed_when: true
+
+- name: Inherit Wayland socket
+  ansible.builtin.command: >
+    flatpak override --user --socket=inherit-wayland-socket com.microsoft.Edge
+  changed_when: true

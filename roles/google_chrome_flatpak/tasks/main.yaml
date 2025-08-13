@@ -12,7 +12,7 @@
   ansible.builtin.command: >
     flatpak override --user \
       --filesystem=~/.local/share/applications \
-      --filesystem=~/.local/share/icons
+      --filesystem=~/.local/share/icons \
       com.google.Chrome
   changed_when: true
 
@@ -23,12 +23,13 @@
       com.google.Chrome
   changed_when: true
 
-# - name: Grant access to session dbus
-#   ansible.builtin.command: >
-#     flatpak override --user --talk-name=org.freedesktop.DBus com.google.Chrome
-#   changed_when: true
+- name: Grant access to dbus
+  ansible.builtin.command: >
+    flatpak override --user --socket=session-bus com.google.Chrome
+    flatpak override --user --socket=system-bus com.google.Chrome
+  changed_when: true
 
-# - name: Grant access to system dbus
-#   ansible.builtin.command: >
-#     flatpak override --user --system-talk-name=org.freedesktop.DBus com.google.Chrome
-#   changed_when: true
+- name: Inherit Wayland socket
+  ansible.builtin.command: >
+    flatpak override --user --socket=inherit-wayland-socket com.google.Chrome
+  changed_when: true
