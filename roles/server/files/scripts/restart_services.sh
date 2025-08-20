@@ -74,8 +74,8 @@ function startServices() {
 # trim the logs
 # -------------------------------------------------------------------------------------
 function removeLogFiles() {
-    rm -f $1.* $1-*
-    cat /dev/null >$1
+    rm -f "$1".* "$1"-*
+    cat /dev/null >"$1"
 }
 
 function removeXorgLogFiles() {
@@ -111,6 +111,9 @@ function trimLogs() {
     removeLogFiles /var/log/userful/web-service-access.log
     removeLogFiles /var/log/userful/web-service-error.log
 
+    # grafana logs
+    removeLogFiles /var/log/grafana/grafana.log
+
     # xorg logs
     removeXorgLogFiles /var/log/Xorg*log
 }
@@ -121,13 +124,13 @@ function removeAllLogs() {
     LOG_DIRECTORY="/var/log/userful/"
 
     # remove all logs
-    find ${LOG_DIRECTORY} -type f -name "*.log*" -exec rm -f {} \;
+    find "${LOG_DIRECTORY}" -type f -name "*.log*" -exec rm -f {} \;
 
     # remove all empty directories
-    find ${LOG_DIRECTORY} -mindepth 1 -empty -type d -delete
+    find "${LOG_DIRECTORY}" -mindepth 1 -empty -type d -delete
 
     # remove all broken links
-    find -L ${LOG_DIRECTORY} -maxdepth 1 -type l -delete
+    find -L "${LOG_DIRECTORY}" -maxdepth 1 -type l -delete
 }
 
 # clean the database
@@ -137,7 +140,6 @@ function cleanDB() {
         prettyLog "INFO" "Cleaning the database"
         PGPASSWORD=userful psql -U userful -d userful -c "DROP SCHEMA chronos CASCADE" &>/dev/null
         PGPASSWORD=userful psql -h localhost -U userful -d userful -c "SELECT lo_unlink(oid) FROM pg_largeobject_metadata" &>/dev/null
-
     else
         prettyLog "WARN" "Preserving the database"
     fi
@@ -150,26 +152,22 @@ function cleanVault() {
         prettyLog "INFO" "Cleaning the vault"
 
         export VAULT_ADDR="http://127.0.0.1:8200"
-        export VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
+        VAULT_TOKEN=$(cat /usr/share/userful-vault/vault_root_token.txt)
+        export VAULT_TOKEN
 
-        SECRET_LIST=$(curl --silent --show-error --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST --location "${VAULT_ADDR}/v1/secret/metadata")
-
-        if [[ $? -ne 0 ]]; then
+        if ! SECRET_LIST=$(curl --silent --show-error --header "X-Vault-Token: ${VAULT_TOKEN}" --request LIST --location "${VAULT_ADDR}/v1/secret/metadata"); then
             prettyLog "ERROR" "Failed to clean vault"
             return
         fi
 
-        PARSED_SECRET_LIST=$(echo $SECRET_LIST | jq -r .data.keys[] 2>/dev/null)
-
-        if [[ $? -ne 0 ]]; then
+        if ! PARSED_SECRET_LIST=$(echo "$SECRET_LIST" | jq -r .data.keys[] 2>/dev/null); then
             # no secrets to clean
             return
         fi
 
-        for key in $(echo "${PARSED_SECRET_LIST}"); do
+        for key in $PARSED_SECRET_LIST; do
             curl --silent --show-error --fail --header "X-Vault-Token: ${VAULT_TOKEN}" --request DELETE --location "${VAULT_ADDR}/v1/secret/metadata/${key}"
         done
-
     else
         prettyLog "WARN" "Preserving the vault"
     fi
