@@ -16,8 +16,8 @@ Host localhost
  Port 22
  IdentityFile ~/.ssh/githubLogin
 
-Host testnet2
-  HostName testnet2
+Host yankee
+  HostName yankee.userful.ca
   IdentitiesOnly yes
   User root
   Port 22
@@ -30,11 +30,6 @@ Host jenkins
   User root
   IdentityFile ~/.ssh/workMachineAccess
   ForwardAgent no
-
-Host home
-  HostName home
-  User bhavyai.gupta
-  ForwardAgent yes
 
 Host test*
   IdentitiesOnly yes
