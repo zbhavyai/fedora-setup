@@ -108,13 +108,14 @@ function dumpPostgresSchema() {
     local PASS="userful"
     local DB="userful"
 
+    local args=(-h "$HOST" -U "$USER" -f "$filename")
     if [[ "$with_data" == "no" ]]; then
-        PGPASSWORD="$PASS" pg_dump -h "$HOST" -U "$USER" -s "$DB" -f "$filename"
+        args+=(-s "$DB")
     else
-        PGPASSWORD="$PASS" pg_dump -h "$HOST" -U "$USER" -d "$DB" -n chronos -f "$filename"
+        args+=(-d "$DB" -n chronos)
     fi
 
-    if [[ $? -eq 0 ]]; then
+    if PGPASSWORD="$PASS" pg_dump "${args[@]}"; then
         prettyLog "INFO" "Dump successful: $filename"
     else
         prettyLog "ERROR" "Failed to dump database"
