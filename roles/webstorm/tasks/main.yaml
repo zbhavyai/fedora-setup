@@ -1,7 +1,7 @@
 ---
 - name: Download WebStorm
   ansible.builtin.get_url:
-    url: https://download-cdn.jetbrains.com/webstorm/WebStorm-2025.1.2.tar.gz
+    url: https://download-cdn.jetbrains.com/webstorm/WebStorm-2025.2.1.tar.gz
     dest: "{{ ansible_env.HOME }}/webstorm.tar.gz"
     mode: "0644"
 
@@ -16,6 +16,12 @@
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/webstorm.tar.gz"
     state: absent
+
+- name: Remove existing WebStorm installation
+  ansible.builtin.file:
+    path: /opt/webstorm
+    state: absent
+  become: true
 
 - name: Rename extracted WebStorm directory
   ansible.builtin.shell: mv {{ ansible_env.HOME }}/WebStorm-* /opt/webstorm

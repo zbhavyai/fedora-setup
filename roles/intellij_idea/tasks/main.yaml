@@ -1,7 +1,7 @@
 ---
 - name: Download IntelliJ IDEA
   ansible.builtin.get_url:
-    url: https://download-cdn.jetbrains.com/idea/ideaIC-2025.1.1.1.tar.gz
+    url: https://download-cdn.jetbrains.com/idea/ideaIC-2025.2.1.tar.gz
     dest: "{{ ansible_env.HOME }}/intellij-idea.tar.gz"
     mode: "0644"
 
@@ -17,7 +17,13 @@
     path: "{{ ansible_env.HOME }}/intellij-idea.tar.gz"
     state: absent
 
-- name: Rename extracted IntelliJ IDEA directory
+- name: Remove existing IntelliJ IDEA installation
+  ansible.builtin.file:
+    path: /opt/intellij-idea
+    state: absent
+  become: true
+
+- name: Move extracted IntelliJ IDEA directory to /opt
   ansible.builtin.shell: mv {{ ansible_env.HOME }}/idea-IC-* /opt/intellij-idea
   args:
     removes: "{{ ansible_env.HOME }}/idea-IC-*"
