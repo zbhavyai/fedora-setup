@@ -13,4 +13,4 @@ dnf_packages_dev:
 
 flatpak_packages_dev:
   - com.getpostman.Postman
-  # - org.pgadmin.pgadmin4
+  - org.pgadmin.pgadmin4
