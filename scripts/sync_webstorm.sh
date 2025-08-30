@@ -19,7 +19,6 @@ get_settings() {
         --include 'options/' \
         --include 'options/linux/' \
         --include 'options/linux/keymap.xml' \
-        --include 'options/baseRefactoring.xml' \
         --include 'options/colors.scheme.xml' \
         --include 'options/console-font.xml' \
         --include 'options/editor-font.xml' \
@@ -27,7 +26,6 @@ get_settings() {
         --include 'options/github-copilot.xml' \
         --include 'options/keymapFlags.xml' \
         --include 'options/parameter.hints.xml' \
-        --include 'options/projectView.xml' \
         --include 'options/terminal-font.xml' \
         --include 'options/terminal.xml' \
         --include 'options/ui.lnf.xml' \
