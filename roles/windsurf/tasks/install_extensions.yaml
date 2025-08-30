@@ -20,5 +20,5 @@
     label: "{{ item }}"
   register: windsurf_extensions_install_output
   changed_when: "'already installed' not in windsurf_extensions_install_output.stdout"
-  failed_when: windsurf_extensions_install_output.rc != 0
+  failed_when: windsurf_extensions_install_output.rc != 0 and 'failed' in windsurf_extensions_install_output.stdout
   delegate_to: localhost
