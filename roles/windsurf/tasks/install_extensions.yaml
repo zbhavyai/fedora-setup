@@ -1,0 +1,24 @@
+---
+- name: Create Windsurf profile "{{ profile }}"
+  ansible.builtin.shell: |
+    windsurf --profile "{{ profile }}" --new-window &
+    sleep 5
+    pkill -f "windsurf --profile"
+  args:
+    executable: /bin/bash
+  when: profile != 'DEFAULT'
+  changed_when: false
+  delegate_to: localhost
+
+- name: Install extensions for profile "{{ profile }}"
+  ansible.builtin.shell: |
+    windsurf --install-extension {{ item }}{% if profile != 'DEFAULT' %} --profile {{ profile }}{% endif %}
+  args:
+    executable: /bin/bash
+  loop: "{{ vscode_extensions[profile] }}"
+  loop_control:
+    label: "{{ item }}"
+  register: windsurf_extensions_install_output
+  changed_when: "'already installed' not in windsurf_extensions_install_output.stdout"
+  failed_when: windsurf_extensions_install_output.rc != 0
+  delegate_to: localhost
