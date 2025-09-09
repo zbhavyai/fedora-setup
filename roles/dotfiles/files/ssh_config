@@ -27,7 +27,7 @@ Host yankee
 Host threadripper
   HostName 192.168.127.145
   IdentitiesOnly yes
-  User admin
+  User clove
   Port 22
   IdentityFile ~/.ssh/workMachineAccess
   ForwardAgent yes
