@@ -1,5 +1,11 @@
 <application>
-  <component name="ReworkedTerminalUsage"><![CDATA[{}]]></component>
+  <component name="BlockTerminalOptions">
+    <option name="showSeparatorsBetweenBlocks" value="false" />
+  </component>
+  <component name="ReworkedTerminalUsage"><![CDATA[{
+  "feedbackNotificationShown": true,
+  "enterKeyPressedTimes": 189
+}]]></component>
   <component name="TerminalOptionsProvider">
     <option name="mySoundBell" value="false" />
   </component>
