@@ -19,6 +19,9 @@
       </set>
     </option>
   </component>
+  <component name="DaemonCodeAnalyzerSettings">
+    <option name="AUTOREPARSE_DELAY" value="0" />
+  </component>
   <component name="DeclarativeInlayHintsSettings">
     <option name="enabledOptions">
       <map>
@@ -26,10 +29,14 @@
         <entry key="java.annotation.hints#showInferred" value="false" />
         <entry key="kotlin.lambdas.hints#hints.lambda.receivers.parameters" value="false" />
         <entry key="kotlin.lambdas.hints#hints.lambda.return" value="false" />
+        <entry key="kotlin.parameters.hints#hints.parameters.compiled" value="true" />
+        <entry key="kotlin.parameters.hints#hints.parameters.excluded" value="false" />
         <entry key="kotlin.references.types.hints#hints.type.function.parameter" value="false" />
         <entry key="kotlin.references.types.hints#hints.type.function.return" value="false" />
         <entry key="kotlin.references.types.hints#hints.type.property" value="false" />
         <entry key="kotlin.references.types.hints#hints.type.variable" value="false" />
+        <entry key="kotlin.values.hints#hints.value.kotlin.time" value="true" />
+        <entry key="kotlin.values.hints#hints.value.ranges" value="true" />
       </map>
     </option>
     <option name="providerIdToEnabled">
@@ -38,9 +45,9 @@
         <entry key="groovy.lambda.parameter.inlay.provider" value="false" />
         <entry key="groovy.local.variable.implicit.types" value="true" />
         <entry key="java.annotation.hints" value="true" />
-        <entry key="java.implicit.lambdaParameter" value="false" />
+        <entry key="java.implicit.lambdaParameter" value="true" />
         <entry key="java.implicit.types" value="false" />
-        <entry key="java.method.chains" value="false" />
+        <entry key="java.method.chains" value="true" />
         <entry key="kotlin.compiler.plugins.modality" value="true" />
         <entry key="kotlin.compiler.plugins.supertypes" value="true" />
         <entry key="kotlin.lambdas.hints" value="false" />
