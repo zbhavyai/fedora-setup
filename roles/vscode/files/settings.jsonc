@@ -72,6 +72,7 @@
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.saveActions.organizeImports": true,
   "quarkus.tools.alwaysShowWelcomePage": false,
+  "quarkus.tools.debug.terminateProcessOnExit": "Ask",
   "redhat.telemetry.enabled": false,
   // JAVASCRIPT ---------------------------------------------------------------
   "javascript.updateImportsOnFileMove.enabled": "always",
