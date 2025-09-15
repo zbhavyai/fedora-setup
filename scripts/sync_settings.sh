@@ -8,7 +8,7 @@ CONFIG_FAVORITES="${SCRIPT_DIR}/../roles/settings/files/favorites.conf"
 CONFIG_MUTTER="${SCRIPT_DIR}/../roles/settings/files/mutter.conf"
 CONFIG_INTERFACE="${SCRIPT_DIR}/../roles/settings/files/tweaks.conf"
 
-get_config() {
+function get_config() {
     dconf dump /org/gnome/desktop/app-folders/ >"${CONFIG_APP_FOLDERS}"
     dconf dump /org/gnome/mutter/ >"${CONFIG_MUTTER}"
     dconf dump /org/gnome/desktop/interface/ >"${CONFIG_INTERFACE}"
@@ -16,7 +16,7 @@ get_config() {
     dconf read /org/gnome/shell/favorite-apps >"${CONFIG_FAVORITES}"
 }
 
-main() {
+function main() {
     get_config
 }
 

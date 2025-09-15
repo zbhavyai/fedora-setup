@@ -69,7 +69,7 @@ function isUserfulGrafana() {
 
 # replace whitelabeled Grafana installation with Grafana OSS
 # -------------------------------------------------------------------------------------
-replaceWithVanilla() {
+function replaceWithVanilla() {
     if ! isGrafanaInstalled; then
         prettyLog "INFO" "No Grafana installed. Proceeding with vanilla Grafana installation"
     elif ! isUserfulGrafana; then
@@ -101,7 +101,7 @@ replaceWithVanilla() {
 
 # restore whitelabeled Grafana installation
 # -------------------------------------------------------------------------------------
-restoreUserfulGrafana() {
+function restoreUserfulGrafana() {
     if isUserfulGrafana; then
         prettyLog "INFO" "Userful Grafana already installed. No action taken"
         exit 0

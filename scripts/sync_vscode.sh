@@ -9,20 +9,20 @@ DST_KEYBINDINGS_FILE="${SCRIPT_DIR}/../roles/vscode/files/keybindings.jsonc"
 EXTENSIONS_FILE="${SCRIPT_DIR}/../roles/vscode/vars/extensions.yaml"
 PROFILES=("DEFAULT" "JAVA" "JAVASCRIPT" "PYTHON")
 
-sync_settings() {
+function sync_settings() {
     cp "${SRC_SETTINGS_FILE}" "${DST_SETTINGS_FILE}"
 }
 
-sync_keybindings() {
+function sync_keybindings() {
     cp "${SRC_KEYBINDINGS_FILE}" "${DST_KEYBINDINGS_FILE}"
 }
 
-create_extension_yaml_header() {
+function create_extension_yaml_header() {
     echo "---" >"${EXTENSIONS_FILE}"
     echo "vscode_extensions:" >>"${EXTENSIONS_FILE}"
 }
 
-list_installed_extensions() {
+function list_installed_extensions() {
     for PROFILE in "${PROFILES[@]}"; do
         if [[ "$PROFILE" == "DEFAULT" ]]; then
             EXTNS=$(code --list-extensions || true)
@@ -39,7 +39,7 @@ list_installed_extensions() {
     done
 }
 
-main() {
+function main() {
     sync_settings
     sync_keybindings
     create_extension_yaml_header

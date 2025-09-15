@@ -4,12 +4,12 @@ set -euo pipefail
 SCRIPT_DIR="$(dirname "$0")"
 CONFIG_PREF="${SCRIPT_DIR}/../roles/ptyxis/files/preferences.conf"
 
-get_config() {
+function get_config() {
     dconf dump /org/gnome/Ptyxis/ >"${CONFIG_PREF}"
     sed -i '/window-size=(/d' "${CONFIG_PREF}"
 }
 
-main() {
+function main() {
     get_config
 }
 

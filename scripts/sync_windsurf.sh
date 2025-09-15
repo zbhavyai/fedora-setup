@@ -5,11 +5,11 @@ SCRIPT_DIR="$(dirname "$0")"
 SRC_KEYBINDINGS_FILE="${HOME}/.config/Windsurf/User/keybindings.json"
 DST_KEYBINDINGS_FILE="${SCRIPT_DIR}/../roles/windsurf/files/keybindings.jsonc"
 
-sync_keybindings() {
+function sync_keybindings() {
     cp "${SRC_KEYBINDINGS_FILE}" "${DST_KEYBINDINGS_FILE}"
 }
 
-main() {
+function main() {
     sync_keybindings
 }
 

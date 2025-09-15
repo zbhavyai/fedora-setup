@@ -8,7 +8,7 @@ SCRIPT_DIR="$(dirname "$0")"
 DST_VM_OPTIONS="${SCRIPT_DIR}/../roles/pycharm/files/pycharm64.vmoptions"
 DST_CONFIG_DIR="${SCRIPT_DIR}/../roles/pycharm/files/config"
 
-get_settings() {
+function get_settings() {
     cp "${SRC_VM_OPTIONS}" "${DST_VM_OPTIONS}"
 
     rm -rf "${DST_CONFIG_DIR}"
@@ -38,7 +38,7 @@ get_settings() {
         "${SRC_CONFIG_DIR}/" "${DST_CONFIG_DIR}/"
 }
 
-main() {
+function main() {
     get_settings
 }
 
