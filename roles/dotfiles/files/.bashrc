@@ -149,17 +149,6 @@ function whatProvides() {
 export -f whatProvides
 
 # #############################################################################
-# extractRPM
-# #############################################################################
-function extractRPM() {
-    local rpmFile="$1"
-    rpm2archive "$rpmFile"
-    local base=$(basename "$rpmFile" .rpm)
-    mv "$rpmFile.tgz" "$base.tar.gz"
-}
-export -f extractRPM
-
-# #############################################################################
 # path
 # #############################################################################
 function addToPath() {
@@ -211,61 +200,12 @@ if command -v -- flatpak &>/dev/null && [ -n "$(flatpak list --app --columns=app
 fi
 
 # #############################################################################
-# clean journalctl logs
-# #############################################################################
-function cleanJournalLogs() {
-    sudo journalctl --rotate
-    sudo journalctl --vacuum-time=1s
-}
-export -f cleanJournalLogs
-
-# #############################################################################
-# control monitor brightness
-# #############################################################################
-function brightness() {
-    if ! [[ "$1" =~ ^[0-9]+$ ]] || [ "$1" -lt 0 ] || [ "$1" -gt 100 ]; then
-        echo "Brightness should be an integer between 0 and 100."
-        echo "Failed to set brightness."
-        return 1
-    fi
-
-    sudo ddcutil setvcp 10 "$1" 2>/dev/null || {
-        echo "Failed to set brightness."
-        return 1
-    }
-}
-export -f brightness
-
-# #############################################################################
-# download current Bing wallpaper
-# #############################################################################
-function downloadBingWallpaper() {
-    local URL_BASE
-    local IMAGE_NAME
-    URL_BASE=$(curl -sSf "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US" | jq -r '.images[0].urlbase')
-    IMAGE_NAME=$(echo "${URL_BASE}" | grep -oP 'OHR\.\K[^_]+')
-    curl -sSf -o "${IMAGE_NAME}.webp" -H "Accept: image/webp,image/*;q=0.8" "https://www.bing.com${URL_BASE}_1920x1080.webp"
-}
-export -f downloadBingWallpaper
-
-# #############################################################################
 # better tree
 # #############################################################################
 function tre() {
     tree -aC -I '.git|node_modules|__pycache__' --dirsfirst "$@"
 }
 export -f tre
-
-# #############################################################################
-# miscellaneous
-# #############################################################################
-function fixJetbrainsMarkdownPreview() {
-    # source - https://stackoverflow.com/a/79662857/16018083
-    rm -f ${HOME}/.config/jetbrains/intellij-idea/system/jcef_cache/Singleton*
-    rm -f ${HOME}/.config/jetbrains/pycharm/system/jcef_cache/Singleton*
-    rm -f ${HOME}/.config/jetbrains/webstorm/system/jcef_cache/Singleton*
-}
-export -f fixJetbrainsMarkdownPreview
 
 # #############################################################################
 # source server specific bashrc
