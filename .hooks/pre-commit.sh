@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
 
-block() {
+function block() {
     echo -e "\n\n"
     echo "$@"
     echo "[ERROR] Commit blocked."
     exit 1
 }
 
-lint_checks() {
+function lint_checks() {
     local staged
     staged=$(git diff --name-only --cached --exit-code -- '*.y*ml')
     ret=$?
@@ -25,7 +24,7 @@ lint_checks() {
         done
 }
 
-shell_checks() {
+function shell_checks() {
     mapfile -d '' -t staged_sh < <(git diff --cached --name-only -z --diff-filter=ACMR -- '*.sh' || true)
 
     if ((${#staged_sh[@]} == 0)); then
