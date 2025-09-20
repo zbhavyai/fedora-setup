@@ -8,6 +8,8 @@ function block() {
     exit 1
 }
 
+CHECKS="ansible_lint shell_lint"
+
 function ansible_lint() {
     local staged
     staged=$(git diff --name-only --cached --exit-code -- '*.y*ml')
@@ -46,5 +48,6 @@ function shell_lint() {
     done
 }
 
-(ansible_lint) || exit $?
-(shell_lint) || exit $?
+for CHECK in $CHECKS; do
+    ($CHECK) || exit $?
+done
