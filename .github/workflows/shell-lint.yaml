@@ -30,20 +30,30 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install shellcheck-py
+          pip install shfmt-py shellcheck-py
 
-      - name: Run shellcheck
+      - name: Run shell format
         run: |
           globalStatus=0
 
-          for f in $(find . -name "*.sh"); do
-            shellcheck -e SC2034 -- "$f"
-            currentStatus=$?
-            echo "Status=${currentStatus} for file $f"
-
-            if [ $currentStatus -ne 0 ]; then
-              globalStatus=$currentStatus
+          while IFS= read -r -d '' f; do
+            if ! shfmt -d -i 4 -- "$f"; then
+              echo "[ERROR] shfmt failed for $f"
+              globalStatus=1
             fi
-          done
+          done < <(find src -type f -name '*.sh' -print0)
+
+          exit $globalStatus
+
+      - name: Run shell check
+        run: |
+          globalStatus=0
+
+          while IFS= read -r -d '' f; do
+            if ! shellcheck -x -e SC2034 -- "$f"; then
+              echo "[ERROR] shellcheck failed for $f"
+              globalStatus=1
+            fi
+          done < <(find src -type f -name '*.sh' -print0)
 
           exit $globalStatus

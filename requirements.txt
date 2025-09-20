@@ -26,6 +26,7 @@ rpds-py==0.26.0
 ruamel.yaml==0.18.14
 ruamel.yaml.clib==0.2.12
 shellcheck_py==0.11.0.1
+shfmt_py==3.12.0.2
 subprocess-tee==0.4.2
 wcmatch==10.1
 yamllint==1.37.1

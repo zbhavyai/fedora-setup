@@ -8,7 +8,7 @@ function block() {
     exit 1
 }
 
-function lint_checks() {
+function ansible_lint() {
     local staged
     staged=$(git diff --name-only --cached --exit-code -- '*.y*ml')
     ret=$?
@@ -24,7 +24,7 @@ function lint_checks() {
         done
 }
 
-function shell_checks() {
+function shell_lint() {
     mapfile -d '' -t staged_sh < <(git diff --cached --name-only -z --diff-filter=ACMR -- '*.sh' || true)
 
     if ((${#staged_sh[@]} == 0)); then
@@ -36,9 +36,15 @@ function shell_checks() {
             continue
         fi
 
-        shellcheck -e SC2034 -- "$f" || block "[ERROR] ShellCheck failed for $f"
+        if ! shfmt -d -i 4 -- "$f"; then
+            block "[ERROR] shfmt check failed for $f"
+        fi
+
+        if ! shellcheck -e SC2034 -- "$f"; then
+            block "[ERROR] shellcheck failed for $f"
+        fi
     done
 }
 
-(lint_checks) || exit $?
-(shell_checks) || exit $?
+(ansible_lint) || exit $?
+(shell_lint) || exit $?
