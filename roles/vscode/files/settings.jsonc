@@ -54,7 +54,7 @@
   "github.copilot.enable": { "*": true, "plaintext": false },
   "github.copilot.nextEditSuggestions.enabled": true,
   "chat.agent.enabled": true,
-  "chat.mcp.enabled": true,
+  "chat.mcp.access": "all",
   "ansible.lightspeed.enabled": false,
   "ansible.lightspeed.suggestions.enabled": false,
   // SONARLINT ----------------------------------------------------------------
@@ -104,7 +104,8 @@
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
   "[markdown]": { "editor.tabSize": 3 },
-  "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+  // "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+  "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
   // "[java]": { "editor.defaultFormatter": "redhat.java" },
   "[java]": { "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code" },
   "[sql]": { "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc" },

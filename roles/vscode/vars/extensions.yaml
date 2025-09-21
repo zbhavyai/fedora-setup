@@ -47,15 +47,14 @@ vscode_extensions:
     - visualstudioexptteam.intellicode-api-usage-examples
     - visualstudioexptteam.vscodeintellicode
   PYTHON:
+    - charliermarsh.ruff
     - editorconfig.editorconfig
     - esbenp.prettier-vscode
     - github.copilot
     - github.copilot-chat
     - mkhl.shfmt
     - ms-azuretools.vscode-containers
-    - ms-python.black-formatter
     - ms-python.debugpy
-    - ms-python.isort
     - ms-python.python
     - ms-python.vscode-pylance
     - pkief.material-icon-theme
