@@ -30,7 +30,7 @@
   "window.menuBarVisibility": "classic",
   "window.newWindowDimensions": "inherit",
   "window.newWindowProfile": "Default",
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Default Dark Modern",
   "workbench.preferredLightColorTheme": "Default Light Modern",
