@@ -44,6 +44,7 @@
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.tabs.enabled": false,
   // INTELLISENSE -------------------------------------------------------------
   "editor.inlayHints.enabled": "on",
