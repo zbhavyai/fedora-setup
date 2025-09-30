@@ -1,5 +1,4 @@
 com.android.tools.gradle.dcl
-com.intellij.gradle
 com.intellij.ja
 com.intellij.ko
 com.intellij.plugins.eclipsekeymap
