@@ -1,0 +1,7 @@
+<application>
+  <component name="UISettings">
+    <option name="MARK_MODIFIED_TABS_WITH_ASTERISK" value="true" />
+    <option name="OPEN_IN_PREVIEW_TAB_IF_POSSIBLE" value="true" />
+    <option name="smoothScrolling" value="false" />
+  </component>
+</application>

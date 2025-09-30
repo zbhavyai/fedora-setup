@@ -1,0 +1,8 @@
+com.intellij.ja
+com.intellij.ko
+com.intellij.modules.ultimate
+com.intellij.settingsSync
+com.intellij.zh
+com.jetbrains.codeWithMe
+org.jetbrains.plugins.gitlab
+training

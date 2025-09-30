@@ -1,0 +1,78 @@
+<keymap version="1" name="BG-KEYMAP" parent="Default for GNOME">
+  <action id="ActivateStudioBotToolWindow">
+    <keyboard-shortcut first-keystroke="ctrl alt i" />
+  </action>
+  <action id="ActivateTerminalToolWindow">
+    <keyboard-shortcut first-keystroke="ctrl back_quote" />
+  </action>
+  <action id="Arrangement.Rule.Edit" />
+  <action id="AutoIndentLines" />
+  <action id="BookmarksView.Rename" />
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="ctrl w" />
+  </action>
+  <action id="Diff.FocusOppositePane" />
+  <action id="EditorMoveToPageBottom" />
+  <action id="EditorMoveToPageTop" />
+  <action id="EditorSelectWord" />
+  <action id="FileChooser.TogglePathBar" />
+  <action id="Git.Branches" />
+  <action id="Git.Rename.Local.Branch">
+    <keyboard-shortcut first-keystroke="shift f6" />
+  </action>
+  <action id="Git.Reword.Commit">
+    <keyboard-shortcut first-keystroke="shift f6" />
+  </action>
+  <action id="GotoFile">
+    <keyboard-shortcut first-keystroke="ctrl p" />
+  </action>
+  <action id="GotoNextError" />
+  <action id="GotoTest" />
+  <action id="GuiDesigner.EditComponent" />
+  <action id="GuiDesigner.EditGroup" />
+  <action id="NextTab">
+    <keyboard-shortcut first-keystroke="alt right" />
+    <keyboard-shortcut first-keystroke="ctrl page_down" />
+    <keyboard-shortcut first-keystroke="ctrl tab" />
+  </action>
+  <action id="ParameterInfo" />
+  <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="alt left" />
+    <keyboard-shortcut first-keystroke="ctrl page_up" />
+    <keyboard-shortcut first-keystroke="shift ctrl tab" />
+  </action>
+  <action id="QuickChangeScheme" />
+  <action id="QuickImplementations" />
+  <action id="QuickJavaDoc">
+    <mouse-shortcut keystroke="alt button2" />
+    <keyboard-shortcut first-keystroke="shift space" />
+  </action>
+  <action id="ReformatCode">
+    <keyboard-shortcut first-keystroke="shift ctrl i" />
+  </action>
+  <action id="RenameElement">
+    <keyboard-shortcut first-keystroke="shift f6" />
+    <keyboard-shortcut first-keystroke="f2" />
+  </action>
+  <action id="ReopenClosedTab">
+    <keyboard-shortcut first-keystroke="shift ctrl t" />
+  </action>
+  <action id="ServiceView.ShowServices" />
+  <action id="SmartSelect" />
+  <action id="Switcher" />
+  <action id="Table-startEditing" />
+  <action id="Terminal.CloseTab" />
+  <action id="Terminal.NewTab">
+    <keyboard-shortcut first-keystroke="shift ctrl back_quote" />
+  </action>
+  <action id="ToggleBookmark" />
+  <action id="ToggleFullScreen">
+    <keyboard-shortcut first-keystroke="f11" />
+  </action>
+  <action id="Tree-startEditing" />
+  <action id="UsageFiltering.WriteAccess" />
+  <action id="Vcs.UpdateProject" />
+  <action id="copilot.chat.show">
+    <keyboard-shortcut first-keystroke="ctrl alt i" />
+  </action>
+</keymap>
