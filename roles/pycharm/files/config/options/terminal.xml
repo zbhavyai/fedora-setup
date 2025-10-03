@@ -7,6 +7,7 @@
   "enterKeyPressedTimes": 189
 }]]></component>
   <component name="TerminalOptionsProvider">
+    <option name="myOverrideIdeShortcuts" value="false" />
     <option name="mySoundBell" value="false" />
   </component>
 </application>
