@@ -68,7 +68,7 @@ server: .deps-ok
 # all: cleanup customization tools container java vscode media alternate
 
 .PHONY: all
-all: deps-ok
+all: .deps-ok
 	ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: sync
