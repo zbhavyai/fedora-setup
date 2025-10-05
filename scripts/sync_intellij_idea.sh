@@ -14,6 +14,8 @@ function get_settings() {
     rm -rf "${DST_CONFIG_DIR}"
     rsync -a \
         --include 'disabled_plugins.txt' \
+        --include 'codestyles/' \
+        --include 'codestyles/Default.xml' \
         --include 'keymaps/' \
         --include 'keymaps/***' \
         --include 'options/' \
