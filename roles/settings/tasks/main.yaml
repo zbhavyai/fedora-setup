@@ -51,6 +51,12 @@
     dconf load /org/gnome/desktop/interface/ < {{ role_path }}/files/tweaks.conf
   changed_when: true
 
+- name: Ensure wallpaper directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/Pictures/Wallpapers"
+    state: directory
+    mode: "0755"
+
 - name: Update background directory
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.local/share/backgrounds"
