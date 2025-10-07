@@ -19,6 +19,7 @@
   loop_control:
     label: "{{ item }}"
   register: vscode_extensions_install_output
+  ignore_errors: true
   changed_when: "'already installed' not in vscode_extensions_install_output.stdout"
   failed_when: vscode_extensions_install_output.rc != 0
   delegate_to: localhost
