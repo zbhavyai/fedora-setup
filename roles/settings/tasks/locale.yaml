@@ -1,0 +1,5 @@
+---
+- name: Update formats to Canada English
+  ansible.builtin.shell: |
+    dconf load /system/locale/ < {{ role_path }}/files/locale.conf
+  changed_when: true

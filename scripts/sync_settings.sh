@@ -15,6 +15,7 @@ CONFIG_WM="${SCRIPT_DIR}/../roles/settings/files/wm.conf"
 CONFIG_SEARCH_PROVIDERS="${SCRIPT_DIR}/../roles/settings/files/search_providers.conf"
 CONFIG_POWER_SAVING="${SCRIPT_DIR}/../roles/settings/files/power_saving.conf"
 CONFIG_SCREEN_BLANK="${SCRIPT_DIR}/../roles/settings/files/screen_blank.conf"
+CONFIG_LOCALE="${SCRIPT_DIR}/../roles/settings/files/locale.conf"
 
 function get_config() {
     dconf dump /org/gnome/desktop/app-folders/ >"${CONFIG_APP_FOLDERS}"
@@ -30,6 +31,7 @@ function get_config() {
     dconf dump /org/gnome/desktop/search-providers/ >"${CONFIG_SEARCH_PROVIDERS}"
     dconf dump /org/gnome/settings-daemon/plugins/power/ >"${CONFIG_POWER_SAVING}"
     dconf dump /org/gnome/desktop/session/ >"${CONFIG_SCREEN_BLANK}"
+    dconf dump /system/locale/ >"${CONFIG_LOCALE}"
 }
 
 function main() {

@@ -31,3 +31,6 @@
 
 - name: Update power saving settings
   ansible.builtin.include_tasks: power_saving.yaml
+
+- name: Update locale settings
+  ansible.builtin.include_tasks: locale.yaml
