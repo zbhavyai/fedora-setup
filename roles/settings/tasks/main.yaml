@@ -1,25 +1,26 @@
 ---
-- name: Ensure HandleLidSwitch is set to ignore
-  ansible.builtin.lineinfile:
-    path: /etc/systemd/logind.conf
-    regexp: "^#?HandleLidSwitch="
-    line: "HandleLidSwitch=ignore"
-    state: present
-    backrefs: true
+- name: Ensure logind drop-in directory exists
+  ansible.builtin.file:
+    path: "/etc/systemd/logind.conf.d/"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
   become: true
-  ignore_errors: true
-  register: settings_handle_lid_switch_result
 
-- name: Ensure LidSwitchIgnoreInhibited is set to yes
-  ansible.builtin.lineinfile:
-    path: /etc/systemd/logind.conf
-    regexp: "^#?LidSwitchIgnoreInhibited="
-    line: "LidSwitchIgnoreInhibited=yes"
-    state: present
-    backrefs: true
+- name: Ensure logind.conf exists with desired settings
+  ansible.builtin.copy:
+    dest: /etc/systemd/logind.conf.d/99-custom-lid.conf
+    content: |
+      [Login]
+      HandleLidSwitch=ignore
+      LidSwitchIgnoreInhibited=yes
+    owner: root
+    group: root
+    mode: "0644"
   become: true
+  register: settings_logind_conf_result
   ignore_errors: true
-  register: settings_lid_switch_ignore_inhibited_result
 
 - name: Remove existing app folders
   ansible.builtin.shell: |
