@@ -28,3 +28,6 @@
 
 - name: Update search provider settings
   ansible.builtin.include_tasks: search_providers.yaml
+
+- name: Update power saving settings
+  ansible.builtin.include_tasks: power_saving.yaml
