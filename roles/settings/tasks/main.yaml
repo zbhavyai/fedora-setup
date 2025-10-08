@@ -25,3 +25,6 @@
 
 - name: Update window manager settings
   ansible.builtin.include_tasks: wm.yaml
+
+- name: Update search provider settings
+  ansible.builtin.include_tasks: search_providers.yaml

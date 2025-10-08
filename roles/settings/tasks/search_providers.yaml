@@ -1,0 +1,5 @@
+---
+- name: Update search provider settings
+  ansible.builtin.shell: |
+    dconf load /org/gnome/desktop/search-providers/ < {{ role_path }}/files/search_providers.conf
+  changed_when: true
