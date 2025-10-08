@@ -32,6 +32,7 @@
   "window.newWindowProfile": "Default",
   "window.titleBarStyle": "custom",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.layoutControl.enabled": false,
   "workbench.preferredDarkColorTheme": "Default Dark Modern",
   "workbench.preferredLightColorTheme": "Default Light Modern",
   "workbench.tree.indent": 15,
