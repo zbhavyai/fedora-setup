@@ -1,0 +1,5 @@
+---
+- name: Update window manager settings
+  ansible.builtin.shell: |
+    dconf load /org/gnome/desktop/wm/preferences/ < {{ role_path }}/files/wm.conf
+  changed_when: true

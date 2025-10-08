@@ -22,3 +22,6 @@
 
 - name: Enable night light
   ansible.builtin.include_tasks: night_light.yaml
+
+- name: Update window manager settings
+  ansible.builtin.include_tasks: wm.yaml
