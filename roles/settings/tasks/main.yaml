@@ -19,3 +19,6 @@
 
 - name: Disable wellbeing
   ansible.builtin.include_tasks: wellbeing.yaml
+
+- name: Enable night light
+  ansible.builtin.include_tasks: night_light.yaml

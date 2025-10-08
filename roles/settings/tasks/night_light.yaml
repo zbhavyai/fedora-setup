@@ -1,0 +1,5 @@
+---
+- name: Enable night light
+  ansible.builtin.shell: |
+    dconf load /org/gnome/settings-daemon/plugins/color/ < {{ role_path }}/files/night_light.conf
+  changed_when: true

@@ -10,6 +10,7 @@ CONFIG_INTERFACE="${SCRIPT_DIR}/../roles/settings/files/desktop_interface.conf"
 CONFIG_TOUCHPAD="${SCRIPT_DIR}/../roles/settings/files/touchpad.conf"
 CONFIG_SCREEN_TIME="${SCRIPT_DIR}/../roles/settings/files/wellbeing_screen_time.conf"
 CONFIG_BREAK_REMINDERS="${SCRIPT_DIR}/../roles/settings/files/wellbeing_break_reminders.conf"
+CONFIG_NIGHT_LIGHT="${SCRIPT_DIR}/../roles/settings/files/night_light.conf"
 
 function get_config() {
     dconf dump /org/gnome/desktop/app-folders/ >"${CONFIG_APP_FOLDERS}"
@@ -20,6 +21,7 @@ function get_config() {
     dconf dump /org/gnome/desktop/peripherals/touchpad/ >"${CONFIG_TOUCHPAD}"
     dconf dump /org/gnome/desktop/screen-time-limits/ >"${CONFIG_SCREEN_TIME}"
     dconf dump /org/gnome/desktop/break-reminders/ >"${CONFIG_BREAK_REMINDERS}"
+    dconf dump /org/gnome/settings-daemon/plugins/color/ | grep -v "night-light-last-coordinates" >"${CONFIG_NIGHT_LIGHT}"
 }
 
 function main() {
