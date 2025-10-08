@@ -7,6 +7,7 @@ CONFIG_APP_PICKER="${SCRIPT_DIR}/../roles/settings/files/appPicker.conf"
 CONFIG_FAVORITES="${SCRIPT_DIR}/../roles/settings/files/favorites.conf"
 CONFIG_MUTTER="${SCRIPT_DIR}/../roles/settings/files/mutter.conf"
 CONFIG_INTERFACE="${SCRIPT_DIR}/../roles/settings/files/desktop_interface.conf"
+CONFIG_TOUCHPAD="${SCRIPT_DIR}/../roles/settings/files/touchpad.conf"
 
 function get_config() {
     dconf dump /org/gnome/desktop/app-folders/ >"${CONFIG_APP_FOLDERS}"
@@ -14,6 +15,7 @@ function get_config() {
     dconf dump /org/gnome/desktop/interface/ >"${CONFIG_INTERFACE}"
     dconf read /org/gnome/shell/app-picker-layout >"${CONFIG_APP_PICKER}"
     dconf read /org/gnome/shell/favorite-apps >"${CONFIG_FAVORITES}"
+    dconf dump /org/gnome/desktop/peripherals/touchpad/ >"${CONFIG_TOUCHPAD}"
 }
 
 function main() {

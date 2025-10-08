@@ -1,0 +1,5 @@
+---
+- name: Setup touchpad
+  ansible.builtin.shell: |
+    dconf load /org/gnome/desktop/peripherals/touchpad/ < {{ role_path }}/files/touchpad.conf
+  changed_when: true

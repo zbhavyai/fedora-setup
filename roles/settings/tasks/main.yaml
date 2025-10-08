@@ -13,3 +13,6 @@
 
 - name: Include backgrounds directory
   ansible.builtin.include_tasks: wallpaper.yaml
+
+- name: Update touchpad settings
+  ansible.builtin.include_tasks: touchpad.yaml
