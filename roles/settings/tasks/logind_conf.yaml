@@ -1,0 +1,23 @@
+---
+- name: Ensure logind drop-in directory exists
+  ansible.builtin.file:
+    path: "/etc/systemd/logind.conf.d/"
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
+  become: true
+
+- name: Ensure logind.conf exists with desired settings
+  ansible.builtin.copy:
+    dest: /etc/systemd/logind.conf.d/99-custom-lid.conf
+    content: |
+      [Login]
+      HandleLidSwitch=ignore
+      LidSwitchIgnoreInhibited=yes
+    owner: root
+    group: root
+    mode: "0644"
+  become: true
+  register: settings_logind_conf_result
+  ignore_errors: true

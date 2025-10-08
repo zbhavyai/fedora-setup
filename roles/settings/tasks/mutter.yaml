@@ -1,0 +1,5 @@
+---
+- name: Setup mutter
+  ansible.builtin.shell: |
+    dconf load /org/gnome/mutter/ < {{ role_path }}/files/mutter.conf
+  changed_when: true

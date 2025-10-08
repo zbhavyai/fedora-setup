@@ -1,66 +1,15 @@
 ---
-- name: Ensure logind drop-in directory exists
-  ansible.builtin.file:
-    path: "/etc/systemd/logind.conf.d/"
-    state: directory
-    owner: root
-    group: root
-    mode: "0755"
-  become: true
+- name: Update logind.conf
+  ansible.builtin.include_tasks: logind_conf.yaml
 
-- name: Ensure logind.conf exists with desired settings
-  ansible.builtin.copy:
-    dest: /etc/systemd/logind.conf.d/99-custom-lid.conf
-    content: |
-      [Login]
-      HandleLidSwitch=ignore
-      LidSwitchIgnoreInhibited=yes
-    owner: root
-    group: root
-    mode: "0644"
-  become: true
-  register: settings_logind_conf_result
-  ignore_errors: true
+- name: Update app layout
+  ansible.builtin.include_tasks: app_layout.yaml
 
-- name: Remove existing app folders
-  ansible.builtin.shell: |
-    dconf reset -f /org/gnome/desktop/app-folders/
-  changed_when: true
+- name: Update mutter settings
+  ansible.builtin.include_tasks: mutter.yaml
 
-- name: Setup app folders
-  ansible.builtin.shell: |
-    dconf load /org/gnome/desktop/app-folders/ < {{ role_path }}/files/appFolders.conf
-  changed_when: true
+- name: Update desktop interface settings
+  ansible.builtin.include_tasks: desktop_interface.yaml
 
-- name: Setup app picker layout
-  ansible.builtin.shell: |
-    dconf write /org/gnome/shell/app-picker-layout "$(cat '{{ role_path }}/files/appPicker.conf')"
-  changed_when: true
-
-- name: Setup favorites
-  ansible.builtin.shell: |
-    dconf write /org/gnome/shell/favorite-apps "$(cat '{{ role_path }}/files/favorites.conf')"
-  changed_when: true
-
-- name: Setup mutter
-  ansible.builtin.shell: |
-    dconf load /org/gnome/mutter/ < {{ role_path }}/files/mutter.conf
-  changed_when: true
-
-- name: Load Gnome Tweaks settings
-  ansible.builtin.shell: |
-    dconf load /org/gnome/desktop/interface/ < {{ role_path }}/files/tweaks.conf
-  changed_when: true
-
-- name: Ensure wallpaper directory exists
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/Pictures/Wallpapers"
-    state: directory
-    mode: "0755"
-
-- name: Update background directory
-  ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/backgrounds"
-    state: link
-    src: "{{ ansible_env.HOME }}/Pictures/Wallpapers"
-  changed_when: true
+- name: Include backgrounds directory
+  ansible.builtin.include_tasks: wallpaper.yaml
