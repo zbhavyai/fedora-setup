@@ -8,6 +8,8 @@ CONFIG_FAVORITES="${SCRIPT_DIR}/../roles/settings/files/favorites.conf"
 CONFIG_MUTTER="${SCRIPT_DIR}/../roles/settings/files/mutter.conf"
 CONFIG_INTERFACE="${SCRIPT_DIR}/../roles/settings/files/desktop_interface.conf"
 CONFIG_TOUCHPAD="${SCRIPT_DIR}/../roles/settings/files/touchpad.conf"
+CONFIG_SCREEN_TIME="${SCRIPT_DIR}/../roles/settings/files/wellbeing_screen_time.conf"
+CONFIG_BREAK_REMINDERS="${SCRIPT_DIR}/../roles/settings/files/wellbeing_break_reminders.conf"
 
 function get_config() {
     dconf dump /org/gnome/desktop/app-folders/ >"${CONFIG_APP_FOLDERS}"
@@ -16,6 +18,8 @@ function get_config() {
     dconf read /org/gnome/shell/app-picker-layout >"${CONFIG_APP_PICKER}"
     dconf read /org/gnome/shell/favorite-apps >"${CONFIG_FAVORITES}"
     dconf dump /org/gnome/desktop/peripherals/touchpad/ >"${CONFIG_TOUCHPAD}"
+    dconf dump /org/gnome/desktop/screen-time-limits/ >"${CONFIG_SCREEN_TIME}"
+    dconf dump /org/gnome/desktop/break-reminders/ >"${CONFIG_BREAK_REMINDERS}"
 }
 
 function main() {

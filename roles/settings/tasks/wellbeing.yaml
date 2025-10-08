@@ -1,0 +1,10 @@
+---
+- name: Disable screen time limits
+  ansible.builtin.shell: |
+    dconf load /org/gnome/desktop/screen-time-limits/ < {{ role_path }}/files/wellbeing_screen_time.conf
+  changed_when: true
+
+- name: Disable break reminders
+  ansible.builtin.shell: |
+    dconf load /org/gnome/desktop/break-reminders/ < {{ role_path }}/files/wellbeing_break_reminders.conf
+  changed_when: true

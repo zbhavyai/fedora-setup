@@ -16,3 +16,6 @@
 
 - name: Update touchpad settings
   ansible.builtin.include_tasks: touchpad.yaml
+
+- name: Disable wellbeing
+  ansible.builtin.include_tasks: wellbeing.yaml
