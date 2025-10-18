@@ -11,4 +11,4 @@
     - role: vscode
     - role: intellij_idea
     - role: webstorm
-    - role: windsurf
+    # - role: windsurf
