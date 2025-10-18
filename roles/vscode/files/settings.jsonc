@@ -53,11 +53,11 @@
   "editor.tabCompletion": "onlySnippets",
   "editor.wordBasedSuggestions": "off",
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "chat.disableAIFeatures": false,
+  "chat.agent.enabled": false,
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.enable": { "*": true, "plaintext": false },
   "github.copilot.nextEditSuggestions.enabled": true,
-  "chat.agent.enabled": true,
-  "chat.mcp.access": "all",
   "ansible.lightspeed.enabled": false,
   "ansible.lightspeed.suggestions.enabled": false,
   // SONARLINT ----------------------------------------------------------------
