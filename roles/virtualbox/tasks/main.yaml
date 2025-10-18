@@ -1,4 +1,10 @@
 ---
+- name: Import Oracle public key
+  ansible.builtin.rpm_key:
+    key: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    state: present
+  become: true
+
 - name: Add VirtualBox repository
   ansible.builtin.get_url:
     url: https://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
@@ -7,10 +13,17 @@
     mode: "0644"
   become: true
 
+- name: Disable repo_gpgcheck to prevent 402 errors
+  ansible.builtin.lineinfile:
+    path: /etc/yum.repos.d/virtualbox.repo
+    regexp: "^repo_gpgcheck="
+    line: "repo_gpgcheck=0"
+  become: true
+
 - name: Install VirtualBox and Guest Additions
   ansible.builtin.dnf:
     name:
-      - VirtualBox-7.1
+      - VirtualBox-7.2
       - virtualbox-guest-additions
     state: present
   become: true
