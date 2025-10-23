@@ -3,7 +3,7 @@
 # #############################################################################
 alias cdlog='cd /var/log/userful/'
 alias cdplugin='cd /usr/share/userful-multiseat/plugins/'
-alias reboot='rm -rf /var/log/userful/*; cleanJournalLogs; systemctl reboot'
+alias reboot='rm -rf /var/log/userful/*; systemctl reboot'
 alias xorgErrors='ls -1t /var/log/Xorg*log | head -1 | xargs grep EE'
 
 function create_log_aliases() {
