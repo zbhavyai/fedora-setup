@@ -6,4 +6,5 @@ intellij_idea_plugins:
   - com.redhat.devtools.lsp4ij
   - Docker
   - google-java-format
+  - org.intellij.plugins.hcl
   - org.jetbrains.plugins.github
