@@ -51,7 +51,7 @@ function prettyLog() {
 function start() {
     # ensure dependencies are installed
     prettyLog "INFO" "Installing required packages"
-    sudo dnf install --quiet --assumeyes xorg-x11-server-Xvfb x11vnc openbox google-chrome
+    sudo dnf install --quiet --assumeyes xorg-x11-server-Xvfb x11vnc openbox google-chrome-stable
 
     # start virtual framebuffer
     prettyLog "INFO" "Starting Xvfb on display ${DISPLAY}"
