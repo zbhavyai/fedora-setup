@@ -9,6 +9,7 @@ dnf_packages_tools:
   - fastfetch
   - file-roller
   - ftp
+  - gh
   - glances
   - intel-gmmlib
   - jq
