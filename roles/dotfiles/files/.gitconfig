@@ -9,7 +9,6 @@
     lola = log --all --graph --decorate=short --pretty=oneline --abbrev-commit
     hist = log --all --graph --decorate=short --pretty=format:'%C(auto)%h %C(blue)%as %C(auto)%d %s [%C(magenta)%an%C(reset)]'
     amend = commit --amend --reuse-message=HEAD
-    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 [init]
     defaultBranch = main
 [core]
