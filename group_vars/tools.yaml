@@ -6,6 +6,7 @@ dnf_packages_tools:
   - gnome-tweaks
 
   # utilities
+  - ddcutil
   - fastfetch
   - file-roller
   - ftp
@@ -16,11 +17,10 @@ dnf_packages_tools:
   - nmap
   - openssl
   - qt
+  - shfmt
   - sysprof
   - unrar
   - vim-enhanced
-  - ddcutil
-  - shfmt
 
   # pdf organization
   - pdftk-java
