@@ -6,9 +6,8 @@
 [includeIf "gitdir:~/Bitbucket/"]
     path = ~/.gitconfig-work
 [alias]
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    lola = log --all --graph --decorate=short --pretty=oneline --abbrev-commit
+    hist = log --all --graph --decorate=short --pretty=format:'%h %ad | %s%d [%an]' --date=short
     last = log -1 HEAD
     amend = commit --amend --reuse-message=HEAD
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
