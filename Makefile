@@ -73,8 +73,19 @@ all: .deps-ok
 
 .PHONY: sync
 sync:
-	@for script in ./scripts/*; do \
-		if [ "$$script" = "./scripts/sync_gnome_terminal.sh" ]; then \
+	@declare -a SKIP_SCRIPTS; \
+	SKIP_SCRIPTS+=("sync_gnome_terminal.sh"); \
+	SKIP_SCRIPTS+=("sync_windsurf.sh"); \
+	for script in ./scripts/*; do \
+		script_name=$$(basename "$$script"); \
+		skip=false; \
+		for skip_script in "$${SKIP_SCRIPTS[@]}"; do \
+			if [ "$$script_name" = "$$skip_script" ]; then \
+				skip=true; \
+				break; \
+			fi; \
+		done; \
+		if [ "$$skip" = "true" ]; then \
 			echo "SKIP -x $$script"; \
 			continue; \
 		fi; \
