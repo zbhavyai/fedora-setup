@@ -26,6 +26,7 @@ podman_packages:
   - podman
   - podman-compose
   - podman-remote
+  - qemu-user-static
 
 container_images:
   - name: docker.io/library/eclipse-temurin
