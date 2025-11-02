@@ -10,5 +10,6 @@
       flatpak_packages: "{{ flatpak_packages_dev }}"
     - role: vscode
     - role: intellij_idea
+    - role: pycharm
     - role: webstorm
     # - role: windsurf

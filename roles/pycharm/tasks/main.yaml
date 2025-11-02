@@ -1,0 +1,106 @@
+---
+- name: Download PyCharm
+  ansible.builtin.get_url:
+    url: https://download-cdn.jetbrains.com/python/pycharm-2025.2.4.tar.gz
+    dest: "{{ ansible_env.HOME }}/pycharm.tar.gz"
+    mode: "0644"
+
+- name: Extract PyCharm
+  ansible.builtin.unarchive:
+    src: "{{ ansible_env.HOME }}/pycharm.tar.gz"
+    dest: "{{ ansible_env.HOME }}/"
+    remote_src: true
+  become: false
+
+- name: Remove downloaded PyCharm archive
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/pycharm.tar.gz"
+    state: absent
+
+- name: Remove existing PyCharm installation
+  ansible.builtin.file:
+    path: /opt/pycharm
+    state: absent
+  become: true
+
+- name: Move extracted PyCharm directory to /opt
+  ansible.builtin.shell: mv {{ ansible_env.HOME }}/pycharm-* /opt/pycharm
+  args:
+    removes: "{{ ansible_env.HOME }}/pycharm-*"
+    creates: /opt/pycharm
+  become: true
+
+- name: Modify PyCharm config path
+  ansible.builtin.lineinfile:
+    path: /opt/pycharm/bin/idea.properties
+    regexp: "^# idea.config.path="
+    line: "idea.config.path=${user.home}/.config/jetbrains/pycharm/config"
+    state: present
+    backrefs: true
+  become: false
+  register: pycharm_config_path_result
+
+- name: Modify PyCharm cache path
+  ansible.builtin.lineinfile:
+    path: /opt/pycharm/bin/idea.properties
+    regexp: "^# idea.system.path="
+    line: "idea.system.path=${user.home}/.config/jetbrains/pycharm/system"
+    state: present
+    backrefs: true
+  become: false
+  register: pycharm_cache_path_result
+
+- name: Modify PyCharm plugins path
+  ansible.builtin.lineinfile:
+    path: /opt/pycharm/bin/idea.properties
+    regexp: "^# idea.plugins.path="
+    line: "idea.plugins.path=${idea.config.path}/plugins"
+    state: present
+    backrefs: true
+  become: false
+  register: pycharm_plugins_path_result
+
+- name: Modify PyCharm log path
+  ansible.builtin.lineinfile:
+    path: /opt/pycharm/bin/idea.properties
+    regexp: "^# idea.log.path="
+    line: "idea.log.path=${idea.config.path}/log"
+    state: present
+    backrefs: true
+  become: false
+  register: pycharm_log_path_result
+
+- name: Copy PyCharm VM options
+  ansible.builtin.copy:
+    src: pycharm64.vmoptions
+    dest: /opt/pycharm/bin/pycharm64.vmoptions
+    mode: "0644"
+  become: true
+
+- name: Create PyCharm desktop entry
+  ansible.builtin.copy:
+    src: jetbrains-pycharm.desktop
+    dest: /usr/share/applications/jetbrains-pycharm.desktop
+    mode: "0644"
+  become: true
+
+- name: Copy all settings
+  ansible.builtin.copy:
+    src: config
+    dest: "{{ ansible_env.HOME }}/.config/jetbrains/pycharm/"
+    mode: "0644"
+  become: false
+
+- name: Load pycharm_plugins var
+  ansible.builtin.include_vars:
+    file: ../vars/plugins.yaml
+
+- name: Install plugins
+  ansible.builtin.shell: |
+    /opt/pycharm/bin/pycharm installPlugins {{ item }}
+  args:
+    executable: /bin/bash
+  loop: "{{ pycharm_plugins }}"
+  register: pycharm_plugin_install_result
+  changed_when: "'already installed' not in pycharm_plugin_install_result.stdout"
+  become: false
