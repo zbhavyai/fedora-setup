@@ -27,8 +27,6 @@ vscode_extensions:
     - redhat.vscode-xml
     - redhat.vscode-yaml
     - renesaarsoo.sql-formatter-vsc
-    - visualstudioexptteam.intellicode-api-usage-examples
-    - visualstudioexptteam.vscodeintellicode
     - vscjava.vscode-java-debug
     - vscjava.vscode-java-dependency
     - vscjava.vscode-java-test
@@ -44,8 +42,6 @@ vscode_extensions:
     - pkief.material-icon-theme
     - redhat.vscode-xml
     - redhat.vscode-yaml
-    - visualstudioexptteam.intellicode-api-usage-examples
-    - visualstudioexptteam.vscodeintellicode
   PYTHON:
     - charliermarsh.ruff
     - editorconfig.editorconfig
@@ -62,5 +58,3 @@ vscode_extensions:
     - redhat.ansible
     - redhat.vscode-xml
     - redhat.vscode-yaml
-    - visualstudioexptteam.intellicode-api-usage-examples
-    - visualstudioexptteam.vscodeintellicode
