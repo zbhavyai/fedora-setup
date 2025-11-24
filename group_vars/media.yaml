@@ -3,6 +3,7 @@ flatpak_packages_media:
   - com.github.PintaProject.Pinta
   - com.jgraph.drawio.desktop
   - com.obsproject.Studio
+  - com.spotify.Client
   - org.atheme.audacious
   # - org.audacityteam.Audacity
   - org.gnome.SoundRecorder
