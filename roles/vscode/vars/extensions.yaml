@@ -58,3 +58,4 @@ vscode_extensions:
     - redhat.ansible
     - redhat.vscode-xml
     - redhat.vscode-yaml
+    - renesaarsoo.sql-formatter-vsc
