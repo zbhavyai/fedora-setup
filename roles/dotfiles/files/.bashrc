@@ -164,6 +164,7 @@ function addToPath() {
 # env variables
 # #############################################################################
 export JAVA_HOME=$(readlink -f $(command -v -- java) 2>/dev/null | sed "s:/bin/java::")
+export REGISTRY_AUTH_FILE="${HOME}/.config/containers/auth.json"
 
 if command -v -- podman &>/dev/null; then
     # source - https://quarkus.io/guides/podman
