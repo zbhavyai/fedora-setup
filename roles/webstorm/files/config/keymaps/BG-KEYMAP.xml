@@ -13,6 +13,7 @@
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="ctrl w" />
   </action>
+  <action id="CopyElement" />
   <action id="Diff.FocusOppositePane" />
   <action id="EditorMoveToPageBottom" />
   <action id="EditorMoveToPageTop" />
@@ -65,6 +66,9 @@
   <action id="ServiceView.ShowServices" />
   <action id="SmartSelect" />
   <action id="Switcher" />
+  <action id="Synchronize">
+    <keyboard-shortcut first-keystroke="f5" />
+  </action>
   <action id="Table-startEditing" />
   <action id="Terminal.CloseTab" />
   <action id="Terminal.NewTab">
