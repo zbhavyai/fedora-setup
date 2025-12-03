@@ -19,7 +19,9 @@
   <action id="CopyElement" />
   <action id="Diff.FocusOppositePane" />
   <action id="EditorMoveToPageBottom" />
+  <action id="EditorMoveToPageBottomWithSelection" />
   <action id="EditorMoveToPageTop" />
+  <action id="EditorMoveToPageTopWithSelection" />
   <action id="EditorSelectWord" />
   <action id="FileChooser.TogglePathBar" />
   <action id="Forward">
@@ -74,6 +76,12 @@
   </action>
   <action id="Table-startEditing" />
   <action id="Terminal.CloseTab" />
+  <action id="Terminal.MoveToolWindowTabLeft">
+    <keyboard-shortcut first-keystroke="shift ctrl page_up" />
+  </action>
+  <action id="Terminal.MoveToolWindowTabRight">
+    <keyboard-shortcut first-keystroke="shift ctrl page_down" />
+  </action>
   <action id="Terminal.NewTab">
     <keyboard-shortcut first-keystroke="shift ctrl back_quote" />
   </action>
