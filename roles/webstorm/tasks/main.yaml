@@ -1,7 +1,7 @@
 ---
 - name: Download WebStorm
   ansible.builtin.get_url:
-    url: https://download-cdn.jetbrains.com/webstorm/WebStorm-2025.2.1.tar.gz
+    url: https://download-cdn.jetbrains.com/webstorm/WebStorm-2025.2.5.tar.gz
     dest: "{{ ansible_env.HOME }}/webstorm.tar.gz"
     mode: "0644"
 

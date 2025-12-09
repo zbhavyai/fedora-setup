@@ -1,7 +1,7 @@
 ---
 - name: Download PyCharm
   ansible.builtin.get_url:
-    url: https://download-cdn.jetbrains.com/python/pycharm-2025.2.4.tar.gz
+    url: https://download-cdn.jetbrains.com/python/pycharm-2025.2.5.tar.gz
     dest: "{{ ansible_env.HOME }}/pycharm.tar.gz"
     mode: "0644"
 
