@@ -31,6 +31,7 @@ function get_settings() {
         --include 'options/terminal-font.xml' \
         --include 'options/terminal.xml' \
         --include 'options/ui.lnf.xml' \
+        --include 'options/updates.xml' \
         --exclude '*.db' \
         --exclude '*.zip' \
         --exclude '*.jar' \

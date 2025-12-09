@@ -1,0 +1,11 @@
+<application>
+  <component name="UpdatesConfigurable">
+    <option name="CHECK_NEEDED" value="false" />
+    <option name="LAST_BUILD_CHECKED" value="IC-252.28238.7" />
+    <option name="LAST_TIME_CHECKED" value="1765321981614" />
+    <option name="OBSOLETE_CUSTOM_REPOSITORIES_CLEAN_NEEDED" value="false" />
+    <option name="PLUGINS_AUTO_UPDATE" value="true" />
+    <option name="THIRD_PARTY_PLUGINS_ALLOWED" value="true" />
+    <option name="WHATS_NEW_SHOWN_FOR" value="252" />
+  </component>
+</application>
