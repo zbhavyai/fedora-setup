@@ -38,6 +38,7 @@ flatpak_packages_tools:
   # - org.gnome.Boxes
   - org.gnome.dspy
   - org.remmina.Remmina
+  - org.gnome.Papers
 
   # misc
   - org.telegram.desktop
