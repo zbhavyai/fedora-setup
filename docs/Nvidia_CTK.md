@@ -26,4 +26,10 @@ To make it work with podman, follow the simplified steps below. Credits to their
    sudo nvidia-ctk cdi generate --output=/etc/cdi/nvidia.yaml
    ```
 
-3. Start your container like you normally do, for example, [this configuration](https://github.com/zbhavyai/containers/blob/main/ollama-openwebui/compose.yaml) for running Ollama and OpenWebUI.
+3. Test using this command
+
+   ```shell
+   podman container run --rm --security-opt=label=disable --device=nvidia.com/gpu=all ubuntu nvidia-smi
+   ```
+
+4. Start your container like you normally do, for example, [this configuration](https://github.com/zbhavyai/containers/blob/main/ollama-openwebui/compose.yaml) for running Ollama and OpenWebUI.
