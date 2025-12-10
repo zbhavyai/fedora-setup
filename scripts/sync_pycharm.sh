@@ -24,6 +24,7 @@ function get_settings() {
         --include 'options/console-font.xml' \
         --include 'options/editor-font.xml' \
         --include 'options/editor.xml' \
+        --include 'options/filetypes.xml' \
         --include 'options/github-copilot.xml' \
         --include 'options/keymapFlags.xml' \
         --include 'options/parameter.hints.xml' \

@@ -1,0 +1,15 @@
+<application>
+  <component name="FileTypeManager" version="19">
+    <extensionMap>
+      <mapping pattern="Dockerfile.*" type="Dockerfile" />
+      <mapping pattern="mcp.json" type="JSON5" />
+      <removed_mapping pattern="Dockerfile.fast-jar" approved="true" type="Dockerfile" />
+      <removed_mapping pattern="Dockerfile.jlink" approved="true" type="Dockerfile" />
+      <removed_mapping pattern="Dockerfile.jvm" approved="true" type="Dockerfile" />
+      <removed_mapping pattern="Dockerfile.legacy-jar" approved="true" type="Dockerfile" />
+      <removed_mapping pattern="Dockerfile.native" approved="true" type="Dockerfile" />
+      <removed_mapping pattern="Dockerfile.native-distroless" approved="true" type="Dockerfile" />
+      <removed_mapping pattern="Dockerfile.native-micro" approved="true" type="Dockerfile" />
+    </extensionMap>
+  </component>
+</application>
