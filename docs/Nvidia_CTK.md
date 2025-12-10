@@ -9,15 +9,11 @@ To make it work with podman, follow the simplified steps below. Credits to their
    ```
 
    ```shell
-   export NVIDIA_CONTAINER_TOOLKIT_VERSION=1.17.8-1
-   ```
-
-   ```
-   sudo dnf install -y \
-      nvidia-container-toolkit-${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-      nvidia-container-toolkit-base-${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-      libnvidia-container-tools-${NVIDIA_CONTAINER_TOOLKIT_VERSION} \
-      libnvidia-container1-${NVIDIA_CONTAINER_TOOLKIT_VERSION}
+   sudo dnf install --assumeyes \
+      nvidia-container-toolkit \
+      nvidia-container-toolkit-base \
+      libnvidia-container-tools \
+      libnvidia-container1
    ```
 
 2. Generate the CDI specification
