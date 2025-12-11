@@ -27,49 +27,49 @@ update: .deps-ok
 
 .PHONY: cleanup
 cleanup: .deps-ok
-	ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: customization
 customization: .deps-ok
-	ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: tools
 tools: .deps-ok
-	ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: container
 container: .deps-ok
-	ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: dev
 dev: .deps-ok
-	ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: media
 media: .deps-ok
-	ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
 .PHONY: alternate
 alternate: .deps-ok
-	ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: lint
 lint: .deps-ok
-	@ansible-lint
+	@. $(VENV_DIR)/bin/activate && ansible-lint
 	@for file in $(find playbooks -name "*.yaml"); do \
 		ansible-playbook --syntax-check "$$file" || exit 1; \
 	done
 
 .PHONY: server
 server: .deps-ok
-	ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 # asks for password everytime
 # all: cleanup customization tools container java vscode media alternate
 
 .PHONY: all
 all: .deps-ok
-	ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 .PHONY: sync
 sync:
