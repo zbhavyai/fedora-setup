@@ -34,3 +34,6 @@
 
 - name: Update locale settings
   ansible.builtin.include_tasks: locale.yaml
+
+- name: Disable software center updates
+  ansible.builtin.include_tasks: software_updates.yaml
