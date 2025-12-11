@@ -61,6 +61,30 @@
   become: true
   when: container_engine == "podman" and (podman_packages | default([])) | length > 0
 
+- name: Ensure .config/containers directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/containers"
+    state: directory
+    mode: "0755"
+  become: false
+  when: container_engine == "podman"
+
+- name: Copy containers.conf
+  ansible.builtin.copy:
+    src: containers.conf
+    dest: "{{ ansible_env.HOME }}/.config/containers/containers.conf"
+    mode: "0644"
+  become: false
+  when: container_engine == "podman"
+
+- name: Copy registries.conf
+  ansible.builtin.copy:
+    src: registries.conf
+    dest: "{{ ansible_env.HOME }}/.config/containers/registries.conf"
+    mode: "0644"
+  become: false
+  when: container_engine == "podman"
+
 - name: Enable and start Podman socket
   # source - https://quarkus.io/guides/podman
   # systemctl enable --now --user podman.socket
