@@ -56,8 +56,8 @@ alternate: .deps-ok
 .PHONY: lint
 lint: .deps-ok
 	@. $(VENV_DIR)/bin/activate && ansible-lint
-	@for file in $(find playbooks -name "*.yaml"); do \
-		ansible-playbook --syntax-check "$$file" || exit 1; \
+	@for file in $$(find playbooks -name "*.yaml"); do \
+		. $(VENV_DIR)/bin/activate && ansible-playbook --syntax-check "$$file" || exit 1; \
 	done
 
 .PHONY: server
