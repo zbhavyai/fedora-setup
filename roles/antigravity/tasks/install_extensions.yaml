@@ -1,0 +1,25 @@
+---
+- name: Create Antigravity profile "{{ profile }}"
+  ansible.builtin.shell: |
+    antigravity --profile "{{ profile }}" --new-window &
+    sleep 5
+    pkill -f "antigravity --profile"
+  args:
+    executable: /bin/bash
+  when: profile != 'DEFAULT'
+  changed_when: false
+  delegate_to: localhost
+
+- name: Install extensions for profile "{{ profile }}"
+  ansible.builtin.shell: |
+    antigravity --install-extension {{ item }}{% if profile != 'DEFAULT' %} --profile {{ profile }}{% endif %}
+  args:
+    executable: /bin/bash
+  loop: "{{ vscode_extensions[profile] }}"
+  loop_control:
+    label: "{{ item }}"
+  register: antigravity_extensions_install_output
+  ignore_errors: true
+  changed_when: "'already installed' not in antigravity_extensions_install_output.stdout"
+  failed_when: antigravity_extensions_install_output.rc != 0
+  delegate_to: localhost

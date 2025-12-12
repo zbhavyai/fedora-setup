@@ -1,0 +1,43 @@
+---
+- name: Add Antigravity repository
+  ansible.builtin.yum_repository:
+    name: antigravity
+    description: "Antigravity"
+    baseurl: https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm
+    enabled: true
+    gpgcheck: false
+  become: true
+
+- name: Install Antigravity
+  ansible.builtin.dnf:
+    name: antigravity
+    state: present
+  become: true
+
+- name: Ensure Antigravity config directory exists
+  ansible.builtin.file:
+    path: ~/.config/Antigravity/User
+    state: directory
+    mode: "0755"
+
+- name: Copy Antigravity settings
+  ansible.builtin.copy:
+    src: settings.jsonc
+    dest: ~/.config/Antigravity/User/settings.json
+    mode: "0644"
+
+- name: Copy Antigravity keybindings
+  ansible.builtin.copy:
+    src: keybindings.jsonc
+    dest: ~/.config/Antigravity/User/keybindings.json
+    mode: "0644"
+
+- name: Load vscode_extensions var
+  ansible.builtin.include_vars:
+    file: ../vars/extensions.yaml
+
+- name: Install extensions for each profile
+  ansible.builtin.include_tasks: install_extensions.yaml
+  loop: "{{ vscode_extensions.keys() | list }}"
+  loop_control:
+    loop_var: profile
