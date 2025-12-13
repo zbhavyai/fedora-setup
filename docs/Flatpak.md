@@ -21,3 +21,7 @@ Example:
 ```shell
 flatpak info --show-location org.eclipse.Java
 ```
+
+## Config Location
+
+All the configuration files for flatpak apps are stored in `~/.var/app/<application-id>`.
