@@ -12,7 +12,7 @@ function get_settings() {
     cp "${SRC_VM_OPTIONS}" "${DST_VM_OPTIONS}"
 
     rm -rf "${DST_CONFIG_DIR}"
-    rsync -a \
+    rsync --archive \
         --include 'disabled_plugins.txt' \
         --include 'keymaps/' \
         --include 'keymaps/***' \
