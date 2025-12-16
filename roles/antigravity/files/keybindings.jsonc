@@ -18,6 +18,10 @@
     "when": "canNavigateForward"
   },
   {
+    "key": "ctrl+alt+a",
+    "command": "git.stage"
+  },
+  {
     "key": "ctrl+alt+i",
     "command": "antigravity.prioritized.chat.open"
   },

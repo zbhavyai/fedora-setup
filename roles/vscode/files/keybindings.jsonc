@@ -16,5 +16,9 @@
     "key": "alt+right",
     "command": "workbench.action.navigateForward",
     "when": "canNavigateForward"
+  },
+  {
+    "key": "ctrl+alt+a",
+    "command": "git.stage"
   }
 ]
