@@ -27,8 +27,7 @@
   },
   {
     "key": "ctrl+l",
-    "command": "-antigravity.prioritized.chat.open",
-    "when": "!terminalFocus"
+    "command": "-antigravity.prioritized.chat.open"
   },
   {
     "key": "ctrl+shift+i",
