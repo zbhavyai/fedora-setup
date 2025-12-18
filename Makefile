@@ -1,7 +1,7 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
-.PHONY: init update cleanup customization tools container dev media alternate lint server all sync help
+.PHONY: init update cleanup customization tools container dev media alternate server all sync lint help
 
 .deps:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
@@ -46,12 +46,6 @@ media:
 alternate:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-lint:
-	@. $(VENV_DIR)/bin/activate && ansible-lint
-	@for file in $$(find playbooks -name "*.yaml"); do \
-		. $(VENV_DIR)/bin/activate && ansible-playbook --syntax-check "$$file" || exit 1; \
-	done
-
 server:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
@@ -80,6 +74,14 @@ sync:
 		else \
 			echo "SKIP -x $$script"; \
 		fi; \
+	done
+
+lint:
+	@. $(VENV_DIR)/bin/activate && \
+	git ls-files -z -- '*.sh' | xargs -0 -r shellcheck -e SC2034
+	@. $(VENV_DIR)/bin/activate && ansible-lint
+	@for file in $$(find playbooks -name "*.yaml"); do \
+		. $(VENV_DIR)/bin/activate && ansible-playbook --syntax-check "$$file" || exit 1; \
 	done
 
 help:
