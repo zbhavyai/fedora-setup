@@ -1,0 +1,13 @@
+[project]
+name = "fedora-setup"
+version = "42"
+description = "Automated set up of Fedora Workstation and Fedora Server using Ansible"
+authors = [{ name = "Bhavyai Gupta" }]
+readme = "README.md"
+requires-python = ">=3.14"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["ansible", "ansible-lint"]
+
+[dependency-groups]
+dev = ["shellcheck-py", "shfmt-py"]

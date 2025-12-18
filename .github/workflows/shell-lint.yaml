@@ -25,19 +25,22 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version-file: "pyproject.toml"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
 
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install shfmt-py shellcheck-py
+        run: uv sync --locked --only-group dev
 
       - name: Run shell format
         run: |
           globalStatus=0
 
           while IFS= read -r -d '' f; do
-            if ! shfmt -d -i 4 -- "$f"; then
+            if ! uv run shfmt -d -i 4 -- "$f"; then
               echo "[ERROR] shfmt failed for $f"
               globalStatus=1
             fi
@@ -50,7 +53,7 @@ jobs:
           globalStatus=0
 
           while IFS= read -r -d '' f; do
-            if ! shellcheck -x -e SC2034 -- "$f"; then
+            if ! uv run shellcheck -x -e SC2034 -- "$f"; then
               echo "[ERROR] shellcheck failed for $f"
               globalStatus=1
             fi

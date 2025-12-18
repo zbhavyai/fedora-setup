@@ -8,8 +8,6 @@ function block() {
     exit 1
 }
 
-CHECKS="ansible_lint shell_lint"
-
 function ansible_lint() {
     local staged
     staged=$(git diff --name-only --cached --exit-code -- '*.y*ml')
@@ -18,11 +16,11 @@ function ansible_lint() {
         return 0
     fi
 
-    (ansible-lint -q) || block "[ERROR] Ansible lint failed."
+    (uv run ansible-lint -q) || block "[ERROR] Ansible lint failed."
 
     find playbooks -name "*.yaml" -print0 |
         while IFS= read -r -d '' file; do
-            ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] Ansible lint failed."
+            uv run ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] Ansible lint failed."
         done
 }
 
@@ -38,15 +36,17 @@ function shell_lint() {
             continue
         fi
 
-        if ! shfmt -d -i 4 -- "$f"; then
+        if ! uv run shfmt -d -i 4 -- "$f"; then
             block "[ERROR] shfmt check failed for $f"
         fi
 
-        if ! shellcheck -e SC2034 -- "$f"; then
+        if ! uv run shellcheck -e SC2034 -- "$f"; then
             block "[ERROR] shellcheck failed for $f"
         fi
     done
 }
+
+CHECKS="ansible_lint shell_lint"
 
 for CHECK in $CHECKS; do
     ($CHECK) || exit $?

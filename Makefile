@@ -1,6 +1,3 @@
-VENV_DIR := .venv/PY-ANSIBLE
-REQUIREMENTS_FILE := requirements.txt
-
 .PHONY: init update cleanup customization tools container dev media alternate server all sync lint help
 
 .deps:
@@ -10,47 +7,40 @@ REQUIREMENTS_FILE := requirements.txt
 		exit 1; \
 	fi
 
-init: .deps $(REQUIREMENTS_FILE)
+init: .deps
 	@ln -sf $(CURDIR)/.hooks/pre-commit.sh .git/hooks/pre-commit
-	@if [ ! -d "$(VENV_DIR)" ]; then \
-		python3.13 -m venv $(VENV_DIR); \
-	fi
-	@. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
+	@uv sync
 
 update:
-	@rm -rf $(VENV_DIR)
-	@python3.13 -m venv $(VENV_DIR)
-	@. $(VENV_DIR)/bin/activate && \
-	pip install --upgrade pip && \
-	pip install ansible ansible-lint && \
-	pip freeze > $(REQUIREMENTS_FILE)
+	@uv lock --upgrade
+	@uv sync
 
 cleanup:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 customization:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 tools:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 container:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 dev:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 media:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
+	@uv run ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
 alternate:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 server:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 all:
-	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
+	@uv run ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
 sync:
 	@declare -a SKIP_SCRIPTS; \
@@ -77,16 +67,16 @@ sync:
 	done
 
 lint:
-	@. $(VENV_DIR)/bin/activate && \
-	git ls-files -z -- '*.sh' | xargs -0 -r shellcheck -e SC2034
-	@. $(VENV_DIR)/bin/activate && ansible-lint
+	@git ls-files -z -- '*.sh' | xargs -0 -r uv run shellcheck -e SC2034
+	@uv run ansible-lint
 	@for file in $$(find playbooks -name "*.yaml"); do \
-		. $(VENV_DIR)/bin/activate && ansible-playbook --syntax-check "$$file" || exit 1; \
+		uv run ansible-playbook --syntax-check "$$file" || exit 1; \
 	done
 
 help:
 	@echo "Available targets:"
 	@echo "  init          - Set up py venv and install requirements"
+	@echo "  update        - Update dependencies and sync"
 	@echo "  cleanup       - Run cleanup playbook"
 	@echo "  customization - Run customization playbook"
 	@echo "  tools         - Run tools setup playbook"
@@ -96,5 +86,5 @@ help:
 	@echo "  alternate     - Run alternate setup playbook"
 	@echo "  server        - Run server playbook"
 	@echo "  all           - Run all playbooks (except server)"
-	@echo "  lint          - Run ansible-lint"
 	@echo "  sync          - Sync current settings"
+	@echo "  lint          - Run lint checks on scripts and playbooks"

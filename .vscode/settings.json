@@ -20,7 +20,7 @@
   "prettier.tabWidth": 2,
   "prettier.trailingComma": "all",
   "prettier.useTabs": false,
-  "python.defaultInterpreterPath": "./.venv/PY-ANSIBLE/bin/python",
+  "python.defaultInterpreterPath": "./.venv/bin/python",
   "python.terminal.activateEnvironment": true,
-  "ansible.python.interpreterPath": "/home/zbhavyai/Github/fedora-setup/.venv/PY-ANSIBLE/bin/python"
+  "ansible.python.interpreterPath": "/home/zbhavyai/Github/fedora-setup/.venv/bin/python"
 }

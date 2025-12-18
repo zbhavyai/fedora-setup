@@ -37,16 +37,10 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 
 #### Making changes to your system based on the configurations in this repository:
 
-1. Run the `init` target. This creates a python virtual environment `PY-ANSIBLE` with the required dependencies.
+1. Run the `init` target. This installs a pre-commit hook and creates a python virtual environment with the required dependencies.
 
    ```shell
    make init
-   ```
-
-1. Activate the virtual environment `PY-ANSIBLE`.
-
-   ```shell
-   source .venv/PY-ANSIBLE/bin/activate
    ```
 
 1. To setup, lets say, **dev tools**, run below. This would install JDK, Maven, Node.js, Postman, and IDEs - VS Code, IntelliJ IDEA, and WebStorm - with their extensions/plugins installed and settings configured.
@@ -66,7 +60,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 -  The programmatic way to check changes being done to your system is to run the playbooks with `--check` flag. Example:
 
    ```shell
-   source .venv/PY-ANSIBLE/bin/activate
+   source .venv/bin/activate
    ansible-playbook playbooks/cleanup.yaml --check
    ```
 
