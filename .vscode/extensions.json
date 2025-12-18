@@ -1,3 +1,10 @@
 {
-  "recommendations": ["redhat.ansible", "esbenp.prettier-vscode", "redhat.vscode-xml", "redhat.vscode-yaml", "editorconfig.editorconfig", "mkhl.shfmt"]
+  "recommendations": [
+    "redhat.ansible",
+    "esbenp.prettier-vscode",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig",
+    "mkhl.shfmt"
+  ]
 }

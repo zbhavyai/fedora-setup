@@ -14,7 +14,7 @@
   "prettier.bracketSameLine": false,
   "prettier.endOfLine": "lf",
   "prettier.jsxSingleQuote": false,
-  "prettier.printWidth": 200,
+  "prettier.printWidth": 120,
   "prettier.semi": true,
   "prettier.singleQuote": false,
   "prettier.tabWidth": 2,
