@@ -1,6 +1,8 @@
 VENV_DIR := .venv/PY-ANSIBLE
 REQUIREMENTS_FILE := requirements.txt
 
+.PHONY: init update cleanup customization tools container dev media alternate lint server all sync help
+
 .deps-ok:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
 		echo "python3-libdnf5 is not installed. Please run:"; \
@@ -8,7 +10,6 @@ REQUIREMENTS_FILE := requirements.txt
 		exit 1; \
 	fi
 
-.PHONY: init
 init: .deps-ok $(REQUIREMENTS_FILE)
 	@ln -sf $(CURDIR)/.hooks/pre-commit.sh .git/hooks/pre-commit
 	@if [ ! -d "$(VENV_DIR)" ]; then \
@@ -16,7 +17,6 @@ init: .deps-ok $(REQUIREMENTS_FILE)
 	fi
 	@. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
 
-.PHONY: update
 update: .deps-ok
 	@rm -rf $(VENV_DIR)
 	@python3.13 -m venv $(VENV_DIR)
@@ -25,53 +25,39 @@ update: .deps-ok
 	pip install ansible ansible-lint && \
 	pip freeze > $(REQUIREMENTS_FILE)
 
-.PHONY: cleanup
-cleanup: .deps-ok
+cleanup:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: customization
-customization: .deps-ok
+customization:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: tools
-tools: .deps-ok
+tools:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: container
-container: .deps-ok
+container:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: dev
-dev: .deps-ok
+dev:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: media
-media: .deps-ok
+media:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
-.PHONY: alternate
-alternate: .deps-ok
+alternate:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: lint
-lint: .deps-ok
+lint:
 	@. $(VENV_DIR)/bin/activate && ansible-lint
 	@for file in $$(find playbooks -name "*.yaml"); do \
 		. $(VENV_DIR)/bin/activate && ansible-playbook --syntax-check "$$file" || exit 1; \
 	done
 
-.PHONY: server
-server: .deps-ok
+server:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-# asks for password everytime
-# all: cleanup customization tools container java vscode media alternate
-
-.PHONY: all
-all: .deps-ok
+all:
 	@. $(VENV_DIR)/bin/activate && ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-.PHONY: sync
 sync:
 	@declare -a SKIP_SCRIPTS; \
 	SKIP_SCRIPTS+=("sync_gnome_terminal.sh"); \
@@ -96,7 +82,6 @@ sync:
 		fi; \
 	done
 
-.PHONY: help
 help:
 	@echo "Available targets:"
 	@echo "  init          - Set up py venv and install requirements"
