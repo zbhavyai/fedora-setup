@@ -3,21 +3,21 @@ REQUIREMENTS_FILE := requirements.txt
 
 .PHONY: init update cleanup customization tools container dev media alternate lint server all sync help
 
-.deps-ok:
+.deps:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
 		echo "python3-libdnf5 is not installed. Please run:"; \
 		echo "  sudo dnf install --assumeyes python3-libdnf5"; \
 		exit 1; \
 	fi
 
-init: .deps-ok $(REQUIREMENTS_FILE)
+init: .deps $(REQUIREMENTS_FILE)
 	@ln -sf $(CURDIR)/.hooks/pre-commit.sh .git/hooks/pre-commit
 	@if [ ! -d "$(VENV_DIR)" ]; then \
 		python3.13 -m venv $(VENV_DIR); \
 	fi
 	@. $(VENV_DIR)/bin/activate && pip install --upgrade pip && pip install -r $(REQUIREMENTS_FILE)
 
-update: .deps-ok
+update:
 	@rm -rf $(VENV_DIR)
 	@python3.13 -m venv $(VENV_DIR)
 	@. $(VENV_DIR)/bin/activate && \
