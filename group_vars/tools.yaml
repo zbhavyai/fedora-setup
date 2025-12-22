@@ -11,7 +11,7 @@ dnf_packages_tools:
   - file-roller
   - ftp
   - gh
-  - glances
+  # - glances
   - intel-gmmlib
   - jq
   - nmap
