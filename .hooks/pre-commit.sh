@@ -16,11 +16,11 @@ function ansible_lint() {
         return 0
     fi
 
-    (uv run ansible-lint -q) || block "[ERROR] Ansible lint failed."
+    (uv run ansible-lint -q) || block "[ERROR] ansible lint failed."
 
     find playbooks -name "*.yaml" -print0 |
         while IFS= read -r -d '' file; do
-            uv run ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] Ansible lint failed."
+            uv run ansible-playbook --syntax-check "$file" 1>/dev/null || block "[ERROR] ansible playbook syntax check failed."
         done
 }
 
@@ -36,11 +36,11 @@ function shell_lint() {
             continue
         fi
 
-        if ! uv run shfmt -d -i 4 -- "$f"; then
-            block "[ERROR] shfmt check failed for $f"
+        if ! uv run shfmt --diff --indent 4 -- "$f"; then
+            block "[ERROR] shfmt failed for $f"
         fi
 
-        if ! uv run shellcheck -e SC2034 -- "$f"; then
+        if ! uv run shellcheck --external-sources --exclude=SC2034 -- "$f"; then
             block "[ERROR] shellcheck failed for $f"
         fi
     done

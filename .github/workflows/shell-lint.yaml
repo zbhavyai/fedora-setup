@@ -35,28 +35,28 @@ jobs:
       - name: Install dependencies
         run: uv sync --locked --only-group dev
 
-      - name: Run shell format
+      - name: Run shfmt
         run: |
           globalStatus=0
 
           while IFS= read -r -d '' f; do
-            if ! uv run shfmt -d -i 4 -- "$f"; then
+            if ! uv run shfmt --diff --indent 4 -- "$f"; then
               echo "[ERROR] shfmt failed for $f"
               globalStatus=1
             fi
-          done < <(find src -type f -name '*.sh' -print0)
+          done < <(find .hooks scripts roles -type f -name '*.sh' -print0)
 
           exit $globalStatus
 
-      - name: Run shell check
+      - name: Run shellcheck
         run: |
           globalStatus=0
 
           while IFS= read -r -d '' f; do
-            if ! uv run shellcheck -x -e SC2034 -- "$f"; then
+            if ! uv run shellcheck --external-sources --exclude=SC2034 -- "$f"; then
               echo "[ERROR] shellcheck failed for $f"
               globalStatus=1
             fi
-          done < <(find src -type f -name '*.sh' -print0)
+          done < <(find .hooks scripts roles -type f -name '*.sh' -print0)
 
           exit $globalStatus
