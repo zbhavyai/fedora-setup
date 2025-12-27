@@ -105,7 +105,7 @@
   "scm.diffDecorationsGutterPattern": { "added": false, "modified": false },
   "scm.diffDecorationsGutterVisibility": "always",
   // FORMATTING ---------------------------------------------------------------
-  "[html][css][scss][javascript][typescript][typescriptreact][json][jsonc][markdown]": {
+  "[html][css][scss][javascript][typescript][javascriptreact][typescriptreact][json][jsonc][markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
