@@ -44,6 +44,7 @@ function prettyLog() {
 function enableRootPasswordLogin() {
     local SSH_CONFIG="/etc/ssh/sshd_config"
     local USERFUL_CONF="/etc/ssh/sshd_config.d/40-userful.conf"
+    local EXTENDED_CONFIG="/etc/ssh/sshd_config.d/00-userful-extended-security.conf"
 
     # allow root login
     if grep -qE "^\s*PermitRootLogin\s+yes\s*$" "$SSH_CONFIG"; then
@@ -69,6 +70,17 @@ function enableRootPasswordLogin() {
             echo "PasswordAuthentication yes" >>"$USERFUL_CONF"
             prettyLog "INFO" "Appended PasswordAuthentication yes to $USERFUL_CONF"
         fi
+    fi
+
+    # remove restrictive ssh allow rules
+    if grep -qE "^\s*AllowUsers\s+" "$EXTENDED_CONFIG"; then
+        sed -i 's/^\s*AllowUsers\s\+/# AllowUsers /' "$EXTENDED_CONFIG"
+        prettyLog "INFO" "Disabled AllowUsers restriction in $EXTENDED_CONFIG"
+    fi
+
+    if grep -qE "^\s*AllowGroups\s+" "$EXTENDED_CONFIG"; then
+        sed -i 's/^\s*AllowGroups\s\+/# AllowGroups /' "$EXTENDED_CONFIG"
+        prettyLog "INFO" "Disabled AllowGroups restriction in $EXTENDED_CONFIG"
     fi
 
     # restart services
