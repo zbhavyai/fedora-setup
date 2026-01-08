@@ -45,19 +45,26 @@ function enableRootPasswordLogin() {
     local SSH_CONFIG="/etc/ssh/sshd_config"
     local USERFUL_CONF="/etc/ssh/sshd_config.d/40-userful.conf"
     local EXTENDED_CONFIG="/etc/ssh/sshd_config.d/00-userful-extended-security.conf"
+    local DYNAMIC_USERS_CONF="/etc/ssh/sshd_config.d/userful-ssh-userful.conf"
 
     # allow root login
-    if grep -qE "^\s*PermitRootLogin\s+yes\s*$" "$SSH_CONFIG"; then
-        prettyLog "INFO" "PermitRootLogin is already set to yes in $SSH_CONFIG"
-    else
-        if grep -qE "^\s*PermitRootLogin\s+" "$SSH_CONFIG"; then
-            sed -i 's/^\s*PermitRootLogin\s\+.*/PermitRootLogin yes/' "$SSH_CONFIG"
-            prettyLog "INFO" "Updated PermitRootLogin to yes in $SSH_CONFIG"
-        else
-            echo "PermitRootLogin yes" >>"$SSH_CONFIG"
-            prettyLog "INFO" "Appended PermitRootLogin yes to $SSH_CONFIG"
+    for CONF in "$SSH_CONFIG" "$USERFUL_CONF" "$EXTENDED_CONFIG"; do
+        if [ ! -f "$CONF" ]; then
+            continue
         fi
-    fi
+
+        if grep -qE "^\s*PermitRootLogin\s+yes\s*$" "$CONF"; then
+            prettyLog "INFO" "PermitRootLogin already set to yes in $CONF"
+        else
+            if grep -qE "^\s*PermitRootLogin\s+" "$CONF"; then
+                sed -i 's/^\s*PermitRootLogin\s\+.*/PermitRootLogin yes/' "$CONF"
+                prettyLog "INFO" "Updated PermitRootLogin to yes in $CONF"
+            else
+                echo "PermitRootLogin yes" >>"$CONF"
+                prettyLog "INFO" "Appended PermitRootLogin yes to $CONF"
+            fi
+        fi
+    done
 
     # allow password authentication
     if grep -qE "^\s*PasswordAuthentication\s+yes\s*$" "$USERFUL_CONF"; then
@@ -82,6 +89,10 @@ function enableRootPasswordLogin() {
         sed -i 's/^\s*AllowGroups\s\+/# AllowGroups /' "$EXTENDED_CONFIG"
         prettyLog "INFO" "Disabled AllowGroups restriction in $EXTENDED_CONFIG"
     fi
+
+    # remove dynamic users allowance config
+    rm -f "$DYNAMIC_USERS_CONF"
+    prettyLog "INFO" "Removed $DYNAMIC_USERS_CONF to disable dynamic user restrictions"
 
     # restart services
     systemctl restart sshd
