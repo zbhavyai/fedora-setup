@@ -16,7 +16,7 @@ function Help() {
     echo "    ${0} [OPTION]"
     echo
     echo "Options:"
-    echo "    -e    enable root password login to the server"
+    echo "    -e    enable root login to the server"
     echo "    -h    show this help message"
     echo
     echo
@@ -41,18 +41,18 @@ function prettyLog() {
 
 # enable logging in using password (use passwd to set root password)
 # -------------------------------------------------------------------------------------
-function enableRootPasswordLogin() {
+function enableRootLogin() {
     local SSH_CONFIG="/etc/ssh/sshd_config"
     local USERFUL_CONF="/etc/ssh/sshd_config.d/40-userful.conf"
     local EXTENDED_CONFIG="/etc/ssh/sshd_config.d/00-userful-extended-security.conf"
     local DYNAMIC_USERS_CONF="/etc/ssh/sshd_config.d/userful-ssh-userful.conf"
 
-    # allow root login
     for CONF in "$SSH_CONFIG" "$USERFUL_CONF" "$EXTENDED_CONFIG"; do
         if [ ! -f "$CONF" ]; then
             continue
         fi
 
+        # allow root login
         if grep -qE "^\s*PermitRootLogin\s+yes\s*$" "$CONF"; then
             prettyLog "INFO" "PermitRootLogin already set to yes in $CONF"
         else
@@ -64,20 +64,20 @@ function enableRootPasswordLogin() {
                 prettyLog "INFO" "Appended PermitRootLogin yes to $CONF"
             fi
         fi
-    done
 
-    # allow password authentication
-    if grep -qE "^\s*PasswordAuthentication\s+yes\s*$" "$USERFUL_CONF"; then
-        prettyLog "INFO" "PasswordAuthentication already set to yes in $USERFUL_CONF"
-    else
-        if grep -qE "^\s*PasswordAuthentication\s+" "$USERFUL_CONF"; then
-            sed -i 's/^\s*PasswordAuthentication\s\+.*/PasswordAuthentication yes/' "$USERFUL_CONF"
-            prettyLog "INFO" "Updated PasswordAuthentication to yes in $USERFUL_CONF"
+        # allow password authentication
+        if grep -qE "^\s*PasswordAuthentication\s+yes\s*$" "$CONF"; then
+            prettyLog "INFO" "PasswordAuthentication already set to yes in $CONF"
         else
-            echo "PasswordAuthentication yes" >>"$USERFUL_CONF"
-            prettyLog "INFO" "Appended PasswordAuthentication yes to $USERFUL_CONF"
+            if grep -qE "^\s*PasswordAuthentication\s+" "$CONF"; then
+                sed -i 's/^\s*PasswordAuthentication\s\+.*/PasswordAuthentication yes/' "$CONF"
+                prettyLog "INFO" "Updated PasswordAuthentication to yes in $CONF"
+            else
+                echo "PasswordAuthentication yes" >>"$CONF"
+                prettyLog "INFO" "Appended PasswordAuthentication yes to $CONF"
+            fi
         fi
-    fi
+    done
 
     # remove restrictive ssh allow rules
     if grep -qE "^\s*AllowUsers\s+" "$EXTENDED_CONFIG"; then
@@ -108,7 +108,7 @@ while getopts ":he" opt; do
         exit
         ;;
     e)
-        enableRootPasswordLogin
+        enableRootLogin
         ;;
     \?)
         prettyLog "ERROR" "Invalid option"
