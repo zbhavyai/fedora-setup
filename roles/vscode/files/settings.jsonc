@@ -59,6 +59,8 @@
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "chat.disableAIFeatures": false,
   "chat.agent.enabled": false,
+  "chat.viewSessions.orientation": "stacked",
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   "github.copilot.chat.codesearch.enabled": true,
   "github.copilot.enable": { "*": true, "plaintext": false },
   "github.copilot.nextEditSuggestions.enabled": true,
