@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # author        : github.com/zbhavyai
-# description   : Enable root login to the server using password authentication.
+# description   : Enable root login to the server.
 
 CURR_SCRIPT=$(readlink -f "$0")
 CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
@@ -10,13 +10,13 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # -------------------------------------------------------------------------------------
 function Help() {
     echo
-    echo "Enable root login to the server using password authentication."
+    echo "Enable root login to the server."
     echo
     echo "Usage:"
     echo "    ${0} [OPTION]"
     echo
     echo "Options:"
-    echo "    -e    enable root password login to the server. Use passwd to set root password"
+    echo "    -e    enable root password login to the server"
     echo "    -h    show this help message"
     echo
     echo
