@@ -166,6 +166,7 @@ function addToPath() {
 export JAVA_HOME=$(readlink -f $(command -v -- java) 2>/dev/null | sed "s:/bin/java::")
 export XDG_CONFIG_HOME="${HOME}/.config"
 export REGISTRY_AUTH_FILE="${XDG_CONFIG_HOME}/containers/auth.json"
+export EDITOR="/usr/bin/vim"
 
 if command -v -- podman &>/dev/null; then
     # source - https://quarkus.io/guides/podman

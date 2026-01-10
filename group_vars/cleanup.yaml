@@ -7,6 +7,8 @@ dnf_packages_cleanup:
   - gnome-weather
   - totem
   - transmission
+  - nano
+  - nano-default-editor
 
   # utilities
   - highcontrast-icon-theme
