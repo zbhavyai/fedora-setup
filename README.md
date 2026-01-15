@@ -60,8 +60,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 -  The programmatic way to check changes being done to your system is to run the playbooks with `--check` flag. Example:
 
    ```shell
-   source .venv/bin/activate
-   ansible-playbook playbooks/cleanup.yaml --check
+   uv run ansible-playbook playbooks/cleanup.yaml --check
    ```
 
 -  Another way is to check the [playbooks](playbooks), [roles](roles), and [group vars](group_vars) manually, which I find more reliable :smile:
