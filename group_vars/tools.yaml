@@ -31,6 +31,7 @@ dnf_packages_tools:
 flatpak_packages_tools:
   # customization
   - com.github.tchx84.Flatseal
+  - io.github.flattool.Warehouse
 
   # utilities
   - io.gitlab.liferooter.TextPieces
@@ -39,6 +40,8 @@ flatpak_packages_tools:
   - org.gnome.dspy
   - org.remmina.Remmina
   - org.gnome.Papers
+  - net.nokyan.Resources
+  - md.obsidian.Obsidian
 
   # misc
   - org.telegram.desktop

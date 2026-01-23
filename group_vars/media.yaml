@@ -1,14 +1,23 @@
 ---
 flatpak_packages_media:
-  - com.github.PintaProject.Pinta
-  - com.jgraph.drawio.desktop
+  # video
   - com.obsproject.Studio
+  # - org.nickvision.tubeconverter
+  - org.shotcut.Shotcut
+  - org.videolan.VLC
+
+  # audio
   - com.spotify.Client
   - org.atheme.audacious
   # - org.audacityteam.Audacity
   - org.gnome.SoundRecorder
-  # - org.kde.gwenview
   - org.nickvision.tagger
-  # - org.nickvision.tubeconverter
-  - org.shotcut.Shotcut
-  - org.videolan.VLC
+
+  # image
+  - be.alexandervanhee.gradia
+  - com.github.PintaProject.Pinta
+  - com.jgraph.drawio.desktop
+  - io.gitlab.adhami3310.Converter
+  - org.gnome.design.Emblem
+  - org.gnome.design.IconLibrary
+  # - org.kde.gwenview
