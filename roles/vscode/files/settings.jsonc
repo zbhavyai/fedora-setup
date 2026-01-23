@@ -3,7 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always",
     "source.addMissingImports": "always",
-    "source.unusedImports": "always"
+    "source.unusedImports": "always",
   },
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
@@ -62,7 +62,12 @@
   "chat.viewSessions.orientation": "stacked",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "github.copilot.chat.codesearch.enabled": true,
-  "github.copilot.enable": { "*": true, "plaintext": false },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+  },
   "github.copilot.nextEditSuggestions.enabled": true,
   "ansible.lightspeed.enabled": false,
   "ansible.lightspeed.suggestions.enabled": false,
@@ -73,7 +78,7 @@
     "python:S100": { "level": "off" },
     "python:S116": { "level": "off" },
     "python:S117": { "level": "off" },
-    "python:S1542": { "level": "off" }
+    "python:S1542": { "level": "off" },
   },
   // JAVA ---------------------------------------------------------------------
   "files.exclude": { "**/.classpath": true, "**/.project": true, "**/.settings": true, "**/.factorypath": true },
@@ -108,7 +113,7 @@
   "scm.diffDecorationsGutterVisibility": "always",
   // FORMATTING ---------------------------------------------------------------
   "[html][css][scss][javascript][typescript][javascriptreact][typescriptreact][json][jsonc][markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
   "[yaml]": { "editor.defaultFormatter": "redhat.vscode-yaml" },
@@ -138,5 +143,5 @@
   "SQL-Formatter-VSCode.functionCase": "upper",
   // OTHER --------------------------------------------------------------------
   "security.workspace.trust.enabled": false,
-  "telemetry.telemetryLevel": "crash"
+  "telemetry.telemetryLevel": "crash",
 }
