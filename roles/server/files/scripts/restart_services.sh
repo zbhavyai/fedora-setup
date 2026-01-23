@@ -83,12 +83,17 @@ function removeXorgLogFiles() {
     rm -f "$@"
 }
 
+function removeEventLogs() {
+    rm -f "$@"
+}
+
 function trimLogs() {
     prettyLog "INFO" "Trimming logs"
 
     # chronos logs
     removeLogFiles /var/log/userful/userful-chronos-aether.log
     removeLogFiles /var/log/userful/userful-chronos-ve.log
+    removeLogFiles /var/log/userful/userful-chronos-vpn.log
 
     # keycloak logs
     removeLogFiles /var/log/userful/keycloak.log
@@ -103,6 +108,10 @@ function trimLogs() {
     removeLogFiles /var/log/userful/userful-chronos-initial-setup.log
     removeLogFiles /var/log/userful/db_backup_and_restore.log
     removeLogFiles /var/log/userful/vault_backup_and_restore.log
+
+    # fluentd logs
+    removeLogFiles /var/log/td-agent/userful-td-agent.log
+    removeEventLogs /var/log/td-agent/userful-events*log
 
     # plugin logs
     removeLogFiles /var/log/userful/profile-data.log
