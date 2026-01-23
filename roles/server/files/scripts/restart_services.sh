@@ -9,6 +9,7 @@ CURR_SCRIPT_PATH=$(dirname "${CURR_SCRIPT}")
 # service list that needs to be restarted
 # -------------------------------------------------------------------------------------
 declare -a SERVICE_LIST
+SERVICE_LIST+=("userful-keycloak.service")
 SERVICE_LIST+=("userful-chronos-initial-setup.service")
 SERVICE_LIST+=("userful-chronos-aether.service")
 SERVICE_LIST+=("userful-chronos-ve.service")
@@ -89,9 +90,8 @@ function trimLogs() {
     removeLogFiles /var/log/userful/userful-chronos-aether.log
     removeLogFiles /var/log/userful/userful-chronos-ve.log
 
-    # keycloak and usrmgt logs
-    removeLogFiles /var/log/userful/userful-chronos-keycloak.log
-    removeLogFiles /var/log/userful/userful-chronos-keycloak-app.log
+    # keycloak logs
+    removeLogFiles /var/log/userful/keycloak.log
 
     # veo and udm logs
     removeLogFiles /var/log/userful/veo.log
