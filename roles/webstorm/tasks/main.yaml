@@ -2,19 +2,19 @@
 - name: Download WebStorm
   ansible.builtin.get_url:
     url: https://download-cdn.jetbrains.com/webstorm/WebStorm-2025.2.5.tar.gz
-    dest: "{{ ansible_env.HOME }}/webstorm.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/webstorm.tar.gz"
     mode: "0644"
 
 - name: Extract WebStorm
   ansible.builtin.unarchive:
-    src: "{{ ansible_env.HOME }}/webstorm.tar.gz"
-    dest: "{{ ansible_env.HOME }}/"
+    src: "{{ ansible_facts['env']['HOME'] }}/webstorm.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/"
     remote_src: true
   become: false
 
 - name: Remove downloaded WebStorm archive
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/webstorm.tar.gz"
+    path: "{{ ansible_facts['env']['HOME'] }}/webstorm.tar.gz"
     state: absent
 
 - name: Remove existing WebStorm installation
@@ -24,9 +24,9 @@
   become: true
 
 - name: Rename extracted WebStorm directory
-  ansible.builtin.shell: mv {{ ansible_env.HOME }}/WebStorm-* /opt/webstorm
+  ansible.builtin.shell: mv {{ ansible_facts['env']['HOME'] }}/WebStorm-* /opt/webstorm
   args:
-    removes: "{{ ansible_env.HOME }}/WebStorm-*"
+    removes: "{{ ansible_facts['env']['HOME'] }}/WebStorm-*"
     creates: /opt/webstorm
   become: true
 
@@ -87,7 +87,7 @@
 - name: Copy all settings
   ansible.builtin.copy:
     src: config
-    dest: "{{ ansible_env.HOME }}/.config/jetbrains/webstorm/"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/jetbrains/webstorm/"
     mode: "0644"
   become: false
 

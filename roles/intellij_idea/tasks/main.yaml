@@ -2,19 +2,19 @@
 - name: Download IntelliJ IDEA
   ansible.builtin.get_url:
     url: https://download-cdn.jetbrains.com/idea/ideaIC-2025.2.5.tar.gz
-    dest: "{{ ansible_env.HOME }}/intellij-idea.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/intellij-idea.tar.gz"
     mode: "0644"
 
 - name: Extract IntelliJ IDEA
   ansible.builtin.unarchive:
-    src: "{{ ansible_env.HOME }}/intellij-idea.tar.gz"
-    dest: "{{ ansible_env.HOME }}/"
+    src: "{{ ansible_facts['env']['HOME'] }}/intellij-idea.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/"
     remote_src: true
   become: false
 
 - name: Remove downloaded IntelliJ IDEA archive
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/intellij-idea.tar.gz"
+    path: "{{ ansible_facts['env']['HOME'] }}/intellij-idea.tar.gz"
     state: absent
 
 - name: Remove existing IntelliJ IDEA installation
@@ -24,9 +24,9 @@
   become: true
 
 - name: Move extracted IntelliJ IDEA directory to /opt
-  ansible.builtin.shell: mv {{ ansible_env.HOME }}/idea-* /opt/intellij-idea
+  ansible.builtin.shell: mv {{ ansible_facts['env']['HOME'] }}/idea-* /opt/intellij-idea
   args:
-    removes: "{{ ansible_env.HOME }}/idea-*"
+    removes: "{{ ansible_facts['env']['HOME'] }}/idea-*"
     creates: /opt/intellij-idea
   become: true
 
@@ -87,7 +87,7 @@
 - name: Copy all settings
   ansible.builtin.copy:
     src: config
-    dest: "{{ ansible_env.HOME }}/.config/jetbrains/intellij-idea/"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/jetbrains/intellij-idea/"
     mode: "0644"
   become: false
 

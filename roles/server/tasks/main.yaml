@@ -2,55 +2,55 @@
 - name: Copy .bashrc
   ansible.builtin.copy:
     src: .bashrc
-    dest: "{{ ansible_env.HOME }}/.bashrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.bashrc"
     mode: "0644"
 
 - name: Copy .bashrc-server
   ansible.builtin.copy:
     src: .bashrc-server
-    dest: "{{ ansible_env.HOME }}/.bashrc-server"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.bashrc-server"
     mode: "0644"
 
 - name: Copy .gitconfig
   ansible.builtin.copy:
     src: .gitconfig
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gitconfig"
     mode: "0644"
 
 - name: Copy .gitconfig-work
   ansible.builtin.copy:
     src: .gitconfig-work
-    dest: "{{ ansible_env.HOME }}/.gitconfig-work"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gitconfig-work"
     mode: "0644"
 
 - name: Copy .inputrc
   ansible.builtin.copy:
     src: .inputrc
-    dest: "{{ ansible_env.HOME }}/.inputrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.inputrc"
     mode: "0644"
 
 - name: Copy .vimrc
   ansible.builtin.copy:
     src: .vimrc
-    dest: "{{ ansible_env.HOME }}/.vimrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.vimrc"
     mode: "0644"
 
 - name: Copy all bash scripts
   ansible.builtin.copy:
     src: scripts/
-    dest: "{{ ansible_env.HOME }}/"
+    dest: "{{ ansible_facts['env']['HOME'] }}/"
     mode: "0755"
 
 - name: Ensure bash completion directory exists
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.local/share/bash-completion/completions"
+    path: "{{ ansible_facts['env']['HOME'] }}/.local/share/bash-completion/completions"
     state: directory
     mode: "0755"
 
 - name: Copy bash completion files
   ansible.builtin.copy:
     src: bash_completion/
-    dest: "{{ ansible_env.HOME }}/.local/share/bash-completion/completions/"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.local/share/bash-completion/completions/"
     mode: "0644"
 
 - name: Ensure cockpit socket config directory exists

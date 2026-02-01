@@ -63,7 +63,7 @@
 
 - name: Ensure .config/containers directory exists
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.config/containers"
+    path: "{{ ansible_facts['env']['HOME'] }}/.config/containers"
     state: directory
     mode: "0755"
   become: false
@@ -72,7 +72,7 @@
 - name: Copy containers.conf
   ansible.builtin.copy:
     src: containers.conf
-    dest: "{{ ansible_env.HOME }}/.config/containers/containers.conf"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/containers/containers.conf"
     mode: "0644"
   become: false
   when: container_engine == "podman"
@@ -80,7 +80,7 @@
 - name: Copy registries.conf
   ansible.builtin.copy:
     src: registries.conf
-    dest: "{{ ansible_env.HOME }}/.config/containers/registries.conf"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/containers/registries.conf"
     mode: "0644"
   become: false
   when: container_engine == "podman"

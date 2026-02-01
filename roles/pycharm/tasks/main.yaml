@@ -2,19 +2,19 @@
 - name: Download PyCharm
   ansible.builtin.get_url:
     url: https://download-cdn.jetbrains.com/python/pycharm-2025.2.5.tar.gz
-    dest: "{{ ansible_env.HOME }}/pycharm.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/pycharm.tar.gz"
     mode: "0644"
 
 - name: Extract PyCharm
   ansible.builtin.unarchive:
-    src: "{{ ansible_env.HOME }}/pycharm.tar.gz"
-    dest: "{{ ansible_env.HOME }}/"
+    src: "{{ ansible_facts['env']['HOME'] }}/pycharm.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/"
     remote_src: true
   become: false
 
 - name: Remove downloaded PyCharm archive
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/pycharm.tar.gz"
+    path: "{{ ansible_facts['env']['HOME'] }}/pycharm.tar.gz"
     state: absent
 
 - name: Remove existing PyCharm installation
@@ -24,9 +24,9 @@
   become: true
 
 - name: Move extracted PyCharm directory to /opt
-  ansible.builtin.shell: mv {{ ansible_env.HOME }}/pycharm-* /opt/pycharm
+  ansible.builtin.shell: mv {{ ansible_facts['env']['HOME'] }}/pycharm-* /opt/pycharm
   args:
-    removes: "{{ ansible_env.HOME }}/pycharm-*"
+    removes: "{{ ansible_facts['env']['HOME'] }}/pycharm-*"
     creates: /opt/pycharm
   become: true
 
@@ -87,7 +87,7 @@
 - name: Copy all settings
   ansible.builtin.copy:
     src: config
-    dest: "{{ ansible_env.HOME }}/.config/jetbrains/pycharm/"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/jetbrains/pycharm/"
     mode: "0644"
   become: false
 
