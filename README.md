@@ -10,9 +10,11 @@ _Automated set up of Fedora Workstation and Fedora Server using Ansible_
 
 The goal of this repository is to:
 
--  keep all dotfiles and configurations in version control
--  ensure system settings are reproducible across machines
--  automate setup to the highest reasonable extent with minimal manual intervention
+- keep all dotfiles and configurations in version control
+- ensure system settings are reproducible across machines
+- automate setup to the highest reasonable extent with minimal manual intervention
+
+The most frequently used dotfiles are located [here](roles/dotfiles/files/).
 
 ## What does it cover
 
@@ -57,13 +59,13 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 
 #### Checking what this repository offers without making any changes:
 
--  The programmatic way to check changes being done to your system is to run the playbooks with `--check` flag. Example:
+- The programmatic way to check changes being done to your system is to run the playbooks with `--check` flag. Example:
 
    ```shell
    uv run ansible-playbook playbooks/cleanup.yaml --check
    ```
 
--  Another way is to check the [playbooks](playbooks), [roles](roles), and [group vars](group_vars) manually, which I find more reliable :smile:
+- Another way is to check the [playbooks](playbooks), [roles](roles), and [group vars](group_vars) manually, which I find more reliable :smile:
 
 #### Saving your current system settings to the configurations in this repository:
 
