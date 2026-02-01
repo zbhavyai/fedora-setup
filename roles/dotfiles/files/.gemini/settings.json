@@ -1,0 +1,53 @@
+{
+  "model": {
+    "name": "gemini-3-flash-preview"
+  },
+  "general": {
+    "previewFeatures": true,
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "14d"
+    }
+  },
+  "ui": {
+    "hideWindowTitle": true,
+    "showStatusInTitle": true,
+    "dynamicWindowTitle": false,
+    "hideBanner": true,
+    "footer": {
+      "hideModelInfo": true,
+      "hideContextPercentage": false
+    },
+    "showMemoryUsage": true,
+    "showModelInfoInChat": true,
+    "theme": "Dracula"
+  },
+  "ide": {
+    "enabled": false
+  },
+  "experimental": {
+    "enableAgents": true
+  },
+  "skills": {
+    "enabled": true
+  },
+  "tools": {
+    "allowed": ["run_shell_command"],
+    "exclude": ["run_shell_command(git commit)"]
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    },
+    "folderTrust": {
+      "enabled": true
+    },
+    "enablePermanentToolApproval": true
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "telemetry": {
+    "enabled": false
+  }
+}

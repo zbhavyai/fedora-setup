@@ -40,3 +40,21 @@
     src: .vimrc
     dest: "{{ ansible_env.HOME }}/.vimrc"
     mode: "0644"
+
+- name: Ensure .gemini directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.gemini"
+    state: directory
+    mode: "0755"
+
+- name: Copy Gemini settings
+  ansible.builtin.copy:
+    src: .gemini/settings.json
+    dest: "{{ ansible_env.HOME }}/.gemini/settings.json"
+    mode: "0644"
+
+- name: Copy Gemini Trusted Folders
+  ansible.builtin.copy:
+    src: .gemini/trustedFolders.json
+    dest: "{{ ansible_env.HOME }}/.gemini/trustedFolders.json"
+    mode: "0644"
