@@ -156,6 +156,7 @@ function addToPath() {
         export PATH="${1}:${PATH}"
     fi
 }
+addToPath "${HOME}/.local/share/pnpm"
 # addToPath "/opt/apache-maven-3.6.3/bin"
 # addToPath "/opt/node-v16.20.2-linux-x64/bin"
 # addToPath "/opt/go/bin"
@@ -164,6 +165,7 @@ function addToPath() {
 # env variables
 # #############################################################################
 export JAVA_HOME=$(readlink -f $(command -v -- java) 2>/dev/null | sed "s:/bin/java::")
+export PNPM_HOME="${HOME}/.local/share/pnpm"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export REGISTRY_AUTH_FILE="${XDG_CONFIG_HOME}/containers/auth.json"
 export EDITOR="/usr/bin/vim"
