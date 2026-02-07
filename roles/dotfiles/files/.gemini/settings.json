@@ -3,7 +3,7 @@
     "name": "gemini-3-flash-preview"
   },
   "general": {
-    "previewFeatures": true,
+    "enableAutoUpdate": false,
     "sessionRetention": {
       "enabled": true,
       "maxAge": "14d"
