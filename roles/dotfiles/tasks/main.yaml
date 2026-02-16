@@ -31,7 +31,7 @@
 
 - name: Copy SSH config
   ansible.builtin.copy:
-    src: ssh_config
+    src: .ssh/config
     dest: "{{ ansible_env.HOME }}/.ssh/config"
     mode: "0600"
 
