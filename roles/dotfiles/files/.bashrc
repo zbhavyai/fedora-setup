@@ -183,6 +183,7 @@ fi
 # alias
 # #############################################################################
 alias vi='vim'
+alias ls='ls --color=auto'
 alias ll='ls -lF'
 alias cp='cp --preserve'
 alias activate='source ${HOME}/.venv/PY-ENV/bin/activate'
