@@ -23,14 +23,10 @@
   },
   {
     "key": "ctrl+alt+i",
-    "command": "antigravity.prioritized.chat.open"
+    "command": "antigravity.toggleChatFocus"
   },
   {
     "key": "ctrl+l",
-    "command": "-antigravity.prioritized.chat.open"
-  },
-  {
-    "key": "ctrl+shift+i",
-    "command": "-antigravity.triggerAgent"
+    "command": "-antigravity.toggleChatFocus"
   }
 ]
