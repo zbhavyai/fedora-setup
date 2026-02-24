@@ -9,6 +9,7 @@ dnf_packages_tools:
   - ddcutil
   - fastfetch
   - file-roller
+  - fonttools
   - ftp
   - gh
   # - glances
