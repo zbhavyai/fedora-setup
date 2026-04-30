@@ -5,6 +5,7 @@ dnf_packages_customization:
   - papirus-icon-theme
 
   # fonts
+  - fira-code-fonts
   - liberation-fonts
   - lohit-assamese-fonts
   - lohit-bengali-fonts
@@ -16,7 +17,6 @@ dnf_packages_customization:
   - lohit-odia-fonts
   - lohit-tamil-fonts
   - lohit-telugu-fonts
-  - mozilla-fira-mono-fonts
   - rit-meera-new-fonts
   - rit-rachana-fonts
 
