@@ -4,8 +4,8 @@
   roles:
     # - chromium_flatpak
     # - gnome_terminal
-    # - google_chrome
-    - google_chrome_flatpak
+    - google_chrome
+    # - google_chrome_flatpak
     # - konsole
     # - microsoft_edge_flatpak
     - virtualbox
