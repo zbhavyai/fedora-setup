@@ -2,59 +2,71 @@
 - name: Copy .bashrc
   ansible.builtin.copy:
     src: .bashrc
-    dest: "{{ ansible_env.HOME }}/.bashrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.bashrc"
     mode: "0644"
 
 - name: Copy .gitconfig
   ansible.builtin.copy:
     src: .gitconfig
-    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gitconfig"
     mode: "0644"
 
 - name: Copy .gitconfig-work
   ansible.builtin.copy:
     src: .gitconfig-work
-    dest: "{{ ansible_env.HOME }}/.gitconfig-work"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gitconfig-work"
     mode: "0644"
 
 - name: Copy .inputrc
   ansible.builtin.copy:
     src: .inputrc
-    dest: "{{ ansible_env.HOME }}/.inputrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.inputrc"
     mode: "0644"
 
 - name: Ensure .ssh directory exists
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.ssh"
+    path: "{{ ansible_facts['env']['HOME'] }}/.ssh"
     state: directory
     mode: "0700"
 
 - name: Copy SSH config
   ansible.builtin.copy:
     src: .ssh/config
-    dest: "{{ ansible_env.HOME }}/.ssh/config"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.ssh/config"
     mode: "0600"
 
 - name: Copy .vimrc
   ansible.builtin.copy:
     src: .vimrc
-    dest: "{{ ansible_env.HOME }}/.vimrc"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.vimrc"
     mode: "0644"
 
 - name: Ensure .gemini directory exists
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/.gemini"
+    path: "{{ ansible_facts['env']['HOME'] }}/.gemini"
     state: directory
     mode: "0755"
 
 - name: Copy Gemini settings
   ansible.builtin.copy:
     src: .gemini/settings.json
-    dest: "{{ ansible_env.HOME }}/.gemini/settings.json"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gemini/settings.json"
     mode: "0644"
 
 - name: Copy Gemini Trusted Folders
   ansible.builtin.copy:
     src: .gemini/trustedFolders.json
-    dest: "{{ ansible_env.HOME }}/.gemini/trustedFolders.json"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.gemini/trustedFolders.json"
+    mode: "0644"
+
+- name: Ensure .codex directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_facts['env']['HOME'] }}/.codex"
+    state: directory
+    mode: "0755"
+
+- name: Copy Codex settings
+  ansible.builtin.copy:
+    src: .codex/config.toml
+    dest: "{{ ansible_facts['env']['HOME'] }}/.codex/config.toml"
     mode: "0644"
