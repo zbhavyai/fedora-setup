@@ -90,7 +90,7 @@ else
 fi
 
 # #############################################################################
-# shorter prompt - useful for split terminals
+# shorter prompt
 # #############################################################################
 function shorterPrompt() {
     export PS1="${colorYellow}\W${colorReset}> "
@@ -196,6 +196,7 @@ alias commitCount='git rev-list --count HEAD'
 alias neofetch='fastfetch'
 alias listaccess='find "$PWD" -type f -printf "%AF %AH:%AM:%AS | %p\n" | sort'
 alias listmodify='find "$PWD" -type f -printf "%TF %TH:%TM:%TS | %p\n" | sort'
+alias reload='source ~/.bashrc'
 
 if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
