@@ -169,6 +169,7 @@ export PNPM_HOME="${HOME}/.local/share/pnpm"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export REGISTRY_AUTH_FILE="${XDG_CONFIG_HOME}/containers/auth.json"
 export EDITOR="/usr/bin/vim"
+export NETLIFY_AUTH_TOKEN=""
 
 if command -v -- podman &>/dev/null; then
     # source - https://quarkus.io/guides/podman
