@@ -8,6 +8,10 @@
 [alias]
     lola = log --all --graph --decorate=short --pretty=oneline --abbrev-commit
     hist = log --all --graph --decorate=short --pretty=format:'%C(auto)%h %C(blue)%as %C(auto)%d %s [%C(magenta)%an%C(reset)]'
+    lola-branch = log --graph --decorate=short --pretty=oneline --abbrev-commit
+    hist-branch = log --graph --decorate=short --pretty=format:'%C(auto)%h %C(blue)%as %C(auto)%d %s [%C(magenta)%an%C(reset)]'
+    base-commit = "!git merge-base main HEAD | xargs git show --oneline --no-patch"
+    mylog = log --graph --decorate=short --pretty=oneline --abbrev-commit main..HEAD
     amend = commit --amend --reuse-message=HEAD
 [init]
     defaultBranch = main
