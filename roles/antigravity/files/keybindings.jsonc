@@ -22,11 +22,18 @@
     "command": "git.stage"
   },
   {
-    "key": "ctrl+alt+i",
-    "command": "antigravity.toggleChatFocus"
+    "key": "ctrl+l",
+    "command": "-antigravity.toggleChatFocus",
+    "when": "!terminalFocus"
   },
   {
-    "key": "ctrl+l",
-    "command": "-antigravity.toggleChatFocus"
+    "key": "ctrl+alt+i",
+    "command": "-workbench.panel.chat",
+    "when": "workbench.panel.chat.view.copilot.active"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "antigravity.toggleChatFocus",
+    "when": "!terminalFocus"
   }
 ]
