@@ -27,7 +27,7 @@ if [ -f /etc/os-release ]; then
     ID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
     ID_LIKE=$(grep -oP '(?<=^ID_LIKE=).+' /etc/os-release | tr -d '"')
 
-    if [[ "$ID" == "rhel" || "$ID_LIKE" == *"rhel"* || "$ID" == "fedora" ]]; then
+    if [[ "${ID}" == "rhel" || "${ID_LIKE}" == *"rhel"* || "${ID}" == "fedora" ]]; then
         export isRhel=0
     else
         export isRhel=1
@@ -71,7 +71,7 @@ colorCyan="\[\e[00;36m\]"
 colorWhite="\[\e[00;37m\]"
 colorReset="\[\e[00m\]"
 
-if [ $EUID -eq 0 ]; then
+if [ "${EUID}" -eq 0 ]; then
     # PS1 for root users
     export PS1="${colorMagenta}\u@\h${colorReset} ${colorYellow}\W${colorReset}${colorCyan}"
     export PS1="${PS1}"'$( parse_git_branch )'
@@ -105,7 +105,7 @@ export -f cls
 # #############################################################################
 function printSeparator() {
     terminal_width=$(tput cols)
-    printf "%.0s-" $(seq 1 ${terminal_width})
+    printf "%.0s-" $(seq 1 "${terminal_width}")
     printf "\n"
 }
 export -f printSeparator
@@ -129,16 +129,16 @@ function whatProvides() {
     local binpath
     binpath=$(command -v -- "$1")
 
-    if [[ -z "$binpath" ]]; then
+    if [[ -z "${binpath}" ]]; then
         echo "'$1' not found in PATH."
         return 1
     fi
 
     echo -n "rpm -q --file        : "
-    rpm --query --file "$binpath"
+    rpm --query --file "${binpath}"
 
     echo -n "rpm -q --whatprovides: "
-    rpm --query --whatprovides "$binpath"
+    rpm --query --whatprovides "${binpath}"
 }
 export -f whatProvides
 
@@ -193,6 +193,7 @@ alias neofetch='fastfetch'
 alias listaccess='find "$PWD" -type f -printf "%AF %AH:%AM:%AS | %p\n" | sort'
 alias listmodify='find "$PWD" -type f -printf "%TF %TH:%TM:%TS | %p\n" | sort'
 alias reload='source ~/.bashrc'
+alias antigravity-cli='agy'
 
 if [ "${isRhel}" -ne 0 ]; then
     alias alternatives='sudo update-alternatives'
