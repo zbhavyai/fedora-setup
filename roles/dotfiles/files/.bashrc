@@ -5,12 +5,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
-
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -153,9 +147,10 @@ export -f whatProvides
 # #############################################################################
 function addToPath() {
     if [ -d "${1}" ] && [[ ":${PATH}:" != *":${1}:"* ]]; then
-        export PATH="${1}:${PATH}"
+        export PATH="${PATH}:${1}"
     fi
 }
+addToPath "${HOME}/.local/bin"
 addToPath "${HOME}/.local/share/pnpm"
 # addToPath "/opt/apache-maven-3.6.3/bin"
 # addToPath "/opt/node-v16.20.2-linux-x64/bin"
