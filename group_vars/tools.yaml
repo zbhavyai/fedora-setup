@@ -18,6 +18,7 @@ dnf_packages_tools:
   - nmap
   - openssl
   - qt
+  - ripgrep
   - shfmt
   - sysprof
   - unrar
