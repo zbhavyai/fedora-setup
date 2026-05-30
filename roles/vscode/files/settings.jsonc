@@ -91,7 +91,7 @@
   "quarkus.tools.debug.terminateProcessOnExit": "Ask",
   "redhat.telemetry.enabled": false,
   // JAVASCRIPT ---------------------------------------------------------------
-  "javascript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   // PYTHON -------------------------------------------------------------------
   "python.defaultInterpreterPath": "~/.venv/PY-ENV/bin/python",
   "python.terminal.activateEnvironment": true,
