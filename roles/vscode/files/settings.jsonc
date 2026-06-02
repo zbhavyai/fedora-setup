@@ -95,6 +95,7 @@
   // PYTHON -------------------------------------------------------------------
   "python.defaultInterpreterPath": "~/.venv/PY-ENV/bin/python",
   "python.terminal.activateEnvironment": true,
+  "python-envs.terminal.autoActivationType": "shellStartup",
   "python.venvFolders": ["~/.venv"],
   "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
   "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
