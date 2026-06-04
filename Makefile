@@ -44,7 +44,7 @@ all:
 
 sync:
 	@declare -a SKIP_SCRIPTS; \
-	SKIP_SCRIPTS+=("sync_gnome_terminal.sh"); \
+	SKIP_SCRIPTS+=(""); \
 	for script in ./scripts/*; do \
 		script_name=$$(basename "$$script"); \
 		skip=false; \

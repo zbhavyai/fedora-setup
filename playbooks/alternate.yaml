@@ -3,7 +3,6 @@
   hosts: laptop
   roles:
     # - chromium_flatpak
-    # - gnome_terminal
     - google_chrome
     # - google_chrome_flatpak
     # - konsole
