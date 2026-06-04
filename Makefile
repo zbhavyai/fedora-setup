@@ -1,5 +1,9 @@
 .PHONY: init update cleanup customization tools container dev media alternate server all sync lint help
 
+help: ## show this help message
+	@echo "Available targets:"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  %-15s - %s\n", $$1, $$2}'
+
 .deps:
 	@if ! rpm -q python3-libdnf5 > /dev/null 2>&1; then \
 		echo "python3-libdnf5 is not installed. Please run:"; \
@@ -7,42 +11,42 @@
 		exit 1; \
 	fi
 
-init: .deps
+init: .deps ## set up py venv and install requirements
 	@ln -sf $(CURDIR)/.hooks/pre-commit.sh .git/hooks/pre-commit
 	@uv sync
 
-update:
+update: ## update dependencies and sync
 	@uv lock --upgrade
 	@uv sync
 
-cleanup:
+cleanup: ## run cleanup playbook
 	@uv run ansible-playbook playbooks/cleanup.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-customization:
+customization: ## run customization playbook
 	@uv run ansible-playbook playbooks/customization.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-tools:
+tools: ## run tools playbook
 	@uv run ansible-playbook playbooks/tools.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-container:
+container: ## run container playbook
 	@uv run ansible-playbook playbooks/container.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-dev:
+dev: ## run development environment playbook
 	@uv run ansible-playbook playbooks/dev.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-media:
+media: ## run media playbook
 	@uv run ansible-playbook playbooks/media.yaml --inventory inventory/hosts.yaml
 
-alternate:
+alternate: ## run alternate playbook
 	@uv run ansible-playbook playbooks/alternate.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-server:
+server: ## run server playbook
 	@uv run ansible-playbook playbooks/server.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-all:
+all: ## run all playbooks
 	@uv run ansible-playbook playbooks/all.yaml --inventory inventory/hosts.yaml --ask-become-pass
 
-sync:
+sync: ## sync current settings
 	@declare -a SKIP_SCRIPTS; \
 	SKIP_SCRIPTS+=(""); \
 	for script in ./scripts/*; do \
@@ -66,25 +70,9 @@ sync:
 		fi; \
 	done
 
-lint:
+lint: ## run lint checks on scripts and playbooks
 	@git ls-files -z -- '*.sh' | xargs -0 -r uv run shellcheck -e SC2034
 	@uv run ansible-lint
 	@for file in $$(find playbooks -name "*.yaml"); do \
 		uv run ansible-playbook --syntax-check "$$file" || exit 1; \
 	done
-
-help:
-	@echo "Available targets:"
-	@echo "  init          - Set up py venv and install requirements"
-	@echo "  update        - Update dependencies and sync"
-	@echo "  cleanup       - Run cleanup playbook"
-	@echo "  customization - Run customization playbook"
-	@echo "  tools         - Run tools setup playbook"
-	@echo "  container     - Run container setup playbook"
-	@echo "  dev           - Run development environment setup playbook"
-	@echo "  media         - Run media setup playbook"
-	@echo "  alternate     - Run alternate setup playbook"
-	@echo "  server        - Run server playbook"
-	@echo "  all           - Run all playbooks (except server)"
-	@echo "  sync          - Sync current settings"
-	@echo "  lint          - Run lint checks on scripts and playbooks"
