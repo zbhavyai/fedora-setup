@@ -13,7 +13,6 @@ vscode_extensions:
   JAVA:
     - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - github.copilot-chat
     - josevseb.google-java-format-for-vs-code
     - mkhl.shfmt
     - ms-azuretools.vscode-containers
@@ -33,7 +32,6 @@ vscode_extensions:
     - dbaeumer.vscode-eslint
     - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - github.copilot-chat
     - mkhl.shfmt
     - ms-azuretools.vscode-containers
     - pkief.material-icon-theme
@@ -43,7 +41,6 @@ vscode_extensions:
     - charliermarsh.ruff
     - editorconfig.editorconfig
     - esbenp.prettier-vscode
-    - github.copilot-chat
     - mkhl.shfmt
     - ms-azuretools.vscode-containers
     - ms-python.debugpy
