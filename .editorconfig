@@ -38,6 +38,7 @@ max_line_length = off
 
 [*.sh]
 indent_size = 4
+switch_case_indent = true
 max_line_length = off
 
 [.bash*]

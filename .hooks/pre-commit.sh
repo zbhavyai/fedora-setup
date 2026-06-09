@@ -36,7 +36,7 @@ function shell_lint() {
             continue
         fi
 
-        if ! uv run shfmt --diff --indent 4 -- "$f"; then
+        if ! uv run shfmt --diff --indent 4 --case-indent -- "$f"; then
             block "[ERROR] shfmt failed for $f"
         fi
 
