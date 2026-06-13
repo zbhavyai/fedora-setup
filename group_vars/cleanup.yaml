@@ -5,15 +5,11 @@ dnf_packages_cleanup:
   - gnome-maps
   - gnome-tour
   - gnome-weather
-  - totem
-  - transmission
   - nano
   - nano-default-editor
 
   # utilities
-  - highcontrast-icon-theme
   - PackageKit-command-not-found
-  - virtualbox-guest-additions
 
   # fonts
   - aajohan-comfortaa-fonts
