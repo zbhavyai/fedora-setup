@@ -1,10 +1,10 @@
 ---
 dnf_packages_dev:
   # java
-  - java-21-openjdk-devel
-  - java-21-openjdk-javadoc
-  - java-21-openjdk-src
-  - java-21-openjdk-jmods
+  - java-25-openjdk-devel
+  - java-25-openjdk-javadoc
+  - java-25-openjdk-src
+  - java-25-openjdk-jmods
   - maven
 
   # javascript
