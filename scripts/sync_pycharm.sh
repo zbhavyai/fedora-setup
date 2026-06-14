@@ -22,6 +22,7 @@ function get_settings() {
         --include 'options/baseRefactoring.xml' \
         --include 'options/colors.scheme.xml' \
         --include 'options/console-font.xml' \
+        --include 'options/customization.xml' \
         --include 'options/editor-font.xml' \
         --include 'options/editor.xml' \
         --include 'options/filetypes.xml' \
