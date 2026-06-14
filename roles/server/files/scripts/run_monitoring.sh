@@ -54,19 +54,19 @@ function startMonitoring() {
 # -------------------------------------------------------------------------------------
 while getopts ":hs" opt; do
     case "$opt" in
-    h)
-        Help
-        exit
-        ;;
-    s)
-        startMonitoring
-        exit
-        ;;
-    \?)
-        echo "Invalid option"
-        Help
-        exit
-        ;;
+        h)
+            Help
+            exit
+            ;;
+        s)
+            startMonitoring
+            exit
+            ;;
+        \?)
+            echo "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

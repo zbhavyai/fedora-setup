@@ -59,18 +59,18 @@ function setPassword() {
 # -------------------------------------------------------------------------------------
 while getopts ":n:h" option; do
     case "${option}" in
-    h)
-        Help
-        exit
-        ;;
-    n)
-        USERNAME="${OPTARG}"
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option"
-        Help
-        exit
-        ;;
+        h)
+            Help
+            exit
+            ;;
+        n)
+            USERNAME="${OPTARG}"
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

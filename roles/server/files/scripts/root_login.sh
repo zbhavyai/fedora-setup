@@ -103,18 +103,18 @@ function enableRootLogin() {
 # -------------------------------------------------------------------------------------
 while getopts ":he" opt; do
     case "$opt" in
-    h)
-        Help
-        exit
-        ;;
-    e)
-        enableRootLogin
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option"
-        Help
-        exit
-        ;;
+        h)
+            Help
+            exit
+            ;;
+        e)
+            enableRootLogin
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

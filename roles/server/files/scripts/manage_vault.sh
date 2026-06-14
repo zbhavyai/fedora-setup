@@ -105,21 +105,21 @@ DELETE_SECRETS="false"
 
 while getopts ":hld" opt; do
     case "$opt" in
-    h)
-        Help
-        exit
-        ;;
-    l)
-        LIST_SECRETS="true"
-        ;;
-    d)
-        DELETE_SECRETS="true"
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option"
-        Help
-        exit
-        ;;
+        h)
+            Help
+            exit
+            ;;
+        l)
+            LIST_SECRETS="true"
+            ;;
+        d)
+            DELETE_SECRETS="true"
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

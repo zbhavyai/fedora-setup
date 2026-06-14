@@ -77,18 +77,18 @@ function executePacketCounterBinaries() {
 # -------------------------------------------------------------------------------------
 while getopts ":he" opt; do
     case "$opt" in
-    h)
-        Help
-        exit
-        ;;
-    e)
-        executePacketCounterBinaries
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option"
-        Help
-        exit
-        ;;
+        h)
+            Help
+            exit
+            ;;
+        e)
+            executePacketCounterBinaries
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

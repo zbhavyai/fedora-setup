@@ -127,31 +127,31 @@ function dumpPostgresSchema() {
 # -------------------------------------------------------------------------------------
 while getopts ":ol:d:s:h" opt; do
     case "$opt" in
-    o)
-        openPostgres
-        ;;
-    l)
-        loadSQL "$OPTARG"
-        ;;
-    d)
-        dumpPostgresSchema "$OPTARG" "yes"
-        ;;
-    s)
-        dumpPostgresSchema "$OPTARG" "no"
-        ;;
-    h)
-        Help
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option: -$OPTARG"
-        Help
-        exit 1
-        ;;
-    :)
-        prettyLog "ERROR" "Option -$OPTARG requires an argument"
-        Help
-        exit 1
-        ;;
+        o)
+            openPostgres
+            ;;
+        l)
+            loadSQL "$OPTARG"
+            ;;
+        d)
+            dumpPostgresSchema "$OPTARG" "yes"
+            ;;
+        s)
+            dumpPostgresSchema "$OPTARG" "no"
+            ;;
+        h)
+            Help
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option: -$OPTARG"
+            Help
+            exit 1
+            ;;
+        :)
+            prettyLog "ERROR" "Option -$OPTARG requires an argument"
+            Help
+            exit 1
+            ;;
     esac
 done
 

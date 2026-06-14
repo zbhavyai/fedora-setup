@@ -191,27 +191,27 @@ SERVICES_RESTART="false"
 
 while getopts ":hctsr" opt; do
     case "$opt" in
-    h)
-        Help
-        exit
-        ;;
-    c)
-        PRESERVE_DATA="false"
-        ;;
-    t)
-        TRIM_LOGS="true"
-        ;;
-    s)
-        SERVICES_STOP_ONLY="true"
-        ;;
-    r)
-        SERVICES_RESTART="true"
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option"
-        Help
-        exit
-        ;;
+        h)
+            Help
+            exit
+            ;;
+        c)
+            PRESERVE_DATA="false"
+            ;;
+        t)
+            TRIM_LOGS="true"
+            ;;
+        s)
+            SERVICES_STOP_ONLY="true"
+            ;;
+        r)
+            SERVICES_RESTART="true"
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

@@ -98,27 +98,27 @@ function forwardPort() {
 # -------------------------------------------------------------------------------------
 while getopts ":hfp:" opt; do
     case "$opt" in
-    h)
-        Help
-        exit
-        ;;
-    f)
-        forwardPorts
-        exit
-        ;;
-    p)
-        if [[ -z "$OPTARG" ]]; then
-            prettyLog "ERROR" "No port supplied"
+        h)
             Help
             exit
-        fi
-        forwardPort "$OPTARG"
-        ;;
-    \?)
-        prettyLog "ERROR" "Invalid option"
-        Help
-        exit
-        ;;
+            ;;
+        f)
+            forwardPorts
+            exit
+            ;;
+        p)
+            if [[ -z "$OPTARG" ]]; then
+                prettyLog "ERROR" "No port supplied"
+                Help
+                exit
+            fi
+            forwardPort "$OPTARG"
+            ;;
+        \?)
+            prettyLog "ERROR" "Invalid option"
+            Help
+            exit
+            ;;
     esac
 done
 

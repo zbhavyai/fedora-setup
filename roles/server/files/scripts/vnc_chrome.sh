@@ -106,17 +106,17 @@ fi
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
-    -h | --help)
-        Help
-        exit
-        ;;
-    -s | --start)
-        start
-        exit
-        ;;
-    *)
-        prettyLog "FATAL" "Invalid option \"${1}\". Use --help for more information"
-        exit 1
-        ;;
+        -h | --help)
+            Help
+            exit
+            ;;
+        -s | --start)
+            start
+            exit
+            ;;
+        *)
+            prettyLog "FATAL" "Invalid option \"${1}\". Use --help for more information"
+            exit 1
+            ;;
     esac
 done
