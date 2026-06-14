@@ -39,6 +39,12 @@ The automation is done using multiple Ansible playbooks, which are named accordi
 
 #### Making changes to your system based on the configurations in this repository:
 
+1. Make sure to have some initial dependencies installed.
+
+   ```shell
+   sudo dnf install --assumeyes make uv python3-libdnf5
+   ```
+
 1. Run the `init` target. This installs a pre-commit hook and creates a python virtual environment with the required dependencies.
 
    ```shell
