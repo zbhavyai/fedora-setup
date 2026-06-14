@@ -34,3 +34,7 @@ dnf_packages_cleanup:
   - sil-nuosu-fonts
   - sil-padauk-fonts
   - vazirmatn-vf-fonts
+
+  # media
+  - decibels
+  - showtime
