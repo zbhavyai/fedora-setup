@@ -2,7 +2,7 @@
 
 _Automated set up of Fedora Workstation and Fedora Server using Ansible_
 
-![Workstation](https://img.shields.io/badge/Workstation-42-blue)
+![Workstation](https://img.shields.io/badge/Workstation-44-blue)
 [![Ansible Lint](https://img.shields.io/github/actions/workflow/status/zbhavyai/fedora-setup/ansible-lint.yaml?label=Ansible%20Lint)](https://github.com/zbhavyai/fedora-setup/actions/workflows/ansible-lint.yaml)
 [![Shellcheck Lint](https://img.shields.io/github/actions/workflow/status/zbhavyai/fedora-setup/shell-lint.yaml?label=Shellcheck%20Lint)](https://github.com/zbhavyai/fedora-setup/actions/workflows/shell-lint.yaml)
 [![License](https://img.shields.io/github/license/zbhavyai/fedora-setup?label=License)](https://github.com/zbhavyai/fedora-setup/blob/main/LICENSE)
