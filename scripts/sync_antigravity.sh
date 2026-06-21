@@ -2,9 +2,9 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
-SRC_SETTINGS_FILE="${HOME}/.config/Antigravity/User/settings.json"
+SRC_SETTINGS_FILE="${HOME}/.config/Antigravity IDE/User/settings.json"
 DST_SETTINGS_FILE="${SCRIPT_DIR}/../roles/antigravity/files/settings.jsonc"
-SRC_KEYBINDINGS_FILE="${HOME}/.config/Antigravity/User/keybindings.json"
+SRC_KEYBINDINGS_FILE="${HOME}/.config/Antigravity IDE/User/keybindings.json"
 DST_KEYBINDINGS_FILE="${SCRIPT_DIR}/../roles/antigravity/files/keybindings.jsonc"
 
 function sync_settings() {

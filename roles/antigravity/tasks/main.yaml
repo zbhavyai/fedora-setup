@@ -1,36 +1,66 @@
 ---
-- name: Add Antigravity repository
-  ansible.builtin.yum_repository:
-    name: antigravity
-    description: "Antigravity"
-    baseurl: https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm
-    enabled: true
-    gpgcheck: false
+- name: Download Antigravity IDE
+  ansible.builtin.get_url:
+    url: https://edgedl.me.gvt1.com/edgedl/release2/j0qc3/antigravity/stable/2.0.4-6381998290370560/linux-x64/Antigravity%20IDE.tar.gz
+    dest: "{{ ansible_facts['env']['HOME'] }}/antigravity-ide.tar.gz"
+    mode: "0644"
+
+- name: Extract Antigravity IDE
+  ansible.builtin.unarchive:
+    src: "{{ ansible_facts['env']['HOME'] }}/antigravity-ide.tar.gz"
+    dest: "{{ ansible_facts['env']['HOME'] }}/"
+    remote_src: true
+  become: false
+
+- name: Remove downloaded Antigravity IDE archive
+  ansible.builtin.file:
+    path: "{{ ansible_facts['env']['HOME'] }}/antigravity-ide.tar.gz"
+    state: absent
+
+- name: Remove existing Antigravity IDE installation
+  ansible.builtin.file:
+    path: /opt/antigravity-ide
+    state: absent
   become: true
 
-- name: Install Antigravity
-  ansible.builtin.dnf:
-    name: antigravity
-    state: present
+- name: Move extracted Antigravity IDE directory to /opt
+  ansible.builtin.shell: mv {{ ansible_facts['env']['HOME'] }}/Antigravity* /opt/antigravity-ide
+  args:
+    removes: "{{ ansible_facts['env']['HOME'] }}/Antigravity*"
+    creates: /opt/antigravity-ide
   become: true
 
 - name: Ensure Antigravity config directory exists
   ansible.builtin.file:
-    path: ~/.config/Antigravity/User
+    path: ~/.config/Antigravity IDE/User
     state: directory
     mode: "0755"
 
 - name: Copy Antigravity settings
   ansible.builtin.copy:
     src: settings.jsonc
-    dest: ~/.config/Antigravity/User/settings.json
+    dest: ~/.config/Antigravity IDE/User/settings.json
     mode: "0644"
 
 - name: Copy Antigravity keybindings
   ansible.builtin.copy:
     src: keybindings.jsonc
-    dest: ~/.config/Antigravity/User/keybindings.json
+    dest: ~/.config/Antigravity IDE/User/keybindings.json
     mode: "0644"
+
+- name: Copy Antigravity icon
+  ansible.builtin.copy:
+    src: antigravity.svg
+    dest: /usr/share/pixmaps/antigravity.svg
+    mode: "0644"
+  become: true
+
+- name: Create Antigravity IDE desktop entry
+  ansible.builtin.copy:
+    src: antigravity-ide.desktop
+    dest: /usr/share/applications/antigravity-ide.desktop
+    mode: "0644"
+  become: true
 
 - name: Load vscode_extensions var
   ansible.builtin.include_vars:

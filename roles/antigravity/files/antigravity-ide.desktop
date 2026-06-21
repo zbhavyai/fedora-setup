@@ -1,0 +1,11 @@
+[Desktop Entry]
+Categories=Development;IDE;
+Exec="/opt/antigravity-ide/bin/antigravity-ide" %f
+GenericName=Text Editor
+Icon=antigravity
+Keywords=development;ide;
+Name=Antigravity IDE
+StartupNotify=true
+StartupWMClass=antigravity-ide
+Terminal=false
+Type=Application
