@@ -15,6 +15,9 @@ dnf_packages_dev:
   # python
   - uv
 
+  # database client
+  - postgresql
+
 flatpak_packages_dev:
   - com.getpostman.Postman
   - com.mongodb.Compass
