@@ -1,0 +1,12 @@
+{
+  "enableTelemetry": false,
+  "enableTerminalSandbox": true,
+  "model": "Gemini 3.5 Flash (Medium)",
+  "showFeedbackSurvey": false,
+  "toolPermission": "always-proceed",
+  "trustedWorkspaces": ["/home/zbhavyai/Github"],
+  "permissions": {
+    "allow": ["*"],
+    "deny": ["command(git commit)"]
+  }
+}
