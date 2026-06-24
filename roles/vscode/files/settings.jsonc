@@ -15,7 +15,7 @@
   "editor.bracketPairColorization.enabled": false,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.find.addExtraSpaceOnTop": false,
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Fira Code, Adwaita Mono, Monospace",
   "editor.fontLigatures": false,
   "editor.fontSize": 17,
   "editor.pasteAs.enabled": false,
