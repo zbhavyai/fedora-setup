@@ -87,7 +87,6 @@
   "files.exclude": { "**/.classpath": true, "**/.project": true, "**/.settings": true, "**/.factorypath": true },
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
-  "java.saveActions.organizeImports": true,
   "quarkus.tools.alwaysShowWelcomePage": false,
   "quarkus.tools.debug.terminateProcessOnExit": "Ask",
   "redhat.telemetry.enabled": false,
@@ -96,7 +95,6 @@
   // PYTHON -------------------------------------------------------------------
   "python.defaultInterpreterPath": "~/.venv/PY-ENV/bin/python",
   "python.terminal.activateEnvironment": true,
-  "python-envs.terminal.autoActivationType": "shellStartup",
   "python.venvFolders": ["~/.venv"],
   "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
   "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
@@ -105,8 +103,6 @@
   "notebook.showFoldingControls": "always",
   // CONTAINER ----------------------------------------------------------------
   "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
-  "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
-  "dev.containers.dockerPath": "/usr/bin/docker",
   // GIT ----------------------------------------------------------------------
   "git.autofetch": true,
   "git.blame.editorDecoration.enabled": true,
