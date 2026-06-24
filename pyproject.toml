@@ -1,6 +1,6 @@
 [project]
 name = "fedora-setup"
-version = "42"
+version = "44"
 description = "Automated set up of Fedora Workstation and Fedora Server using Ansible"
 authors = [{ name = "Bhavyai Gupta" }]
 readme = "README.md"
