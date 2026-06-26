@@ -36,8 +36,15 @@ function get_config() {
     dconf dump /org/gnome/software/ >"${CONFIG_SOFTWARE}"
 }
 
+function sanitize_config() {
+    if [[ -f "${CONFIG_SOFTWARE}" ]]; then
+        sed -i 's/-timestamp=\(int64\|uint64\) [0-9]*/-timestamp=\1 0/g' "${CONFIG_SOFTWARE}"
+    fi
+}
+
 function main() {
     get_config
+    sanitize_config
 }
 
 main
