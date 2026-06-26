@@ -1,5 +1,5 @@
 {
-  // EDITOR -------------------------------------------------------------------
+  // AUTOSAVE -----------------------------------------------------------------
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always",
     "source.addMissingImports": "always",
@@ -10,12 +10,13 @@
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  // EDITOR -------------------------------------------------------------------
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.renderSideBySide": true,
   "editor.bracketPairColorization.enabled": false,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.find.addExtraSpaceOnTop": false,
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Fira Code, Adwaita Mono, Monospace",
   "editor.fontLigatures": false,
   "editor.fontSize": 17,
   "editor.pasteAs.enabled": false,
@@ -54,31 +55,22 @@
   "terminal.integrated.stickyScroll.enabled": false,
   "terminal.integrated.tabs.enabled": false,
   // INTELLISENSE -------------------------------------------------------------
+  "chat.agent.enabled": true,
+  "chat.checkpoints.enabled": true,
+  "chat.disableAIFeatures": false,
+  "chat.mcp.gallery.enabled": false,
+  "chat.tools.global.autoApprove": false,
+  "chat.tools.terminal.autoApproveWorkspaceNpmScripts": true,
+  "chat.viewSessions.orientation": "stacked",
   "editor.inlayHints.enabled": "on",
   "editor.inlineSuggest.enabled": true,
   "editor.tabCompletion": "onlySnippets",
   "editor.wordBasedSuggestions": "off",
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
-  "chat.disableAIFeatures": false,
-  "chat.agent.enabled": true,
-  "chat.viewSessions.orientation": "stacked",
   "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "ansible.lightspeed.enabled": false,
-  "ansible.lightspeed.suggestions.enabled": false,
-  // SONARLINT ----------------------------------------------------------------
-  "sonarlint.rules": {
-    "javascript:S125": { "level": "off" },
-    "java:S116": { "level": "off" },
-    "python:S100": { "level": "off" },
-    "python:S116": { "level": "off" },
-    "python:S117": { "level": "off" },
-    "python:S1542": { "level": "off" },
-  },
   // JAVA ---------------------------------------------------------------------
-  "files.exclude": { "**/.classpath": true, "**/.project": true, "**/.settings": true, "**/.factorypath": true },
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.project.importOnFirstTimeStartup": "automatic",
-  "java.saveActions.organizeImports": true,
   "quarkus.tools.alwaysShowWelcomePage": false,
   "quarkus.tools.debug.terminateProcessOnExit": "Ask",
   "redhat.telemetry.enabled": false,
@@ -87,7 +79,6 @@
   // PYTHON -------------------------------------------------------------------
   "python.defaultInterpreterPath": "~/.venv/PY-ENV/bin/python",
   "python.terminal.activateEnvironment": true,
-  "python-envs.terminal.autoActivationType": "shellStartup",
   "python.venvFolders": ["~/.venv"],
   "workbench.editorAssociations": { "*.ipynb": "jupyter-notebook" },
   "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
@@ -96,8 +87,6 @@
   "notebook.showFoldingControls": "always",
   // CONTAINER ----------------------------------------------------------------
   "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
-  "dev.containers.dockerComposePath": "/usr/bin/docker-compose",
-  "dev.containers.dockerPath": "/usr/bin/docker",
   // GIT ----------------------------------------------------------------------
   "git.autofetch": true,
   "git.blame.editorDecoration.enabled": true,
@@ -139,6 +128,5 @@
   // OTHER --------------------------------------------------------------------
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "crash",
-  "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
-  "antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
+  "mesonbuild.downloadLanguageServer": true,
 }
