@@ -41,8 +41,19 @@ function get_settings() {
         "${SRC_CONFIG_DIR}/" "${DST_CONFIG_DIR}/"
 }
 
+function sanitize_settings() {
+    if [[ -f "${DST_CONFIG_DIR}/options/updates.xml" ]]; then
+        sed -i 's/name="LAST_TIME_CHECKED" value="[0-9]*"/name="LAST_TIME_CHECKED" value="0"/g' "${DST_CONFIG_DIR}/options/updates.xml"
+    fi
+
+    if [[ -f "${DST_CONFIG_DIR}/options/terminal.xml" ]]; then
+        sed -i 's/"enterKeyPressedTimes": [0-9]*/"enterKeyPressedTimes": 0/g' "${DST_CONFIG_DIR}/options/terminal.xml"
+    fi
+}
+
 function main() {
     get_settings
+    sanitize_settings
 }
 
 main
