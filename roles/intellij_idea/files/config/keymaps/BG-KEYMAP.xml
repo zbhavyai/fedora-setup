@@ -69,6 +69,9 @@
     <keyboard-shortcut first-keystroke="shift ctrl t" />
   </action>
   <action id="ServiceView.ShowServices" />
+  <action id="ShowSettings">
+    <keyboard-shortcut first-keystroke="ctrl comma" />
+  </action>
   <action id="SmartSelect" />
   <action id="Switcher" />
   <action id="Synchronize">
