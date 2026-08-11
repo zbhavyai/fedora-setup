@@ -1,3 +1,5 @@
+
+
 # Fedora Setup
 
 _Automated set up of Fedora Workstation and Fedora Server using Ansible_
@@ -57,7 +59,7 @@ The automation is done using multiple Ansible playbooks, which are named accordi
    make dev
    ```
 
-   To setup everything what this repository offers, run:
+   To set up everything this repository offers, run:
 
    ```shell
    make all
