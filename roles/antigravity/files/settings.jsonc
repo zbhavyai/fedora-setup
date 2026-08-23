@@ -85,6 +85,8 @@
   "notebook.compactView": false,
   "notebook.dragAndDropEnabled": false,
   "notebook.showFoldingControls": "always",
+  // MESONBUILD ---------------------------------------------------------------
+  "mesonbuild.downloadLanguageServer": true,
   // CONTAINER ----------------------------------------------------------------
   "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
   // GIT ----------------------------------------------------------------------
@@ -125,8 +127,10 @@
   "SQL-Formatter-VSCode.dataTypeCase": "upper",
   "SQL-Formatter-VSCode.keywordCase": "upper",
   "SQL-Formatter-VSCode.functionCase": "upper",
+  // EXTENSIONS ---------------------------------------------------------------
+  "antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
+  "antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/,_apis/public/gallery",
   // OTHER --------------------------------------------------------------------
   "security.workspace.trust.enabled": false,
   "telemetry.telemetryLevel": "crash",
-  "mesonbuild.downloadLanguageServer": true,
 }
