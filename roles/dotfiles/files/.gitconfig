@@ -16,6 +16,9 @@
     # files changed in the current branch compared to main
     branch-files = diff --name-status main...HEAD
 
+    # changes done in the branch
+    branch-changes = diff main...HEAD
+
     # show the base commit between main and the current branch
     base-commit = "!git merge-base main HEAD | xargs git show --oneline --no-patch"
 
@@ -29,6 +32,7 @@
     prune = true
     pruneTags = true
 [pull]
+    ff = only
     rebase = false
 [push]
     default = simple
